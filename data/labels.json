@@ -1,0 +1,1265 @@
+{
+  "C001": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Fees and charges",
+    "root_cause_alt": [
+      "Systems or app failure"
+    ],
+    "severity": "Low",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "FEE-2"
+    ],
+    "desired_outcome": "Refund of £30 overdraft fees",
+    "handover_gaps": [],
+    "tags": [],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Hannah Abernethy"
+      },
+      {
+        "type": "PERSON",
+        "value": "Hannah"
+      },
+      {
+        "type": "PERSON",
+        "value": "Abernethy"
+      },
+      {
+        "type": "PERSON",
+        "value": "hannah"
+      },
+      {
+        "type": "PERSON",
+        "value": "abernethy"
+      },
+      {
+        "type": "EMAIL",
+        "value": "hannah.abernethy3@example.com"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "33623330"
+      },
+      {
+        "type": "SORT_CODE",
+        "value": "98 07 58"
+      }
+    ]
+  },
+  "C002": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Authorised push payment scam",
+    "root_cause_alt": [
+      "Service delay"
+    ],
+    "severity": "High",
+    "vulnerable": true,
+    "vulnerability_drivers": [
+      "life events",
+      "capability"
+    ],
+    "specialist_team": [
+      "Fraud & Scams",
+      "Vulnerable Customer Support"
+    ],
+    "clauses": [
+      "FRD-2",
+      "FRD-5",
+      "VUL-4",
+      "CH-4"
+    ],
+    "desired_outcome": "Reimbursement of £4,250",
+    "handover_gaps": [
+      "frd_security_details"
+    ],
+    "tags": [
+      "deadline_critical"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Dunmore"
+      },
+      {
+        "type": "PERSON",
+        "value": "Ms Dunmore"
+      },
+      {
+        "type": "PERSON",
+        "value": "Stuart Sandhu"
+      },
+      {
+        "type": "PERSON",
+        "value": "Stuart"
+      },
+      {
+        "type": "PHONE",
+        "value": "07700900374"
+      },
+      {
+        "type": "ADDRESS",
+        "value": "128 Orchard Rise, Eastholme"
+      },
+      {
+        "type": "POSTCODE",
+        "value": "SS19 8QH"
+      },
+      {
+        "type": "DATE_OF_BIRTH",
+        "value": "08/11/1948"
+      }
+    ]
+  },
+  "C003": {
+    "is_complaint": true,
+    "product": "Credit card",
+    "root_cause": "Fees and charges",
+    "root_cause_alt": [],
+    "severity": "Low",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "FEE-5",
+      "FEE-3"
+    ],
+    "desired_outcome": "Goodwill refund of £12 late fee",
+    "handover_gaps": [],
+    "tags": [],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Callum"
+      },
+      {
+        "type": "CARD_DIGITS",
+        "value": "3831"
+      }
+    ]
+  },
+  "C004": {
+    "is_complaint": true,
+    "product": "Mortgage",
+    "root_cause": "Communication failure",
+    "root_cause_alt": [
+      "Arrears and collections",
+      "Fees and charges"
+    ],
+    "severity": "High",
+    "vulnerable": true,
+    "vulnerability_drivers": [
+      "life events",
+      "resilience"
+    ],
+    "specialist_team": [
+      "Lending Specialists",
+      "Vulnerable Customer Support"
+    ],
+    "clauses": [
+      "LND-5",
+      "FEE-4",
+      "VUL-4"
+    ],
+    "desired_outcome": "Refund of overdraft charges and help with mortgage payments",
+    "handover_gaps": [
+      "vulnerability_assessment",
+      "contact_preference"
+    ],
+    "tags": [
+      "deadline_at_risk"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Rhys Whitlock"
+      },
+      {
+        "type": "PERSON",
+        "value": "Rhys"
+      },
+      {
+        "type": "PERSON",
+        "value": "Whitlock"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "48579932"
+      },
+      {
+        "type": "ADDRESS",
+        "value": "106 Quarry Street, Harrowgate Vale"
+      },
+      {
+        "type": "POSTCODE",
+        "value": "SA15 4JD"
+      }
+    ]
+  },
+  "C005": {
+    "is_complaint": true,
+    "product": "Mobile and online banking",
+    "root_cause": "Systems or app failure",
+    "root_cause_alt": [
+      "Service delay"
+    ],
+    "severity": "Medium",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": [
+      "Digital Operations"
+    ],
+    "clauses": [
+      "ESC-1",
+      "CH-6",
+      "RED-3"
+    ],
+    "desired_outcome": "App fixed and compensation for inconvenience",
+    "handover_gaps": [
+      "evidence_held",
+      "contact_preference"
+    ],
+    "tags": [],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Imogen Penhaligon"
+      },
+      {
+        "type": "PERSON",
+        "value": "Imogen"
+      },
+      {
+        "type": "PERSON",
+        "value": "Penhaligon"
+      },
+      {
+        "type": "PHONE",
+        "value": "+44 7700 900777"
+      }
+    ]
+  },
+  "C006": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Staff conduct",
+    "root_cause_alt": [],
+    "severity": "Medium",
+    "vulnerable": true,
+    "vulnerability_drivers": [
+      "health"
+    ],
+    "specialist_team": null,
+    "clauses": [
+      "CH-6",
+      "VUL-5"
+    ],
+    "desired_outcome": "Apology and staff training",
+    "handover_gaps": [],
+    "tags": [],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Stuart Gallacher"
+      },
+      {
+        "type": "PERSON",
+        "value": "Stuart"
+      },
+      {
+        "type": "PERSON",
+        "value": "Gallacher"
+      },
+      {
+        "type": "PERSON",
+        "value": "stuart"
+      },
+      {
+        "type": "PERSON",
+        "value": "gallacher"
+      },
+      {
+        "type": "EMAIL",
+        "value": "stuart.gallacher62@example.com"
+      }
+    ]
+  },
+  "C007": {
+    "is_complaint": true,
+    "product": "Credit card",
+    "root_cause": "Unauthorised transaction",
+    "root_cause_alt": [
+      "Service delay"
+    ],
+    "severity": "High",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": [
+      "Fraud & Scams"
+    ],
+    "clauses": [
+      "FRD-1",
+      "FRD-3"
+    ],
+    "desired_outcome": "Refund of £1,169.91",
+    "handover_gaps": [
+      "contact_preference"
+    ],
+    "tags": [],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Daniel Mbeki-Hart"
+      },
+      {
+        "type": "PERSON",
+        "value": "Daniel"
+      },
+      {
+        "type": "PERSON",
+        "value": "Mbeki-Hart"
+      },
+      {
+        "type": "CARD_DIGITS",
+        "value": "5106"
+      }
+    ]
+  },
+  "C008": {
+    "is_complaint": true,
+    "product": "Savings account",
+    "root_cause": "Communication failure",
+    "root_cause_alt": [],
+    "severity": "Low",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "RED-1"
+    ],
+    "desired_outcome": "£43.20 lost interest refunded",
+    "handover_gaps": [],
+    "tags": [],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Niamh Fairbairn"
+      },
+      {
+        "type": "PERSON",
+        "value": "Niamh"
+      },
+      {
+        "type": "PERSON",
+        "value": "Fairbairn"
+      },
+      {
+        "type": "PERSON",
+        "value": "niamh"
+      },
+      {
+        "type": "PERSON",
+        "value": "fairbairn"
+      },
+      {
+        "type": "EMAIL",
+        "value": "niamh.fairbairn99@example.com"
+      }
+    ]
+  },
+  "C009": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Fees and charges",
+    "root_cause_alt": [],
+    "severity": "Low",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "FEE-3"
+    ],
+    "desired_outcome": "Refund of £35 fee",
+    "handover_gaps": [],
+    "tags": [
+      "prompt_injection"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Rhys Abernethy"
+      },
+      {
+        "type": "PERSON",
+        "value": "Rhys"
+      },
+      {
+        "type": "PERSON",
+        "value": "Abernethy"
+      },
+      {
+        "type": "PERSON",
+        "value": "rhys"
+      },
+      {
+        "type": "PERSON",
+        "value": "abernethy"
+      },
+      {
+        "type": "EMAIL",
+        "value": "rhys.abernethy12@example.com"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "54594045"
+      }
+    ]
+  },
+  "C010": {
+    "is_complaint": false,
+    "product": "Current account",
+    "root_cause": null,
+    "root_cause_alt": [],
+    "severity": "Low",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "CH-1"
+    ],
+    "desired_outcome": "Address change and chequebook (service request)",
+    "handover_gaps": [],
+    "tags": [
+      "not_a_complaint"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Niamh Mbeki-Hart"
+      },
+      {
+        "type": "PERSON",
+        "value": "Niamh"
+      },
+      {
+        "type": "PERSON",
+        "value": "Mbeki-Hart"
+      },
+      {
+        "type": "ADDRESS",
+        "value": "14 Orchard Rise, Lindford"
+      },
+      {
+        "type": "POSTCODE",
+        "value": "BW4 2PL"
+      },
+      {
+        "type": "DATE_OF_BIRTH",
+        "value": "03/11/1998"
+      }
+    ]
+  },
+  "C011": {
+    "is_complaint": true,
+    "product": "Credit card",
+    "root_cause": "Fees and charges",
+    "root_cause_alt": [
+      "Staff conduct"
+    ],
+    "severity": "Medium",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "FEE-6",
+      "FEE-2",
+      "CH-6"
+    ],
+    "desired_outcome": "Refund £18.40 and apology",
+    "handover_gaps": [],
+    "tags": [
+      "multiple_issues"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Oluwaseun Fairbairn"
+      },
+      {
+        "type": "PERSON",
+        "value": "Oluwaseun"
+      },
+      {
+        "type": "PERSON",
+        "value": "Fairbairn"
+      },
+      {
+        "type": "PHONE",
+        "value": "07700 900880"
+      },
+      {
+        "type": "CARD_DIGITS",
+        "value": "5363"
+      }
+    ]
+  },
+  "C012": {
+    "is_complaint": true,
+    "product": "Personal loan",
+    "root_cause": "Lending decision",
+    "root_cause_alt": [],
+    "severity": "High",
+    "vulnerable": true,
+    "vulnerability_drivers": [
+      "health",
+      "resilience"
+    ],
+    "specialist_team": [
+      "Lending Specialists",
+      "Vulnerable Customer Support"
+    ],
+    "clauses": [
+      "LND-1",
+      "VUL-4"
+    ],
+    "desired_outcome": "Loan reviewed as unaffordable",
+    "handover_gaps": [
+      "vulnerability_assessment",
+      "evidence_held",
+      "contact_preference"
+    ],
+    "tags": [
+      "deadline_at_risk",
+      "wellbeing_risk"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Delyth Varga"
+      },
+      {
+        "type": "PERSON",
+        "value": "Delyth"
+      },
+      {
+        "type": "PERSON",
+        "value": "Varga"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "61916877"
+      }
+    ]
+  },
+  "C013": {
+    "is_complaint": true,
+    "product": "Credit card",
+    "root_cause": "Arrears and collections",
+    "root_cause_alt": [],
+    "severity": "High",
+    "vulnerable": true,
+    "vulnerability_drivers": [
+      "health",
+      "capability"
+    ],
+    "specialist_team": [
+      "Vulnerable Customer Support",
+      "Lending Specialists"
+    ],
+    "clauses": [
+      "LND-3",
+      "VUL-4",
+      "VUL-6"
+    ],
+    "desired_outcome": "Collections calls stopped, contact via daughter",
+    "handover_gaps": [
+      "third_party_authority",
+      "contact_preference"
+    ],
+    "tags": [
+      "third_party"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Okafor"
+      },
+      {
+        "type": "PERSON",
+        "value": "Mr Okafor"
+      },
+      {
+        "type": "PERSON",
+        "value": "Sofia Chaudhry"
+      },
+      {
+        "type": "PERSON",
+        "value": "Sofia"
+      },
+      {
+        "type": "PHONE",
+        "value": "+44 7700 900299"
+      },
+      {
+        "type": "CARD_DIGITS",
+        "value": "8236"
+      }
+    ]
+  },
+  "C014": {
+    "is_complaint": true,
+    "product": "Savings account",
+    "root_cause": "Service delay",
+    "root_cause_alt": [],
+    "severity": "Medium",
+    "severity_alt": [
+      "High"
+    ],
+    "vulnerable": true,
+    "vulnerability_drivers": [
+      "life events"
+    ],
+    "specialist_team": [
+      "Vulnerable Customer Support"
+    ],
+    "clauses": [
+      "VUL-4",
+      "CH-4",
+      "RED-3"
+    ],
+    "desired_outcome": "Funds released and explanation of delay",
+    "handover_gaps": [
+      "vulnerability_assessment",
+      "contact_preference"
+    ],
+    "tags": [
+      "deadline_breached"
+    ],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Priya Nwosu"
+      },
+      {
+        "type": "PERSON",
+        "value": "Priya"
+      },
+      {
+        "type": "PERSON",
+        "value": "Nwosu"
+      },
+      {
+        "type": "PERSON",
+        "value": "Chloe Haddad"
+      },
+      {
+        "type": "PERSON",
+        "value": "Chloe"
+      },
+      {
+        "type": "PHONE",
+        "value": "+44 7700 900295"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "89044000"
+      },
+      {
+        "type": "ADDRESS",
+        "value": "108 Wren Close, Harrowgate Vale"
+      },
+      {
+        "type": "POSTCODE",
+        "value": "LE17 4KY"
+      }
+    ]
+  },
+  "C015": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Systems or app failure",
+    "root_cause_alt": [
+      "Fees and charges"
+    ],
+    "severity": "High",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": [
+      "Senior Complaints Review",
+      "Digital Operations"
+    ],
+    "clauses": [
+      "ESC-1",
+      "CH-6",
+      "FEE-2",
+      "RED-2"
+    ],
+    "desired_outcome": "Duplicate £1,240 returned and charges cancelled",
+    "handover_gaps": [],
+    "tags": [
+      "systemic"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Yusuf Mensah"
+      },
+      {
+        "type": "PERSON",
+        "value": "Yusuf"
+      },
+      {
+        "type": "PERSON",
+        "value": "Mensah"
+      },
+      {
+        "type": "PERSON",
+        "value": "yusuf"
+      },
+      {
+        "type": "PERSON",
+        "value": "mensah"
+      },
+      {
+        "type": "EMAIL",
+        "value": "yusuf.mensah22@example.com"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "71088465"
+      },
+      {
+        "type": "SORT_CODE",
+        "value": "827268"
+      }
+    ]
+  },
+  "C016": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Account opening or closure",
+    "root_cause_alt": [
+      "Communication failure"
+    ],
+    "severity": "High",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": [
+      "Senior Complaints Review"
+    ],
+    "clauses": [
+      "ESC-1",
+      "CH-6"
+    ],
+    "desired_outcome": "Account reopened and explanation",
+    "handover_gaps": [
+      "vulnerability_assessment",
+      "contact_preference"
+    ],
+    "tags": [
+      "legal_media_threat"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Euan Quayle"
+      },
+      {
+        "type": "PERSON",
+        "value": "Euan"
+      },
+      {
+        "type": "PERSON",
+        "value": "Quayle"
+      },
+      {
+        "type": "PHONE",
+        "value": "07700 900116"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "60354676"
+      }
+    ]
+  },
+  "C017": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Fees and charges",
+    "root_cause_alt": [],
+    "severity": "High",
+    "severity_alt": [
+      "Medium"
+    ],
+    "vulnerable": true,
+    "vulnerability_drivers": [
+      "resilience"
+    ],
+    "specialist_team": [
+      "Vulnerable Customer Support"
+    ],
+    "clauses": [
+      "FEE-4",
+      "VUL-4"
+    ],
+    "desired_outcome": "Stop fees and refund some of the £180",
+    "handover_gaps": [
+      "vulnerability_assessment"
+    ],
+    "tags": [
+      "wellbeing_risk"
+    ],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Aisha Chaudhry"
+      },
+      {
+        "type": "PERSON",
+        "value": "Aisha"
+      },
+      {
+        "type": "PERSON",
+        "value": "Chaudhry"
+      },
+      {
+        "type": "PERSON",
+        "value": "aisha"
+      },
+      {
+        "type": "PERSON",
+        "value": "chaudhry"
+      },
+      {
+        "type": "EMAIL",
+        "value": "aisha.chaudhry51@example.com"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "55031474"
+      }
+    ]
+  },
+  "C018": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Communication failure",
+    "root_cause_alt": [
+      "Service delay"
+    ],
+    "severity": "Medium",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "CH-6",
+      "RED-3"
+    ],
+    "desired_outcome": "Address fixed and reassurance about data",
+    "handover_gaps": [],
+    "tags": [
+      "privacy_incident"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Priya Rahman"
+      },
+      {
+        "type": "PERSON",
+        "value": "Priya"
+      },
+      {
+        "type": "PERSON",
+        "value": "Rahman"
+      },
+      {
+        "type": "PHONE",
+        "value": "07700 900337"
+      },
+      {
+        "type": "ADDRESS",
+        "value": "168 Linnet Grove, Harrowgate Vale"
+      },
+      {
+        "type": "POSTCODE",
+        "value": "LR16 9FM"
+      },
+      {
+        "type": "DATE_OF_BIRTH",
+        "value": "24/06/1994"
+      },
+      {
+        "type": "ADDRESS",
+        "value": "14 Larch Close"
+      }
+    ]
+  },
+  "C019": {
+    "is_complaint": true,
+    "product": "Savings account",
+    "root_cause": "Service delay",
+    "root_cause_alt": [],
+    "severity": "Low",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "RED-2"
+    ],
+    "desired_outcome": "£56 lost interest",
+    "handover_gaps": [],
+    "tags": [
+      "hard_pii"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Arjun"
+      },
+      {
+        "type": "PERSON",
+        "value": "arjun"
+      },
+      {
+        "type": "PERSON",
+        "value": "ferreira"
+      },
+      {
+        "type": "PERSON",
+        "value": "arjun ferreira"
+      },
+      {
+        "type": "EMAIL",
+        "value": "Arjun.ferreira63@Example.com"
+      },
+      {
+        "type": "PHONE",
+        "value": "07700900606"
+      }
+    ]
+  },
+  "C020": {
+    "is_complaint": true,
+    "product": "Credit card",
+    "root_cause": "Lending decision",
+    "root_cause_alt": [
+      "Communication failure"
+    ],
+    "severity": "Low",
+    "severity_alt": [
+      "Medium"
+    ],
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": [
+      "Lending Specialists"
+    ],
+    "clauses": [
+      "LND-2"
+    ],
+    "desired_outcome": "Explanation of decline reason",
+    "handover_gaps": [],
+    "tags": [
+      "fairness"
+    ],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Rhys Treharne"
+      },
+      {
+        "type": "PERSON",
+        "value": "Rhys"
+      },
+      {
+        "type": "PERSON",
+        "value": "Treharne"
+      },
+      {
+        "type": "PERSON",
+        "value": "rhys"
+      },
+      {
+        "type": "PERSON",
+        "value": "treharne"
+      },
+      {
+        "type": "EMAIL",
+        "value": "rhys.treharne16@example.com"
+      },
+      {
+        "type": "POSTCODE",
+        "value": "WA12 3XZ"
+      }
+    ]
+  },
+  "C021": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Authorised push payment scam",
+    "root_cause_alt": [],
+    "severity": "High",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": [
+      "Fraud & Scams"
+    ],
+    "clauses": [
+      "FRD-2",
+      "FRD-3",
+      "FRD-5"
+    ],
+    "desired_outcome": "Reimbursement of £650",
+    "handover_gaps": [
+      "frd_payee_details",
+      "account_secured",
+      "contact_preference"
+    ],
+    "tags": [],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Priya Dunmore"
+      },
+      {
+        "type": "PERSON",
+        "value": "Priya"
+      },
+      {
+        "type": "PERSON",
+        "value": "Dunmore"
+      },
+      {
+        "type": "PERSON",
+        "value": "priya"
+      },
+      {
+        "type": "PERSON",
+        "value": "dunmore"
+      },
+      {
+        "type": "EMAIL",
+        "value": "priya.dunmore14@example.com"
+      },
+      {
+        "type": "PHONE",
+        "value": "07700900759"
+      }
+    ]
+  },
+  "C022": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Account opening or closure",
+    "root_cause_alt": [
+      "Unauthorised transaction"
+    ],
+    "severity": "High",
+    "vulnerable": true,
+    "vulnerability_drivers": [
+      "life events"
+    ],
+    "specialist_team": [
+      "Vulnerable Customer Support"
+    ],
+    "clauses": [
+      "VUL-4",
+      "VUL-5"
+    ],
+    "desired_outcome": "Joint account frozen and own account opened",
+    "handover_gaps": [
+      "vulnerability_assessment"
+    ],
+    "tags": [
+      "financial_abuse",
+      "safety"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Priya Castell"
+      },
+      {
+        "type": "PERSON",
+        "value": "Priya"
+      },
+      {
+        "type": "PERSON",
+        "value": "Castell"
+      },
+      {
+        "type": "PERSON",
+        "value": "Daniel Ashworth"
+      },
+      {
+        "type": "PERSON",
+        "value": "Daniel"
+      },
+      {
+        "type": "PHONE",
+        "value": "07700 900407"
+      },
+      {
+        "type": "ACCOUNT_NUMBER",
+        "value": "26608936"
+      }
+    ]
+  },
+  "C023": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Service delay",
+    "root_cause_alt": [
+      "Systems or app failure",
+      "Communication failure"
+    ],
+    "severity": "Low",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "RED-2",
+      "RED-3"
+    ],
+    "desired_outcome": "£47 roaming costs refunded",
+    "handover_gaps": [],
+    "tags": [],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Arjun Ashworth"
+      },
+      {
+        "type": "PERSON",
+        "value": "Arjun"
+      },
+      {
+        "type": "PERSON",
+        "value": "Ashworth"
+      },
+      {
+        "type": "PERSON",
+        "value": "arjun"
+      },
+      {
+        "type": "PERSON",
+        "value": "ashworth"
+      },
+      {
+        "type": "EMAIL",
+        "value": "arjun.ashworth51@example.com"
+      }
+    ]
+  },
+  "C024": {
+    "is_complaint": true,
+    "product": "Current account",
+    "root_cause": "Service delay",
+    "root_cause_alt": [
+      "Unauthorised transaction"
+    ],
+    "severity": "Medium",
+    "severity_alt": [
+      "High"
+    ],
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": [
+      "Fraud & Scams"
+    ],
+    "clauses": [
+      "FRD-3",
+      "ESC-3"
+    ],
+    "desired_outcome": "Callback on fraud claim",
+    "handover_gaps": [
+      "products_accounts",
+      "timeline",
+      "evidence_held",
+      "vulnerability_assessment",
+      "contact_preference",
+      "frd_payment_details",
+      "frd_payee_details",
+      "frd_security_details",
+      "account_secured"
+    ],
+    "tags": [
+      "sparse_information"
+    ],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "yusuf"
+      }
+    ]
+  },
+  "C025": {
+    "is_complaint": true,
+    "product": "Credit card",
+    "root_cause": "Communication failure",
+    "root_cause_alt": [
+      "Fees and charges"
+    ],
+    "severity": "Medium",
+    "vulnerable": false,
+    "vulnerability_drivers": [],
+    "specialist_team": null,
+    "clauses": [
+      "CH-6"
+    ],
+    "desired_outcome": "0% rate restored and £212 refunded",
+    "handover_gaps": [],
+    "tags": [
+      "deadline_at_risk"
+    ],
+    "severity_alt": [],
+    "pii": [
+      {
+        "type": "PERSON",
+        "value": "Haddad"
+      },
+      {
+        "type": "PERSON",
+        "value": "Mrs Haddad"
+      },
+      {
+        "type": "CARD_DIGITS",
+        "value": "8010"
+      },
+      {
+        "type": "ADDRESS",
+        "value": "131 Orchard Rise, Lindford"
+      },
+      {
+        "type": "POSTCODE",
+        "value": "CL10 7HK"
+      }
+    ]
+  }
+}
