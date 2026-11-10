@@ -1,0 +1,152 @@
+{
+  "saved_at": "2026-11-10T20:29:37+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-sonnet-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CguszHmkmEd4ftwHkVCgJ",
+    "latency_s": 12.3,
+    "usage": {
+      "input": 319,
+      "output": 1933,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "1c3620b1c4831adb"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction about the account closure and alleges loss and distress (bounced wages, unpaid rent), meeting CH-1.",
+    "summary": "The customer says their current account was closed on two days' notice after a review, with no explanation given. They say their wages bounced and they could not pay rent. They have spoken to a solicitor and a local journalist. They want the account reopened and an explanation. The handler's note says the account closed on 29/09 after a financial crime review, with notice dated 27/09, and the reasons cannot be disclosed. Vulnerability was not explored with the customer.",
+    "timeline": [
+      {
+        "date": "27/09/2026",
+        "event": "Closure notice issued",
+        "source": "note_1"
+      },
+      {
+        "date": "29/09/2026",
+        "event": "Account closed following financial crime review",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-10-05",
+        "event": "Complaint received by email",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-06",
+        "event": "Handler noted the closure details, that review reasons cannot be disclosed and that vulnerability was not asked about",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Account opening or closure",
+    "severity": "High",
+    "severity_reason": "CH-6 High: the customer has threatened legal action (spoken to a solicitor) and media contact (talking to a journalist). Financial loss from bounced wages and unpaid rent is also alleged but not quantified.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "resilience"
+      ],
+      "customer_was_asked": false,
+      "suggested_support": "Sensitively ask whether the customer needs support. Unpaid rent after the closure may indicate financial difficulty. Consider referral to Vulnerable Customer Support if difficulty is confirmed (VUL-4)."
+    },
+    "specialist_teams": [
+      "Senior Complaints Review"
+    ],
+    "routing_reason": "ESC-1: threat of legal action and media contact go to Senior Complaints Review. No other ESC-1 trigger is clearly met. The closure followed a financial crime review, but no fraud, scam or unauthorised transaction is alleged by the customer.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-6",
+        "quote": "threatened legal action or media contact",
+        "how_it_applies": "The customer mentions a solicitor and a journalist, so severity is High."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A suspected systemic issue (the same fault affecting many customers), a threat of legal action, or media contact → *Senior Complaints Review*.",
+        "how_it_applies": "Legal and media threats trigger escalation to Senior Complaints Review."
+      },
+      {
+        "clause_id": "VUL-2",
+        "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support.",
+        "how_it_applies": "Missed rent suggests possible financial difficulty and the customer has not been asked."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "severity",
+        "quote": "I've spoken to a solicitor and I'm also talking to a journalist at the local paper.",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "You closed my current account with two days' notice",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "My wages bounced and I couldn't pay my rent.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want the account reopened and an explanation.",
+        "source": "complaint"
+      },
+      {
+        "field": "product",
+        "quote": "closed my current account",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "No vulnerability indicators recorded but not asked.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer's current account was closed on short notice after a financial crime review. They were given no explanation. Bounced wages meant they could not pay rent. They report contact with a solicitor and a journalist.",
+      "products_and_accounts": "Current account [ACCOUNT_NUMBER_1]",
+      "desired_outcome": "Account reopened and an explanation of the closure.",
+      "actions_taken": [
+        "Closure notice issued 27/09/2026",
+        "Account closed 29/09/2026",
+        "Handler noted that the review reasons cannot be disclosed to the customer"
+      ],
+      "evidence_held": [
+        "Closure notice 27/09/2026"
+      ],
+      "vulnerability_assessment": "Possible resilience indicator (missed rent after wages bounced). The handler recorded no indicators but did not ask the customer. The customer has not been asked about support needs.",
+      "contact_preference": "MISSING (an email and a phone token [PHONE_1] are present; no stated preference or adjustments)",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "What can lawfully be told to the customer about the closure?",
+        "Was the two-day notice period compliant with account terms?",
+        "Were the bounced wages and rent arrears evidenced and what is the loss?",
+        "Does the customer need support or referral to Vulnerable Customer Support?",
+        "Is the customer's solicitor or the journalist involved formally?",
+        "What is the customer's preferred contact method?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "The amount of the bounced wages or any fees or loss is not stated",
+      "The date the customer's wages bounced is not stated",
+      "No solicitor details or letter of claim on file",
+      "The closure notice content is not summarised",
+      "The bank's account terms on closure notice are not on file"
+    ],
+    "suggested_next_step": "Hand over to Senior Complaints Review with the closure notice, and ask the customer sensitively about support needs. Do not promise reopening or any outcome. Send acknowledgement within 3 business days of receipt (CH-2).",
+    "confidence": {
+      "product": "high",
+      "root_cause": "medium",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "medium"
+    },
+    "suspicious_instructions": null
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "saved_at": "2026-11-10T20:26:25+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgusjbyTkH7GtMqmEyT4q",
+    "latency_s": 19.8,
+    "usage": {
+      "input": 435,
+      "output": 4561,
+      "cache_read": 0,
+      "cache_write": 8575
+    },
+    "input_hash": "75a865d6d5a555a0"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The customer expresses dissatisfaction that two unarranged overdraft fees of £15 each were charged after a late salary credit, and alleges a £30 financial loss (CH-1).",
+    "summary": "The customer's salary credit due on 30 September 2026 arrived late. Her account went overdrawn and two unarranged overdraft fees of £15 each were charged, on 30/09 and 01/10. She says this was not her fault and asks for the £30 to be refunded. The bank's incident log INC-4471 records a batch delay on inbound Faster Payments on 30/09, with credits applied on 01/10. The handler's note confirms both fees. The employer says it sent the salary on time. No vulnerability indicators were recorded. An acknowledgement letter was sent on 28 October. The system deadline shows 43 days remaining, but 27 October to 22 December is 56 days, so the figure needs checking. Status is On track either way.",
+    "timeline": [
+      {
+        "date": "30 September 2026",
+        "event": "Salary credit expected but not received on time; inbound Faster Payments batch delay recorded (INC-4471).",
+        "source": "complaint"
+      },
+      {
+        "date": "30 September 2026",
+        "event": "Unarranged overdraft fee of £15 charged.",
+        "source": "note_1"
+      },
+      {
+        "date": "01 October 2026",
+        "event": "Second unarranged overdraft fee of £15 charged.",
+        "source": "note_1"
+      },
+      {
+        "date": "01 October 2026",
+        "event": "Delayed credits applied to the account.",
+        "source": "note_1"
+      },
+      {
+        "date": "27 October 2026",
+        "event": "Complaint received by email and logged by complaints handler.",
+        "source": "note_1"
+      },
+      {
+        "date": "28 October 2026",
+        "event": "Acknowledgement letter sent by email.",
+        "source": "note_2"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Fees and charges",
+    "severity": "Low",
+    "severity_reason": "Alleged financial loss is £30, which is under £100 (CH-6). No staff conduct, repeated contact or other High or Medium trigger is present.",
+    "estimated_financial_loss_gbp": 30.0,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "No indicators recorded. The customer was not asked about support needs. Handler may confirm at contact that no support is needed, and offer adjustments if she wants them."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger is present. The fees arise from a batch delay already identified in incident INC-4471, and there is no suspected fraud, lending issue, vulnerability referral, systemic-issue escalation or new technical investigation requirement noted. The complaints handler can resolve it, subject to checking whether the incident needs technical follow-up.",
+    "policy_citations": [
+      {
+        "clause_id": "FEE-2",
+        "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full, together with any interest charged on it, plus a goodwill payment in line with policy RED.",
+        "how_it_applies": "The incident record indicates the fees followed a bank-side batch delay on inbound payments. If the handler confirms this is a bank error, FEE-2 governs the remedy. The handler must decide the amount and any interest or goodwill."
+      },
+      {
+        "clause_id": "CH-1",
+        "quote": "any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
+        "how_it_applies": "The customer is dissatisfied with the bank's handling of her salary credit and the fees charged, and alleges a £30 loss, so this is a complaint."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "financial loss under £100 or a service issue with no loss.",
+        "how_it_applies": "The alleged loss is £30, so severity is Low."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "product",
+        "quote": "unarranged overdraft fees",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "batch delay on inbound Faster Payments 30/09",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "two unarranged overdraft fees of £15 each",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability indicators",
+        "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "Please refund the £30.",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer's salary did not arrive on 30 September 2026 as expected. Her account went overdrawn and two unarranged overdraft fees of £15 each were charged. She says this was not her fault and wants the £30 refunded. Bank records show a batch delay on inbound Faster Payments on 30/09 (INC-4471), with credits applied on 01/10.",
+      "products_and_accounts": "Current account (inferred from the case; handler to confirm), account [ACCOUNT_NUMBER_1], sort code [SORT_CODE_1].",
+      "desired_outcome": "Refund of the £30 in unarranged overdraft fees (customer's words: \"Please refund the £30.\").",
+      "actions_taken": [
+        "Complaint logged on 27 October 2026.",
+        "Incident log INC-4471 checked and the batch delay confirmed.",
+        "Both unarranged overdraft fees (30/09 and 01/10) confirmed on the account.",
+        "Acknowledgement letter sent by email on 28 October 2026."
+      ],
+      "evidence_held": [
+        "Statement Sept-Oct 2026",
+        "Incident record INC-4471",
+        "Customer complaint email",
+        "Handler note of 27 October 2026 (incident check and contact preference)"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found. The customer was not asked about support needs. The handler note says she is fine but annoyed.",
+      "contact_preference": "Email to [EMAIL_1]. No reasonable adjustments recorded.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Deadline check: the system shows 43 days left, but from 27 October 2026 to 22 December 2026 is 56 days. Which figure is correct?",
+        "Has the bank confirmed the fees have not been reversed and will be refunded? If so, when?",
+        "Does INC-4471 need technical follow-up, or is it closed?",
+        "Is any interest on the fees due under FEE-2, and how is it to be calculated?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Deadline days-remaining figure (43) does not match the calendar count from the receipt date (56 days).",
+      "The record does not show whether the fees have been reversed or refunded.",
+      "The record does not show the time the salary was expected or sent, or the employer's confirmation."
+    ],
+    "suggested_next_step": "Complaints handler to confirm the incident INC-4471 finding and whether FEE-2 applies, then decide the remedy and amount under their own authority, recording the reasons (CH-8, RED-5). Also check and correct the deadline calculation.",
+    "confidence": {
+      "product": "medium",
+      "root_cause": "medium",
+      "severity": "high",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

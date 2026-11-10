@@ -1,0 +1,154 @@
+{
+  "saved_at": "2026-11-10T20:29:56+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut1C2zuakdPtmjb3XFW",
+    "latency_s": 19.5,
+    "usage": {
+      "input": 339,
+      "output": 4225,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "de69f0be809359ca"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The customer is dissatisfied that her address change was not processed, so statements went to her old address and a third party opened an account and contacted her. She is worried about who has seen her details, which is material distress under CH-1.",
+    "summary": "Customer changed her address in branch on 12/08 but the change was never processed. Statements continued to go to her old address, where new owners opened an account and called her about it. This is her third contact about the issue. She is worried about who has seen her personal details and wants the problem fixed and reassurance. The address has now been updated and data incident form DI-0931 has been raised. Product and account details are not in the file. Final response due 2026-12-13 (34 days left, On track).",
+    "timeline": [
+      {
+        "date": "12/08",
+        "event": "Address change request made in branch; the change was never processed",
+        "source": "note_1"
+      },
+      {
+        "date": "August",
+        "event": "Customer says she changed her address in branch in August",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "Statements continued to be sent to the old address",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "New owners of the old address opened an account and called the customer about it",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "Customer has phoned about this issue three times",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-18",
+        "event": "Complaint received; correct address updated and data incident form raised",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Communication failure",
+    "severity": "Medium",
+    "severity_reason": "CH-6 Medium applies because this is repeated service failure: the customer has contacted the bank three times about the same issue. No financial loss is recorded. The personal data exposure is serious and is being checked through the data incident form, so the handler should revisit severity if the incident is found to be wider.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "No indicators are recorded, but the customer is distressed about her data being seen. Under VUL-2 the handler should ask her sensitively whether she needs any support and record the answer."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger is recorded. The handler can resolve the address and communication issue. The data incident (DI-0931) should be followed through the bank's data incident process, and the handler should escalate if the specialist team needs to be involved.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
+        "how_it_applies": "The customer is dissatisfied that her address change was not processed and that her details may have been seen by others, which she says causes distress."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "repeated service failure (the customer has contacted us three or more times about the same issue)",
+        "how_it_applies": "The complaint notes this is the third time she has phoned about the issue, which supports a Medium severity."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Every complaint must be tagged with one primary root cause from the approved list",
+        "how_it_applies": "The primary root cause is tagged as Communication failure because the address change was not processed and statements went to the wrong address."
+      },
+      {
+        "clause_id": "VUL-2",
+        "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support.",
+        "how_it_applies": "The note says no vulnerability, but the customer is distressed and it is not recorded that she was asked about support needs."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "Cust changed address in branch in August but statements are still going to her old address",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "This is the third time she's rung about it.",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "Address change request in branch 12/08 never processed.",
+        "source": "note_1"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Received 2026-10-18 by phone. Final response due 2026-12-13 (34 days left, On track). The customer changed her address in branch on 12/08, but the change was never processed. Statements went to her old address, and new owners of that address opened an account and called her about it. This is her third contact about the issue. She is worried about who has seen her details.",
+      "products_and_accounts": "MISSING (product and account reference not in case file). Address change relates to statements on the customer's account.",
+      "desired_outcome": "Wants it fixed and reassurance.",
+      "actions_taken": [
+        "Correct address updated on the customer's record (note_1, 2026-10-18)",
+        "Data incident form DI-0931 raised"
+      ],
+      "evidence_held": [
+        "Branch address change form dated 12/08/2026",
+        "Data incident form DI-0931",
+        "Complaint call record (phone contact)",
+        "Handler note dated 2026-10-18"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators recorded. The customer was not recorded as being asked about support needs.",
+      "contact_preference": "Phone on [PHONE_1]. Reasonable adjustments: MISSING",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Which statements or letters were sent to the old address, on what dates, and what personal data they contained?",
+        "Has the address been corrected on all systems, including any linked accounts?",
+        "Did the new owners or anyone else receive information about the customer, and what is the status of DI-0931?",
+        "Has the new account opened at the old address been reviewed and is it linked to the customer?",
+        "Should the customer be asked about support needs (VUL-2)?",
+        "Is any goodwill payment appropriate under RED-3? The handler must decide this, not the triage tool."
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Product and account reference not stated",
+      "Dates and contents of statements sent to the old address not recorded",
+      "Date of each of the three customer calls not recorded",
+      "Whether the customer was asked about support needs not recorded"
+    ],
+    "suggested_next_step": "Confirm the address update has flowed to all systems and that no further post goes to the old address. Establish which statements were sent, and find out with the data protection process what was exposed through DI-0931. Call the customer on her preferred number, reassure her of the steps taken, and ask sensitively about support needs. Record the response. Issue the final response before 2026-12-13.",
+    "confidence": {
+      "product": "low",
+      "root_cause": "medium",
+      "severity": "medium",
+      "vulnerability": "medium",
+      "specialist_teams": "medium"
+    },
+    "suspicious_instructions": null
+  }
+}

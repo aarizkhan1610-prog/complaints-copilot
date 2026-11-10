@@ -1,0 +1,146 @@
+{
+  "saved_at": "2026-11-10T20:29:54+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-sonnet-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut1CQaTBxYCgdcXxgHU",
+    "latency_s": 17.3,
+    "usage": {
+      "input": 292,
+      "output": 2040,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "cbbc19fc74ccc368"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction with repeated unarranged overdraft fees (£180 over three months) and alleges financial loss and material distress (CH-1).",
+    "summary": "A student reports being charged unarranged overdraft fees totalling £180 over Aug-Oct 2026 (12 fees per the handler's note). The fees take up their student loan each time it arrives. They say they have been skipping meals to cope. They ask for the fees to stop and for some to be refunded. They have not yet been asked about support needs. A statement is on file.",
+    "timeline": [
+      {
+        "date": "Aug-Oct 2026",
+        "event": "12 unarranged overdraft fees totalling £180 charged to the account",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-10-29",
+        "event": "Complaint received via web form; handler logged the case and noted the customer prefers email",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-29",
+        "event": "Handler noted the customer has not yet been asked about support needs",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Fees and charges",
+    "severity": "High",
+    "severity_reason": "Financial loss is £180, which would normally be Medium, but the customer says they are skipping meals. That suggests a vulnerable customer at risk of harm, which CH-6 rates as High.",
+    "estimated_financial_loss_gbp": 180.0,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "resilience",
+        "health"
+      ],
+      "customer_was_asked": false,
+      "suggested_support": "Sensitively ask about support needs and offer a review of the overdraft and fees. Refer to Vulnerable Customer Support. Offer email contact as a reasonable adjustment. Consider signposting to financial support and hardship options."
+    },
+    "specialist_teams": [
+      "Vulnerable Customer Support"
+    ],
+    "routing_reason": "There are vulnerability indicators (financial difficulty and skipping meals, which is a risk to wellbeing), so VUL-4 requires referral to Vulnerable Customer Support. FEE-4 also requires this referral and a review of fees from the last 6 months. The handler can otherwise resolve the fee complaint.",
+    "policy_citations": [
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
+        "how_it_applies": "The customer shows financial difficulty and says they are skipping meals, which is a risk to wellbeing."
+      },
+      {
+        "clause_id": "FEE-4",
+        "quote": "Where a customer shows signs of financial difficulty, fees charged in the last 6 months should be reviewed and refunded where they have added to the difficulty.",
+        "how_it_applies": "Overdraft fees of £180 in three months are consuming the customer's loan income, so a fee review is needed and the case must be referred."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "a vulnerable customer at risk of harm",
+        "how_it_applies": "Skipping meals indicates risk of harm, so severity is High."
+      },
+      {
+        "clause_id": "VUL-2",
+        "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support.",
+        "how_it_applies": "The customer has not yet been asked about support needs and should be."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "vulnerability",
+        "quote": "I've been skipping meals to make it last.",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "I keep getting charged overdraft fees.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "Please can you stop the fees and refund some of them.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "Not yet asked about support needs.",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "12 UOD fees Aug-Oct = £180.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Student customer reports 12 unarranged overdraft fees totalling £180 from Aug to Oct 2026, which absorb their student loan each time it is paid in. They report skipping meals as a result. They want the fees stopped and some refunded.",
+      "products_and_accounts": "Current account [ACCOUNT_NUMBER_1] with unarranged overdraft fees",
+      "desired_outcome": "Stop the overdraft fees and refund some of them",
+      "actions_taken": [
+        "Complaint logged and fees identified on the account by the handler",
+        "Customer's contact preference recorded"
+      ],
+      "evidence_held": [
+        "Statement Aug-Oct 2026"
+      ],
+      "vulnerability_assessment": "Indicators found: resilience (financial difficulty) and possible health or wellbeing risk (skipping meals). The customer has not yet been asked about support needs.",
+      "contact_preference": "Email ([EMAIL_1]). No other adjustments recorded.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Date received is 2026-10-29. Deadline is 2026-12-24, On track.",
+        "Has the customer been offered support or adjustments?",
+        "Could any fee have been caused by a bank error?",
+        "Does the customer have an arranged overdraft or other options available?",
+        "Do the last 6 months of fees need reviewing under FEE-4 (only Aug-Oct is noted)?",
+        "Dates and individual amounts of the 12 fees are not in the notes"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Individual fee dates and amounts are not itemised in the notes",
+      "Statement content is not summarised",
+      "No record of the customer's income or student loan dates",
+      "Whether the customer consents to vulnerability being recorded is not noted"
+    ],
+    "suggested_next_step": "Contact the customer by email to ask sensitively about support needs and record consent. Refer to Vulnerable Customer Support under VUL-4 and FEE-4 within 2 business days. Review fees from the last 6 months. Do not promise any refund before an authorised decision.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

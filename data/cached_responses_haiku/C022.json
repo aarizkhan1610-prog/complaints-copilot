@@ -1,0 +1,176 @@
+{
+  "saved_at": "2026-11-10T20:30:54+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut5qbLFi3DBitcXg8Wn",
+    "latency_s": 13.9,
+    "usage": {
+      "input": 314,
+      "output": 3506,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "57f02516efecb23b"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction that her ex-partner repeatedly withdraws her wages from a joint account, and alleges financial loss and distress (CH-1). Her request to freeze the account and open her own is a change request, but the dissatisfaction with the bank's handling of the joint account makes it a complaint.",
+    "summary": "Customer [PERSON_2] attended branch on 2026-11-05. She holds a joint account [ACCOUNT_NUMBER_1] with her ex-partner [PERSON_1]. Since they separated he has withdrawn her wages on each payday, reported in the branch note as £300-£600 per payday since August. She describes him as controlling and says she is scared of him. She asks for the joint account to be frozen and a sole account opened for her. She has asked that no calls or letters go to her home address; the only safe contact is [PHONE_1]. The joint account statement for Aug-Nov 2026 is on file. Signs of financial abuse and fear are present, so this needs urgent specialist handling and vulnerability referral.",
+    "timeline": [
+      {
+        "date": "August 2026",
+        "event": "Customer and ex-partner separated (exact date MISSING); ex-partner began withdrawing customer's wages from joint account on paydays.",
+        "source": "complaint"
+      },
+      {
+        "date": "August 2026 onwards",
+        "event": "Withdrawals of £300-£600 on every payday.",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-11-05",
+        "event": "Customer attended branch, reported the withdrawals and fear of ex-partner, requested joint account freeze and sole account, and asked for no contact to home address.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-05",
+        "event": "Branch colleague recorded safe contact number and account details.",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Unauthorised transaction",
+    "severity": "High",
+    "severity_reason": "Suspected financial abuse of a joint account with withdrawals of £300-£600 per payday since August (likely over £1,000 in total, exact total not confirmed) and a customer who is afraid of her ex-partner, which is a vulnerable customer at risk of harm (CH-6).",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "life events",
+        "resilience",
+        "health"
+      ],
+      "customer_was_asked": false,
+      "suggested_support": "Urgent referral to Vulnerable Customer Support (VUL-4). Contact only via safe number [PHONE_1], no contact to home address, do not discuss the account with [PERSON_1]. Check safety and offer support contacts sensitively. Record fear as a vulnerability indicator with customer consent (VUL-3). Consider a named contact and a safe way to receive correspondence (VUL-5)."
+    },
+    "specialist_teams": [
+      "Fraud & Scams",
+      "Vulnerable Customer Support"
+    ],
+    "routing_reason": "Withdrawals from a joint account by one party without the other's consent may be an unauthorised transaction or financial abuse (ESC-1 Fraud & Scams). Fear and financial abuse with a vulnerability indicator require referral under VUL-4 (Vulnerable Customer Support). Fraud & Scams is primary for the account and withdrawals, and handover should be made within 2 business days (ESC-2).",
+    "policy_citations": [
+      {
+        "clause_id": "ESC-1",
+        "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*.",
+        "how_it_applies": "Repeated withdrawals from a joint account by one party against the other's interests may be an unauthorised transaction, so Fraud & Scams is the primary team."
+      },
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
+        "how_it_applies": "Customer shows fear of her ex-partner and suspected financial abuse, so referral to Vulnerable Customer Support is required."
+      },
+      {
+        "clause_id": "VUL-2",
+        "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support.",
+        "how_it_applies": "Fear of a controlling ex-partner is an indicator; the customer has not yet been asked about support needs."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "*High*: financial loss over £1,000, suspected fraud or scam, a vulnerable customer at risk of harm, threatened legal action or media contact, or a potential systemic issue affecting many customers.",
+        "how_it_applies": "Suspected fraud/abuse and a vulnerable customer at risk of harm make severity High."
+      },
+      {
+        "clause_id": "VUL-5",
+        "quote": "Reasonable adjustments must be offered and recorded, for example a preferred contact method, a named contact, more time to respond, or communication with a nominated third party with the customer's authority.",
+        "how_it_applies": "Customer asked for no contact to home address and a safe contact number only; these adjustments must be recorded."
+      },
+      {
+        "clause_id": "VUL-6",
+        "quote": "The bank may only discuss the account with a third party (such as a relative or carer) where there is a valid authority on file (third-party mandate or power of attorney).",
+        "how_it_applies": "The joint account holder [PERSON_1] must not be given account information without a valid authority."
+      },
+      {
+        "clause_id": "FRD-4",
+        "quote": "On report, the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done.",
+        "how_it_applies": "The customer's report of withdrawals requires account protection checks, which are not recorded in the file."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "Since they separated he keeps withdrawing her wages as soon as they arrive.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "She says he is controlling and she is scared of him.",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "Withdrawals of £300-£600 every payday since August.",
+        "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "She wants the joint account frozen and her own account set up.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "She asked us NOT to call or write to the home address.",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer attended branch on 2026-11-05 reporting that her ex-partner [PERSON_1] has been withdrawing her wages from their joint account [ACCOUNT_NUMBER_1] on each payday since August, at £300-£600 per payday. She describes him as controlling and says she is scared of him. Withdrawals may be unauthorised or financial abuse.",
+      "products_and_accounts": "Joint current account [ACCOUNT_NUMBER_1] (customer and [PERSON_1]). Customer has no sole account with the bank as far as the file shows (MISSING confirmation).",
+      "desired_outcome": "Joint account frozen and a sole account opened for her. Customer wants no calls or letters to her home address.",
+      "actions_taken": [
+        "Branch colleague recorded safe contact number and withdrawal pattern (note_1).",
+        "Account protection steps (FRD-4) MISSING: no record of account being secured or freeze actioned.",
+        "Joint account statement Aug-Nov 2026 obtained."
+      ],
+      "evidence_held": [
+        "Joint account statement Aug-Nov 2026",
+        "Branch note_1 (2026-11-05)",
+        "Customer's verbal account given in branch (complaint text)"
+      ],
+      "vulnerability_assessment": "Indicators found: fear of ex-partner, controlling behaviour, suspected financial abuse, recent separation (life events, resilience, possibly health). Customer was not asked about support needs (MISSING). Referral to Vulnerable Customer Support required under VUL-4.",
+      "contact_preference": "Safe contact number [PHONE_1] only. No calls or letters to home address. Do not contact or discuss the account with [PERSON_1]. Any reasonable adjustments MISSING, to be confirmed with customer.",
+      "third_party_authority": "Not applicable as far as the file shows. [PERSON_1] is the joint account holder, not a representative of the customer, and no third-party authority is held. Must not be given account information (VUL-6).",
+      "open_questions": [
+        "Exact date of separation and of first unauthorised withdrawal (MISSING).",
+        "Total amount withdrawn to date and whether it exceeds £1,000 (MISSING).",
+        "Whether the customer consents to the withdrawals being disputed, and whether any police or safeguarding involvement exists (MISSING).",
+        "Whether the customer is safe at present and wants support contacts offered (MISSING).",
+        "Whether the account can be restricted under joint-account rules and what the customer's sole account options are (MISSING)."
+      ]
+    },
+    "fraud_details": {
+      "payment_details": "Repeated withdrawals of £300-£600 on each payday since August 2026 from joint account [ACCOUNT_NUMBER_1]. Exact dates, times and amounts MISSING (see Aug-Nov statement).",
+      "payee_details": "Withdrawals made by [PERSON_1] (joint account holder); method (branch, ATM, online) MISSING.",
+      "fraudster_contact_method": "Not applicable: no scam reported. Ex-partner is not described as a fraudster.",
+      "security_details_shared": "MISSING",
+      "account_secured": "MISSING. No record that the account has been secured or access restricted (FRD-4)."
+    },
+    "other_gaps": [
+      "Customer's wages source and payday dates not confirmed.",
+      "No record of whether the customer has previously raised this with the bank.",
+      "Consent for recording vulnerability indicators (VUL-3) not recorded.",
+      "Date the customer reported the matter is 2026-11-05 (received date) but the first withdrawal date is unclear."
+    ],
+    "suggested_next_step": "Today: contact the customer only on [PHONE_1] to check immediate safety, offer support contacts, and record consent for vulnerability indicators. Check and record account protection steps (FRD-4). Refer to Fraud & Scams and Vulnerable Customer Support within 2 business days (ESC-2), with the file marked no contact to home address. The complaints handler remains the point of contact until acceptance (ESC-5). Do not share account information with [PERSON_1].",
+    "confidence": {
+      "product": "high",
+      "root_cause": "medium",
+      "severity": "high",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

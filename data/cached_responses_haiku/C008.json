@@ -1,0 +1,134 @@
+{
+  "saved_at": "2026-11-10T20:27:57+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgussFZMowB2BZzTjZ9Vn",
+    "latency_s": 7.8,
+    "usage": {
+      "input": 302,
+      "output": 1696,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "b68880107b2bf7a9"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction that they were not told of an interest rate cut on their savings account and claims about £43.20 financial loss (CH-1).",
+    "summary": "Customer says the interest rate on their Harbourline Easy Saver fell from 3.1% to 1.6% in July 2026 and they received no letter or email about it. They say they would have moved their money had they known, and estimate lost interest of £43.20 which they want refunded. Internal note shows the rate change notice batch 06/2026 was sent by email, the customer's email bounced, and no letter fallback was sent. No vulnerability indicators recorded. First contact.",
+    "timeline": [
+      {
+        "date": "July 2026",
+        "event": "Interest rate on Harbourline Easy Saver reduced from 3.1% to 1.6%",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "Customer did not receive a letter or email about the rate change",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "Rate change notice batch 06/2026 sent; customer's email bounced; no letter fallback sent",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-10-08",
+        "event": "Complaint received via web form and logged",
+        "source": "note_1"
+      }
+    ],
+    "product": "Savings account",
+    "root_cause": "Communication failure",
+    "severity": "Low",
+    "severity_reason": "Customer-estimated financial loss of £43.20 is under £100 (CH-6). No indication of repeated contact, staff conduct, fraud or vulnerability.",
+    "estimated_financial_loss_gbp": 43.2,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "None indicated by the case file. Confirm contact preference and any reasonable adjustments at first contact."
+    },
+    "specialist_teams": [],
+    "routing_reason": "Service and communication issue with a low estimated loss. None of the ESC-1 triggers apply, so the complaints handler can resolve it.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-7",
+        "quote": "Communication failure",
+        "how_it_applies": "Root cause: the rate change notice was not successfully delivered to the customer, with no fallback sent."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "Low: financial loss under £100 or a service issue with no loss.",
+        "how_it_applies": "Customer-estimated loss of £43.20 is under £100, so severity is Low."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "Complaints handlers resolve complaints themselves unless one of the following applies",
+        "how_it_applies": "None of the listed escalation triggers are evident, so the handler keeps the case."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "cust's email bounced, no letter fallback sent",
+        "source": "note_1"
+      },
+      {
+        "field": "root_cause",
+        "quote": "I never got a letter or email about it",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "I lost about £43.20 in interest",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I'd like that back.",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer says the Easy Saver rate fell from 3.1% to 1.6% in July 2026 without any letter or email notice. Estimated lost interest is £43.20 and they want it back. Notice batch 06/2026 email bounced and no letter fallback was sent.",
+      "products_and_accounts": "Harbourline Easy Saver (savings account). Account reference: MISSING",
+      "desired_outcome": "Refund of about £43.20 lost interest (\"I'd like that back\").",
+      "actions_taken": [
+        "Complaint logged 2026-10-08",
+        "Note recorded that the rate change notice email bounced and no letter fallback was sent"
+      ],
+      "evidence_held": [
+        "Rate change notice batch log 06/2026",
+        "Savings statement Q3",
+        "Customer complaint (web form)"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found. Customer was not asked about support needs.",
+      "contact_preference": "Email (per note_1). Customer email address is shown as [EMAIL_1] and is known to have bounced for the notice; confirm a working address before contact.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Confirm the customer's correct working email address or postal address for correspondence",
+        "Confirm the exact date the rate change took effect and the balance affected, to verify the £43.20 estimate",
+        "Confirm whether a fallback letter is required under the notice process",
+        "Confirm the redress calculation with a complaints handler (not decided at triage)"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Account reference not in case file",
+      "Exact rate change effective date not stated in case file"
+    ],
+    "suggested_next_step": "Complaints handler to verify the interest loss calculation from the Q3 savings statement, confirm a working contact address, and decide the outcome and any redress under CH-8 and RED. Final response due 2026-12-03.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "medium",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

@@ -1,0 +1,136 @@
+{
+  "saved_at": "2026-11-10T20:31:10+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut7Vwghh1Kqcq3CMTwD",
+    "latency_s": 7.7,
+    "usage": {
+      "input": 186,
+      "output": 1695,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "2d503727f545755e"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction ('nobody has called me back its been 2 weeks!!! sort it out') about the bank's handling of a fraud claim, and alleges material inconvenience/distress from the delay (CH-1).",
+    "summary": "Customer [PERSON_1] is chasing a fraud claim and says nobody has contacted them for about two weeks. No claim reference is given in the case file. No evidence is listed. The amount lost, the payments disputed, how the fraud occurred and whether the account was secured are not recorded. The complaint concerns delay in responding to a suspected fraud report, which needs urgent specialist attention.",
+    "timeline": [
+      {
+        "date": "undated",
+        "event": "Customer reported a fraud claim to the bank (exact date not recorded in the case file).",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "Customer says no one has called back for about 2 weeks.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-06",
+        "event": "Complaints handler noted customer chasing fraud claim; no claim reference given.",
+        "source": "note_1"
+      }
+    ],
+    "product": "Mobile and online banking",
+    "root_cause": "Service delay",
+    "severity": "High",
+    "severity_reason": "Suspected fraud is involved (CH-6), so severity is High. The financial loss amount is unknown.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "No indicators in the case file. Ask the customer sensitively whether they need any support, given the fraud report and the delay (VUL-2)."
+    },
+    "specialist_teams": [
+      "Fraud & Scams"
+    ],
+    "routing_reason": "Suspected fraud reported (ESC-1). Under FRD-2 and ESC-2, a scam must go to Fraud & Scams within 1 business day, and the handover is due within 2 business days. The fraud type (scam or unauthorised transaction) is not confirmed in the file, so the specialist should confirm it.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-6",
+        "quote": "suspected fraud or scam",
+        "how_it_applies": "The customer has a fraud claim, so the case is High severity."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*.",
+        "how_it_applies": "A fraud claim is open, so the case must go to Fraud & Scams."
+      },
+      {
+        "clause_id": "FRD-4",
+        "quote": "On report, the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done.",
+        "how_it_applies": "The case file does not record whether the account was secured. This must be checked and recorded now."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "nobody has called me back its been 2 weeks!!!",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "ref my fraud claim",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "chasing fraud claim",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer is chasing a fraud claim. They say no one has called back for about 2 weeks. No claim reference was given.",
+      "products_and_accounts": "MISSING",
+      "desired_outcome": "MISSING",
+      "actions_taken": [
+        "MISSING: no record of account being secured (FRD-4)",
+        "MISSING: no record of any call back or response to the claim"
+      ],
+      "evidence_held": [
+        "None listed in the case file"
+      ],
+      "vulnerability_assessment": "No indicators found in the case file. Customer was not recorded as being asked about support needs.",
+      "contact_preference": "MISSING",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "What is the fraud claim reference, and when was it reported?",
+        "Is this an APP scam or an unauthorised transaction?",
+        "What are the date, time and amount of each disputed payment?",
+        "Who is the payee and how were they known?",
+        "How did the fraudster contact the customer, and were security details shared?",
+        "Has the account been secured (cards blocked, credentials reset)?",
+        "Why has there been no contact for about 2 weeks, and who owns the claim?",
+        "Which product and account references are affected?"
+      ]
+    },
+    "fraud_details": {
+      "payment_details": "MISSING",
+      "payee_details": "MISSING",
+      "fraudster_contact_method": "MISSING",
+      "security_details_shared": "MISSING",
+      "account_secured": "MISSING"
+    },
+    "other_gaps": [
+      "No claim reference provided",
+      "No evidence listed",
+      "Date the fraud was reported is not recorded",
+      "No record of who the claim was assigned to or any contact made"
+    ],
+    "suggested_next_step": "Within 1 business day, hand the case to Fraud & Scams (FRD-2, ESC-2). Check and record that the account is secured (FRD-4). Confirm the claim reference and contact the customer promptly to acknowledge the delay. Do not promise any refund or reimbursement (FRD-5).",
+    "confidence": {
+      "product": "low",
+      "root_cause": "medium",
+      "severity": "high",
+      "vulnerability": "low",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

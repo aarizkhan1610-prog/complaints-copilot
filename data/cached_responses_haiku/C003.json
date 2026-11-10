@@ -1,0 +1,158 @@
+{
+  "saved_at": "2026-11-10T20:27:01+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgusnXQy94KLpyofHdqLz",
+    "latency_s": 15.9,
+    "usage": {
+      "input": 283,
+      "output": 3610,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "c28d6a494ce59038"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The customer disputes a £12 credit card late payment fee and asks for it to be removed, alleging financial loss under CH-1.",
+    "summary": "Customer has a £12 late payment fee on their credit card. They say they paid by bank transfer on the 15th, one day after the 14th due date, and admit they forgot. They have no previous missed payments in 6 years and ask for the fee to be removed as a one-off. The handler note records one late fee in the last 12 months and no vulnerability indicators. The case file holds only the October 2026 credit card statement. Nothing in the file shows a bank error. Under FEE-5 the fee appears correctly charged, so any refund would be a discretionary goodwill decision under FEE-3 for the handler. No specialist trigger in ESC-1 is apparent.",
+    "timeline": [
+      {
+        "date": "14th (month not stated)",
+        "event": "Credit card payment due date",
+        "source": "complaint"
+      },
+      {
+        "date": "15th (month not stated)",
+        "event": "Customer made payment by bank transfer, one day after the due date",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "£12 late payment fee charged to credit card",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-03",
+        "event": "Complaint received via web form asking for the fee to be removed as a one-off",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-03",
+        "event": "Handler noted first late fee on record in 12 months, no vulnerability indicators, prefers email reply",
+        "source": "note_1"
+      }
+    ],
+    "product": "Credit card",
+    "root_cause": "Fees and charges",
+    "severity": "Low",
+    "severity_reason": "Financial loss of £12, which is under £100 under CH-6. No repeated contact, staff conduct or systemic issue is indicated.",
+    "estimated_financial_loss_gbp": 12.0,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "None indicated by the handler note. Confirm contact preference (email) and offer adjustments if the customer's circumstances change."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger applies: this is a credit card fee dispute with no fraud, lending, vulnerability referral, systemic issue, legal threat, media contact or systems failure. The complaints handler should resolve it.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss",
+        "how_it_applies": "The customer disputes a £12 fee and asks for it to be removed, which is an expression of dissatisfaction alleging financial loss, so this is a complaint."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "financial loss under £100 or a service issue with no loss",
+        "how_it_applies": "The alleged loss is £12, so severity is Low."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Fees and charges",
+        "how_it_applies": "The complaint concerns a late payment fee, so the root cause is Fees and charges."
+      },
+      {
+        "clause_id": "FEE-5",
+        "quote": "A late payment fee on a credit card is correctly charged if the minimum payment was not received by the due date.",
+        "how_it_applies": "The customer says payment was made one day after the due date and no bank error is shown in the file, so the fee appears correctly charged under this clause unless the receipt timing shows otherwise."
+      },
+      {
+        "clause_id": "FEE-3",
+        "quote": "a complaints handler may refund up to two fees of the same type in any rolling 12-month period as a goodwill gesture",
+        "how_it_applies": "The handler note shows this is the first late fee in 12 months, so a discretionary goodwill refund is within handler authority for the handler to consider. The decision is for the handler."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "product",
+        "quote": "on my credit card",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "I got charged a £12 late payment fee on my credit card.",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "I paid by bank transfer on the 15th but the due date was the 14th, so yes I was a day late, I forgot.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "Can you take it off as a one-off?",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "First late fee on record in 12 months.",
+        "source": "note_1"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability indicators.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer disputes a £12 late payment fee on their credit card. They say they paid by bank transfer on the 15th, one day after the 14th due date, and ask for the fee to be removed as a one-off. No bank error is recorded in the file.",
+      "products_and_accounts": "Credit card ending [CARD_DIGITS_1]",
+      "desired_outcome": "Customer asks for the £12 late payment fee to be removed as a one-off.",
+      "actions_taken": [
+        "MISSING"
+      ],
+      "evidence_held": [
+        "Credit card statement Oct 2026"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found, per handler note. The file does not record that the customer was asked about support needs.",
+      "contact_preference": "Email reply preferred, per handler note. No reasonable adjustments recorded.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Date and time the bank transfer was sent and when it was received by the bank",
+        "Date the minimum payment was credited to the account relative to the 14th due date",
+        "Date the £12 fee was posted to the account",
+        "Whether any other fees were charged in the rolling 12 months",
+        "Date the complaint was logged and whether the written acknowledgement under CH-2 has been sent",
+        "Deadline status: final response due 2026-12-29, 50 days remaining, On track"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Payment transfer timing not evidenced in the file",
+      "Only the October 2026 statement is held; no other statements or fee history"
+    ],
+    "suggested_next_step": "Confirm when the bank transfer was received against the 14th due date and check the fee history. Log the complaint and send written acknowledgement within 3 business days (CH-2). The handler then decides whether to apply the FEE-3 goodwill discretion and records the reasons under CH-9.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

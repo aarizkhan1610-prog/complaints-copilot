@@ -1,0 +1,136 @@
+{
+  "saved_at": "2026-11-10T20:28:23+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgustyvLEfpW8fgW8HodH",
+    "latency_s": 10.5,
+    "usage": {
+      "input": 343,
+      "output": 2373,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "1cab8f509ace3d31"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction about being charged foreign transaction fees on the Harbourline Travel Card and about how he was treated by an agent on the phone, alleging financial loss of £18.40 and distress, which meets CH-1.",
+    "summary": "Customer holds the Harbourline Travel Card and was charged £18.40 in foreign transaction fees while in Lisbon. The card should not carry these fees. Staff note confirms six FX fees totalling £18.40 were charged because the tariff was set up wrongly on the account. When the customer phoned about it on 21/10 he waited 50 minutes and says the agent was short with him and ended the call. He wants the fees refunded and an apology for how he was treated. A call recording from 21/10 has been requested. No vulnerability was recorded in the handler note.",
+    "timeline": [
+      {
+        "date": "21/10",
+        "event": "Customer phoned about the foreign transaction fees; waited 50 minutes, agent was short and ended the call (per customer)",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-23",
+        "event": "Complaint received by phone; handler confirmed six FX fees totalling £18.40 caused by incorrect tariff set-up; call recording from 21/10 requested",
+        "source": "note_1"
+      }
+    ],
+    "product": "Credit card",
+    "root_cause": "Fees and charges",
+    "severity": "Medium",
+    "severity_reason": "Financial loss of £18.40 falls under £100, which would be Low under CH-6. Medium is set because the complaint includes an allegation of staff conduct (agent being short and ending the call), and CH-6 classes complaints about staff conduct as Medium.",
+    "estimated_financial_loss_gbp": 18.4,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "None indicated in the case file. Handler note records no vulnerability. Consider confirming no support needs if the customer's circumstances change."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger applies. The fee arises from an incorrect tariff set-up, which is a bank error, and there is no fraud, lending, vulnerability referral, systemic issue, legal threat, or systems investigation recorded. The complaints handler can resolve it. The tariff error may need checking for other Harbourline Travel Card customers, which the handler may wish to consider.",
+    "policy_citations": [
+      {
+        "clause_id": "FEE-6",
+        "quote": "Foreign transaction fees are not charged on the Harbourline Travel Card. Any such fee on that card is a bank error and FEE-2 applies.",
+        "how_it_applies": "The customer was charged foreign transaction fees on the Harbourline Travel Card, which this clause says should not happen. The fees are therefore a bank error, and FEE-2 applies to them."
+      },
+      {
+        "clause_id": "FEE-2",
+        "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full, together with any interest charged on it, plus a goodwill payment in line with policy RED.",
+        "how_it_applies": "The handler note says the tariff was set up wrongly, which is an incorrect tariff example of bank error. Refund of the fees, any interest, and a goodwill payment should be considered by the handler. The amount and decision are for the handler to make."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "Medium: financial loss between £100 and £1,000, repeated service failure (the customer has contacted us three or more times about the same issue), or a complaint about staff conduct.",
+        "how_it_applies": "The complaint includes an allegation about agent conduct during the call, so Medium severity applies."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Every complaint must be tagged with one primary root cause from the approved list: Fees and charges;",
+        "how_it_applies": "The primary complaint is about foreign transaction fees, so the root cause is Fees and charges."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "product",
+        "quote": "Cust has the Harbourline Travel Card",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "charged £18.40 in foreign transaction fees in Lisbon",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "tariff set up wrongly on account",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "agent was short with him and hung up",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "Wants the fees back and an apology for how he was treated.",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer was charged six foreign transaction fees totalling £18.40 on the Harbourline Travel Card, which should carry no such fees. The handler confirmed the tariff was set up wrongly. The customer also complains that during his call on 21/10 he waited 50 minutes and the agent was short with him and ended the call.",
+      "products_and_accounts": "Harbourline Travel Card (credit card), card ending [CARD_DIGITS_1]",
+      "desired_outcome": "Refund of the fees and an apology for how he was treated.",
+      "actions_taken": [
+        "Complaint logged 2026-10-23 by phone",
+        "Handler confirmed six FX fees totalling £18.40 and the incorrect tariff set-up",
+        "Call recording from 21/10 requested"
+      ],
+      "evidence_held": [
+        "Credit card statement Oct 2026",
+        "Call recording request 21/10 (recording not yet confirmed as received)"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found in the handler note. Customer was not recorded as being asked about support needs.",
+      "contact_preference": "Phone. Customer is happy to be contacted on the phone number held on file ([PHONE_1]). Reasonable adjustments: MISSING",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Has the call recording from 21/10 been received and reviewed?",
+        "Have all six FX fees been identified and their interest amounts calculated?",
+        "Are other Harbourline Travel Card customers affected by the same tariff error?",
+        "Has a goodwill payment amount been considered under RED-3 and approved within the handler's authority under RED-4?",
+        "Did the customer's complaint about the agent's conduct get logged as a separate concern?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Call recording from 21/10 requested but not yet on file",
+      "Statement evidence lists only the Oct 2026 statement; the fee transactions and interest charged are not itemised in the file",
+      "No note of whether the customer was contacted with a Final Response timeline or acknowledgement in writing (CH-2) recorded in the file"
+    ],
+    "suggested_next_step": "Handler to confirm the tariff error and identify all affected FX fees and any interest, review the 21/10 call recording against the customer's account of the call, and decide on refund and any goodwill payment within their authority. Handler to confirm written acknowledgement was sent within 3 business days (CH-2).",
+    "confidence": {
+      "product": "high",
+      "root_cause": "high",
+      "severity": "medium",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

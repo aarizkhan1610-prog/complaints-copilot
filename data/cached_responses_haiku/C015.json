@@ -1,0 +1,157 @@
+{
+  "saved_at": "2026-11-10T20:29:15+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgusxpjHfawu5LQk399Zz",
+    "latency_s": 10.8,
+    "usage": {
+      "input": 357,
+      "output": 2551,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "e129f25db80fae4e"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction about a duplicate mortgage direct debit collection and resulting overdraft charges, alleging financial loss (£1,240 duplicate, £900 overdrawn) and distress, which meets CH-1.",
+    "summary": "Customer reports that a mortgage direct debit of £1,240 was taken twice on 3 November 2026, leaving the account £900 overdrawn. Customer wants the money returned immediately and the overdraft charges cancelled. Complaints handler note confirms a duplicate direct debit collection on 03/11 and links it to open incident INC-4602 (Digital Operations), with approximately 3,100 customers reportedly affected. The customer also refers to social media reports from other customers, which may indicate a wider systemic issue. No vulnerability indicators were recorded and the handler notes the customer was asked. Customer prefers email contact. The bank has not yet decided any refund or fee reversal.",
+    "timeline": [
+      {
+        "date": "2026-11-03",
+        "event": "Mortgage direct debit of £1,240 taken twice from customer account (per complaint and handler note confirming duplicate collection on 03/11).",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-03",
+        "event": "Account overdrawn by £900 as a result, with overdraft charges applied (per complaint; charge amounts not in file).",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-04",
+        "event": "Complaint received by email (received date 2026-11-04).",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-04",
+        "event": "Handler confirmed duplicate DD collection on 03/11; Digital Ops incident INC-4602 open, approx 3,100 customers affected. Statement saved. Customer prefers email contact.",
+        "source": "note_1"
+      }
+    ],
+    "product": "Mortgage",
+    "root_cause": "Systems or app failure",
+    "severity": "High",
+    "severity_reason": "Financial loss of £1,240 duplicated (over £1,000 under CH-6) and a possible systemic issue affecting approximately 3,100 customers (CH-6 High). Overdraft charges add to the loss.",
+    "estimated_financial_loss_gbp": 1240.0,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": true,
+      "suggested_support": "No vulnerability indicators recorded. Handler notes the customer was asked. Monitor for change given the overdraft and financial impact."
+    },
+    "specialist_teams": [
+      "Digital Operations",
+      "Senior Complaints Review"
+    ],
+    "routing_reason": "A systems fault needs technical investigation (INC-4602) so Digital Operations under ESC-1. The incident reportedly affects approximately 3,100 customers, a suspected systemic issue, so Senior Complaints Review under ESC-1. Not a fraud or scam, so Fraud & Scams is not required on the file as it stands.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-6",
+        "quote": "a potential systemic issue affecting many customers.",
+        "how_it_applies": "Approximately 3,100 customers reportedly affected by the same duplicate collection fault supports High severity and systemic escalation."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A systems or app failure that needs technical investigation → *Digital Operations*.",
+        "how_it_applies": "Incident INC-4602 is an open systems fault requiring technical investigation."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Systems or app failure",
+        "how_it_applies": "The duplicate collection stems from a system fault, so this is the primary root cause."
+      },
+      {
+        "clause_id": "FEE-2",
+        "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full, together with any interest charged on it",
+        "how_it_applies": "Overdraft charges caused by the duplicate collection may be bank error fees for specialist and handler review. No refund decision is made here."
+      },
+      {
+        "clause_id": "RED-2",
+        "quote": "Direct financial loss caused by the bank must be refunded in full, plus 8% simple interest a year",
+        "how_it_applies": "The duplicate £1,240 is potential direct financial loss for review. Any refund and interest is for an authorised person to decide."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "Confirmed duplicate DD collection 03/11 - Digital Ops incident INC-4602 open",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "approx 3,100 customers affected",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "Your bank took my mortgage direct debit of £1,240 TWICE on 3 November.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "Digital Ops incident INC-4602 open, approx 3,100 customers affected.",
+        "source": "note_1"
+      },
+      {
+        "field": "product",
+        "quote": "my mortgage direct debit of £1,240 TWICE",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer says a £1,240 mortgage direct debit was taken twice on 3 November 2026, leaving the account £900 overdrawn with overdraft charges. Customer wants the money returned today and overdraft charges cancelled. The handler has confirmed a duplicate collection and an open incident, INC-4602, affecting approximately 3,100 customers.",
+      "products_and_accounts": "Mortgage direct debit and current account, sort code [SORT_CODE_1], account [ACCOUNT_NUMBER_1]. Mortgage account reference: MISSING.",
+      "desired_outcome": "Customer wants the duplicate £1,240 returned today and the overdraft charges cancelled.",
+      "actions_taken": [
+        "Handler confirmed duplicate direct debit collection on 03/11 (note_1).",
+        "Digital Operations incident INC-4602 is open (note_1).",
+        "Statement 01-04/11/2026 saved (note_1)."
+      ],
+      "evidence_held": [
+        "Statement 01-04/11/2026",
+        "Incident record INC-4602",
+        "Customer complaint by email (received 2026-11-04)",
+        "Handler note dated 2026-11-04"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found. Handler notes the customer was asked.",
+      "contact_preference": "Email [EMAIL_1]. No reasonable adjustments recorded.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Date and time of each duplicate collection and the exact amounts: MISSING beyond £1,240 on 03 November.",
+        "Overdraft charge amounts and dates: MISSING.",
+        "Whether the customer's account was refunded or any action taken since the incident: MISSING.",
+        "Whether the customer's account is at risk of further charges or a missed mortgage payment: MISSING.",
+        "Whether the customer's wider incident impact is confirmed by INC-4602: to be confirmed by Digital Operations.",
+        "Customer's claim about social media reports is unverified."
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Social media claims by the customer are not verified in the file.",
+      "Overdraft charge amounts and dates are not recorded.",
+      "Mortgage account reference not in file."
+    ],
+    "suggested_next_step": "Route to Digital Operations for INC-4602 and to Senior Complaints Review given the suspected systemic issue. Confirm the duplicate collection and charges, and record what has been done to return the funds. Keep the customer informed by email. Any refund or fee decision is for an authorised handler or specialist.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "medium"
+    },
+    "suspicious_instructions": null
+  }
+}
