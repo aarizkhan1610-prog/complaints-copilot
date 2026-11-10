@@ -1,0 +1,50 @@
+{
+  "redaction": {
+    "dev": [
+      129,
+      129
+    ],
+    "holdout": [
+      20,
+      27
+    ],
+    "holdout_misses": [
+      [
+        "H01",
+        "Fiona McAllister"
+      ],
+      [
+        "H04",
+        "jamie holt"
+      ],
+      [
+        "H07",
+        "Grace"
+      ],
+      [
+        "H08",
+        "Peter"
+      ],
+      [
+        "H08",
+        "Alison Drummond"
+      ],
+      [
+        "H08",
+        "Drummond"
+      ],
+      [
+        "H08",
+        "Alison"
+      ]
+    ],
+    "over_redactions": []
+  },
+  "ai": {},
+  "rows": [],
+  "gaps": {
+    "tp": 0,
+    "fp": 0,
+    "fn": 0
+  }
+}

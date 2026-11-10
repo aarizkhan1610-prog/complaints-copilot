@@ -18,6 +18,12 @@ MODEL = os.environ.get("COPILOT_MODEL", "claude-opus-5-5")
 EFFORT = os.environ.get("COPILOT_EFFORT", "low")
 MAX_TOKENS = 16000
 
+# Which AI backend to use: "claude" (Anthropic API) or "ollama" (a local model on this machine).
+PROVIDER = os.environ.get("COPILOT_PROVIDER", "claude")
+OLLAMA_URL = os.environ.get("OLLAMA_URL", "http://localhost:11434")
+OLLAMA_MODEL = os.environ.get("OLLAMA_MODEL", "qwen2.5:7b")
+LOCAL_CACHE_DIR = Path(os.environ.get("COPILOT_LOCAL_CACHE_DIR", DATA_DIR / "cached_responses_local"))
+
 # Bump whenever the prompt or output schema changes, so every audit record and
 # cached response can be traced to the exact prompt that produced it.
 PROMPT_VERSION = "triage-v1.0"

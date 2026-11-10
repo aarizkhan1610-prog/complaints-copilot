@@ -9,7 +9,7 @@ import pandas as pd
 import streamlit as st
 
 from copilot import audit, config
-from copilot.ai import AIUnavailable, Hybrid, LiveClaude, SavedResponses
+from copilot.ai import AIUnavailable, Hybrid, LiveClaude, LocalOllama, SavedResponses
 from copilot.data import get_complaint, load_complaints, load_policies
 from copilot.deadlines import deadline_info, priority_score
 from copilot.pipeline import handover_markdown, run_case
@@ -33,25 +33,38 @@ def ss():
     return s
 
 
+BACKENDS = {"Claude (Anthropic API)": "claude", "Local model (Ollama on this machine)": "local"}
+
+
+def backend():
+    return BACKENDS.get(st.session_state.get("backend"), "claude")
+
+
 @st.cache_resource
-def provider():
+def _provider(kind):
+    if kind == "local":
+        local = LocalOllama()
+        return Hybrid(live=local if local.available() else None, saved=SavedResponses(config.LOCAL_CACHE_DIR))
     key = config.get_api_key()
-    live = LiveClaude(key) if key else None
-    return Hybrid(live=live, saved=SavedResponses())
+    return Hybrid(live=LiveClaude(key) if key else None, saved=SavedResponses(config.CACHE_DIR))
+
+
+def provider():
+    return _provider(backend())
 
 
 @st.cache_data(show_spinner=False)
-def saved_result(cid):
+def saved_result(cid, kind):
     """Saved-response analysis for a case (cached for the whole app)."""
     try:
-        return run_case(get_complaint(cid), provider(), want_live=False, log_audit=False)
+        return run_case(get_complaint(cid), _provider(kind), want_live=False, log_audit=False)
     except AIUnavailable:
         return None
 
 
 def get_result(cid):
     s = ss()
-    return s["live_runs"].get(cid) or saved_result(cid)
+    return s["live_runs"].get((backend(), cid)) or saved_result(cid, backend())
 
 
 def review_status(cid):
@@ -71,6 +84,10 @@ def sidebar():
     page = st.sidebar.radio("View", ["Complaint queue", "Review a case", "Specialist inbox",
                                      "Audit log", "How it works"], key="page")
     st.sidebar.divider()
+    have_local = any(config.LOCAL_CACHE_DIR.glob("*.json")) or LocalOllama().available()
+    if have_local:
+        st.sidebar.radio("AI backend", list(BACKENDS), key="backend",
+                         help="Compare Claude with a model running locally. Each has its own saved responses.")
     p = provider()
     if p.live:
         left = min(p.quota.remaining(), config.SESSION_LIVE_CAP - s["session_live_used"])
@@ -78,8 +95,10 @@ def sidebar():
                           help="Off: replays real responses saved earlier (free). On: calls the model now.")
         st.sidebar.caption(f"Live runs left: {max(0, left)} this session · {p.quota.remaining()} today")
     else:
-        st.sidebar.info("Demo mode: showing saved AI responses. No API key is configured, so live AI is off.")
-    st.sidebar.caption(f"Model: `{config.MODEL}` (effort {config.EFFORT}) · prompt `{config.PROMPT_VERSION}`")
+        st.sidebar.info("Demo mode: showing saved AI responses. Live AI is off "
+                        "(no API key, or no local model running).")
+    model = f"ollama/{config.OLLAMA_MODEL}" if backend() == "local" else f"{config.MODEL} (effort {config.EFFORT})"
+    st.sidebar.caption(f"Model: `{model}` · prompt `{config.PROMPT_VERSION}`")
     st.sidebar.caption(f"'Today' is fixed at {config.AS_OF:%a %d %b %Y} so deadlines are reproducible.")
     return page
 
@@ -154,7 +173,7 @@ def page_review():
                                  session_left=config.SESSION_LIVE_CAP - s["session_live_used"])
                     if r["meta"].get("provider") == "live":
                         s["session_live_used"] += 1
-                    s["live_runs"][cid] = r
+                    s["live_runs"][(backend(), cid)] = r
                 except AIUnavailable as e:
                     st.error(str(e))
     r = get_result(cid)
