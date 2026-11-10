@@ -1,0 +1,159 @@
+{
+  "saved_at": "2026-11-10T20:02:08+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-opus-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CguqtKurCbn97FXmL2PTd",
+    "latency_s": 18.1,
+    "usage": {
+      "input": 357,
+      "output": 2286,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "e129f25db80fae4e"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The customer expresses dissatisfaction about a duplicate mortgage direct debit collection that has left the account overdrawn, alleging financial loss (CH-1).",
+    "summary": "The customer's mortgage direct debit of £1,240 was collected twice on 3 November 2026, leaving the current account about £900 overdrawn. The customer reports seeing on social media that many other Harbourline customers were affected. The handler confirmed the duplicate collection and linked it to Digital Operations incident INC-4602, which affects about 3,100 customers. The customer wants the money back today and any overdraft charges cancelled. No vulnerability indicators were found and the customer was asked. Contact is by email. Possible systemic issue and financial loss over £1,000: route to Senior Complaints Review, with Digital Operations for the technical investigation.",
+    "timeline": [
+      {
+        "date": "3 November",
+        "event": "Mortgage direct debit of £1,240 collected twice from the customer's account.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-04",
+        "event": "Complaint received by email.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-04",
+        "event": "Handler confirmed duplicate DD collection on 03/11, linked to Digital Ops incident INC-4602 (approx 3,100 customers affected). Customer asked about vulnerability, none found. Statement saved.",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Systems or app failure",
+    "severity": "High",
+    "severity_reason": "The duplicate collection of £1,240 is a financial loss over £1,000. Incident INC-4602 affects approximately 3,100 customers, which is a potential systemic issue (CH-6 High).",
+    "estimated_financial_loss_gbp": 1240.0,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": true,
+      "suggested_support": "None identified. Keep watch for signs of financial difficulty given the overdrawn balance, and ask again if any appear."
+    },
+    "specialist_teams": [
+      "Senior Complaints Review",
+      "Digital Operations"
+    ],
+    "routing_reason": "This is a suspected systemic issue: the same duplicate direct debit fault affects about 3,100 customers under incident INC-4602, which goes to Senior Complaints Review under ESC-1. The systems failure also needs technical investigation by Digital Operations under ESC-1.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-6",
+        "quote": "financial loss over £1,000, suspected fraud or scam, a vulnerable customer at risk of harm, threatened legal action or media contact, or a potential systemic issue affecting many customers",
+        "how_it_applies": "The loss is £1,240 and the incident affects about 3,100 customers, so severity is High."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A suspected systemic issue (the same fault affecting many customers), a threat of legal action, or media contact → *Senior Complaints Review*.",
+        "how_it_applies": "Incident INC-4602 affects about 3,100 customers."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A systems or app failure that needs technical investigation → *Digital Operations*.",
+        "how_it_applies": "The duplicate DD collection is a system fault that needs technical investigation."
+      },
+      {
+        "clause_id": "FEE-2",
+        "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full",
+        "how_it_applies": "Any overdraft fees caused by the duplicate collection appear linked to a system fault. This is for the decision-maker to assess."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Systems or app failure",
+        "how_it_applies": "This is the primary root cause."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "product",
+        "quote": "My account is now £900 overdrawn",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "Confirmed duplicate DD collection 03/11 - Digital Ops incident INC-4602 open",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "approx 3,100 customers affected",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "mortgage direct debit of £1,240 TWICE on 3 November",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability indicators, asked.",
+        "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want the money back today and the overdraft charges cancelled.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "loads of other Harbourline customers had the same thing",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "The mortgage direct debit of £1,240 was collected twice on 3 November 2026, leaving the customer's current account about £900 overdrawn. This is linked to system incident INC-4602, which affects about 3,100 customers. Received 2026-11-04. Final response due 2026-12-30, 51 days left, status On track.",
+      "products_and_accounts": "Current account, sort code [SORT_CODE_1], account [ACCOUNT_NUMBER_1]. The mortgage direct debit is affected; the mortgage account reference is MISSING.",
+      "desired_outcome": "\"I want the money back today and the overdraft charges cancelled.\"",
+      "actions_taken": [
+        "Duplicate DD collection on 03/11 confirmed by the handler.",
+        "Case linked to Digital Ops incident INC-4602.",
+        "Customer asked about vulnerability.",
+        "Statement saved."
+      ],
+      "evidence_held": [
+        "Statement 01-04/11/2026",
+        "Incident record INC-4602"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found. The customer was asked.",
+      "contact_preference": "Email [EMAIL_1]. No reasonable adjustments recorded.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Has the duplicate £1,240 been returned yet, or is a bulk remediation planned under INC-4602?",
+        "Have any overdraft fees or interest been charged as a result, and how much?",
+        "Did the customer suffer any knock-on effects, such as other payments being returned?",
+        "Is there media or social media exposure that needs handling?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "The amount of any overdraft charges is not recorded.",
+      "The mortgage account reference is not recorded.",
+      "The customer's social media posts or references are not on file."
+    ],
+    "suggested_next_step": "Hand over to Senior Complaints Review within 2 business days (ESC-2), copying Digital Operations, and confirm the remediation status of INC-4602 for this account. Do not promise any outcome or redress to the customer.",
+    "confidence": {
+      "product": "medium",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

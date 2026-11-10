@@ -1,0 +1,160 @@
+{
+  "saved_at": "2026-11-10T19:58:41+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-opus-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CguqcV5Z1kUKQyAqGCiHo",
+    "latency_s": 26.0,
+    "usage": {
+      "input": 355,
+      "output": 2170,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "f4c525d393ebdc53"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The customer expresses dissatisfaction with staff conduct at a branch and alleges material distress (felt humiliated in front of a queue), which meets CH-1.",
+    "summary": "Customer with a stammer visited Kingsbridge Road branch on a Friday to pay in business cash. Alleges the counter staff member sighed, rolled his eyes, said 'I haven't got all day' and directed them to the machine, leaving them humiliated in front of a queue. Wants an apology and better staff training. No financial loss claimed. Customer asked about support needs and declined; email-only contact requested and flagged. Branch manager informed, CCTV requested (ref BR-2210), manager statement pending. Staff conduct complaint, Medium severity. Health-related indicator (stammer) noted, but there is no VUL-4 trigger, so the complaints handler can resolve it.",
+    "timeline": [
+      {
+        "date": "undated (Friday before 2026-10-12)",
+        "event": "Customer visited Kingsbridge Road branch to pay in business cash. Alleged dismissive treatment by counter staff.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-12",
+        "event": "Complaint received by email.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-13",
+        "event": "Branch manager informed and CCTV request raised. Customer asked by email about support needs and declined. Email-only contact flagged on account.",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Staff conduct",
+    "severity": "Medium",
+    "severity_reason": "Under CH-6 a complaint about staff conduct is Medium. No financial loss is claimed and there is no High trigger: no fraud, no legal or media threat, and no indication the customer is at risk of harm.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "health"
+      ],
+      "customer_was_asked": true,
+      "suggested_support": "Customer declined support. Continue email-only contact as a reasonable adjustment under VUL-5, which is particularly suitable given the stammer. Record the indicator only with the customer's consent (VUL-3). No VUL-4 referral criteria are met."
+    },
+    "specialist_teams": [],
+    "routing_reason": "Staff conduct is not an ESC-1 escalation trigger. There is a health indicator but no financial difficulty, risk to health or wellbeing, financial abuse or bereavement, so no VUL-4 referral is needed. The complaints handler should resolve the case.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
+        "how_it_applies": "The customer is dissatisfied with staff behaviour and alleges distress."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "or a complaint about staff conduct.",
+        "how_it_applies": "This places the case at Medium severity."
+      },
+      {
+        "clause_id": "VUL-1",
+        "quote": "*health* (physical or mental health conditions, including cognitive decline)",
+        "how_it_applies": "The stammer is a possible health indicator."
+      },
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred",
+        "how_it_applies": "None of the additional criteria are present, so no referral is required."
+      },
+      {
+        "clause_id": "VUL-5",
+        "quote": "Reasonable adjustments must be offered and recorded, for example a preferred contact method",
+        "how_it_applies": "The email-only contact preference has been recorded."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "Complaints handlers resolve complaints themselves unless one of the following applies",
+        "how_it_applies": "No escalation trigger applies."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "The man at the counter sighed, rolled his eyes and said 'I haven't got all day'.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "I have a stammer and it took me a while to explain.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want an apology and I want staff to be trained properly.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "Cust asked by email if any support needed - says no, just wants apology.",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "I felt humiliated in front of a queue of people.",
+        "source": "complaint"
+      },
+      {
+        "field": "product",
+        "quote": "to pay in cash for my business",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer with a stammer alleges a counter staff member at Kingsbridge Road branch sighed, rolled his eyes, said 'I haven't got all day' and told them to use the machine, causing humiliation in front of a queue.",
+      "products_and_accounts": "MISSING - the customer was paying in cash for their business; no account reference is on file and the account type (personal or business) is unconfirmed.",
+      "desired_outcome": "\"I want an apology and I want staff to be trained properly.\"",
+      "actions_taken": [
+        "Branch manager informed (2026-10-13)",
+        "CCTV request raised, ref BR-2210",
+        "Customer asked about support needs by email and declined",
+        "Email-only contact flagged on account"
+      ],
+      "evidence_held": [
+        "Branch manager statement (pending)",
+        "CCTV request ref BR-2210"
+      ],
+      "vulnerability_assessment": "Possible health indicator (stammer). Customer was asked about support needs and declined. No VUL-4 referral criteria are met.",
+      "contact_preference": "Email only; the customer does not like phone calls.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "What is the exact date and time of the visit?",
+        "Who was the staff member involved?",
+        "Does the CCTV confirm the account given?",
+        "Which account was the cash being paid into?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Exact visit date not given (only 'Friday')",
+      "Account reference missing",
+      "Branch manager statement not yet received",
+      "Staff member not identified",
+      "No record yet of the written acknowledgement required by CH-2"
+    ],
+    "suggested_next_step": "Confirm the written acknowledgement has been sent by email (CH-2). Obtain the branch manager statement and CCTV footage, then the complaints handler decides the outcome and replies by email only.",
+    "confidence": {
+      "product": "low",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}
