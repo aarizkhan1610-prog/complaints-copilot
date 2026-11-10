@@ -112,7 +112,7 @@ prompt-injection resistance. Results: [`eval/results.md`](eval/results.md).
 ## AI tools used
 
 - **Optional local model:** a sidebar switch and `python scripts/build_cache.py --local` run the same pipeline on a model served by [Ollama](https://ollama.com) on your own machine (default `qwen2.5:7b`). Not used for the submitted results.
-- **In the product:** Anthropic's Claude API (default `claude-sonnet-5-5` at low effort, chosen over Opus 5.5 and Haiku 5.5 in [`eval/model_comparison.md`](eval/model_comparison.md)) with structured outputs, so
+- **In the product:** Anthropic's Claude API (live calls use `claude-sonnet-5-5` at low effort, chosen over Opus 5.5 and Haiku 5.5 in [`eval/model_comparison.md`](eval/model_comparison.md); the saved demo responses and `eval/results.md` come from `claude-opus-5-5`) with structured outputs, so
   every response must match the schema in `copilot/schemas.py`. The provider is isolated in `copilot/ai.py`;
   a bank could swap in Claude through its own cloud (Amazon Bedrock, Google Vertex AI), Snowflake Cortex, or a
   locally hosted open-source model without touching the rest of the code.

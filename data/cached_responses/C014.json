@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T20:29:13+00:00",
+  "saved_at": "2026-11-10T20:01:50+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-sonnet-5-5",
+    "model": "claude-opus-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011CgusxKhnEb6HCfBPWo5qc",
-    "latency_s": 15.4,
+    "request_id": "req_011Cguqrk47Q95iLXnvy2wW5",
+    "latency_s": 21.5,
     "usage": {
       "input": 361,
-      "output": 2540,
+      "output": 2561,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,8 +17,8 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "The customer expresses dissatisfaction about delay in releasing her late mother's savings to the estate, with material distress and inconvenience alleged (CH-1).",
-    "summary": "[PERSON_2], executor of the estate of [PERSON_1] who died in June, sent the death certificate and grant of probate to the bereavement team on 2 July. The savings account has still not been released. The customer has phoned six times and was told it was 'with the team'. The handler's note says documents were received on 04/07 and no action has been taken since 22/07. The customer is bereaved and distressed. They want the funds released and an explanation for the delay. The system shows the final response deadline as breached.",
+    "is_complaint_reason": "The executor expresses dissatisfaction about the delay in releasing her late mother's savings to the estate and describes distress and inconvenience, which meets CH-1.",
+    "summary": "[PERSON_2], executor of her late mother [PERSON_1]'s estate, complains that the savings in account [ACCOUNT_NUMBER_1] have not been released to the estate. She says she sent the death certificate and grant of probate on 2 July; the bank recorded receipt on 04/07, and the bereavement case shows no action since 22/07. She has phoned six times and was told each time it is 'with the team'. She describes the process as awful while grieving. She wants the matter sorted and an explanation for the delay. The system shows the final response deadline as breached. The customer is bereaved and has made repeated contact.",
     "timeline": [
       {
         "date": "June (year not stated)",
@@ -27,7 +27,7 @@
       },
       {
         "date": "2 July",
-        "event": "Customer says death certificate and grant of probate were sent to the bereavement team",
+        "event": "Customer says death certificate and grant of probate sent to bereavement team",
         "source": "complaint"
       },
       {
@@ -37,12 +37,12 @@
       },
       {
         "date": "22/07",
-        "event": "Last action on the bereavement case",
+        "event": "Last recorded action on bereavement case",
         "source": "note_1"
       },
       {
-        "date": "September (before 2026-09-10)",
-        "event": "Customer says she phoned six times and was told 'with the team'",
+        "date": "undated",
+        "event": "Customer phoned six times and was told it was 'with the team'",
         "source": "complaint"
       },
       {
@@ -52,19 +52,14 @@
       },
       {
         "date": "2026-09-11",
-        "event": "Handler found the bereavement case and noted no action since 22/07",
+        "event": "Handler located bereavement case and noted no action since 22/07",
         "source": "note_1"
-      },
-      {
-        "date": "2026-11-05",
-        "event": "Final response deadline; system shows status Breached",
-        "source": "complaint"
       }
     ],
     "product": "Savings account",
     "root_cause": "Service delay",
     "severity": "High",
-    "severity_reason": "Bereaved customer experiencing distress, with a possible vulnerability and risk of harm (CH-6, VUL-4). The case has also had no action for about seven weeks, and the deadline status is shown as Breached. Financial loss amount is unknown.",
+    "severity_reason": "The customer is bereaved, which is a vulnerability indicator, and the case shows repeated contact (six calls) about the same issue, which on its own would be Medium. The case is treated as High because a vulnerable customer may be at risk of harm from the continued delay. The deadline status is shown as Breached. The value of the savings is not stated.",
     "estimated_financial_loss_gbp": null,
     "vulnerability": {
       "indicators_found": true,
@@ -72,50 +67,50 @@
         "life events"
       ],
       "customer_was_asked": false,
-      "suggested_support": "Refer to Vulnerable Customer Support. Ask sensitively whether support is needed, offer a named contact and the customer's preferred contact method, and confirm the executor's authority and probate documents on file."
+      "suggested_support": "Refer to Vulnerable Customer Support due to bereavement. Offer a named contact and a preferred contact method. Ask sensitively whether any further support is needed."
     },
     "specialist_teams": [
       "Vulnerable Customer Support"
     ],
-    "routing_reason": "Bereavement with a vulnerability indicator requires referral to Vulnerable Customer Support under VUL-4 and ESC-1. The root cause is a service delay that the handler may resolve alongside the specialist. Senior Complaints Review could be considered if the handler judges the breach and the delay to be a wider issue; there is no evidence of a systemic issue in the file.",
+    "routing_reason": "Bereavement plus a vulnerability indicator meets VUL-4, so the case goes to Vulnerable Customer Support under ESC-1. The delay itself is an internal bereavement processing issue. No fraud, lending or technical trigger was identified.",
     "policy_citations": [
       {
-        "clause_id": "VUL-4",
-        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
-        "how_it_applies": "The customer is bereaved, and the complaint describes distress, so the case must be referred."
-      },
-      {
-        "clause_id": "VUL-1",
-        "quote": "*life events* (bereavement, job loss, relationship breakdown, caring responsibilities)",
-        "how_it_applies": "The death of the customer's mother is a life-event driver."
+        "clause_id": "CH-1",
+        "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
+        "how_it_applies": "Dissatisfaction is expressed about the delay, with distress described."
       },
       {
         "clause_id": "CH-6",
         "quote": "a vulnerable customer at risk of harm",
-        "how_it_applies": "A bereaved customer distressed by the prolonged delay supports High severity."
+        "how_it_applies": "A bereaved executor is suffering distress from the delay, supporting High severity."
       },
       {
-        "clause_id": "CH-4",
-        "quote": "If the bank cannot issue a Final Response by then, it must send a holding letter explaining why and the customer's right to refer the complaint to the independent ombudsman service.",
-        "how_it_applies": "The system shows the deadline as Breached, so a holding letter and ombudsman information must be considered."
+        "clause_id": "CH-6",
+        "quote": "repeated service failure (the customer has contacted us three or more times about the same issue)",
+        "how_it_applies": "The customer phoned six times."
+      },
+      {
+        "clause_id": "VUL-1",
+        "quote": "*life events* (bereavement, job loss, relationship breakdown, caring responsibilities)",
+        "how_it_applies": "The customer's mother died in June."
+      },
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
+        "how_it_applies": "Bereavement triggers the referral."
       },
       {
         "clause_id": "ESC-1",
         "quote": "A vulnerability referral under VUL-4 → *Vulnerable Customer Support*.",
-        "how_it_applies": "Sets the specialist team for the referral."
+        "how_it_applies": "Sets the routing."
+      },
+      {
+        "clause_id": "CH-4",
+        "quote": "If the bank cannot issue a Final Response by then, it must send a holding letter explaining why and the customer's right to refer the complaint to the independent ombudsman service.",
+        "how_it_applies": "The system shows the deadline as Breached."
       }
     ],
     "evidence": [
-      {
-        "field": "root_cause",
-        "quote": "It is now September and her savings have still not been released to the estate.",
-        "source": "complaint"
-      },
-      {
-        "field": "root_cause",
-        "quote": "no action since 22/07",
-        "source": "note_1"
-      },
       {
         "field": "vulnerability",
         "quote": "My mother [PERSON_1] passed away in June.",
@@ -132,53 +127,61 @@
         "source": "complaint"
       },
       {
-        "field": "desired_outcome",
-        "quote": "I want it sorted and I want someone to explain why it has taken so long.",
-        "source": "complaint"
+        "field": "root_cause",
+        "quote": "no action since 22/07",
+        "source": "note_1"
       },
       {
         "field": "product",
         "quote": "Savings acct [ACCOUNT_NUMBER_1].",
         "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want it sorted and I want someone to explain why it has taken so long.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "passed away in June",
+        "source": "complaint"
       }
     ],
     "handover": {
-      "complaint_summary": "The executor of the estate of [PERSON_1] sent the death certificate and grant of probate on 2 July. The savings have not been released, there has been no action on the case since 22/07, and the customer has phoned six times without progress. She is distressed by the delay.",
-      "products_and_accounts": "Savings account [ACCOUNT_NUMBER_1]",
+      "complaint_summary": "Executor [PERSON_2] complains that her late mother's savings have not been released to the estate. Documents were received on 04/07 and there has been no recorded action since 22/07. She has made six phone calls and is distressed by the delay while grieving.",
+      "products_and_accounts": "Savings account [ACCOUNT_NUMBER_1] (deceased [PERSON_1])",
       "desired_outcome": "\"I want it sorted and I want someone to explain why it has taken so long.\"",
       "actions_taken": [
-        "Handler located the bereavement case and noted the documents were received on 04/07 with no action since 22/07"
+        "Complaints handler located the bereavement case and confirmed documents were received on 04/07 and no action has been taken since 22/07 (2026-09-11)."
       ],
       "evidence_held": [
         "Bereavement case record",
-        "Complaint letter dated received 2026-09-10"
+        "Complaint letter dated as received 2026-09-10"
       ],
-      "vulnerability_assessment": "Indicator found: bereavement (life events) and stated distress. The customer has not been asked about support needs.",
-      "contact_preference": "MISSING. Handler note records the executor's telephone [PHONE_1]; no stated preference or adjustments.",
-      "third_party_authority": "The customer is the executor, [PERSON_2], and says she sent the grant of probate. The case record shows the documents were received, but validation of the authority is not recorded in the file.",
+      "vulnerability_assessment": "Indicator found: bereavement (life events). Customer not recorded as asked about support needs.",
+      "contact_preference": "MISSING (complaint received by letter; tel [PHONE_1] on file)",
+      "third_party_authority": "[PERSON_2] is recorded as executor and the grant of probate is reportedly on file; the specialist should confirm it is verified on the bereavement case.",
       "open_questions": [
         "Why has there been no action since 22/07?",
-        "Have the death certificate and grant of probate been validated?",
-        "Balance of the savings account and any interest to be paid to the estate",
-        "Date received for the complaint is given as 2026-09-10; confirm the logging and acknowledgement dates",
-        "Was a holding letter sent given the breached deadline?",
-        "Customer's contact preference and any reasonable adjustments",
-        "Did the six phone calls get logged, and with what dates?"
+        "What is outstanding before funds can be released?",
+        "What is the savings balance, and has any interest or loss accrued from the delay?",
+        "Are call records available for the six calls?",
+        "The deadline is shown as Breached (due 2026-11-05) despite receipt on 2026-09-10; is the date data correct, and is a holding letter needed?",
+        "What is the customer's preferred contact method?"
       ]
     },
     "fraud_details": null,
     "other_gaps": [
-      "The date of death and the year of the 2 July document submission are not stated",
-      "Call records for the six calls are not on file",
-      "Savings balance is not on file",
-      "Discrepancy between the customer's 2 July sending date and the 04/07 receipt date in the note",
-      "The deadline status shows -4 days left and Breached, while the due date is 2026-11-05 and the letter was received 2026-09-10; the system calculation should be checked"
+      "The deadline data is inconsistent: received 2026-09-10, due 2026-11-05, but shown as Breached with -4 days left.",
+      "Copies of the death certificate and probate are not listed as evidence on file.",
+      "Recordings or logs of the six calls are not on file.",
+      "Written acknowledgement under CH-2 is not recorded."
     ],
-    "suggested_next_step": "Refer to Vulnerable Customer Support under VUL-4. Contact the executor with a named contact, explain the delay and ask sensitively about support needs. Chase the bereavement team to progress release of the funds and check whether a holding letter is needed.",
+    "suggested_next_step": "Refer to Vulnerable Customer Support with the handover, chase the bereavement team for immediate progress, verify the deadline status, and contact [PERSON_2] to acknowledge the complaint and offer support and a named contact.",
     "confidence": {
       "product": "high",
-      "root_cause": "medium",
-      "severity": "high",
+      "root_cause": "high",
+      "severity": "medium",
       "vulnerability": "high",
       "specialist_teams": "medium"
     },

@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T20:28:45+00:00",
+  "saved_at": "2026-11-10T20:00:54+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-sonnet-5-5",
+    "model": "claude-opus-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011CgusvPtVmVCJpAg8EMdgp",
-    "latency_s": 13.4,
+    "request_id": "req_011CguqmmmepsCALnTHgzHtm",
+    "latency_s": 33.2,
     "usage": {
       "input": 323,
-      "output": 2244,
+      "output": 2772,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,34 +17,34 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "Customer expresses dissatisfaction that an unaffordable £15,000 loan was granted and alleges financial loss and material distress (CH-1).",
-    "summary": "Customer says a £15,000 personal loan was lent in March when they were on a zero hours contract with two maxed-out credit cards. They now pay £410 a month and cannot cover it. They report not sleeping and being 'at the end of my rope'. Acknowledgement was sent on 2026-09-23 and a holding reply on 2026-10-14. Final response is due 2026-11-17 (At risk). There is a possible vulnerability needing referral and an affordability complaint for Lending Specialists. No evidence is listed.",
+    "is_complaint_reason": "The customer expresses dissatisfaction that the bank gave them a £15,000 loan they say was unaffordable. They also describe ongoing financial loss and distress, which meets CH-1.",
+    "summary": "[PERSON_1] says Harbourline lent them £15,000 in March while they were on a zero hours contract with two credit cards already maxed out. They believe the loan should not have been given. They now pay £410 a month, cannot afford it, cannot sleep and say they are 'at the end of my rope'. This is an irresponsible lending complaint for Lending Specialists. There are strong vulnerability indicators: financial difficulty, possible risk to wellbeing, and wording that may suggest crisis. The case is At risk, with 8 days left. The customer has chased once already. No evidence or affordability records are on file, and no one has yet asked about support needs.",
     "timeline": [
       {
         "date": "March (year not stated)",
-        "event": "Customer says £15,000 loan was granted while on a zero hours contract with two credit cards maxed out.",
+        "event": "£15,000 loan advanced to customer",
         "source": "complaint"
       },
       {
         "date": "2026-09-22",
-        "event": "Complaint received by email.",
+        "event": "Complaint received by email",
         "source": "complaint"
       },
       {
         "date": "2026-09-23",
-        "event": "Acknowledgement sent; loan account [ACCOUNT_NUMBER_1] noted.",
+        "event": "Loan account noted, customer upset, acknowledgement sent",
         "source": "note_1"
       },
       {
         "date": "2026-10-14",
-        "event": "Customer emailed asking for an update; holding reply sent.",
+        "event": "Customer emailed asking for update; holding reply sent",
         "source": "note_2"
       }
     ],
     "product": "Personal loan",
     "root_cause": "Lending decision",
     "severity": "High",
-    "severity_reason": "Vulnerable customer at risk of harm (CH-6): financial difficulty, sleeplessness and distress. Customer cannot afford £410 a month on a £15,000 loan. Actual financial loss is not quantified.",
+    "severity_reason": "The disputed lending is £15,000, well above the £1,000 threshold. The customer also shows signs of being a vulnerable customer at risk of harm, including severe distress and possible crisis wording.",
     "estimated_financial_loss_gbp": null,
     "vulnerability": {
       "indicators_found": true,
@@ -53,49 +53,64 @@
         "health"
       ],
       "customer_was_asked": false,
-      "suggested_support": "Ask the customer sensitively about support needs and offer reasonable adjustments, such as a named contact and preferred contact method. Refer to Vulnerable Customer Support and consider forbearance options through Lending Specialists."
+      "suggested_support": "Contact the customer promptly and sensitively to check their wellbeing, given the wording 'end of my rope'. Signpost crisis support if appropriate. Ask about support needs and offer reasonable adjustments such as preferred contact method, more time or a named contact. Refer to Vulnerable Customer Support and discuss forbearance options for the loan repayments."
     },
     "specialist_teams": [
       "Lending Specialists",
       "Vulnerable Customer Support"
     ],
-    "routing_reason": "The complaint alleges an unaffordable lending decision, so Lending Specialists must handle it (ESC-1, LND-1). The customer shows financial difficulty plus signs of wellbeing risk, which triggers a VUL-4 referral to Vulnerable Customer Support.",
+    "routing_reason": "The customer says the loan was unaffordable and irresponsibly lent, which goes to Lending Specialists under LND-1 and ESC-1. There is a vulnerability indicator alongside financial difficulty and a risk to wellbeing, so a VUL-4 referral to Vulnerable Customer Support is also needed.",
     "policy_citations": [
-      {
-        "clause_id": "CH-1",
-        "quote": "where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience",
-        "how_it_applies": "The customer alleges distress and difficulty paying, so this is a complaint."
-      },
       {
         "clause_id": "LND-1",
         "quote": "Complaints that a lending decision was unaffordable or irresponsible must be handed to Lending Specialists.",
-        "how_it_applies": "The customer says the loan should not have been granted given their income and debts."
+        "how_it_applies": "The customer says the loan should not have been given because of their income and existing debt."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A lending decision, affordability, mortgage or loan arrears → *Lending Specialists*.",
+        "how_it_applies": "This sets the primary routing to Lending Specialists."
       },
       {
         "clause_id": "VUL-4",
         "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
-        "how_it_applies": "Financial difficulty and sleeplessness or distress are both present."
+        "how_it_applies": "The customer cannot cover the repayments, is not sleeping and is in severe distress."
       },
       {
         "clause_id": "CH-6",
-        "quote": "a vulnerable customer at risk of harm",
-        "how_it_applies": "Sets severity as High."
+        "quote": "*High*: financial loss over £1,000, suspected fraud or scam, a vulnerable customer at risk of harm",
+        "how_it_applies": "The loan is £15,000 and the customer may be at risk of harm."
+      },
+      {
+        "clause_id": "VUL-1",
+        "quote": "*resilience* (low or erratic income, problem debt, financial difficulty)",
+        "how_it_applies": "The customer has a zero hours contract, maxed-out credit cards and repayments they cannot afford."
       },
       {
         "clause_id": "VUL-2",
         "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support.",
-        "how_it_applies": "Indirect statements indicate possible vulnerability and the customer has not been asked."
+        "how_it_applies": "The case does not record that the customer has been asked about support needs."
+      },
+      {
+        "clause_id": "CH-5",
+        "quote": "At risk and Critical cases must be reviewed by a team leader weekly.",
+        "how_it_applies": "The case is At risk with 8 days left."
+      },
+      {
+        "clause_id": "FEE-4",
+        "quote": "Where a customer shows signs of financial difficulty, fees charged in the last 6 months should be reviewed and refunded where they have added to the difficulty.",
+        "how_it_applies": "Any fees on the loan account should be reviewed by the specialist."
       }
     ],
     "evidence": [
       {
-        "field": "root_cause",
-        "quote": "I don't think you should have given me that loan.",
+        "field": "product",
+        "quote": "You lent me £15,000 in March",
         "source": "complaint"
       },
       {
-        "field": "product",
-        "quote": "You lent me £15,000 in March",
+        "field": "root_cause",
+        "quote": "I don't think you should have given me that loan.",
         "source": "complaint"
       },
       {
@@ -105,49 +120,58 @@
       },
       {
         "field": "vulnerability",
-        "quote": "Now I'm paying £410 a month and I can't cover it.",
+        "quote": "I was on a zero hours contract and already had two credit cards maxed out",
         "source": "complaint"
       },
       {
         "field": "severity",
-        "quote": "on a zero hours contract and already had two credit cards maxed out",
+        "quote": "Now I'm paying £410 a month and I can't cover it.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I don't think you should have given me that loan.",
         "source": "complaint"
       },
       {
         "field": "specialist_team",
-        "quote": "Cust upset.",
+        "quote": "Loan acct [ACCOUNT_NUMBER_1].",
         "source": "note_1"
       }
     ],
     "handover": {
-      "complaint_summary": "Customer says a £15,000 loan was granted in March despite a zero hours contract and two maxed-out credit cards. They now cannot afford the £410 monthly payment and report distress and poor sleep.",
-      "products_and_accounts": "Personal loan, account [ACCOUNT_NUMBER_1]. Credit cards mentioned but no references given.",
-      "desired_outcome": "Not explicitly stated. Customer says 'I don't think you should have given me that loan.'",
+      "complaint_summary": "The customer says a £15,000 loan taken out in March was unaffordable. At the time they were on a zero hours contract and had two maxed-out credit cards. They cannot afford the £410 monthly repayments and report sleeplessness and severe distress. Received 2026-09-22; final response due 2026-11-17, 8 days left, status At risk.",
+      "products_and_accounts": "Personal loan [ACCOUNT_NUMBER_1]",
+      "desired_outcome": "MISSING. The customer has not stated a specific outcome. In their words: \"I don't think you should have given me that loan.\"",
       "actions_taken": [
-        "Acknowledgement sent (2026-09-23)",
-        "Holding reply sent after customer chased (2026-10-14)"
+        "Acknowledgement sent on 2026-09-23",
+        "Holding reply sent on 2026-10-14 after the customer chased"
       ],
-      "evidence_held": [],
-      "vulnerability_assessment": "Indicators found: resilience (cannot afford repayments, maxed-out cards, zero hours income) and possible health (cannot sleep, 'at the end of my rope'). Customer has not been asked about support needs.",
-      "contact_preference": "MISSING",
+      "evidence_held": [
+        "MISSING: no evidence listed on file"
+      ],
+      "vulnerability_assessment": "Indicators found: resilience (zero hours contract, maxed-out credit cards, cannot afford repayments) and possible health or wellbeing risk (cannot sleep, 'at the end of my rope'). The customer has not been asked about support needs.",
+      "contact_preference": "MISSING. The customer contacted the bank by email; no preference or reasonable adjustments are recorded.",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "Date received 2026-09-22; final response due 2026-11-17, 8 days left, status At risk.",
-        "What affordability assessment was done at application, and what income and credit data was held?",
-        "Exact loan date and terms, current balance and payment status.",
-        "Has the customer missed payments, and have forbearance options been offered?",
-        "Does the customer need support or adjustments, and is there any wellbeing risk requiring urgent contact?",
-        "Customer's desired outcome and contact preference."
+        "Is the customer safe? Does the 'end of my rope' wording need an urgent welfare check?",
+        "What affordability and credit checks were carried out at application in March?",
+        "What income and existing credit commitments were declared at application?",
+        "Is the loan account in arrears, and have forbearance options been offered?",
+        "What outcome does the customer want?",
+        "What support needs and contact adjustments does the customer have?"
       ]
     },
     "fraud_details": null,
     "other_gaps": [
-      "No evidence listed, such as the application, affordability assessment or income documents.",
-      "Loan year not stated; March is presumed to be this year but not confirmed.",
-      "Nothing records that the customer was told of ombudsman rights, though a holding reply was sent.",
-      "Neither note records that the customer was asked about support needs."
+      "Loan application, affordability assessment and credit file data at origination are not on file",
+      "Exact date of the loan advance is not given",
+      "Loan account statements and current arrears status are not on file",
+      "Copies of the complaint and chaser emails are not listed as evidence",
+      "Specialist handover has not yet been made, although the trigger was clear on 2026-09-22 (ESC-2 timing)",
+      "Team leader weekly review has not been recorded (CH-5)"
     ],
-    "suggested_next_step": "Hand over to Lending Specialists, with a VUL-4 referral to Vulnerable Customer Support, today. Because of the At risk deadline, arrange weekly team leader review (CH-5) and contact the customer sensitively to ask about support needs.",
+    "suggested_next_step": "Contact the customer today to check their welfare and ask sensitively about support needs. Then hand over to Lending Specialists and refer to Vulnerable Customer Support urgently, given that only 8 days remain before the deadline. Flag for team leader review and consider whether a CH-4 holding letter will be needed.",
     "confidence": {
       "product": "high",
       "root_cause": "high",

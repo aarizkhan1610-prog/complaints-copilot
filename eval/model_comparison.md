@@ -2,8 +2,8 @@
 
 Same 25 synthetic cases, same prompt (`triage-v1.0`), same code checks, effort `low`.
 Each model's saved responses live in their own folder, so the Opus baseline is untouched:
-`data/cached_responses/` (Sonnet, now the default), `data/cached_responses_opus/`, `data/cached_responses_haiku/`.
-Full per-case results: `eval/results.md` (Sonnet), `eval/results_opus.md`, `eval/results_haiku.md`.
+`data/cached_responses/` (Opus, the saved demo set), `data/cached_responses_sonnet/`, `data/cached_responses_haiku/`.
+Full per-case results: `eval/results.md` (Opus), `eval/results_sonnet.md`, `eval/results_haiku.md`.
 
 | Measure | Opus 5.5 | Sonnet 5.5 | Haiku 5.5 |
 |---|---|---|---|
@@ -48,11 +48,12 @@ vulnerable, High severity or needing a specialist.
 Caveat: 25 synthetic cases is a demonstration set, so the differences of one or two cases
 are not statistically meaningful.
 
-**Decision:** the app default is now `claude-sonnet-5-5`. To go back to Opus, set
-`COPILOT_MODEL=claude-opus-5-5` and `COPILOT_CACHE_DIR=data/cached_responses_opus`.
+**Decision:** live calls now use `claude-sonnet-5-5`. The saved demo responses stay as the
+Opus 5.5 set, and each result in the app shows which model produced it. To make live calls
+with Opus again, set `COPILOT_MODEL=claude-opus-5-5`.
 
 Reproduce:
 
-    python scripts/build_cache.py && python eval/run_eval.py              # Sonnet (default)
-    COPILOT_MODEL=claude-opus-5-5 COPILOT_CACHE_DIR=data/cached_responses_opus python eval/run_eval.py --suffix _opus
+    python eval/run_eval.py                                               # Opus (saved demo set)
+    COPILOT_MODEL=claude-sonnet-5-5 COPILOT_CACHE_DIR=data/cached_responses_sonnet python eval/run_eval.py --suffix _sonnet
     COPILOT_MODEL=claude-haiku-5-5 COPILOT_CACHE_DIR=data/cached_responses_haiku python eval/run_eval.py --suffix _haiku

@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T20:28:21+00:00",
+  "saved_at": "2026-11-10T20:00:02+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-sonnet-5-5",
+    "model": "claude-opus-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011CgustuRTE8b8oxDhohP64",
-    "latency_s": 9.2,
+    "request_id": "req_011CguqjD6aBnuL6EuV3K6Va",
+    "latency_s": 15.3,
     "usage": {
       "input": 235,
-      "output": 1277,
+      "output": 1242,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,38 +17,38 @@
   },
   "analysis": {
     "is_complaint": false,
-    "is_complaint_reason": "Under CH-1, a request for information or a change to an account is not a complaint unless dissatisfaction is expressed. The customer asks for an address update and a new chequebook and expresses no dissatisfaction. The contact centre note says it was routed to the complaints queue by mistake.",
-    "summary": "The customer, [PERSON_1], emailed on 2026-11-06 to say they have moved house. They gave a new address ([ADDRESS_1], [POSTCODE_1]) and asked for their details to be updated and a new chequebook sent. No dissatisfaction, loss or detriment is described. A contact centre agent noted the email was routed to the complaints queue by mistake from the shared inbox. It should be redirected to the correct servicing team.",
+    "is_complaint_reason": "Under CH-1 this is a request for a change to an account (address update) and a new chequebook. No dissatisfaction, loss, distress or inconvenience is expressed. Note_1 confirms it was routed to the complaints queue by mistake.",
+    "summary": "The customer emailed to say they have moved house. They asked for their address to be updated to [ADDRESS_1], [POSTCODE_1] and for a new chequebook to be sent. They express no dissatisfaction. A contact centre agent notes the email reached the complaints queue by mistake from a shared inbox. This is a service request, not a complaint. It should go back to the servicing team for the address change and chequebook order, following the usual identity checks.",
     "timeline": [
       {
         "date": "2026-11-06",
-        "event": "Customer emailed to report a house move and asked for their address to be updated and a new chequebook sent.",
+        "event": "Customer emailed asking for an address update and a new chequebook.",
         "source": "complaint"
       },
       {
         "date": "2026-11-06",
-        "event": "Contact centre agent noted the email was routed to the complaints queue by mistake from the shared inbox.",
+        "event": "Email routed to the complaints queue by mistake from a shared inbox.",
         "source": "note_1"
       }
     ],
     "product": "Current account",
     "root_cause": "Not a complaint",
     "severity": "Low",
-    "severity_reason": "No loss, distress or service failure is alleged, so no CH-6 high or medium criteria apply. Low is the default for a non-complaint service request.",
+    "severity_reason": "Not a complaint. No financial loss or service failure is alleged, so the lowest CH-6 level is recorded for system purposes only.",
     "estimated_financial_loss_gbp": null,
     "vulnerability": {
       "indicators_found": false,
       "drivers": [],
       "customer_was_asked": false,
-      "suggested_support": "None indicated. A house move alone is not a vulnerability indicator."
+      "suggested_support": "None identified. Moving house alone is not a vulnerability indicator under VUL-1. Stay alert to any indicators in future contact, in line with VUL-2."
     },
     "specialist_teams": [],
-    "routing_reason": "No ESC-1 trigger applies. This is a routine servicing request, not a complaint, so it should go back to the normal account servicing team rather than a specialist team.",
+    "routing_reason": "No ESC-1 trigger applies. This is a routine servicing request and should be returned to the servicing or contact centre team rather than handled as a complaint.",
     "policy_citations": [
       {
         "clause_id": "CH-1",
         "quote": "A request for information or a change to an account is not a complaint unless dissatisfaction is expressed.",
-        "how_it_applies": "The customer only asks for an address change and a chequebook and expresses no dissatisfaction, so this is not a complaint."
+        "how_it_applies": "The customer is only asking for an address change and a chequebook, and expresses no dissatisfaction."
       }
     ],
     "evidence": [
@@ -63,36 +63,33 @@
         "source": "note_1"
       },
       {
-        "field": "desired_outcome",
-        "quote": "Could you update my details and send me a new chequebook please?",
-        "source": "complaint"
-      },
-      {
         "field": "product",
         "quote": "send me a new chequebook",
         "source": "complaint"
       }
     ],
     "handover": {
-      "complaint_summary": "Not a complaint. The customer asked for an address update and a new chequebook after moving house. No handover to a specialist team is needed.",
-      "products_and_accounts": "MISSING. The account reference is not given. A chequebook request suggests a current account.",
-      "desired_outcome": "Update details to the new address and send a new chequebook.",
-      "actions_taken": [],
+      "complaint_summary": "Not a complaint. The customer asks for an address update and a new chequebook.",
+      "products_and_accounts": "MISSING. No account reference is given; a chequebook implies a current account.",
+      "desired_outcome": "\"Could you update my details and send me a new chequebook please?\"",
+      "actions_taken": [
+        "Contact centre agent noted the misrouting to the complaints queue."
+      ],
       "evidence_held": [],
       "vulnerability_assessment": "No indicators found. The customer was not asked.",
-      "contact_preference": "MISSING",
+      "contact_preference": "MISSING. The customer contacted the bank by email.",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "Which account should the chequebook be issued on?",
-        "Has the address change been verified and processed by the servicing team?"
+        "Has the customer's identity been verified before the address change and chequebook dispatch?",
+        "Which account is the chequebook for?"
       ]
     },
     "fraud_details": null,
     "other_gaps": [
-      "The account reference is not provided.",
-      "Identity verification for the address change is not recorded."
+      "No account reference is given.",
+      "No record of identity verification. Address change followed by a chequebook request should be handled with standard security checks."
     ],
-    "suggested_next_step": "Redirect the email to the account servicing team for the address change and chequebook request, close the complaints queue entry as logged in error, and confirm to the customer that the request is being handled.",
+    "suggested_next_step": "Close this item as not a complaint and return it to the servicing team. That team should verify the customer's identity and then process the address update and chequebook request.",
     "confidence": {
       "product": "medium",
       "root_cause": "high",

@@ -43,22 +43,22 @@
   "ai": {
     "n": 25,
     "is_complaint": 25,
-    "product": 23,
+    "product": 22,
     "n_complaints": 24,
     "root_cause": 24,
     "severity": 25,
     "severity_high_missed": 0,
     "vuln_tp": 8,
     "vuln_fn": 0,
-    "vuln_fp": 2,
+    "vuln_fp": 1,
     "route_need": 25,
     "clauses_expected": 53,
-    "clauses_hit": 45,
-    "cites": 142,
-    "cites_verified": 142,
+    "clauses_hit": 39,
+    "cites": 93,
+    "cites_verified": 93,
     "cites_invented": 0,
-    "evidence": 139,
-    "evidence_verified": 139,
+    "evidence": 132,
+    "evidence_verified": 132,
     "n_need": 14,
     "route_primary": 14,
     "route_all": 14,
@@ -77,20 +77,21 @@
       "gaps_true": [],
       "tokens": {
         "input": 435,
-        "output": 2037,
+        "output": 1977,
         "cache_read": 0,
         "cache_write": 8575
       },
-      "latency_s": 21.4
+      "latency_s": 13.0
     },
     {
       "case": "C002",
-      "product": false,
+      "product": true,
       "root_cause": true,
       "severity": true,
       "vulnerable": true,
       "routing": true,
       "gaps_pred": [
+        "contact_preference",
         "frd_payee_details",
         "frd_security_details",
         "products_accounts",
@@ -102,11 +103,11 @@
       ],
       "tokens": {
         "input": 515,
-        "output": 3043,
+        "output": 2626,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 37.4
+      "latency_s": 16.1
     },
     {
       "case": "C003",
@@ -119,11 +120,11 @@
       "gaps_true": [],
       "tokens": {
         "input": 283,
-        "output": 1874,
+        "output": 1521,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 15.7
+      "latency_s": 9.6
     },
     {
       "case": "C004",
@@ -143,22 +144,21 @@
       ],
       "tokens": {
         "input": 400,
-        "output": 2796,
+        "output": 2293,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 32.5
+      "latency_s": 13.7
     },
     {
       "case": "C005",
       "product": true,
       "root_cause": true,
       "severity": true,
-      "vulnerable": false,
+      "vulnerable": true,
       "routing": true,
       "gaps_pred": [
         "contact_preference",
-        "evidence_held",
         "products_accounts",
         "vulnerability_assessment"
       ],
@@ -169,11 +169,11 @@
       ],
       "tokens": {
         "input": 424,
-        "output": 2718,
+        "output": 1902,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 33.0
+      "latency_s": 11.6
     },
     {
       "case": "C006",
@@ -186,11 +186,11 @@
       "gaps_true": [],
       "tokens": {
         "input": 355,
-        "output": 2170,
+        "output": 1884,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 26.0
+      "latency_s": 11.6
     },
     {
       "case": "C007",
@@ -201,6 +201,8 @@
       "routing": true,
       "gaps_pred": [
         "contact_preference",
+        "frd_contact_method",
+        "frd_payee_details",
         "products_accounts"
       ],
       "gaps_true": [
@@ -208,11 +210,11 @@
       ],
       "tokens": {
         "input": 382,
-        "output": 2425,
+        "output": 2129,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 28.8
+      "latency_s": 13.0
     },
     {
       "case": "C008",
@@ -225,11 +227,11 @@
       "gaps_true": [],
       "tokens": {
         "input": 302,
-        "output": 2074,
+        "output": 1827,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 17.4
+      "latency_s": 13.3
     },
     {
       "case": "C009",
@@ -242,11 +244,11 @@
       "gaps_true": [],
       "tokens": {
         "input": 332,
-        "output": 2116,
+        "output": 1668,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 19.1
+      "latency_s": 11.1
     },
     {
       "case": "C010",
@@ -259,15 +261,15 @@
       "gaps_true": [],
       "tokens": {
         "input": 235,
-        "output": 1242,
+        "output": 1277,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 15.3
+      "latency_s": 9.2
     },
     {
       "case": "C011",
-      "product": true,
+      "product": false,
       "root_cause": true,
       "severity": true,
       "vulnerable": true,
@@ -276,11 +278,11 @@
       "gaps_true": [],
       "tokens": {
         "input": 343,
-        "output": 2338,
+        "output": 1778,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 19.4
+      "latency_s": 11.0
     },
     {
       "case": "C012",
@@ -291,7 +293,6 @@
       "routing": true,
       "gaps_pred": [
         "contact_preference",
-        "desired_outcome",
         "evidence_held",
         "vulnerability_assessment"
       ],
@@ -302,11 +303,11 @@
       ],
       "tokens": {
         "input": 323,
-        "output": 2772,
+        "output": 2244,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 33.2
+      "latency_s": 13.4
     },
     {
       "case": "C013",
@@ -327,11 +328,11 @@
       ],
       "tokens": {
         "input": 342,
-        "output": 2782,
+        "output": 2100,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 34.3
+      "latency_s": 12.7
     },
     {
       "case": "C014",
@@ -350,30 +351,28 @@
       ],
       "tokens": {
         "input": 361,
-        "output": 2561,
+        "output": 2540,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 21.5
+      "latency_s": 15.4
     },
     {
       "case": "C015",
-      "product": true,
+      "product": false,
       "root_cause": true,
       "severity": true,
       "vulnerable": true,
       "routing": true,
-      "gaps_pred": [
-        "products_accounts"
-      ],
+      "gaps_pred": [],
       "gaps_true": [],
       "tokens": {
         "input": 357,
-        "output": 2286,
+        "output": 1902,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 18.1
+      "latency_s": 11.2
     },
     {
       "case": "C016",
@@ -392,11 +391,11 @@
       ],
       "tokens": {
         "input": 319,
-        "output": 2636,
+        "output": 1933,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 21.3
+      "latency_s": 12.3
     },
     {
       "case": "C017",
@@ -413,11 +412,11 @@
       ],
       "tokens": {
         "input": 292,
-        "output": 2459,
+        "output": 2040,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 20.8
+      "latency_s": 17.3
     },
     {
       "case": "C018",
@@ -430,11 +429,11 @@
       "gaps_true": [],
       "tokens": {
         "input": 339,
-        "output": 1931,
+        "output": 1785,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 23.2
+      "latency_s": 11.8
     },
     {
       "case": "C019",
@@ -447,11 +446,11 @@
       "gaps_true": [],
       "tokens": {
         "input": 264,
-        "output": 1811,
+        "output": 1564,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 22.1
+      "latency_s": 9.5
     },
     {
       "case": "C020",
@@ -461,6 +460,8 @@
       "vulnerable": true,
       "routing": true,
       "gaps_pred": [
+        "contact_preference",
+        "products_accounts",
         "vulnerability_assessment"
       ],
       "gaps_true": [
@@ -468,11 +469,11 @@
       ],
       "tokens": {
         "input": 283,
-        "output": 1952,
+        "output": 1775,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 16.3
+      "latency_s": 10.7
     },
     {
       "case": "C021",
@@ -495,11 +496,11 @@
       ],
       "tokens": {
         "input": 306,
-        "output": 2015,
+        "output": 1851,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 16.7
+      "latency_s": 11.3
     },
     {
       "case": "C022",
@@ -509,10 +510,6 @@
       "vulnerable": true,
       "routing": true,
       "gaps_pred": [
-        "account_secured",
-        "frd_contact_method",
-        "frd_payment_details",
-        "frd_security_details",
         "vulnerability_assessment"
       ],
       "gaps_true": [
@@ -520,11 +517,11 @@
       ],
       "tokens": {
         "input": 314,
-        "output": 2691,
+        "output": 1971,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 32.1
+      "latency_s": 17.3
     },
     {
       "case": "C023",
@@ -537,11 +534,11 @@
       "gaps_true": [],
       "tokens": {
         "input": 281,
-        "output": 1772,
+        "output": 1546,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 22.0
+      "latency_s": 9.6
     },
     {
       "case": "C024",
@@ -552,6 +549,7 @@
       "routing": true,
       "gaps_pred": [
         "account_secured",
+        "actions_taken",
         "contact_preference",
         "evidence_held",
         "frd_contact_method",
@@ -574,11 +572,11 @@
       ],
       "tokens": {
         "input": 186,
-        "output": 1928,
+        "output": 1589,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 23.8
+      "latency_s": 10.8
     },
     {
       "case": "C025",
@@ -591,16 +589,16 @@
       "gaps_true": [],
       "tokens": {
         "input": 370,
-        "output": 2222,
+        "output": 1712,
         "cache_read": 8575,
         "cache_write": 0
       },
-      "latency_s": 19.7
+      "latency_s": 10.8
     }
   ],
   "gaps": {
-    "tp": 32,
+    "tp": 31,
     "fp": 14,
-    "fn": 1
+    "fn": 2
   }
 }

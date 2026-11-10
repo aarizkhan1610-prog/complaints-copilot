@@ -5,7 +5,9 @@
     ANTHROPIC_API_KEY=... python scripts/build_cache.py C002 C009  # just these
     ... --force                                                     # re-run even if a fresh one exists
 
-Costs money (roughly 2p per case on the default model). Saved files hold only the
+Costs money (roughly 2p per case on the default model, Sonnet 5.5). The saved demo set in
+data/cached_responses was made with Opus 5.5; to refresh it with the same model, run with
+COPILOT_MODEL=claude-opus-5-5 (about 5p per case), or set COPILOT_CACHE_DIR to write elsewhere. Saved files hold only the
 redacted input hash, model metadata and the model's output, never personal data.
 """
 import sys

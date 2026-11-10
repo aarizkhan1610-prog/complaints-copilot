@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T20:30:15+00:00",
+  "saved_at": "2026-11-10T20:03:35+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-sonnet-5-5",
+    "model": "claude-opus-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011Cgut3LmvJvgiUXJWZ5srp",
-    "latency_s": 9.5,
+    "request_id": "req_011CguqzUaR4391uH1FzW7Ne",
+    "latency_s": 22.1,
     "usage": {
       "input": 264,
-      "output": 1564,
+      "output": 1811,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,12 +17,12 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "Customer expresses dissatisfaction that an ISA transfer took six weeks against a stated 15 working day timescale and alleges about £56 lost interest (CH-1).",
-    "summary": "Customer says an ISA transfer in from another provider took six weeks, not the 15 working days quoted, and estimates about £56 interest lost. The handler's note records the transfer as received 03/09 and completed 15/10 against a 15 working day SLA. No vulnerability indicators were noted. Customer prefers email but also offered a mobile number. Low-value service delay case suitable for the complaints handler to resolve.",
+    "is_complaint_reason": "The customer expresses dissatisfaction that an ISA transfer took six weeks against a stated 15 working days and alleges financial loss of about £56 in interest, which meets CH-1.",
+    "summary": "[PERSON_1] complains that an ISA transfer in from another provider took about six weeks, although the bank said it would take 15 working days. The handler's note records that the transfer was received on 03/09 and completed on 15/10. The customer estimates lost interest of about £56 and asks the bank to 'sort it'. No vulnerability indicators were noted. The customer prefers email but also gave a mobile number. The estimated loss is under £100 and there are no escalation triggers, so the complaints handler can deal with this directly. The lost-interest calculation still needs to be verified.",
     "timeline": [
       {
         "date": "03/09",
-        "event": "ISA transfer in received",
+        "event": "ISA transfer in received by the bank",
         "source": "note_1"
       },
       {
@@ -32,38 +32,53 @@
       },
       {
         "date": "2026-10-22",
-        "event": "Complaint received by email and noted by handler",
+        "event": "Complaint received by email",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-22",
+        "event": "Handler noted transfer dates, SLA of 15 working days, no vulnerability, email preference",
         "source": "note_1"
       }
     ],
     "product": "Savings account",
     "root_cause": "Service delay",
     "severity": "Low",
-    "severity_reason": "Estimated loss of about £56 is under £100 (CH-6), with no fraud, vulnerability or legal threat indicated.",
+    "severity_reason": "The customer estimates a loss of about £56, which is under £100. This is a service delay with no fraud, no vulnerability, no legal threat and no repeated contact, so it is Low under CH-6.",
     "estimated_financial_loss_gbp": 56.0,
     "vulnerability": {
       "indicators_found": false,
       "drivers": [],
       "customer_was_asked": false,
-      "suggested_support": "None identified. Handler noted no vulnerability; the case does not say the customer was asked about support needs."
+      "suggested_support": "No indicators were found in the complaint. The note says 'no vuln' but does not record that the customer was asked. Stay alert for any indicators in further contact."
     },
     "specialist_teams": [],
-    "routing_reason": "No ESC-1 trigger applies: no fraud, lending, vulnerability referral, systemic or legal issue, or technical failure. The complaints handler can resolve it.",
+    "routing_reason": "None of the ESC-1 triggers apply: there is no fraud, lending, vulnerability referral, systemic issue or technical failure needing investigation. The complaints handler should resolve this.",
     "policy_citations": [
       {
         "clause_id": "CH-1",
-        "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
-        "how_it_applies": "Customer is dissatisfied with the ISA transfer time and alleges financial loss."
+        "quote": "where the customer alleges they have suffered (or may suffer) financial loss",
+        "how_it_applies": "The customer alleges about £56 of lost interest caused by the delay."
       },
       {
         "clause_id": "CH-6",
         "quote": "*Low*: financial loss under £100 or a service issue with no loss.",
-        "how_it_applies": "Alleged loss of about £56 is under £100, so severity is Low."
+        "how_it_applies": "The estimated loss of about £56 is under £100."
       },
       {
-        "clause_id": "CH-8",
-        "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist.",
-        "how_it_applies": "Outcome and any redress are for the handler to decide, not this triage."
+        "clause_id": "CH-7",
+        "quote": "Service delay",
+        "how_it_applies": "The transfer took longer than the stated 15 working days."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "Complaints handlers resolve complaints themselves unless one of the following applies",
+        "how_it_applies": "No escalation trigger is present."
+      },
+      {
+        "clause_id": "RED-2",
+        "quote": "Direct financial loss caused by the bank must be refunded in full",
+        "how_it_applies": "This is relevant to the handler's assessment if a delay caused by the bank is confirmed. The handler decides the outcome."
       }
     ],
     "evidence": [
@@ -74,53 +89,54 @@
       },
       {
         "field": "severity",
-        "quote": "i lost about £56 interest",
+        "quote": "i reckon i lost about £56 interest while it was stuck",
         "source": "complaint"
       },
       {
-        "field": "root_cause",
+        "field": "product",
         "quote": "ISA transfer in received 03/09, completed 15/10. SLA 15 working days.",
-        "source": "note_1"
-      },
-      {
-        "field": "vulnerability",
-        "quote": "no vuln",
         "source": "note_1"
       },
       {
         "field": "desired_outcome",
         "quote": "can you sort it",
         "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "no vuln",
+        "source": "note_1"
       }
     ],
     "handover": {
-      "complaint_summary": "Customer says ISA transfer in took six weeks versus the 15 working days quoted, and estimates about £56 lost interest.",
-      "products_and_accounts": "ISA (transfer in from another provider); account reference MISSING",
-      "desired_outcome": "\"can you sort it\" - presumably compensation for lost interest; not explicitly stated",
+      "complaint_summary": "The ISA transfer in from another provider took about six weeks (received 03/09, completed 15/10) against a stated 15 working days. The customer claims about £56 of lost interest.",
+      "products_and_accounts": "ISA (savings), transfer in from another provider. Account reference: MISSING.",
+      "desired_outcome": "\"can you sort it\". The customer appears to want the lost interest (about £56) addressed.",
       "actions_taken": [
-        "Complaint logged and noted by handler on 2026-10-22"
+        "Complaint logged 2026-10-22; transfer dates and SLA checked by the handler"
       ],
       "evidence_held": [
         "ISA transfer record"
       ],
-      "vulnerability_assessment": "No indicators found per handler note; customer not recorded as asked about support needs.",
-      "contact_preference": "Email (per handler note); customer also offered mobile [PHONE_1]",
+      "vulnerability_assessment": "No indicators found. The customer was not recorded as being asked.",
+      "contact_preference": "Email preferred (per note); mobile [PHONE_1] also offered by the customer.",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "Does the ISA transfer record confirm the dates and whether the 15 working day SLA was exceeded?",
-        "How was the £56 interest figure calculated, and is it accurate?",
-        "Was the delay caused by the bank or the sending provider?"
+        "Was the delay caused by Harbourline or by the ceding provider?",
+        "What is the verified interest lost against the expected completion date?",
+        "When did the customer submit the transfer request?"
       ]
     },
     "fraud_details": null,
     "other_gaps": [
-      "Account reference not in the case file",
-      "Basis of the £56 interest estimate not provided",
-      "Whether the 15 working day timescale was communicated to the customer is not evidenced"
+      "The year of the transfer dates is not stated.",
+      "There is no ISA account reference.",
+      "There is no interest calculation on file.",
+      "There is no record of the date the transfer request was originally submitted."
     ],
-    "suggested_next_step": "Handler to review the ISA transfer record to establish the cause of the delay and the actual interest impact, acknowledge the complaint in writing within 3 business days (CH-2), and decide the outcome under CH-8.",
+    "suggested_next_step": "Check the transfer record to establish where the delay occurred. Calculate the interest lost against the 15-working-day SLA, then decide the outcome and any redress under the handler's authority, replying by email.",
     "confidence": {
-      "product": "medium",
+      "product": "high",
       "root_cause": "high",
       "severity": "high",
       "vulnerability": "medium",

@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T20:26:18+00:00",
+  "saved_at": "2026-11-10T19:56:09+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-sonnet-5-5",
+    "model": "claude-opus-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011CgusjbzDWTSjVSmRvJu2f",
-    "latency_s": 13.0,
+    "request_id": "req_011CguqRcVVc3bU4TrtMR6VW",
+    "latency_s": 21.4,
     "usage": {
       "input": 435,
-      "output": 1977,
+      "output": 2037,
       "cache_read": 0,
       "cache_write": 8575
     },
@@ -17,22 +17,27 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "Customer expresses dissatisfaction about two overdraft fees totalling £30 allegedly caused by a late salary credit, which is a financial loss (CH-1).",
-    "summary": "The customer's salary did not arrive on 30 September. Her account went overdrawn and two unarranged overdraft fees of £15 were charged (30/09 and 01/10). She asks for the £30 to be refunded. The handler's check of the incident log found INC-4471, a batch delay on inbound Faster Payments on 30/09, with credits applied on 01/10. The fees are confirmed. No vulnerability indicators were found. The complaint has been acknowledged and is on track.",
+    "is_complaint_reason": "Customer expresses dissatisfaction ('This wasn't my fault') about overdraft fees and alleges financial loss of £30, meeting CH-1.",
+    "summary": "Customer's salary credit due 30 September arrived late. Her account went overdrawn and two £15 unarranged overdraft fees were charged (30/09 and 01/10). She asks for the £30 to be refunded. The handler found incident INC-4471, a batch delay on inbound Faster Payments on 30/09, with credits applied 01/10. This suggests the fees may have resulted from a bank system fault, which would bring FEE-2 into scope. The loss is under £100. No vulnerability indicators were noted. The customer prefers email. The complaints handler can resolve this without a specialist; the outcome and any redress are for the handler to decide.",
     "timeline": [
       {
         "date": "30 September",
-        "event": "Expected salary did not arrive; incident INC-4471 batch delay on inbound Faster Payments occurred; first £15 unarranged overdraft fee charged",
+        "event": "Expected salary credit did not arrive; account went overdrawn; first £15 unarranged overdraft fee charged",
+        "source": "complaint"
+      },
+      {
+        "date": "30/09",
+        "event": "INC-4471 batch delay on inbound Faster Payments; UOD fee £15",
         "source": "note_1"
       },
       {
         "date": "01/10",
-        "event": "Delayed credits applied; second £15 unarranged overdraft fee charged",
+        "event": "Delayed credits applied; second UOD fee £15",
         "source": "note_1"
       },
       {
         "date": "2026-10-27",
-        "event": "Complaint received by email and logged; incident log checked and fees confirmed",
+        "event": "Complaint received by email and logged; incident log checked",
         "source": "note_1"
       },
       {
@@ -44,39 +49,44 @@
     "product": "Current account",
     "root_cause": "Fees and charges",
     "severity": "Low",
-    "severity_reason": "Financial loss is £30, under £100, with no other CH-6 high or medium triggers (no fraud, vulnerability, repeat contact or legal threat). A possible wider issue exists via the batch delay incident, but there is no evidence of many customers complaining.",
+    "severity_reason": "Financial loss of £30, under £100, with no other High or Medium triggers (CH-6). The incident affected a batch of payments, but there is no indication in the file that it is an unresolved systemic complaint issue.",
     "estimated_financial_loss_gbp": 30.0,
     "vulnerability": {
       "indicators_found": false,
       "drivers": [],
-      "customer_was_asked": true,
-      "suggested_support": "None needed at present; customer said she is fine. Continue to watch for indicators."
+      "customer_was_asked": false,
+      "suggested_support": "None identified; continue contact by email as preferred."
     },
     "specialist_teams": [],
-    "routing_reason": "No ESC-1 trigger: not fraud, lending, vulnerability referral, legal or media threat, or app failure needing technical investigation. The incident is already identified and documented, so the handler can resolve it. The handler may consider whether Senior Complaints Review should be told of the incident's wider impact.",
+    "routing_reason": "No ESC-1 trigger applies: this is a fee complaint with no fraud, lending, vulnerability referral or need for technical investigation, because the incident is already recorded as INC-4471. The complaints handler can resolve it.",
     "policy_citations": [
       {
-        "clause_id": "FEE-2",
-        "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full",
-        "how_it_applies": "The fees appear linked to bank incident INC-4471, so the handler should assess whether this is a bank error under FEE-2. The decision rests with the handler."
-      },
-      {
         "clause_id": "CH-6",
-        "quote": "*Low*: financial loss under £100 or a service issue with no loss.",
-        "how_it_applies": "The loss is £30, so severity is Low."
+        "quote": "Low: financial loss under £100 or a service issue with no loss.",
+        "how_it_applies": "£30 loss sets severity to Low."
       },
       {
-        "clause_id": "CH-7",
-        "quote": "Fees and charges",
-        "how_it_applies": "The complaint centres on overdraft fees, so the primary root cause is Fees and charges."
+        "clause_id": "FEE-2",
+        "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full, together with any interest charged on it, plus a goodwill payment in line with policy RED.",
+        "how_it_applies": "INC-4471 indicates the fees may stem from a bank processing delay. The handler should assess whether FEE-2 applies."
       },
       {
-        "clause_id": "CH-8",
-        "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist.",
-        "how_it_applies": "This analysis does not state an outcome; the handler decides."
+        "clause_id": "FEE-1",
+        "quote": "including unarranged overdraft fees",
+        "how_it_applies": "The disputed fees are within the scope of the fees policy."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "Complaints handlers resolve complaints themselves unless one of the following applies",
+        "how_it_applies": "None of the escalation triggers apply."
       }
     ],
     "evidence": [
+      {
+        "field": "product",
+        "quote": "Account [ACCOUNT_NUMBER_1], sort code [SORT_CODE_1]",
+        "source": "complaint"
+      },
       {
         "field": "root_cause",
         "quote": "you charged me two unarranged overdraft fees of £15 each",
@@ -89,60 +99,53 @@
       },
       {
         "field": "severity",
-        "quote": "Please refund the £30.",
-        "source": "complaint"
+        "quote": "Two UOD fees £15 on 30/09 and 01/10 confirmed",
+        "source": "note_1"
       },
       {
         "field": "vulnerability",
-        "quote": "No vulnerability indicators, cust says she's fine just annoyed.",
+        "quote": "No vulnerability indicators, cust says she's fine just annoyed",
         "source": "note_1"
       },
       {
         "field": "desired_outcome",
         "quote": "Please refund the £30.",
         "source": "complaint"
-      },
-      {
-        "field": "product",
-        "quote": "my account went overdrawn",
-        "source": "complaint"
       }
     ],
     "handover": {
-      "complaint_summary": "Customer's salary was delayed on 30/09 because of a bank batch delay (INC-4471). Two £15 unarranged overdraft fees were charged. She requests a £30 refund.",
+      "complaint_summary": "Salary credit delayed by a bank Faster Payments batch delay (INC-4471) caused the account to go overdrawn, and two £15 unarranged overdraft fees were charged. The customer wants them refunded.",
       "products_and_accounts": "Current account [ACCOUNT_NUMBER_1], sort code [SORT_CODE_1]",
-      "desired_outcome": "Refund of the £30 in overdraft fees",
+      "desired_outcome": "\"Please refund the £30.\"",
       "actions_taken": [
-        "Complaint logged",
-        "Incident log checked: INC-4471",
-        "Two £15 unarranged overdraft fees confirmed on 30/09 and 01/10",
-        "Acknowledgement letter sent by email on 2026-10-28"
+        "Complaint logged 2026-10-27",
+        "Incident log checked; INC-4471 identified and fees confirmed",
+        "Acknowledgement sent by email 2026-10-28"
       ],
       "evidence_held": [
         "Statement Sept-Oct 2026",
         "Incident record INC-4471"
       ],
-      "vulnerability_assessment": "No indicators found; customer said she is fine, so she appears to have been asked.",
-      "contact_preference": "Email [EMAIL_1]; no adjustments recorded",
+      "vulnerability_assessment": "No indicators found. The customer said she was 'fine just annoyed'. The case does not record that she was formally asked about support needs.",
+      "contact_preference": "Email [EMAIL_1]",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "Is the delay on the customer's salary confirmed as caused by INC-4471 rather than the employer?",
-        "Were any other charges or interest applied because of the overdraft?",
-        "Does the incident affect other customers?"
+        "Was the salary payment received by the bank on 30/09 and delayed by INC-4471, confirming the fees resulted from bank error?",
+        "Was any interest charged on the overdrawn balance or the fees?"
       ]
     },
     "fraud_details": null,
     "other_gaps": [
-      "Received 2026-10-27 with 43 days left, On track",
-      "Whether the employer's payment was part of the INC-4471 batch is not confirmed in the file"
+      "Whether any overdraft interest was charged is not recorded",
+      "Whether the customer was explicitly asked about support needs is not recorded"
     ],
-    "suggested_next_step": "Handler to confirm the customer's salary was in the INC-4471 batch, assess against FEE-2 (including any interest on the fees) and decide the outcome, then issue a response within the deadline.",
+    "suggested_next_step": "The handler should confirm against INC-4471 and the statement that the salary payment was caught in the batch delay. They should then decide the outcome and any redress under FEE-2/RED, and respond by email. This may be suitable for summary resolution if agreed by the third business day.",
     "confidence": {
       "product": "high",
       "root_cause": "high",
       "severity": "high",
       "vulnerability": "medium",
-      "specialist_teams": "medium"
+      "specialist_teams": "high"
     },
     "suspicious_instructions": null
   }

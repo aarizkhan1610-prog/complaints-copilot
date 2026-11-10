@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T20:28:32+00:00",
+  "saved_at": "2026-11-10T20:00:21+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-sonnet-5-5",
+    "model": "claude-opus-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011CgusuaxUd4rquzwjcQRgD",
-    "latency_s": 11.0,
+    "request_id": "req_011CguqkLeHMtMA23awFg5W7",
+    "latency_s": 19.4,
     "usage": {
       "input": 343,
-      "output": 1778,
+      "output": 2338,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,53 +17,73 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "Customer expresses dissatisfaction about FX fees charged on a card that should carry none, and about staff conduct on a call, alleging financial loss and material inconvenience (CH-1).",
-    "summary": "Customer holds the Harbourline Travel Card and was charged 6 foreign transaction fees totalling £18.40 in Lisbon. The handler confirmed the fees and that the tariff was set up wrongly on the account. He also complains that when he rang he waited 50 minutes and the agent was short with him and hung up. He wants the fees refunded and an apology. The call recording from 21/10 has been requested. No vulnerability was noted.",
+    "is_complaint_reason": "Customer expresses dissatisfaction about foreign transaction fees charged on the Harbourline Travel Card and about how an agent treated him, alleging financial loss (£18.40) and distress/inconvenience, meeting CH-1.",
+    "summary": "The customer holds a Harbourline Travel Card, which should not charge foreign transaction fees. He was charged six foreign transaction fees totalling £18.40 in Lisbon. The handler confirmed the account tariff was set up wrongly. When he phoned about it, he waited 50 minutes, and he says the agent was short with him and hung up. He wants the fees refunded and an apology for how he was treated. A recording of the 21/10 call has been requested. The handler noted no vulnerability, but the case does not say the customer was asked about support needs. This looks like a bank error under FEE-6/FEE-2 plus a staff conduct concern, and can stay with the complaints handler.",
     "timeline": [
       {
         "date": "undated",
-        "event": "Customer charged 6 foreign transaction fees totalling £18.40 in Lisbon on the Travel Card.",
+        "event": "Customer charged foreign transaction fees in Lisbon on Harbourline Travel Card",
         "source": "complaint"
       },
       {
-        "date": "2026-10-21",
-        "event": "Customer rang about the fees; waited 50 minutes, alleges agent was short with him and hung up. Call recording requested.",
+        "date": "21/10",
+        "event": "Customer phoned about fees, waited 50 minutes, agent reportedly short with him and hung up",
         "source": "note_1"
       },
       {
         "date": "2026-10-23",
-        "event": "Complaint received by phone; handler confirmed 6 FX fees totalling £18.40 and wrongly set up tariff.",
+        "event": "Complaint received by phone",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-23",
+        "event": "Handler confirmed 6 FX fees totalling £18.40 due to wrong tariff set-up; call recording from 21/10 requested",
         "source": "note_1"
       }
     ],
-    "product": "Current account",
+    "product": "Credit card",
     "root_cause": "Fees and charges",
     "severity": "Medium",
-    "severity_reason": "Financial loss is £18.40 (Low band), but the complaint includes staff conduct, which is Medium under CH-6.",
+    "severity_reason": "Financial loss is under £100 (£18.40), which on its own would be Low. However, the complaint includes an allegation about staff conduct (agent short and hung up), which CH-6 classes as Medium.",
     "estimated_financial_loss_gbp": 18.4,
     "vulnerability": {
       "indicators_found": false,
       "drivers": [],
       "customer_was_asked": false,
-      "suggested_support": "None indicated; handler recorded no vulnerability. Keep alert for indicators during further contact."
+      "suggested_support": "No indicators found in the case text. Handler recorded 'No vulnerability', but the case does not record that the customer was asked about support needs. Consider asking sensitively per VUL-2."
     },
     "specialist_teams": [],
-    "routing_reason": "No ESC-1 trigger applies: no fraud, lending, vulnerability referral, systemic or legal threat, or technical failure needing investigation. The handler can resolve it, though a possible wider tariff set-up issue may be worth checking.",
+    "routing_reason": "None of the ESC-1 triggers apply: there is no fraud, lending, vulnerability referral, systemic issue, legal or media threat. The fee error is a known tariff set-up mistake on one account and does not need technical investigation. The staff conduct element can be handled by the complaints handler. If the tariff fault turns out to affect other Travel Card customers, consider Senior Complaints Review.",
     "policy_citations": [
       {
         "clause_id": "FEE-6",
-        "quote": "Any such fee on that card is a bank error and FEE-2 applies.",
-        "how_it_applies": "FX fees on the Travel Card are a bank error, so the FEE-2 refund provisions apply; the handler decides the outcome."
+        "quote": "Foreign transaction fees are not charged on the Harbourline Travel Card. Any such fee on that card is a bank error and FEE-2 applies.",
+        "how_it_applies": "Six FX fees were charged on the customer's Travel Card, so this is a bank error."
+      },
+      {
+        "clause_id": "FEE-2",
+        "quote": "the fee must be refunded in full, together with any interest charged on it, plus a goodwill payment in line with policy RED",
+        "how_it_applies": "Sets the framework for the handler's decision on the fees; the amount is for an authorised person to decide."
       },
       {
         "clause_id": "CH-6",
-        "quote": "*Medium*: financial loss between £100 and £1,000, repeated service failure (the customer has contacted us three or more times about the same issue), or a complaint about staff conduct.",
-        "how_it_applies": "The staff conduct element sets severity to Medium despite the small loss."
+        "quote": "a complaint about staff conduct",
+        "how_it_applies": "The agent conduct allegation raises severity to Medium despite the loss being under £100."
+      },
+      {
+        "clause_id": "CH-1",
+        "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
+        "how_it_applies": "The customer is dissatisfied with the fees and with staff treatment."
       },
       {
         "clause_id": "ESC-1",
         "quote": "Complaints handlers resolve complaints themselves unless one of the following applies",
-        "how_it_applies": "No listed trigger applies, so no specialist team is needed."
+        "how_it_applies": "No escalation trigger applies, so the handler retains the case."
+      },
+      {
+        "clause_id": "VUL-2",
+        "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support.",
+        "how_it_applies": "No indicators found, but the case does not show the customer was asked."
       }
     ],
     "evidence": [
@@ -74,7 +94,7 @@
       },
       {
         "field": "root_cause",
-        "quote": "tariff set up wrongly on account",
+        "quote": "Confirmed 6 x FX fees totalling £18.40, tariff set up wrongly on account.",
         "source": "note_1"
       },
       {
@@ -83,52 +103,51 @@
         "source": "complaint"
       },
       {
-        "field": "vulnerability",
-        "quote": "No vulnerability.",
-        "source": "note_1"
-      },
-      {
         "field": "desired_outcome",
         "quote": "Wants the fees back and an apology for how he was treated.",
         "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability.",
+        "source": "note_1"
       }
     ],
     "handover": {
-      "complaint_summary": "Travel Card customer charged 6 FX fees totalling £18.40 in Lisbon owing to a wrongly set tariff; also complains of a 50-minute wait and a curt agent who hung up.",
-      "products_and_accounts": "Harbourline Travel Card ending [CARD_DIGITS_1]. Evidence list refers to a credit card statement Oct 2026; account type to be confirmed.",
-      "desired_outcome": "Fees refunded and an apology for how he was treated.",
+      "complaint_summary": "Customer was charged £18.40 in foreign transaction fees (6 fees) in Lisbon on his Harbourline Travel Card, which should not carry such fees. The handler confirmed the tariff was set up wrongly. When he phoned, he waited 50 minutes and says the agent was short with him and hung up.",
+      "products_and_accounts": "Harbourline Travel Card (credit card), card ending [CARD_DIGITS_1]",
+      "desired_outcome": "\"Wants the fees back and an apology for how he was treated.\"",
       "actions_taken": [
-        "Confirmed 6 FX fees totalling £18.40 and wrong tariff set-up",
+        "Confirmed 6 FX fees totalling £18.40 and identified the wrong tariff set-up on the account (2026-10-23)",
         "Requested call recording from 21/10"
       ],
       "evidence_held": [
         "Credit card statement Oct 2026",
-        "Call recording request 21/10 (recording not yet held)"
+        "Call recording request 21/10 (recording not yet received)"
       ],
-      "vulnerability_assessment": "No indicators found per handler note; there is no record that the customer was asked about support needs.",
-      "contact_preference": "Phone [PHONE_1]",
+      "vulnerability_assessment": "No indicators found; handler noted 'No vulnerability'. The case does not record that the customer was asked about support needs.",
+      "contact_preference": "Phone [PHONE_1]; no reasonable adjustments recorded",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "Has the tariff been corrected on the account?",
-        "Does the call recording confirm the wait time and agent conduct?",
-        "Are other Travel Card customers affected by the same tariff error?",
-        "Date of the fee transactions is MISSING"
+        "Has the tariff on the account been corrected to prevent further FX fees?",
+        "Was any interest charged on the fees?",
+        "What does the 21/10 call recording show about the agent's conduct and the call ending?",
+        "Does the tariff set-up error affect other Travel Card customers?"
       ]
     },
     "fraud_details": null,
     "other_gaps": [
-      "Call recording not yet received",
-      "Dates of the fee transactions not stated",
-      "Product type is unclear: Travel Card versus a statement labelled credit card",
-      "Whether the tariff is now corrected is not stated"
+      "Call recording of 21/10 requested but not yet on file",
+      "Dates of the individual Lisbon transactions not recorded",
+      "Customer not recorded as asked about support needs"
     ],
-    "suggested_next_step": "Obtain and review the 21/10 call recording, check the tariff correction and whether others are affected, then the handler decides the outcome and any redress under CH-8 and RED.",
+    "suggested_next_step": "Handler to review the fee complaint under FEE-6/FEE-2 and decide on the outcome. Obtain and review the 21/10 call recording for the conduct allegation. Confirm the tariff has been corrected, and check whether other Travel Card accounts are affected.",
     "confidence": {
-      "product": "low",
-      "root_cause": "high",
+      "product": "high",
+      "root_cause": "medium",
       "severity": "high",
       "vulnerability": "medium",
-      "specialist_teams": "high"
+      "specialist_teams": "medium"
     },
     "suspicious_instructions": null
   }

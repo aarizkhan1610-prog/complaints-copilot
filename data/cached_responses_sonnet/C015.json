@@ -1,0 +1,148 @@
+{
+  "saved_at": "2026-11-10T20:29:24+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-sonnet-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgusyTgXpcHzjKYKmLVLX",
+    "latency_s": 11.2,
+    "usage": {
+      "input": 357,
+      "output": 1902,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "e129f25db80fae4e"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction that a mortgage direct debit of £1,240 was taken twice, causing an overdraft of £900 and potential charges (CH-1: financial loss).",
+    "summary": "Customer says the mortgage direct debit of £1,240 was collected twice on 3 November, leaving the account £900 overdrawn. She cites social media reports of other customers affected. The handler confirmed a duplicate collection linked to open Digital Ops incident INC-4602, affecting approx 3,100 customers. Customer wants the money back today and overdraft charges cancelled. No vulnerability indicators found; customer was asked. Prefers email.",
+    "timeline": [
+      {
+        "date": "2026-11-03",
+        "event": "Mortgage direct debit of £1,240 collected twice; account became £900 overdrawn",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-04",
+        "event": "Complaint received by email",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-04",
+        "event": "Handler confirmed duplicate DD collection; incident INC-4602 open, approx 3,100 customers affected; statement saved",
+        "source": "note_1"
+      }
+    ],
+    "product": "Mortgage",
+    "root_cause": "Systems or app failure",
+    "severity": "High",
+    "severity_reason": "Potential systemic issue affecting many customers (approx 3,100 per INC-4602) under CH-6. Direct loss of £1,240 from the duplicate also exceeds £1,000.",
+    "estimated_financial_loss_gbp": 1240.0,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": true,
+      "suggested_support": "None identified. Keep under review given the overdraft; offer support if financial difficulty emerges."
+    },
+    "specialist_teams": [
+      "Senior Complaints Review",
+      "Digital Operations"
+    ],
+    "routing_reason": "ESC-1: a suspected systemic issue, the same fault affecting many customers, goes to Senior Complaints Review. The duplicate collection is a systems failure needing technical investigation, so Digital Operations is also needed. Senior Complaints Review is primary because of the scale.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-6",
+        "quote": "a potential systemic issue affecting many customers",
+        "how_it_applies": "Incident INC-4602 shows approx 3,100 customers affected, so severity is High."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A suspected systemic issue (the same fault affecting many customers), a threat of legal action, or media contact → *Senior Complaints Review*.",
+        "how_it_applies": "The same duplicate DD fault affects many customers."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A systems or app failure that needs technical investigation → *Digital Operations*.",
+        "how_it_applies": "The duplicate collection is tied to an open Digital Ops incident."
+      },
+      {
+        "clause_id": "CH-8",
+        "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist.",
+        "how_it_applies": "Refund and overdraft charge decisions are for an authorised person, not this tool."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "Your bank took my mortgage direct debit of £1,240 TWICE on 3 November.",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "approx 3,100 customers affected",
+        "source": "note_1"
+      },
+      {
+        "field": "product",
+        "quote": "my mortgage direct debit",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want the money back today and the overdraft charges cancelled.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability indicators, asked.",
+        "source": "note_1"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "Digital Ops incident INC-4602 open",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Mortgage direct debit of £1,240 was collected twice on 3 November, leaving the account £900 overdrawn. The duplicate is confirmed and linked to incident INC-4602, which affects approx 3,100 customers.",
+      "products_and_accounts": "Mortgage direct debit; current account [ACCOUNT_NUMBER_1], sort code [SORT_CODE_1], customer [PERSON_1]",
+      "desired_outcome": "Money back today and overdraft charges cancelled",
+      "actions_taken": [
+        "Duplicate DD collection confirmed",
+        "Linked to Digital Ops incident INC-4602",
+        "Statement saved"
+      ],
+      "evidence_held": [
+        "Statement 01-04/11/2026",
+        "Incident record INC-4602"
+      ],
+      "vulnerability_assessment": "No indicators found; customer was asked.",
+      "contact_preference": "Email [EMAIL_1]",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Has the duplicate payment been reversed, and when?",
+        "Have overdraft charges or interest been applied, and how much?",
+        "Is the mortgage account affected by the duplicate collection?",
+        "Can the customer's request for same-day return be met?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Date-received and deadline status are held by the system (received 2026-11-04, due 2026-12-30, On track)",
+      "Overdraft charges incurred not yet recorded",
+      "No record of an acknowledgement sent to the customer"
+    ],
+    "suggested_next_step": "Hand over to Senior Complaints Review and Digital Operations within 2 business days. The handler should keep the customer informed by email and have an authorised person decide on the refund and charges.",
+    "confidence": {
+      "product": "medium",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

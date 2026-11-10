@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T20:27:11+00:00",
+  "saved_at": "2026-11-10T19:57:42+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-sonnet-5-5",
+    "model": "claude-opus-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011CgusoRa1VvRot5aRxU1vv",
-    "latency_s": 13.7,
+    "request_id": "req_011CguqXfEMvLeDDi3i79bfC",
+    "latency_s": 32.5,
     "usage": {
       "input": 400,
-      "output": 2293,
+      "output": 2796,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,27 +17,27 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "Customer expresses dissatisfaction about a mortgage payment increase without warning and alleges financial loss (overdraft charges, bounced council tax payment) and material distress (CH-1).",
-    "summary": "The customer's mortgage payment rose from £812 to £1,047 in September. They say they had no warning. The direct debit took the higher amount, the current account went overdrawn and a council tax payment bounced. The handler's note shows the rate change letter was generated on 28/08 for a 01/09 change, only 4 days notice. Fees of £45 unarranged overdraft and £10 returned DD are recorded. The customer lost their job in August and says they are struggling. They want the overdraft charges refunded and help with the mortgage.",
+    "is_complaint_reason": "The customer expresses dissatisfaction that their mortgage payment rose without warning, causing overdraft charges and a bounced council tax payment. This is financial loss and distress under CH-1.",
+    "summary": "[PERSON_1]'s mortgage payment rose from £812 to £1,047 in September. They say they had no warning. The system shows the rate change letter was generated on 28/08 for a payment change on 01/09, which is only 4 days' notice against the 30 days required by LND-5. The higher direct debit took the current account overdrawn. This caused unarranged overdraft fees of £45 and a £10 returned direct debit fee, and the council tax payment bounced. The customer lost their job in August and says they are struggling. They want the overdraft charges refunded and help with the mortgage. There are signs of financial difficulty and a life event, so a Vulnerable Customer Support referral and Lending Specialists input are needed.",
     "timeline": [
-      {
-        "date": "28/08/2026",
-        "event": "Mortgage rate change letter generated for payment change on 01/09",
-        "source": "note_1"
-      },
       {
         "date": "August 2026",
         "event": "Customer lost their job",
         "source": "complaint"
       },
       {
+        "date": "28/08/2026",
+        "event": "Mortgage rate change letter generated",
+        "source": "note_1"
+      },
+      {
         "date": "01/09/2026",
-        "event": "Mortgage payment rose from £812 to £1,047; direct debit took the higher amount, account overdrawn, council tax payment bounced",
-        "source": "complaint"
+        "event": "Mortgage payment changed from £812 to £1,047; higher direct debit taken",
+        "source": "note_1"
       },
       {
         "date": "September 2026",
-        "event": "Unarranged overdraft fees of £45 and returned DD fee of £10 recorded",
+        "event": "Current account went overdrawn; UOD fees £45 and returned DD fee £10 charged; council tax payment bounced",
         "source": "note_1"
       },
       {
@@ -47,14 +47,14 @@
       },
       {
         "date": "2026-10-02",
-        "event": "Handler reviewed the account and noted the short notice and fees",
+        "event": "Handler reviewed mortgage account and fees",
         "source": "note_1"
       }
     ],
     "product": "Mortgage",
     "root_cause": "Communication failure",
     "severity": "High",
-    "severity_reason": "A customer with a vulnerability indicator (job loss, struggling financially) may be at risk of harm (CH-6). Direct financial loss is about £55 in fees, which alone would be Low, but the vulnerability drives High.",
+    "severity_reason": "The direct loss is about £55 in fees. However, the customer is vulnerable (job loss, struggling financially) and at risk of harm, with an essential bill already missed and the mortgage now harder to afford. CH-6 classes a vulnerable customer at risk of harm as High.",
     "estimated_financial_loss_gbp": 55.0,
     "vulnerability": {
       "indicators_found": true,
@@ -63,55 +63,70 @@
         "resilience"
       ],
       "customer_was_asked": false,
-      "suggested_support": "Sensitively ask about support needs, refer to Vulnerable Customer Support, review fees from the last 6 months, discuss forbearance options for the mortgage, and record the customer's preferred contact method."
+      "suggested_support": "Ask the customer sensitively whether they need any support, and record indicators with their consent. Refer to Vulnerable Customer Support. Offer reasonable adjustments such as a preferred contact method and more time to respond. Lending Specialists should consider mortgage forbearance options."
     },
     "specialist_teams": [
       "Vulnerable Customer Support",
       "Lending Specialists"
     ],
-    "routing_reason": "Vulnerability indicator (job loss) with financial difficulty requires referral under VUL-4 and FEE-4. The mortgage payment change with inadequate notice and the request for mortgage help fall to Lending Specialists under ESC-1 and LND-5.",
+    "routing_reason": "There is a vulnerability indicator (job loss) together with financial difficulty, so a VUL-4 referral is required. Under FEE-4, fees in financial difficulty also require a VUL referral. The customer asks for help with the mortgage, which raises affordability and possible arrears, so Lending Specialists are needed under ESC-1. The complaints handler can review the fee refund under FEE-2 and FEE-4.",
     "policy_citations": [
       {
         "clause_id": "LND-5",
-        "quote": "Where a mortgage payment changes, the customer must be given at least 30 days' written notice.",
-        "how_it_applies": "The rate change letter was generated 28/08 for a 01/09 change, about 4 days notice, which appears short of 30 days."
-      },
-      {
-        "clause_id": "VUL-4",
-        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
-        "how_it_applies": "Job loss and the customer's statement that they are struggling indicate vulnerability with financial difficulty."
-      },
-      {
-        "clause_id": "FEE-4",
-        "quote": "Where a customer shows signs of financial difficulty, fees charged in the last 6 months should be reviewed and refunded where they have added to the difficulty.",
-        "how_it_applies": "The overdraft and returned DD fees need review in light of the financial difficulty."
+        "quote": "Where a mortgage payment changes, the customer must be given at least 30 days' written notice. Failure to give notice is a communication failure under CH-7",
+        "how_it_applies": "Only 4 days' notice appears to have been given, so the root cause is Communication failure."
       },
       {
         "clause_id": "CH-6",
         "quote": "a vulnerable customer at risk of harm",
-        "how_it_applies": "Supports High severity."
+        "how_it_applies": "Drives the High severity rating."
+      },
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
+        "how_it_applies": "Job loss plus financial struggle triggers the referral."
+      },
+      {
+        "clause_id": "VUL-1",
+        "quote": "*life events* (bereavement, job loss, relationship breakdown, caring responsibilities), *resilience* (low or erratic income, problem debt, financial difficulty)",
+        "how_it_applies": "Identifies the life events and resilience drivers."
+      },
+      {
+        "clause_id": "FEE-4",
+        "quote": "Where a customer shows signs of financial difficulty, fees charged in the last 6 months should be reviewed and refunded where they have added to the difficulty.",
+        "how_it_applies": "The overdraft and returned DD fees need review."
+      },
+      {
+        "clause_id": "FEE-2",
+        "quote": "Where a fee was charged because of a bank error",
+        "how_it_applies": "The fees may stem from the bank's notice failure; the handler should assess this."
       },
       {
         "clause_id": "ESC-1",
         "quote": "A lending decision, affordability, mortgage or loan arrears → *Lending Specialists*.",
-        "how_it_applies": "The mortgage payment issue and request for mortgage help go to Lending Specialists."
+        "how_it_applies": "The customer needs help with mortgage affordability."
+      },
+      {
+        "clause_id": "CH-5",
+        "quote": "At risk and Critical cases must be reviewed by a team leader weekly.",
+        "how_it_applies": "The case is At risk with 17 days left."
       }
     ],
     "evidence": [
       {
         "field": "root_cause",
-        "quote": "I was given no warning at all",
-        "source": "complaint"
-      },
-      {
-        "field": "root_cause",
-        "quote": "letter generated 28/08 for payment change 01/09 - only 4 days notice",
+        "quote": "system shows letter generated 28/08 for payment change 01/09 - only 4 days notice",
         "source": "note_1"
       },
       {
         "field": "vulnerability",
-        "quote": "I lost my job in August and I am really struggling to keep up with everything at the moment",
+        "quote": "I lost my job in August and I am really struggling to keep up with everything at the moment.",
         "source": "complaint"
+      },
+      {
+        "field": "product",
+        "quote": "Mortgage acct [ACCOUNT_NUMBER_1]",
+        "source": "note_1"
       },
       {
         "field": "desired_outcome",
@@ -119,43 +134,48 @@
         "source": "complaint"
       },
       {
-        "field": "product",
-        "quote": "My mortgage payment went up from £812 to £1,047 in September",
+        "field": "severity",
+        "quote": "my council tax bounced",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "I need help with the mortgage",
         "source": "complaint"
       }
     ],
     "handover": {
-      "complaint_summary": "Customer's mortgage payment rose from £812 to £1,047 with about 4 days notice. The overdraft and returned DD fees followed and a council tax payment bounced. The customer lost their job in August and is struggling financially.",
-      "products_and_accounts": "Mortgage [ACCOUNT_NUMBER_1]; the customer's current account (reference MISSING)",
-      "desired_outcome": "Refund of the overdraft charges and help with the mortgage.",
+      "complaint_summary": "The mortgage payment rose from £812 to £1,047 from 01/09/2026, with only 4 days' notice (letter generated 28/08). The higher direct debit overdrew the current account. This caused £45 of unarranged overdraft fees and a £10 returned DD fee, and the council tax payment bounced. The customer lost their job in August and is struggling. Received 2026-10-01; final response due 2026-11-26; 17 days left; status At risk.",
+      "products_and_accounts": "Mortgage [ACCOUNT_NUMBER_1]; current account (reference MISSING)",
+      "desired_outcome": "\"I want the overdraft charges refunded and I need help with the mortgage.\"",
       "actions_taken": [
-        "Handler reviewed the system and found the rate change letter generated 28/08 for a 01/09 change",
-        "Handler noted fees: unarranged overdraft £45 and returned DD £10"
+        "Handler reviewed the system record of the rate change letter and the September fees (2026-10-02)"
       ],
       "evidence_held": [
         "Mortgage rate change letter 28/08/2026",
         "Current account statement Sept 2026"
       ],
-      "vulnerability_assessment": "Indicators found: life events (job loss in August) and resilience (financial difficulty). The customer has not been asked about support needs.",
-      "contact_preference": "MISSING",
+      "vulnerability_assessment": "Indicators found: life events (job loss in August) and resilience (struggling financially, essential bill missed). The customer has not been asked about support needs.",
+      "contact_preference": "MISSING (complaint received by letter)",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "Was the rate change letter actually sent and received, and when?",
-        "Why was the notice period under 30 days?",
-        "Is the customer in arrears or at risk of it, and what forbearance options apply?",
-        "Did the council tax bounce cause further charges or consequences?",
-        "What are the customer's support needs and preferred contact method?",
-        "Are there any other fees in the last 6 months?"
+        "Why was the rate change letter generated only 4 days before the payment change?",
+        "Is the new mortgage payment affordable, and which forbearance options are suitable?",
+        "Is the mortgage now in arrears or at risk of arrears?",
+        "Were there any other fees or interest charged as a result?",
+        "What is the current account reference?",
+        "What is the customer's preferred contact method, and do they need any adjustments?",
+        "Was the late notice a wider issue affecting other customers?"
       ]
     },
     "fraud_details": null,
     "other_gaps": [
-      "Current account reference not given",
-      "Date received is 2026-10-01, status At risk with 17 days left",
-      "Customer's current income and circumstances not known",
-      "Whether the council tax payment was re-presented or caused charges is unknown"
+      "Current account reference not recorded",
+      "Customer's contact preference not recorded",
+      "No record that the customer was asked about support needs",
+      "Unclear whether other customers received late rate change letters (possible systemic issue)"
     ],
-    "suggested_next_step": "Refer to Vulnerable Customer Support and Lending Specialists within 2 business days, and ask the customer sensitively about support needs and contact preference. Do not state any outcome or redress to the customer.",
+    "suggested_next_step": "Acknowledge the complaint in writing. Contact the customer sensitively to ask about their support needs and contact preference. Refer to Vulnerable Customer Support and Lending Specialists within 2 business days. Review the £55 of fees under FEE-2 and FEE-4 for a handler decision. Check whether the late letter issue affected other customers.",
     "confidence": {
       "product": "high",
       "root_cause": "high",
