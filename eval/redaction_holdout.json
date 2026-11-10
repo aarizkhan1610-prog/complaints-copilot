@@ -1,0 +1,80 @@
+{
+  "_note": "Held-out redaction test. Written AFTER the redaction rules were built and never used to tune them. All details are fictional. 'pii' lists every value that must not survive redaction. Staff names count as personal data too.",
+  "cases": [
+    {
+      "id": "H01",
+      "text": "Good morning, my name is Fiona McAllister and I've banked with you for 20 years. My account number is 40581276. Please call me on 07700 900812.",
+      "pii": [
+        "Fiona McAllister",
+        "40581276",
+        "07700 900812"
+      ]
+    },
+    {
+      "id": "H02",
+      "text": "Cust spoke with colleague about the overdraft. Her son Declan has been helping her with online banking since her stroke. Email for replies: f.mcallister@example.com",
+      "pii": [
+        "Declan",
+        "f.mcallister@example.com"
+      ]
+    },
+    {
+      "id": "H03",
+      "text": "Dear Sir or Madam, I am writing on behalf of my late father, Mr Bartholomew Achebe, of 9 Kestrel Road, Pinewood, PW4 2ND. His date of birth was 17/03/1939. Regards, Ngozi Achebe",
+      "pii": [
+        "Bartholomew Achebe",
+        "9 Kestrel Road, Pinewood",
+        "PW4 2ND",
+        "17/03/1939",
+        "Ngozi Achebe"
+      ]
+    },
+    {
+      "id": "H04",
+      "text": "the payment of \u00a3120 to jamie holt was never sent. my sort code is 11-22-33 and the card ending 7781 was charged twice. thanks, sam",
+      "pii": [
+        "jamie holt",
+        "11-22-33",
+        "7781",
+        "sam"
+      ]
+    },
+    {
+      "id": "H05",
+      "text": "Called back +44 7700 900455 and left a voicemail for Mrs Oyelowo. No answer. Will try again tomorrow.",
+      "pii": [
+        "+44 7700 900455",
+        "Oyelowo"
+      ]
+    },
+    {
+      "id": "H06",
+      "text": "Customer Tariq Saleem says his full card number 4929 1234 5678 9012 was read out loud in branch by staff. He lives at Flat 3, 22 Elm Grove. He is very upset.",
+      "pii": [
+        "Tariq Saleem",
+        "4929 1234 5678 9012",
+        "22 Elm Grove"
+      ]
+    },
+    {
+      "id": "H07",
+      "text": "I've been waiting three weeks. Spoke to Grace on Monday who promised a call back. Nobody called. Emma Lindgren-Shaw, 07700900318",
+      "pii": [
+        "Emma Lindgren-Shaw",
+        "07700900318",
+        "Grace"
+      ]
+    },
+    {
+      "id": "H08",
+      "text": "Joint account holders: Peter and Alison Drummond. Account 77120934. Only Alison has authority to discuss the mortgage.",
+      "pii": [
+        "Peter",
+        "Alison Drummond",
+        "Drummond",
+        "Alison",
+        "77120934"
+      ]
+    }
+  ]
+}

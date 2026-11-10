@@ -24,3 +24,25 @@ prototype, in line with the brief: "Choose the scope and make any assumptions ex
 ## Dates
 - The app uses a fixed "today" of **Monday 9 November 2026** so deadline statuses
   are reproducible for assessors. In production this would be the real date.
+
+## Technology choices and trade-offs
+- **One structured AI call per case** rather than several: lower cost and latency, and the output is checked
+  field by field in code afterwards. The trade-off is that one prompt does several jobs.
+- **Whole policy set sent with each call** (41 clauses, about 3,000 words) instead of a search index. At this size
+  it is simpler and more accurate, and prompt caching makes the repeated part cheap. A real bank's policy library
+  would need retrieval.
+- **Rule-based redaction** instead of a trained recogniser (spaCy / Presidio were considered; spaCy would not
+  install cleanly on the build machine's Python version, and rules keep hosting simple). It is strong on structured
+  identifiers and weaker on names with no context: see the held-out results in `eval/results.md`.
+- **Default model** `claude-opus-5-5` at low effort. A smaller, cheaper model could be tested per field once the
+  evaluation shows where quality holds.
+- **Saved responses for demo mode** are real model outputs. They are tied to a hash of the exact prompt and input,
+  so an edited case or prompt cannot silently reuse an old answer.
+
+## Limitations
+- Redaction recall on new text is lower than on the development set; residual names could reach the model. In
+  production: a trained recogniser, a second-pass check, and a contractual zero-retention arrangement with the
+  model provider.
+- The completeness check depends partly on the AI writing MISSING correctly; the human reviewer is the backstop.
+- Audit records are a local file. Production needs write-once storage, access control and retention rules.
+- Session state (reviews, handovers) is per browser session in the demo; a real deployment needs a case system.

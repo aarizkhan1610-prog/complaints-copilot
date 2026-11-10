@@ -17,7 +17,9 @@ Label fields (answer key, never shown to the app):
   clauses             the policy clauses that a good answer should cite (must include all)
   desired_outcome     short description, for human comparison only
   handover_gaps       information a specialist handover needs (ESC-3 / FRD-3) that is
-                      NOT in the case file, so the completeness check should flag it
+                      NOT in the case file, so the completeness check should flag it.
+                      Rule used consistently: ESC-3.8 counts as missing unless the file
+                      says the customer was asked about support needs.
   tags                special test purposes
 """
 
@@ -109,7 +111,7 @@ SCENARIOS = [
             specialist_team=["Fraud & Scams", "Vulnerable Customer Support"],
             clauses=["FRD-2", "FRD-5", "VUL-4", "CH-4"],
             desired_outcome="Reimbursement of £4,250",
-            handover_gaps=["frd_security_details"], tags=["deadline_critical"],
+            handover_gaps=["frd_security_details", "vulnerability_assessment"], tags=["deadline_critical"],
         ),
     ),
     # ------------------------------------------------------------------ C003
@@ -186,7 +188,7 @@ SCENARIOS = [
             severity="Medium", vulnerable=False, vulnerability_drivers=[],
             specialist_team=["Digital Operations"], clauses=["ESC-1", "CH-6", "RED-3"],
             desired_outcome="App fixed and compensation for inconvenience",
-            handover_gaps=["evidence_held", "contact_preference"], tags=[],
+            handover_gaps=["evidence_held", "contact_preference", "vulnerability_assessment"], tags=[],
         ),
     ),
     # ------------------------------------------------------------------ C006
@@ -381,7 +383,7 @@ SCENARIOS = [
             specialist_team=["Vulnerable Customer Support", "Lending Specialists"],
             clauses=["LND-3", "VUL-4", "VUL-6"],
             desired_outcome="Collections calls stopped, contact via daughter",
-            handover_gaps=["third_party_authority", "contact_preference"],
+            handover_gaps=["third_party_authority", "contact_preference", "vulnerability_assessment"],
             tags=["third_party"],
         ),
     ),
@@ -556,7 +558,7 @@ SCENARIOS = [
             root_cause="Lending decision", root_cause_alt=["Communication failure"],
             severity="Low", severity_alt=["Medium"], vulnerable=False, vulnerability_drivers=[],
             specialist_team=["Lending Specialists"], clauses=["LND-2"],
-            desired_outcome="Explanation of decline reason", handover_gaps=[],
+            desired_outcome="Explanation of decline reason", handover_gaps=["vulnerability_assessment"],
             tags=["fairness"],
         ),
     ),

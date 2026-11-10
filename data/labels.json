@@ -77,7 +77,8 @@
     ],
     "desired_outcome": "Reimbursement of £4,250",
     "handover_gaps": [
-      "frd_security_details"
+      "frd_security_details",
+      "vulnerability_assessment"
     ],
     "tags": [
       "deadline_critical"
@@ -226,7 +227,8 @@
     "desired_outcome": "App fixed and compensation for inconvenience",
     "handover_gaps": [
       "evidence_held",
-      "contact_preference"
+      "contact_preference",
+      "vulnerability_assessment"
     ],
     "tags": [],
     "severity_alt": [],
@@ -591,7 +593,8 @@
     "desired_outcome": "Collections calls stopped, contact via daughter",
     "handover_gaps": [
       "third_party_authority",
-      "contact_preference"
+      "contact_preference",
+      "vulnerability_assessment"
     ],
     "tags": [
       "third_party"
@@ -981,7 +984,9 @@
       "LND-2"
     ],
     "desired_outcome": "Explanation of decline reason",
-    "handover_gaps": [],
+    "handover_gaps": [
+      "vulnerability_assessment"
+    ],
     "tags": [
       "fairness"
     ],

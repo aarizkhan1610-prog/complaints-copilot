@@ -1,0 +1,39 @@
+"""Central settings. Everything that an assessor might want to change lives here."""
+import os
+from datetime import date
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+DATA_DIR = ROOT / "data"
+POLICY_DIR = DATA_DIR / "policies"
+CACHE_DIR = Path(os.environ.get("COPILOT_CACHE_DIR", DATA_DIR / "cached_responses"))
+AUDIT_LOG = Path(os.environ.get("COPILOT_AUDIT_LOG", ROOT / "audit_log.jsonl"))
+
+# Fixed "today" so deadline statuses are reproducible (see docs/assumptions.md).
+AS_OF = date.fromisoformat(os.environ.get("COPILOT_AS_OF", "2026-11-09"))
+
+# Model settings. The default is Anthropic's current Opus model; effort "low" keeps
+# cost and latency down for a structured extraction task.
+MODEL = os.environ.get("COPILOT_MODEL", "claude-opus-5-5")
+EFFORT = os.environ.get("COPILOT_EFFORT", "low")
+MAX_TOKENS = 16000
+
+# Bump whenever the prompt or output schema changes, so every audit record and
+# cached response can be traced to the exact prompt that produced it.
+PROMPT_VERSION = "triage-v1.0"
+
+# Spend controls for the hosted demo (layered on top of a prepaid credit cap).
+DAILY_LIVE_CAP = int(os.environ.get("COPILOT_DAILY_LIVE_CAP", "50"))
+SESSION_LIVE_CAP = int(os.environ.get("COPILOT_SESSION_LIVE_CAP", "10"))
+
+
+def get_api_key():
+    """Read the key from the environment or Streamlit secrets. Never from the repo."""
+    key = os.environ.get("ANTHROPIC_API_KEY")
+    if key:
+        return key
+    try:
+        import streamlit as st
+        return st.secrets.get("ANTHROPIC_API_KEY")
+    except Exception:
+        return None
