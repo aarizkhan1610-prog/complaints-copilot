@@ -5,7 +5,7 @@
     ANTHROPIC_API_KEY=... python scripts/build_cache.py C002 C009  # just these
     ... --force                                                     # re-run even if a fresh one exists
 
-Costs money (roughly 5-8p per case on the default model). Saved files hold only the
+Costs money (roughly 2p per case on the default model). Saved files hold only the
 redacted input hash, model metadata and the model's output, never personal data.
 """
 import sys

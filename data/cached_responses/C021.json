@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T20:04:09+00:00",
+  "saved_at": "2026-11-10T20:30:37+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-opus-5-5",
+    "model": "claude-sonnet-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011Cgur3JrqZAJCZC7VErymq",
-    "latency_s": 16.7,
+    "request_id": "req_011Cgut4q44LBD5nYg4VNFWG",
+    "latency_s": 11.3,
     "usage": {
       "input": 306,
-      "output": 2015,
+      "output": 1851,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,70 +17,55 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "The customer is dissatisfied, reports losing £650 to a scam and wants her money back, which meets the CH-1 definition of alleging financial loss.",
-    "summary": "The customer paid a £650 deposit by bank transfer on 27/10 for a used car advertised on an online marketplace. The seller communicated over WhatsApp, sent photos and a fake logbook, and blocked her after payment. She reported it on 30/10 and wants her money back. This is a suspected authorised push payment (purchase) scam. She says she did not share bank security details. WhatsApp screenshots have been emailed in. She was asked about vulnerability and none was noted. The case must go to Fraud & Scams within 1 business day. Payee details, the payment time and confirmation of account security checks are missing.",
+    "is_complaint_reason": "Customer reports losing £650 to a scam after paying by bank transfer and wants her money back, which indicates financial loss and dissatisfaction (CH-1).",
+    "summary": "Customer [PERSON_1] paid a £650 deposit by bank transfer on 27/10 for a used car advertised on an online marketplace. The seller sent photos and a fake logbook and chatted on WhatsApp, then blocked her after payment. She reported it by phone on 30/10, says she shared no security details, and emailed WhatsApp screenshots. She wants her money back. This appears to be an authorised push payment scam and needs handover to Fraud & Scams.",
     "timeline": [
       {
-        "date": "27/10",
-        "event": "Customer paid a £650 deposit by bank transfer to the car seller; the seller then blocked her",
+        "date": "2026-10-27",
+        "event": "Customer paid £650 deposit by bank transfer; seller later blocked her",
         "source": "complaint"
       },
       {
         "date": "2026-10-30",
-        "event": "Customer reported the scam by phone; WhatsApp screenshots emailed in; asked about vulnerability",
+        "event": "Customer reported the scam by phone; WhatsApp screenshots emailed in",
         "source": "note_1"
       }
     ],
     "product": "Current account",
     "root_cause": "Authorised push payment scam",
     "severity": "High",
-    "severity_reason": "CH-6 sets suspected fraud or scam as High, even though the loss (£650) is in the Medium range.",
+    "severity_reason": "Suspected scam, which is High under CH-6, although the loss of £650 alone would be Medium.",
     "estimated_financial_loss_gbp": 650.0,
     "vulnerability": {
       "indicators_found": false,
       "drivers": [],
       "customer_was_asked": true,
-      "suggested_support": "None identified; the customer was asked. Stay alert to distress caused by the scam loss."
+      "suggested_support": "None identified. Note 1 records no vulnerability and that the customer was asked. Keep alert for later indicators."
     },
     "specialist_teams": [
       "Fraud & Scams"
     ],
-    "routing_reason": "The customer was tricked into sending a payment to a fraudster (APP scam). ESC-1 and FRD-2 require a handover to Fraud & Scams within 1 business day.",
+    "routing_reason": "The customer was tricked into sending a payment to a fraudster, an APP scam, so the case must go to Fraud & Scams within 1 business day (ESC-1, FRD-2). Reimbursement is for the specialist to assess.",
     "policy_citations": [
       {
         "clause_id": "CH-6",
         "quote": "suspected fraud or scam",
-        "how_it_applies": "Sets severity to High."
-      },
-      {
-        "clause_id": "ESC-1",
-        "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*.",
-        "how_it_applies": "Routes the case to Fraud & Scams."
+        "how_it_applies": "Suspected scam makes severity High."
       },
       {
         "clause_id": "FRD-2",
         "quote": "the case must be handed to the Fraud & Scams team within 1 business day",
-        "how_it_applies": "Sets the handover deadline; reimbursement is for the specialist to decide."
-      },
-      {
-        "clause_id": "FRD-3",
-        "quote": "the date, time and amount of each disputed payment; the payee details as known",
-        "how_it_applies": "The payment time and payee details are missing from the file."
-      },
-      {
-        "clause_id": "FRD-4",
-        "quote": "the handler must check the account has been secured",
-        "how_it_applies": "No record that this check was done."
+        "how_it_applies": "The customer paid a fraudster after being deceived, so a 1-business-day handover applies."
       },
       {
         "clause_id": "FRD-5",
         "quote": "Handlers must not promise a refund or reimbursement for an APP scam before the specialist decision.",
-        "how_it_applies": "The customer wants her money back; no promise should be made."
+        "how_it_applies": "The customer wants her money back; no promise can be made before the specialist decision."
       },
       {
-        "clause_id": "CH-7",
-        "quote": "Authorised push payment scam",
-        "how_it_applies": "Primary root cause."
+        "clause_id": "ESC-1",
+        "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*.",
+        "how_it_applies": "Sets the routing to Fraud & Scams."
       }
     ],
     "evidence": [
@@ -90,13 +75,13 @@
         "source": "complaint"
       },
       {
-        "field": "product",
-        "quote": "She paid by bank transfer on 27/10.",
+        "field": "root_cause",
+        "quote": "Seller sent photos and a fake logbook and was chatting over WhatsApp.",
         "source": "complaint"
       },
       {
         "field": "severity",
-        "quote": "Cust paid a £650 deposit for a used car",
+        "quote": "Cust paid a £650 deposit",
         "source": "complaint"
       },
       {
@@ -111,47 +96,46 @@
       },
       {
         "field": "specialist_team",
-        "quote": "Seller sent photos and a fake logbook and was chatting over WhatsApp.",
+        "quote": "She paid by bank transfer on 27/10.",
         "source": "complaint"
       }
     ],
     "handover": {
-      "complaint_summary": "The customer paid a £650 deposit by bank transfer on 27/10 for a used car seen on an online marketplace. The seller used WhatsApp and a fake logbook, then blocked her after payment. Suspected APP purchase scam, reported 30/10.",
-      "products_and_accounts": "Bank transfer from the customer's account; account reference MISSING",
-      "desired_outcome": "\"Wants her money back.\"",
+      "complaint_summary": "Customer paid a £650 deposit by bank transfer on 27/10 for a used car found on an online marketplace. The seller used photos, a fake logbook and WhatsApp chat, then blocked her after payment. Suspected APP scam.",
+      "products_and_accounts": "MISSING: the account used for the transfer is not identified in the case file. Product is presumed to be a current account.",
+      "desired_outcome": "Wants her money back.",
       "actions_taken": [
-        "Scam report taken by phone on 2026-10-30",
-        "Customer asked whether she shared security details (she said no)",
-        "Customer asked about vulnerability (none noted)",
+        "Scam reported by phone and logged on 30/10",
         "WhatsApp screenshots received by email"
       ],
       "evidence_held": [
         "WhatsApp screenshots"
       ],
-      "vulnerability_assessment": "No indicators found; the customer was asked.",
-      "contact_preference": "MISSING (phone number [PHONE_1] and email [EMAIL_1] on file)",
+      "vulnerability_assessment": "No indicators found. Note 1 records that the customer was asked.",
+      "contact_preference": "MISSING: the case holds a phone number and email token but no stated preference.",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "What are the payee name, sort code and account details?",
-        "What time was the payment made, and from which account?",
-        "Was the account secured per FRD-4?",
-        "Were any scam warnings shown at the time of payment?",
-        "Has a recall request been sent to the receiving bank?"
+        "Which account was the payment made from, and what were the payee details?",
+        "What was the exact time of the payment?",
+        "Were the card and online banking secured, and was this recorded?",
+        "Was the payee bank contacted to attempt recovery?",
+        "What is the contact preference and are any adjustments needed?",
+        "Which online marketplace was used, and has it been told?"
       ]
     },
     "fraud_details": {
-      "payment_details": "£650 by bank transfer on 27/10; time MISSING",
+      "payment_details": "£650 bank transfer on 27/10; time MISSING",
       "payee_details": "MISSING",
-      "fraudster_contact_method": "Online marketplace advert, then WhatsApp",
-      "security_details_shared": "No (customer said she didn't share any bank security details)",
+      "fraudster_contact_method": "Online marketplace listing, then WhatsApp chat",
+      "security_details_shared": "None shared, per note_1",
       "account_secured": "MISSING"
     },
     "other_gaps": [
-      "Marketplace advert and fake logbook images are not on file",
-      "The account reference is not recorded",
-      "No record of a receiving-bank notification"
+      "Screenshots are on file but the case does not say whether they have been reviewed.",
+      "The case does not say whether the customer reported it to the police or Action Fraud.",
+      "No evidence of the payment itself, such as a statement entry."
     ],
-    "suggested_next_step": "Hand over to Fraud & Scams within 1 business day with the WhatsApp screenshots. Obtain the payee details and payment time, confirm the FRD-4 account security check, and do not promise a refund.",
+    "suggested_next_step": "Hand over to Fraud & Scams within 1 business day of the 30/10 report. Check and record that the account is secured. Obtain payee details and the payment time. Do not promise reimbursement.",
     "confidence": {
       "product": "medium",
       "root_cause": "high",

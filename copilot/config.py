@@ -21,9 +21,10 @@ AUDIT_LOG = Path(os.environ.get("COPILOT_AUDIT_LOG", ROOT / "audit_log.jsonl"))
 # Fixed "today" so deadline statuses are reproducible (see docs/assumptions.md).
 AS_OF = date.fromisoformat(os.environ.get("COPILOT_AS_OF", "2026-11-09"))
 
-# Model settings. The default is Anthropic's current Opus model; effort "low" keeps
-# cost and latency down for a structured extraction task.
-MODEL = os.environ.get("COPILOT_MODEL", "claude-opus-5-5")
+# Model settings. The default is Claude Sonnet 5.5: on the 25-case evaluation it matched
+# Opus 5.5 on every hard bar at about 40% of the cost (eval/model_comparison.md).
+# Effort "low" keeps cost and latency down for a structured extraction task.
+MODEL = os.environ.get("COPILOT_MODEL", "claude-sonnet-5-5")
 EFFORT = os.environ.get("COPILOT_EFFORT", "low")
 MAX_TOKENS = 16000
 

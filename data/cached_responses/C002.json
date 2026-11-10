@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T19:56:54+00:00",
+  "saved_at": "2026-11-10T20:26:47+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-opus-5-5",
+    "model": "claude-sonnet-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011CguqTkU24WKPmgi3PoPjv",
-    "latency_s": 37.4,
+    "request_id": "req_011CgusmXpzX8bBBoGo4v3om",
+    "latency_s": 16.1,
     "usage": {
       "input": 515,
-      "output": 3043,
+      "output": 2626,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,39 +17,34 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "The customer expresses dissatisfaction and reports a financial loss of £4,250 after being tricked into transferring savings to a fraudster. She wants the money back. Under CH-1 this is a complaint.",
-    "summary": "Ms [PERSON_2], aged 78 and recently bereaved, received a text claiming to be from HMRC about a tax refund. She then got a call from someone posing as Harbourline security, who told her to move her savings to a 'safe account'. On 12/09 she sent £4,250 by Faster Payment to an account in the name of [PERSON_1]. She reported it on 2026-09-14. Her card was blocked and her credentials were reset. No fraud team referral was made, she had to chase on 2026-09-30, and there was still no owner on 2026-10-21. She has asked for large-print letters. The deadline status is Critical with 0 days left.",
+    "is_complaint_reason": "The customer expresses dissatisfaction, wants her £4,250 back, and alleges financial loss from an APP scam. The bank also failed to refer the case to the fraud team (CH-1).",
+    "summary": "Ms [PERSON_2], aged 78 and widowed last year, was tricked by a fake HMRC text and a call from a fraudster posing as Harbourline security. She moved £4,250 by Faster Payment on 12/09 to an account in the name of [PERSON_1]. On 14/09 the card was blocked and online banking credentials were reset, but no fraud team referral was made. She chased on 30/09 and the case still had no fraud owner on 21/10. She wants her money back and asks for large-print letters. The case is flagged Critical with 0 days left.",
     "timeline": [
       {
-        "date": "undated",
-        "event": "Customer received a text claiming to be from HMRC about a tax refund, then a call from someone claiming to be Harbourline security.",
-        "source": "complaint"
-      },
-      {
-        "date": "12/09",
-        "event": "Customer transferred £4,250 by FPS at 14:32 to an account in the name of [PERSON_1].",
+        "date": "2026-09-12",
+        "event": "Customer transferred £4,250 by FPS at 14:32 to an account in the name of [PERSON_1] after a fake HMRC text and a call from a fraudster claiming to be Harbourline security.",
         "source": "note_1"
       },
       {
         "date": "2026-09-14",
-        "event": "Customer reported the scam by phone. Card blocked, online banking credentials reset, customer told the fraud team would be in touch.",
+        "event": "Customer phoned the bank, very distressed. Card blocked, online banking credentials reset, identity verified. Customer told the fraud team would be in touch.",
         "source": "note_1"
       },
       {
         "date": "2026-09-30",
-        "event": "Customer called chasing. No record of a fraud team referral. Customer asked for letters in large print.",
+        "event": "Customer chased. No record of a fraud team referral. Apology given. Customer asked for large-print letters.",
         "source": "note_2"
       },
       {
         "date": "2026-10-21",
-        "event": "Chased internally. Still no fraud team owner.",
+        "event": "Internal chase. Still no fraud team owner.",
         "source": "note_3"
       }
     ],
-    "product": "Savings account",
+    "product": "Current account",
     "root_cause": "Authorised push payment scam",
     "severity": "High",
-    "severity_reason": "This is a suspected APP scam with a loss of £4,250 (over £1,000). The customer is elderly, bereaved and has low digital capability, so she is a vulnerable customer at risk of harm. The deadline is Critical.",
+    "severity_reason": "Suspected scam with a loss of £4,250, above £1,000, and a possibly vulnerable elderly customer, so High under CH-6. The fraud referral has also been delayed by over a month.",
     "estimated_financial_loss_gbp": 4250.0,
     "vulnerability": {
       "indicators_found": true,
@@ -59,75 +54,45 @@
         "health"
       ],
       "customer_was_asked": false,
-      "suggested_support": "Refer to Vulnerable Customer Support. Send all letters in large print as requested. Consider a named contact and more time to respond, and ask her sensitively about any other support needs. The health driver is flagged as possible only (age 78, very distressed), pending a conversation with her."
+      "suggested_support": "Refer to Vulnerable Customer Support. Send large-print letters and agree a contact method and named contact. Sensitively ask whether she needs any support. Her age and low confidence with online banking suggest possible capability and health considerations. Check whether any third-party authority exists before involving anyone else."
     },
     "specialist_teams": [
       "Fraud & Scams",
       "Vulnerable Customer Support",
       "Senior Complaints Review"
     ],
-    "routing_reason": "This is an APP scam, so it must go to Fraud & Scams under FRD-2 and ESC-1. The 1 business day handover deadline was missed by several weeks. The customer is vulnerable (bereavement, low digital capability) and there is a risk to her wellbeing, so a VUL-4 referral to Vulnerable Customer Support is needed. Senior Complaints Review is suggested, at the handler's discretion, because of the Critical deadline and the internal failure to refer. No ESC-1 trigger for that team is evidenced; it is a judgement call.",
+    "routing_reason": "APP scam goes to Fraud & Scams (ESC-1, FRD-2), and the 1-business-day handover deadline was missed. A vulnerability indicator (bereavement, low capability) combined with the scam loss means a VUL-4 referral to Vulnerable Customer Support. Senior Complaints Review is suggested for the missed referral and the prolonged delay. This is a judgement for the handler to confirm.",
     "policy_citations": [
       {
         "clause_id": "FRD-2",
         "quote": "the case must be handed to the Fraud & Scams team within 1 business day",
-        "how_it_applies": "The customer was tricked into sending £4,250. The handover was never made."
+        "how_it_applies": "The customer was tricked into sending a payment to a fraudster. The handover was never made."
       },
       {
         "clause_id": "CH-6",
-        "quote": "suspected fraud or scam, a vulnerable customer at risk of harm",
-        "how_it_applies": "Sets severity to High."
-      },
-      {
-        "clause_id": "VUL-1",
-        "quote": "*life events* (bereavement, job loss, relationship breakdown, caring responsibilities)",
-        "how_it_applies": "Her husband died last year."
-      },
-      {
-        "clause_id": "VUL-1",
-        "quote": "*capability* (low literacy, low digital skills, limited English, or a lack of experience with financial products)",
-        "how_it_applies": "She says she doesn't really understand online banking."
+        "quote": "suspected fraud or scam",
+        "how_it_applies": "Suspected scam and loss over £1,000 make this High severity."
       },
       {
         "clause_id": "VUL-4",
         "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
-        "how_it_applies": "A vulnerability indicator plus bereavement means a referral is required."
-      },
-      {
-        "clause_id": "VUL-5",
-        "quote": "Reasonable adjustments must be offered and recorded",
-        "how_it_applies": "Large print was requested and must be recorded and applied."
-      },
-      {
-        "clause_id": "CH-4",
-        "quote": "it must send a holding letter explaining why and the customer's right to refer the complaint to the independent ombudsman service",
-        "how_it_applies": "0 days are left. A holding letter is needed if a Final Response cannot be issued."
-      },
-      {
-        "clause_id": "CH-5",
-        "quote": "At risk and Critical cases must be reviewed by a team leader weekly.",
-        "how_it_applies": "Status is Critical."
+        "how_it_applies": "The customer mentions her husband's death last year and difficulty with online banking, and she has lost savings."
       },
       {
         "clause_id": "FRD-5",
         "quote": "Handlers must not promise a refund or reimbursement for an APP scam before the specialist decision.",
-        "how_it_applies": "Do not promise reimbursement."
+        "how_it_applies": "No promise of reimbursement should be made while the specialist assesses."
       },
       {
-        "clause_id": "FRD-4",
-        "quote": "check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done",
-        "how_it_applies": "Recorded in note_1."
+        "clause_id": "VUL-5",
+        "quote": "Reasonable adjustments must be offered and recorded",
+        "how_it_applies": "She asked for large-print letters, which must be recorded and applied."
       }
     ],
     "evidence": [
       {
         "field": "root_cause",
         "quote": "They told her to move her savings to a 'safe account'.",
-        "source": "complaint"
-      },
-      {
-        "field": "product",
-        "quote": "move her savings",
         "source": "complaint"
       },
       {
@@ -151,50 +116,57 @@
         "source": "note_2"
       },
       {
-        "field": "vulnerability",
-        "quote": "Cust asks for letters in large print.",
-        "source": "note_2"
+        "field": "specialist_team",
+        "quote": "Still no fraud team owner.",
+        "source": "note_3"
       }
     ],
     "handover": {
-      "complaint_summary": "Suspected APP scam involving impersonation of HMRC and Harbourline security. The customer moved £4,250 of savings to a 'safe account' in the name of [PERSON_1] on 12/09. The referral to the fraud team was never made despite the customer chasing. Received 2026-09-14. The final response is due 2026-11-09 with 0 days left, status Critical.",
-      "products_and_accounts": "Savings account (and the linked account and card that were blocked). No account reference is on file: MISSING.",
-      "desired_outcome": "\"She wants the money back.\"",
+      "complaint_summary": "Ms [PERSON_2], 78, was scammed into moving £4,250 to a 'safe account' after a fake HMRC text and a call from someone claiming to be Harbourline security. The fraud team referral was never made despite the customer being told it would be.",
+      "products_and_accounts": "Current account (account reference MISSING). Payment of £4,250 by FPS.",
+      "desired_outcome": "She wants the money back.",
       "actions_taken": [
-        "2026-09-14: card blocked and online banking credentials reset",
-        "2026-09-14: customer told the fraud team would be in touch (no referral was made)",
-        "2026-09-30: apologised to the customer for the missing referral",
-        "2026-10-21: chased internally, still no fraud team owner"
+        "Card blocked on 14/09",
+        "Online banking credentials reset on 14/09",
+        "Customer identity verified",
+        "Customer told the fraud team would be in touch",
+        "Apology given on 30/09",
+        "Internal chase on 21/10"
       ],
       "evidence_held": [
-        "Payment record FPS 12/09"
+        "Payment record FPS 12/09",
+        "Contact centre notes 1 to 3"
       ],
-      "vulnerability_assessment": "Indicators found: age 78, bereavement last year, low digital capability, very distressed. The customer has not been asked about her support needs.",
-      "contact_preference": "Phone [PHONE_1]. Letters in large print (reasonable adjustment).",
+      "vulnerability_assessment": "Indicators found: life events (bereavement last year), capability (low understanding of online banking), possible health factors linked to age. The customer has not been recorded as asked about support needs.",
+      "contact_preference": "Large-print letters. Phone number is held as [PHONE_1]. Preferred contact channel MISSING.",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "What are the payee's sort code and account number, and the receiving bank?",
-        "Did the customer share any security details or one-time passcodes?",
-        "What were the dates and times of the scam text and call?",
-        "Has a recall request been sent to the receiving bank?",
-        "Is a holding letter needed now?",
-        "Why was the referral not made, and could the delay have affected recovery?"
+        "Date received is 2026-09-14. Deadline status is Critical with 0 days left.",
+        "Why was the fraud referral not made, and who now owns the case?",
+        "Has a holding letter been sent as required by CH-4?",
+        "Has the complaint been acknowledged in writing under CH-2?",
+        "Which account did the funds leave from (account reference)?",
+        "Has the receiving bank been contacted to try to recover the funds?",
+        "Was the scam reported on 14/09 or earlier?",
+        "Has the customer been asked about support needs?"
       ]
     },
     "fraud_details": {
-      "payment_details": "£4,250, FPS, 12/09 at 14:32",
-      "payee_details": "Account in the name of [PERSON_1]. Sort code and account number are MISSING.",
-      "fraudster_contact_method": "Text claiming to be from HMRC about a tax refund, then a phone call from someone posing as Harbourline security",
+      "payment_details": "£4,250 by FPS on 12/09 at 14:32. Reported to the bank on 14/09.",
+      "payee_details": "Account in the name of [PERSON_1]. Sort code and account number MISSING.",
+      "fraudster_contact_method": "Text claiming to be HMRC about a tax refund, then a phone call from someone claiming to be Harbourline security.",
       "security_details_shared": "MISSING",
-      "account_secured": "Yes. Card blocked and online banking credentials reset on 2026-09-14 (note_1)."
+      "account_secured": "Yes. Card blocked and online banking credentials reset on 14/09."
     },
     "other_gaps": [
-      "There is no call recording from 2026-09-14 on file.",
-      "The year of the payment date (12/09) is not stated.",
-      "There is no record of a recall or beneficiary bank notification.",
-      "There is no record of an acknowledgement letter."
+      "Account reference not recorded",
+      "Whether any security details were shared",
+      "Whether the receiving bank was contacted",
+      "Whether a holding letter was sent",
+      "Whether the complaint was acknowledged in writing",
+      "Whether the customer was asked about support needs"
     ],
-    "suggested_next_step": "Hand over to Fraud & Scams immediately and refer to Vulnerable Customer Support. Ask a team leader to review the case. Send a large-print holding letter with the customer's ombudsman rights today. Do not promise reimbursement.",
+    "suggested_next_step": "Today, hand the case to Fraud & Scams with the FRD-3 details, and refer to Vulnerable Customer Support. Notify a team leader of the breached referral and critical deadline. Contact the customer to apologise and update her in large print, without promising reimbursement.",
     "confidence": {
       "product": "medium",
       "root_cause": "high",

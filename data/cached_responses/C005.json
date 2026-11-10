@@ -1,15 +1,15 @@
 {
-  "saved_at": "2026-11-10T19:58:15+00:00",
+  "saved_at": "2026-11-10T20:27:22+00:00",
   "meta": {
     "provider": "live",
-    "model": "claude-opus-5-5",
+    "model": "claude-sonnet-5-5",
     "effort": "low",
     "prompt_version": "triage-v1.0",
-    "request_id": "req_011Cguqa47KZo9p12BJ3NCg8",
-    "latency_s": 33.0,
+    "request_id": "req_011CguspSHhFHrCqAqbGVDyh",
+    "latency_s": 11.6,
     "usage": {
       "input": 424,
-      "output": 2718,
+      "output": 1902,
       "cache_read": 8575,
       "cache_write": 0
     },
@@ -17,103 +17,81 @@
   },
   "analysis": {
     "is_complaint": true,
-    "is_complaint_reason": "The customer expresses dissatisfaction with the app repeatedly crashing at login and says she suffered material inconvenience: she could not pay her rent on time and had to travel to a branch 40 minutes away. This meets CH-1.",
-    "summary": "The customer reports that the Harbourline app has crashed every time she tries to log in over the last three weeks. This is her fourth call about the same issue. Earlier agents advised a reinstall and clearing the cache. An IT ticket may have been raised on 2026-10-13, but it is not confirmed that it was sent. Because of the fault she could not pay her rent on time and had to travel 40 minutes to a branch. She wants the app fixed and compensation for the hassle. She uses an Android phone; the app version is unknown. No financial loss amount is stated. Late rent may point to possible financial strain, which has not been explored.",
+    "is_complaint_reason": "Customer expresses dissatisfaction about the app crashing and alleges material inconvenience (late rent, 40-minute branch trip) and asks for compensation (CH-1).",
+    "summary": "The customer says the Harbourline app has crashed on every login attempt for about three weeks. This is her fourth call. She could not pay her rent on time and had to travel to a branch 40 minutes away. She wants the app fixed and compensation. Earlier contacts only gave reinstall and clear-cache advice. It is not confirmed whether an IT ticket was raised. She uses an Android phone; the app version is unknown. No evidence is on file.",
     "timeline": [
       {
         "date": "2026-09-29",
-        "event": "First call: app crashes at login. Agent advised reinstalling the app.",
+        "event": "First contact: app login crash, advised to reinstall.",
         "source": "note_1"
       },
       {
         "date": "2026-10-06",
-        "event": "Second call: app still crashing. Agent advised clearing the cache.",
+        "event": "Still crashing, advised to clear cache.",
         "source": "note_2"
       },
       {
         "date": "2026-10-13",
-        "event": "Third call: still crashing after reinstall. Agent may have raised an IT ticket; not sure if it was sent.",
+        "event": "Still crashing after reinstall. IT ticket possibly raised, unconfirmed.",
         "source": "note_3"
       },
       {
-        "date": "undated",
-        "event": "Customer could not pay her rent on time and went to a branch 40 minutes away.",
-        "source": "complaint"
+        "date": "2026-10-20",
+        "event": "Fourth call, logged as complaint. Android phone, app version unknown.",
+        "source": "note_4"
       },
       {
-        "date": "2026-10-20",
-        "event": "Fourth call. Logged as a complaint. Android phone, app version unknown.",
-        "source": "note_4"
+        "date": "undated",
+        "event": "Customer could not pay rent on time and went to a branch 40 minutes away.",
+        "source": "complaint"
       }
     ],
     "product": "Mobile and online banking",
     "root_cause": "Systems or app failure",
     "severity": "Medium",
-    "severity_reason": "This is a repeated service failure: the customer has contacted the bank four times about the same issue, which meets the Medium threshold in CH-6. No financial loss is quantified. Severity should be reconsidered if late rent caused a charge, if the customer is vulnerable and at risk of harm, or if the crash is affecting many customers (systemic).",
+    "severity_reason": "Repeated service failure: four contacts about the same issue (CH-6 Medium). Loss is not quantified and no other High trigger is shown. Late rent consequences are unknown.",
     "estimated_financial_loss_gbp": null,
     "vulnerability": {
-      "indicators_found": true,
-      "drivers": [
-        "resilience"
-      ],
+      "indicators_found": false,
+      "drivers": [],
       "customer_was_asked": false,
-      "suggested_support": "This is a possible indicator only. Her inability to pay rent on time was caused by the app fault, but it may also reflect tight finances. Ask the customer sensitively whether she needs any support and whether the late rent caused any charges or hardship. Offer reasonable adjustments, such as phone contact on [PHONE_1] and help to make payments while the app is unavailable. Note that note_4 says no indicators were mentioned, but the customer was not asked."
+      "suggested_support": "No indicators recorded. Ask sensitively about support needs, since the late rent may hint at financial pressure, and about any rent late fees."
     },
     "specialist_teams": [
       "Digital Operations"
     ],
-    "routing_reason": "A persistent app login crash over three weeks, which basic troubleshooting has not fixed, needs technical investigation by Digital Operations under ESC-1. The IT ticket status is uncertain. If the investigation finds the fault affects many customers, Senior Complaints Review should also be considered. The complaints handler remains the point of contact under ESC-5 and decides any redress under CH-8.",
+    "routing_reason": "A persistent app login crash over three weeks needs technical investigation, so ESC-1 points to Digital Operations. No fraud, lending or vulnerability referral trigger is evident.",
     "policy_citations": [
-      {
-        "clause_id": "CH-1",
-        "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience.",
-        "how_it_applies": "The customer is dissatisfied with the app and describes material inconvenience (late rent, travel to a branch)."
-      },
       {
         "clause_id": "CH-6",
         "quote": "repeated service failure (the customer has contacted us three or more times about the same issue)",
-        "how_it_applies": "She has made four contacts about the same crash, so severity is Medium."
-      },
-      {
-        "clause_id": "CH-7",
-        "quote": "Systems or app failure",
-        "how_it_applies": "The primary root cause is the app crashing at login."
+        "how_it_applies": "Four calls about the same issue sets severity at Medium."
       },
       {
         "clause_id": "ESC-1",
         "quote": "A systems or app failure that needs technical investigation → *Digital Operations*.",
-        "how_it_applies": "The crash persists after a reinstall and cache clear, so it needs technical investigation."
+        "how_it_applies": "The persistent crash needs technical investigation."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Systems or app failure",
+        "how_it_applies": "Approved root cause tag for the app crash."
       },
       {
         "clause_id": "VUL-2",
         "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support.",
-        "how_it_applies": "Late rent is a possible resilience indicator, and the customer has not been asked about support needs."
-      },
-      {
-        "clause_id": "ESC-2",
-        "quote": "Handovers must be made within 2 business days of the trigger being identified",
-        "how_it_applies": "The handover to Digital Operations should be made within 2 business days."
+        "how_it_applies": "The late rent might indicate pressure, so the customer should be asked."
       }
     ],
     "evidence": [
       {
-        "field": "product",
+        "field": "root_cause",
         "quote": "the Harbourline app has crashed every time she tries to log in for the last three weeks",
         "source": "complaint"
       },
       {
-        "field": "root_cause",
-        "quote": "Still crashing after reinstall. Raised IT ticket? (not sure if sent)",
-        "source": "note_3"
-      },
-      {
         "field": "severity",
         "quote": "This is the fourth time she has called.",
-        "source": "complaint"
-      },
-      {
-        "field": "vulnerability",
-        "quote": "She couldn't pay her rent on time and had to go to a branch 40 minutes away.",
         "source": "complaint"
       },
       {
@@ -122,51 +100,59 @@
         "source": "complaint"
       },
       {
-        "field": "specialist_team",
-        "quote": "Android phone, app version unknown.",
+        "field": "product",
+        "quote": "App login crash.",
+        "source": "note_1"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability indicators mentioned.",
         "source": "note_4"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "Raised IT ticket? (not sure if sent)",
+        "source": "note_3"
       }
     ],
     "handover": {
-      "complaint_summary": "The Harbourline app has crashed at every login attempt for about three weeks. The customer has called four times (2026-09-29, 2026-10-06, 2026-10-13 and 2026-10-20). A reinstall and a cache clear did not fix it. She could not pay her rent on time and had to travel 40 minutes to a branch. Received 2026-10-20 by phone; final response due 2026-12-15, 36 days left, On track.",
-      "products_and_accounts": "Harbourline mobile banking app (Android device). Account reference: MISSING.",
-      "desired_outcome": "\"She wants the app fixed and compensation for the hassle.\"",
+      "complaint_summary": "Customer reports the app has crashed on every login for about three weeks, causing late rent and a 40-minute branch trip. Fourth call. Wants it fixed and compensation.",
+      "products_and_accounts": "Harbourline mobile app (Android, version MISSING). Account references MISSING.",
+      "desired_outcome": "App fixed and compensation for the hassle.",
       "actions_taken": [
-        "2026-09-29: advised the customer to reinstall the app",
-        "2026-10-06: advised the customer to clear the cache",
-        "2026-10-13: IT ticket possibly raised; not confirmed as sent",
-        "2026-10-20: logged as a complaint"
+        "Advised to reinstall app (2026-09-29)",
+        "Advised to clear cache (2026-10-06)",
+        "IT ticket possibly raised on 2026-10-13, unconfirmed",
+        "Complaint logged 2026-10-20"
       ],
       "evidence_held": [
-        "MISSING - no evidence listed on file"
+        "None listed"
       ],
-      "vulnerability_assessment": "Possible resilience indicator: the customer could not pay her rent on time, which may signal financial strain. Note_4 says no indicators were mentioned. The customer was not asked about support needs.",
-      "contact_preference": "MISSING. A mobile number is recorded as [PHONE_1]; no preference or reasonable adjustments are recorded.",
+      "vulnerability_assessment": "No indicators recorded by handler. Customer not recorded as asked about support needs.",
+      "contact_preference": "MISSING (mobile number held as [PHONE_1])",
       "third_party_authority": "Not applicable",
       "open_questions": [
-        "Was the IT ticket from 2026-10-13 actually raised? If so, what is its reference and status?",
-        "What app version and Android version is the customer using, and what error appears when it crashes?",
-        "Are other customers reporting the same login crash (possible systemic issue)?",
-        "Did the late rent payment cause the customer any charges or financial loss?",
-        "Does the customer need any support or reasonable adjustments?"
+        "Was an IT ticket raised, and what is its reference?",
+        "What is the app version and Android OS version?",
+        "Is there any error message or crash log?",
+        "Did the customer incur rent late fees or branch travel costs?",
+        "Is the same fault affecting other customers?",
+        "Does the customer need any support or adjustments?"
       ]
     },
     "fraud_details": null,
     "other_gaps": [
-      "The IT ticket status is unconfirmed.",
-      "The app version and device model are unknown.",
-      "There are no call recordings or screenshots on file.",
-      "No account reference is recorded.",
-      "There is no record of the rent amount or any late payment charge.",
-      "There is no record of the date she visited the branch."
+      "Date received: 2026-10-20; deadline 2026-12-15, On track (system-computed)",
+      "Exact date the rent was late is not stated",
+      "No evidence of loss, such as rent receipts or late fee notices"
     ],
-    "suggested_next_step": "Confirm whether the IT ticket was raised, or raise one now, and hand over to Digital Operations with device and app details within 2 business days. Call the customer to ask about the impact of the late rent and any support needs, and offer an alternative way to make payments in the meantime. Any redress is for the handler to decide.",
+    "suggested_next_step": "Confirm whether the IT ticket exists, then hand over to Digital Operations with the missing technical details. Ask the customer about support needs and any costs incurred. Acknowledge in writing within 3 business days (CH-2).",
     "confidence": {
       "product": "high",
       "root_cause": "high",
       "severity": "medium",
-      "vulnerability": "low",
-      "specialist_teams": "high"
+      "vulnerability": "medium",
+      "specialist_teams": "medium"
     },
     "suspicious_instructions": null
   }
