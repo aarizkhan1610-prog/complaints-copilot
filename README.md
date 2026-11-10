@@ -62,6 +62,8 @@ streamlit run streamlit_app.py    # then switch on "Use live AI" in the sidebar
 
 ### A two-minute tour
 
+0. **Impact**: the three problems in the brief (backlog, finding information, incomplete handovers), each shown
+   before and after, measured on the 25 cases. Time savings are estimates you can change in *Assumptions*.
 1. **Complaint queue**: 25 cases sorted by deadline risk, severity and vulnerability. Select **C002** (a scam on a
    bereaved 78-year-old, due today) and open it.
 2. **Review a case**: the left side shows the case as the AI saw it (redacted); toggle *Show personal data* to
@@ -97,12 +99,13 @@ prompt-injection resistance. Results: [`eval/results.md`](eval/results.md).
 
 | Path | What |
 |---|---|
-| `streamlit_app.py` | The user interface (queue, review, specialist inbox, audit log) |
+| `streamlit_app.py` | The user interface (impact, queue, review, specialist inbox, audit log) |
 | `copilot/redact.py` | Personal-data redaction (rules + name propagation) |
 | `copilot/deadlines.py` | Deadline status and priority score (pure code) |
 | `copilot/prompts.py`, `copilot/schemas.py` | The prompt and the exact output format the model must follow |
 | `copilot/ai.py` | Model providers: live Claude, saved responses, and the hybrid with caps and fallback |
 | `copilot/checks.py` | Citation, evidence, completeness and injection checks |
+| `copilot/impact.py` | Before/after measures behind the Impact page |
 | `copilot/pipeline.py` | One case end to end; handover pack |
 | `copilot/audit.py` | Append-only audit log |
 | `data/` | Synthetic complaints, fictional policies, answer key, saved responses |

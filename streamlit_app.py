@@ -8,9 +8,9 @@ import json
 import pandas as pd
 import streamlit as st
 
-from copilot import audit, config
+from copilot import audit, config, impact
 from copilot.ai import AIUnavailable, Hybrid, LiveClaude, LocalOllama, SavedResponses
-from copilot.data import get_complaint, load_complaints, load_policies
+from copilot.data import get_complaint, load_complaints, load_labels, load_policies
 from copilot.deadlines import deadline_info, priority_score
 from copilot.pipeline import handover_markdown, run_case
 from copilot.redact import reidentify
@@ -81,7 +81,7 @@ def sidebar():
     s = ss()
     st.sidebar.title("🗂️ Complaints Copilot")
     st.sidebar.caption("Harbourline Bank (fictional) · synthetic data only")
-    page = st.sidebar.radio("View", ["Complaint queue", "Review a case", "Specialist inbox",
+    page = st.sidebar.radio("View", ["Impact", "Complaint queue", "Review a case", "Specialist inbox",
                                      "Audit log", "How it works"], key="page")
     st.sidebar.divider()
     have_local = any(config.LOCAL_CACHE_DIR.glob("*.json")) or LocalOllama().available()
@@ -103,6 +103,183 @@ def sidebar():
         st.sidebar.caption(f"Saved responses: `{config.SAVED_MODEL}` (each result shows the model that produced it)")
     st.sidebar.caption(f"'Today' is fixed at {config.AS_OF:%a %d %b %Y} so deadlines are reproducible.")
     return page
+
+
+
+# ----------------------------------------------------------------------------- impact
+def all_metrics():
+    """Per-case measures for every case with an AI result."""
+    labels = load_labels()
+    items, metrics = [], []
+    for c in load_complaints():
+        r = get_result(c["id"])
+        if r is None:
+            continue
+        dl = r["deadline"]
+        items.append({"case_id": c["id"], "received": c["received"], "days_left": dl["days_left"],
+                      "priority": r["priority"], "urgent": impact.is_urgent(labels[c["id"]], dl["status"])})
+        metrics.append(impact.case_metrics(c, r, labels[c["id"]]))
+    return items, metrics
+
+
+def assumption_inputs():
+    with st.expander("Assumptions behind the time estimates (change them to test the case)", expanded=False):
+        st.caption("These are illustrative. A pilot would replace them with timed manual and assisted triages. "
+                   "Every case count on this page is measured; only the minutes and hours depend on these inputs.")
+        c1, c2, c3 = st.columns(3)
+        a = impact.Assumptions(
+            manual_triage_min=c1.number_input("Manual triage, minutes per case", 5, 120, 30),
+            copilot_review_min=c1.number_input("Reviewing the copilot draft, minutes", 1, 60, 10),
+            manual_handover_min=c2.number_input("Writing a handover by hand, minutes", 5, 90, 20),
+            copilot_handover_min=c2.number_input("Filling flagged gaps and sending, minutes", 1, 60, 5),
+            return_rework_min=c3.number_input("Rework when a handover is returned, minutes", 5, 180, 30),
+            complaints_per_month=c3.number_input("Complaints per month", 50, 100000, 1000, step=50),
+        )
+    return a
+
+
+def compare(rows):
+    """Render a Measure / Before / After / Basis table."""
+    rows = [[str(x) for x in r] for r in rows]
+    st.dataframe(pd.DataFrame(rows, columns=["Measure", "Before (today)", "After (with copilot)", "Basis"]),
+                 hide_index=True, use_container_width=True)
+
+
+def before_after(before, after):
+    l, r = st.columns(2)
+    l.markdown(f"**Before:** {before}")
+    r.markdown(f"**After:** {after}")
+
+
+def page_impact():
+    st.header("Impact: the three problems in the brief, before and after")
+    st.caption("The brief describes a growing backlog, staff spending time finding information across case notes "
+               "and policy documents, and specialist teams receiving incomplete handovers. Each section compares "
+               "today's process with the copilot on the 25 synthetic cases, scored against the hand-written answer "
+               "key. **Measured** figures come from the cases; **Estimate** figures depend on the assumptions below.")
+    a = assumption_inputs()
+    items, metrics = all_metrics()
+    if not metrics:
+        st.error("No AI results available to measure.")
+        return
+    b = impact.backlog_summary(items, a)
+    info = impact.information_summary(metrics)
+    h = impact.handover_summary(metrics)
+    hs = ss()["handovers"]
+    returned_now = sum(1 for x in hs.values() if x["returns"])
+
+    spec = h["specialist_cases"] or 1
+    t = impact.time_summary(a, h["specialist_cases"] / len(metrics), h["incomplete_as_written"] / spec,
+                            (h["incomplete_as_written"] - h["blocked_before_send"]) / spec)
+
+    c1, c2, c3, c4 = st.columns(4)
+    c1.metric("Handler time per complaint", f"{t['after_min']:.0f} min", f"{-t['saved_min']:.0f} min vs {t['before_min']:.0f}",
+              delta_color="inverse", help="Estimate: triage + handover + rework on returned handovers.")
+    c2.metric("Handler hours back a month", f"{t['hours_per_month']:,.0f}", f"≈ {t['fte']:.1f} FTE",
+              delta_color="off", help=f"Estimate at {a.complaints_per_month:,} complaints a month.")
+    c3.metric("Urgent cases near the top", f"{b['urgent_in_top_copilot']} of {b['urgent']}",
+              f"{b['urgent_in_top_copilot'] - b['urgent_in_top_arrival']:+d} vs arrival order",
+              help=f"Measured: urgent cases within the first {b['top_k']} places of the queue.")
+    c4.metric("Incomplete handovers stopped", f"{h['blocked_before_send']} of {h['incomplete_as_written']}",
+              help="Measured: blocked before reaching a specialist, against the answer key.")
+
+    st.divider()
+    st.subheader("1 · The growing backlog")
+    before_after("cases are worked in arrival order. Severity and vulnerability are only known after a handler "
+                 "has read the file, so an urgent case waits its turn.",
+                 "every case is triaged on arrival and the queue is ordered by deadline risk (CH-5), severity "
+                 "(CH-6) and vulnerability, so urgent cases are seen first and each one takes less time.")
+    compare([
+        ["Average queue position of an urgent case", f"{b['mean_pos_arrival']:.1f}", f"{b['mean_pos_copilot']:.1f}", "Measured"],
+        [f"Urgent cases in the first {b['top_k']} places", f"{b['urgent_in_top_arrival']} of {b['urgent']}",
+         f"{b['urgent_in_top_copilot']} of {b['urgent']}", "Measured"],
+        ["Cases one handler gets through per day", b["per_day_manual"], b["per_day_copilot"], "Estimate"],
+        ["Days for one handler to reach every urgent case", b["day_all_urgent_manual"], b["day_all_urgent_copilot"], "Estimate"],
+        [f"Days for one handler to clear these {b['cases']} cases", b["days_backlog_manual"], b["days_backlog_copilot"], "Estimate"],
+    ])
+    urgent = {x["case_id"] for x in items if x["urgent"]}
+    mark = lambda o: " ".join(f"**{c}**" if c in urgent else c for c in o[:b["top_k"]])
+    st.caption(f"Urgent = vulnerable, high severity, or deadline breached/critical, per the answer key (bold).  \n"
+               f"First {b['top_k']} in arrival order: {mark(b['arrival_order'])}  \n"
+               f"First {b['top_k']} in copilot order: {mark(b['copilot_order'])}  \n"
+               "Switch between the two orders on the Complaint queue page.")
+
+    st.divider()
+    st.subheader("2 · Finding information across case notes and policy documents")
+    before_after("the handler reads the complaint and every note, searches the policy library for the clauses "
+                 "that apply, and builds the timeline by hand.",
+                 "the copilot returns a summary, a dated timeline and the clauses that apply, each quoted word "
+                 "for word and checked against the policy text in code. The handler checks rather than searches.")
+    compare([
+        ["Policy text to search per case", f"{info['clauses_total']} clauses in {info['policy_docs']} documents "
+         f"({info['policy_words']:,} words)", f"{info['avg_clauses_cited']:.1f} cited clauses "
+         f"({info['avg_cited_words']:.0f} words, {info['avg_cited_words'] / max(1, info['policy_words']) * 100:.0f}%)",
+         "Measured"],
+        ["Citations checked against the source text", "Not checked", f"{info['citations_verified']} of "
+         f"{info['citations_total']} verified; failures removed", "Measured"],
+        ["Timeline events per case", f"{info['avg_timeline_events']:.1f} built by hand",
+         f"{info['avg_timeline_events']:.1f} drafted with sources", "Measured"],
+        ["Triage time per case", f"{a.manual_triage_min:.0f} min", f"{a.copilot_review_min:.0f} min", "Estimate"],
+    ])
+    st.caption(f"The handler still reads the case (about {info['avg_case_words']:.0f} words here): the copilot "
+               "removes the search, not the responsibility. Synthetic files are short; real ones are longer, "
+               "so the saving would likely be larger.")
+
+    st.divider()
+    st.subheader("3 · Incomplete handovers to specialist teams")
+    before_after("the handler writes the handover from memory. Gaps are found by the specialist, who sends it "
+                 "back (ESC-4) while the customer waits.",
+                 "the copilot drafts all ten ESC-3 fields (plus FRD-3/4 for fraud and VUL-6 for third parties) "
+                 "and the app will not send a handover until every gap is filled.")
+    compare([
+        ["Handovers missing a required field", f"{h['incomplete_as_written']} of {h['specialist_cases']} reach the specialist",
+         f"{h['incomplete_as_written'] - h['blocked_before_send']} of {h['specialist_cases']} reach the specialist", "Measured"],
+        ["Missing fields found before sending", "Found by the specialist", f"{h['gaps_caught']} of {h['gaps_total']} "
+         f"flagged ({h['gaps_caught'] / max(1, h['gaps_total']) * 100:.0f}%)", "Measured"],
+        ["Required handover fields", "All written by hand", f"{h['avg_fields_drafted']:.1f} per handover drafted "
+         "for checking", "Measured"],
+        ["Handover time", f"{a.manual_handover_min:.0f} min + {a.return_rework_min:.0f} min rework if returned",
+         f"{a.copilot_handover_min:.0f} min", "Estimate"],
+        ["Returned by specialists in this session", "Not tracked", f"{returned_now} of {len(hs)}" if hs else "none sent yet", "Live"],
+    ])
+    if h["missed"]:
+        st.caption("Missed by the copilot, but the handover was still blocked by other gaps: " +
+                   "; ".join(f"{c} ({', '.join(g)})" for c, g in h["missed"].items()))
+
+    with st.expander("Per-case measures"):
+        st.dataframe(pd.DataFrame([{
+            "Case": m["case_id"], "Words to read": m["case_words"], "Clauses cited (verified)": m["clauses_cited"],
+            "Timeline events": m["timeline_events"], "Needs specialist": "Yes" if m["needs_specialist"] else "No",
+            "Missing fields (key)": len(m["true_gaps"]), "Flagged": len(m["gaps_caught"]),
+            "Stopped before send": "Yes" if m["blocked_before_send"] else ("n/a" if not m["would_be_returned"] else "No"),
+        } for m in metrics]), hide_index=True, use_container_width=True)
+
+
+def case_impact(case, r):
+    """What the copilot saved on this case, for the three problems in the brief."""
+    label = load_labels().get(case["id"])
+    if not label:
+        return
+    m = impact.case_metrics(case, r, label)
+    items, _ = all_metrics()
+    arrival, copilot = impact.queue_orders(items)
+    with st.expander("What the copilot did on this case (before → after)", expanded=False):
+        c1, c2, c3 = st.columns(3)
+        if case["id"] in arrival:
+            d = copilot.index(case["id"]) - arrival.index(case["id"])
+            move = "same place as arrival order" if d == 0 else \
+                f"{abs(d)} places {'earlier' if d < 0 else 'later'} than arrival order"
+            c1.metric("Backlog: queue position", copilot.index(case["id"]) + 1, move,
+                      delta_color="normal" if d < 0 else "off",
+                      help="Urgent cases move up; routine ones move down so urgent work is seen first.")
+        c2.metric("Information: policy clauses to read", f"{m['clauses_cited']} of {m['clauses_total']}",
+                  f"{m['timeline_events']} timeline events drafted", delta_color="off")
+        if m["needs_specialist"]:
+            c3.metric("Handover: fields drafted", f"{m['fields_drafted']} of {m['fields_total']}",
+                      (f"{len(m['gaps_caught'])} gaps flagged before sending" if m["true_gaps"] else "complete"),
+                      delta_color="off")
+        else:
+            c3.metric("Handover", "Not needed", "handler resolves", delta_color="off")
 
 
 # ----------------------------------------------------------------------------- queue
@@ -129,7 +306,17 @@ def page_queue():
             "Status": review_status(c["id"]),
             "Priority": r["priority"] if r else priority_score(dl["status"]),
         })
-    df = pd.DataFrame(rows).sort_values(["Priority", "Days left"], ascending=[False, True])
+    order = st.radio("Queue order", ["Copilot priority (after)", "Arrival order, oldest first (before)"],
+                     horizontal=True, key="queue_order",
+                     help="Before the copilot, nobody knows a case is vulnerable or high severity until a handler "
+                          "has read it, so cases are worked in arrival order.")
+    df = pd.DataFrame(rows)
+    if order.startswith("Arrival"):
+        df = df.sort_values(["Received", "Case"])
+        st.warning("Before view: cases in the order they arrived. The AI columns are shown only so you can see where "
+                   "urgent cases end up; without the copilot they would be blank until a handler had read each file.")
+    else:
+        df = df.sort_values(["Priority", "Days left"], ascending=[False, True])
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Open complaints", len(df))
     c2.metric("Breached or critical", int(df["Deadline"].str.contains("Breached|Critical").sum()))
@@ -196,6 +383,7 @@ def page_review():
     for w in r["warnings"]:
         st.error("⚠️ " + w)
 
+    case_impact(case, r)
     left, right = st.columns([2, 3], gap="large")
     with left:
         show_case(case, r)
@@ -411,6 +599,9 @@ handovers to specialist teams.
 **What the AI never does:** decide whether a complaint is upheld, set redress, contact the customer, or see real
 personal data.
 
+**Impact page:** shows, for each of the three problems in the brief, the process before and after, measured on the
+25 cases against the answer key. Time savings are estimates from adjustable assumptions and are labelled as such.
+
 **Demo mode:** without an API key the app replays real model responses saved earlier, so it is free to explore.
 """)
 
@@ -418,7 +609,7 @@ personal data.
 # ----------------------------------------------------------------------------- main
 def main():
     page = sidebar()
-    {"Complaint queue": page_queue, "Review a case": page_review, "Specialist inbox": page_specialist,
+    {"Impact": page_impact, "Complaint queue": page_queue, "Review a case": page_review, "Specialist inbox": page_specialist,
      "Audit log": page_audit, "How it works": page_about}[page]()
 
 
