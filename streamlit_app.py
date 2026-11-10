@@ -98,7 +98,9 @@ def sidebar():
         st.sidebar.info("Demo mode: showing saved AI responses. Live AI is off "
                         "(no API key, or no local model running).")
     model = f"ollama/{config.OLLAMA_MODEL}" if backend() == "local" else f"{config.MODEL} (effort {config.EFFORT})"
-    st.sidebar.caption(f"Model: `{model}` · prompt `{config.PROMPT_VERSION}`")
+    st.sidebar.caption(f"Live model: `{model}` · prompt `{config.PROMPT_VERSION}`")
+    if backend() != "local":
+        st.sidebar.caption(f"Saved responses: `{config.SAVED_MODEL}` (each result shows the model that produced it)")
     st.sidebar.caption(f"'Today' is fixed at {config.AS_OF:%a %d %b %Y} so deadlines are reproducible.")
     return page
 

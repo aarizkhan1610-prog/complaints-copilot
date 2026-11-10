@@ -1,0 +1,143 @@
+{
+  "saved_at": "2026-11-10T20:30:14+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut2dPGei2pDvbUZML55",
+    "latency_s": 17.8,
+    "usage": {
+      "input": 264,
+      "output": 3034,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "c9c6c2a2a579ac1a"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction that an ISA transfer in took six weeks against a stated 15 working days, and alleges about £56 of lost interest (CH-1).",
+    "summary": "Customer reports that an ISA transfer in from another provider took about six weeks, against the 15 working days they were told. They estimate they lost about £56 interest while the transfer was stuck and ask the bank to sort it. Case file records the transfer as received 03/09 and completed 15/10. No vulnerability is recorded. The customer prefers email, and gave a mobile number as an alternative. No actions by the bank are recorded in the case file. The £56 figure is the customer's estimate and has not been verified.",
+    "timeline": [
+      {
+        "date": "03/09",
+        "event": "ISA transfer in received from another provider (as written in note)",
+        "source": "note_1"
+      },
+      {
+        "date": "undated",
+        "event": "Customer was told the transfer would take 15 working days",
+        "source": "complaint"
+      },
+      {
+        "date": "15/10",
+        "event": "ISA transfer completed",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-10-22",
+        "event": "Complaint received by email from customer",
+        "source": "complaint"
+      }
+    ],
+    "product": "Savings account",
+    "root_cause": "Service delay",
+    "severity": "Low",
+    "severity_reason": "Customer alleges financial loss of about £56 interest, which is under £100 (CH-6 Low). No vulnerability, fraud or repeated contact recorded.",
+    "estimated_financial_loss_gbp": 56.0,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "None indicated in the case file. No adjustments required beyond the customer's stated email preference."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger identified (no fraud, lending, vulnerability referral, systemic issue, legal threat, media contact or systems failure requiring technical investigation). Complaints handler to resolve.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
+        "how_it_applies": "Customer is dissatisfied with the time taken for the ISA transfer and alleges financial loss, so this is a complaint."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "financial loss under £100 or a service issue with no loss",
+        "how_it_applies": "Alleged loss of about £56 is under £100, so severity is Low."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Service delay",
+        "how_it_applies": "The core issue is the delay in completing the ISA transfer, so the primary root cause is Service delay."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "Complaints handlers resolve complaints themselves unless one of the following applies",
+        "how_it_applies": "None of the ESC-1 triggers are identified, so the complaints handler keeps the case."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "my isa transfer from another provider took six weeks",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "i reckon i lost about £56 interest",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "can you sort it",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "no vuln",
+        "source": "note_1"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "pref email",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer says their ISA transfer in from another provider took about six weeks, though they were told 15 working days. They estimate about £56 interest was lost. Handler to resolve; no specialist trigger identified.",
+      "products_and_accounts": "ISA (transfer in). Account reference MISSING.",
+      "desired_outcome": "Customer asks the bank to 'sort it'. No specific remedy or amount stated. Customer's wording: 'can you sort it'.",
+      "actions_taken": [
+        "MISSING: no actions by the bank recorded in the case file"
+      ],
+      "evidence_held": [
+        "ISA transfer record"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators recorded (note_1: 'no vuln'). Case does not say whether the customer was asked about support needs.",
+      "contact_preference": "Email (note_1: 'pref email'). Customer also gave a mobile number as an alternative. No reasonable adjustments recorded.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "How was the £56 interest figure calculated, and over what period?",
+        "Where did the 15 working day timescale come from, and who gave it to the customer?",
+        "What caused the delay between 03/09 and 15/10?",
+        "Has the customer been acknowledged in writing within 3 business days (CH-2)?",
+        "Account reference for the ISA is missing from the file."
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Interest calculation supporting the £56 figure is not in the case file",
+      "Account reference not recorded",
+      "No record of acknowledgement sent to customer"
+    ],
+    "suggested_next_step": "Confirm written acknowledgement was sent (CH-2). Verify the transfer dates and the £56 interest claim against the ISA transfer record. Ask the customer for any supporting detail. Decide any redress under CH-8 and RED with an authorised handler; this triage makes no outcome decision.",
+    "confidence": {
+      "product": "medium",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "saved_at": "2026-11-10T20:31:26+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut84ciEGnLtKyGFDjKE",
+    "latency_s": 16.4,
+    "usage": {
+      "input": 370,
+      "output": 4006,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "0d4957f4dc4eeb37"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The customer expresses dissatisfaction that the bank ended their 0% promotional rate and charged £212 interest after a late payment, and alleges financial loss. This meets CH-1.",
+    "summary": "Mrs [PERSON_1] holds a Harbourline credit card (ending [CARD_DIGITS_1]) on a 0% balance transfer deal for 18 months. She says one payment was two days late in July 2026, which led the bank to end the 0% rate and charge £212 interest. She says she was not told clearly that one late payment would cancel the deal and that this is buried in the small print. She wants the 0% rate restored and the interest refunded. The handler note of 2026-09-30 cites T&Cs s.7.2, which allows promotional rate withdrawal after a late payment, and says the key facts summary mentions this on p.3. The file holds the credit card agreement, key facts and the July to September 2026 statement. The complaint is logged as received 2026-09-29 by letter, final response due 2026-11-24 with 15 days left (At risk). No vulnerability is recorded. The handler should verify the payment dates, the T&Cs and the disclosure before deciding on any outcome.",
+    "timeline": [
+      {
+        "date": "2026-07",
+        "event": "One payment on the credit card was two days late, per the customer.",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "Bank ended the 0% promotional rate after the late payment and charged £212 interest, per the customer.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-09-29",
+        "event": "Complaint received by letter.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-09-30",
+        "event": "Complaints handler reviewed the case: cited T&Cs s.7.2, noted key facts p.3, recorded contact preference as letter and no vulnerability.",
+        "source": "note_1"
+      }
+    ],
+    "product": "Credit card",
+    "root_cause": "Fees and charges",
+    "severity": "Medium",
+    "severity_reason": "Customer alleges £212 financial loss, which falls in the CH-6 Medium band (£100 to £1,000). No suspected fraud, no vulnerability indicators and no staff conduct allegation are recorded.",
+    "estimated_financial_loss_gbp": 212.0,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "No indicators found in the case. Confirm contact preference is letter as recorded, and offer reasonable adjustments if the customer asks for them (VUL-5)."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger identified. This is a fees and charges dispute on a credit card, not fraud, lending affordability, vulnerability, systemic issue or systems failure. The complaints handler should resolve it, subject to checking whether the facts raise a bank error under FEE-2 or a disclosure issue.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
+        "how_it_applies": "The customer is dissatisfied with the bank's handling of the credit card rate and alleges £212 financial loss, so this is a complaint."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "financial loss between £100 and £1,000",
+        "how_it_applies": "The alleged £212 interest charge sets the severity at Medium."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Fees and charges",
+        "how_it_applies": "The complaint concerns interest charged as a consequence of a late payment, so the primary root cause is tagged Fees and charges."
+      },
+      {
+        "clause_id": "FEE-5",
+        "quote": "A late payment fee on a credit card is correctly charged if the minimum payment was not received by the due date.",
+        "how_it_applies": "The late payment is the trigger for the charge. Whether the minimum payment was received by the due date is not stated in the file and needs checking. If the customer set up a Direct Debit that failed because of a bank error, FEE-2 would apply."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "one payment was two days late in July",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want the 0% rate restored and the interest refunded.",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "Nobody explained that one late payment would cancel the whole deal",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "charged me £212 interest",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "T&Cs s.7.2 allow promo rate withdrawal after a late payment.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer holds a Harbourline credit card on a 0% balance transfer for 18 months. After one payment was two days late in July 2026, the bank ended the 0% rate and charged £212 interest. The customer says she was not clearly told that one late payment would end the deal and wants the rate restored and interest refunded. Received 2026-09-29 by letter; final response due 2026-11-24; status At risk with 15 days left.",
+      "products_and_accounts": "Harbourline credit card ending [CARD_DIGITS_1]",
+      "desired_outcome": "I want the 0% rate restored and the interest refunded.",
+      "actions_taken": [
+        "2026-09-30: complaints handler reviewed the case, cited T&Cs s.7.2 and noted the key facts summary on p.3 (per note_1)"
+      ],
+      "evidence_held": [
+        "Credit card agreement and key facts",
+        "Statement July-Sept 2026",
+        "Customer complaint letter received 2026-09-29"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found (per handler note). Customer was not asked about support needs according to the case file.",
+      "contact_preference": "Letter (per note_1). No reasonable adjustments recorded.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Which due date was missed and was the minimum payment received late by how much?",
+        "Does T&Cs s.7.2 apply exactly as the handler note states, and is the full T&Cs document on file?",
+        "Was the late-payment consequence disclosed clearly in the key facts, and does p.3 say what the customer was told?",
+        "On what date was the 0% rate ended and how was the £212 interest calculated?",
+        "Was any Direct Debit set up and did it fail because of a bank error (FEE-2)?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "The full T&Cs document is referred to (s.7.2) but is not listed as evidence on file.",
+      "The exact date of the late payment and the date the rate was withdrawn are not stated.",
+      "No record of the bank's contact with the customer about the rate change before the complaint."
+    ],
+    "suggested_next_step": "Complaints handler to check the payment due date and receipt, confirm the T&Cs clause and key facts wording, calculate the interest charged, and record the reasons before any decision. Do not state an outcome or redress amount until the handler has reviewed the evidence (CH-8). Keep the final response within the deadline of 2026-11-24.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "medium",
+      "severity": "high",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

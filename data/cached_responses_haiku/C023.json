@@ -1,0 +1,130 @@
+{
+  "saved_at": "2026-11-10T20:31:02+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut6sG4NPvGLUev87seX",
+    "latency_s": 8.6,
+    "usage": {
+      "input": 281,
+      "output": 1990,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "0d49591775951884"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction that their debit card was wrongly blocked by the bank's fraud system, causing them to be unable to pay a hotel and incur £47 roaming charges, and requests a refund. This alleges financial loss and material inconvenience under CH-1.",
+    "summary": "Customer's debit card was blocked on 18/10/2026 by the bank's fraud system while they were on holiday in Spain. They could not pay their hotel and spent about two hours on the phone to have the block lifted, which they say cost £47 in roaming charges. They are asking for the £47 to be refunded. The complaints handler's note says the block was lifted after ID&V and the call lasted 1h52m per records. No vulnerability was noted. The customer prefers contact by email. The case file contains only the fraud block record and the call log, so the cause of the block and the link between the call and the roaming charges are not yet verified.",
+    "timeline": [
+      {
+        "date": "18/10",
+        "event": "Debit card blocked by fraud system while customer was on holiday in Spain; customer unable to pay hotel",
+        "source": "complaint"
+      },
+      {
+        "date": "18/10",
+        "event": "Fraud block lifted after ID&V; call duration 1h52m per records",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-10-25",
+        "event": "Complaint received by email",
+        "source": "complaint"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Systems or app failure",
+    "severity": "Low",
+    "severity_reason": "Claimed financial loss is £47, which is under £100 (CH-6 Low). The customer also describes inconvenience while abroad, but the case does not show distress. Severity is set at Low on the stated loss; this would rise if the loss is confirmed to be higher or if the fraud block is shown to be a repeated issue.",
+    "estimated_financial_loss_gbp": 47.0,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "None indicated in the case. The handler's note records no vulnerability, but the case does not say the customer was asked about support needs. Confirm no support needs during contact."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger is met. The case does not involve suspected fraud against the customer, unauthorised transaction, lending, vulnerability referral, systemic issue, legal threat, media contact or a systems failure needing technical investigation on the case as written. The block was a fraud-system action, so the handler should check whether the fraud system needs technical investigation before deciding; if it does, Digital Operations would be the team (ESC-1). Handler to confirm.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience",
+        "how_it_applies": "The customer alleges £47 in roaming charges and inconvenience from the card block, so this is a complaint."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "Low: financial loss under £100 or a service issue with no loss.",
+        "how_it_applies": "Claimed loss is £47, so severity is Low."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Systems or app failure",
+        "how_it_applies": "The root cause is the fraud system blocking a valid card. The approved list item is used as the closest match."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "My debit card was blocked while I was on holiday in Spain because your system thought it was fraud.",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "which cost me £47 in roaming charges",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I'd like the £47 back.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer's debit card was blocked on 18/10/2026 by the fraud system while abroad in Spain. They could not pay their hotel and spent time on the phone to have it unblocked. They say this cost £47 in roaming charges and want it refunded.",
+      "products_and_accounts": "Debit card on current account. Account reference: MISSING",
+      "desired_outcome": "Refund of £47 in roaming charges (customer's words: \"I'd like the £47 back.\")",
+      "actions_taken": [
+        "Fraud block lifted after ID&V (per note_1, 25/10/2026 handler note)"
+      ],
+      "evidence_held": [
+        "Fraud block record dated 18/10",
+        "Call log (call duration 1h52m per records)"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators recorded. The case does not say whether the customer was asked about support needs. MISSING",
+      "contact_preference": "Email, per note_1 ([EMAIL_1]). Reasonable adjustments: MISSING",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Why did the fraud system block the card, and was the block correct?",
+        "Does the 1h52m call record match the customer's account of two hours?",
+        "Is there proof that the £47 roaming charges were caused by the block and call (itemised statement)?",
+        "Were the roaming charges correctly applied?",
+        "Was the customer asked about support needs?",
+        "Account reference and card details: MISSING"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Itemised roaming charges statement not on file",
+      "Details of why the fraud system flagged the transaction not on file",
+      "Hotel payment details and failed payment record not on file"
+    ],
+    "suggested_next_step": "Confirm with the fraud team why the card was blocked and whether the block was correct. Obtain the itemised roaming charges. Check whether the fraud system needs technical investigation (Digital Operations). Then the complaints handler decides on redress under CH-8 and RED-4. Acknowledge the complaint in writing within 3 business days (CH-2).",
+    "confidence": {
+      "product": "high",
+      "root_cause": "medium",
+      "severity": "medium",
+      "vulnerability": "medium",
+      "specialist_teams": "medium"
+    },
+    "suspicious_instructions": null
+  }
+}

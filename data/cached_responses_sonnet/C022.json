@@ -1,0 +1,141 @@
+{
+  "saved_at": "2026-11-10T20:30:55+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-sonnet-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut5fKSfParL5p2sQMCx",
+    "latency_s": 17.3,
+    "usage": {
+      "input": 314,
+      "output": 1971,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "57f02516efecb23b"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction and alleges ongoing financial loss (wages withdrawn by ex-partner from joint account) and material distress, and asks for the account to be frozen (CH-1).",
+    "summary": "Customer visited branch about a joint account with her ex-partner [PERSON_1]. Since separation he withdraws her wages as soon as they arrive; she says he is controlling and she is scared of him. Withdrawals of £300-£600 each payday since August. She wants the joint account frozen and her own account set up. She asked not to be called or written to at home; a safe contact number is held. Statement Aug-Nov 2026 is on file.",
+    "timeline": [
+      {
+        "date": "2026-08",
+        "event": "Withdrawals of £300-£600 every payday begin, per branch note",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-11-05",
+        "event": "Customer attended branch, reported ex-partner taking her wages, asked for joint account freeze and new own account, asked for no home contact",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-05",
+        "event": "Branch colleague recorded safe contact number and joint account reference",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Account opening or closure",
+    "severity": "High",
+    "severity_reason": "Possible suspected financial abuse and customer at risk of harm (fear of ex-partner); estimated loss may exceed £1,000 over several paydays (CH-6 vulnerable customer at risk of harm).",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "life events",
+        "resilience",
+        "health"
+      ],
+      "customer_was_asked": false,
+      "suggested_support": "Refer to Vulnerable Customer Support. Contact only via the safe number, never write to the home address. Record a named contact and adjustments. Safeguarding of her wages and a separate account need prompt action. Sensitively ask about support needs."
+    },
+    "specialist_teams": [
+      "Vulnerable Customer Support"
+    ],
+    "routing_reason": "Indicators of controlling behaviour and suspected financial abuse, with fear for safety and financial difficulty, meet the VUL-4 referral criteria. The case is not clearly fraud or unauthorised, as the ex-partner is a joint holder, but Fraud & Scams may be considered by the specialist.",
+    "policy_citations": [
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
+        "how_it_applies": "Customer reports a controlling ex-partner taking her wages and says she is scared, indicating suspected financial abuse and risk to wellbeing."
+      },
+      {
+        "clause_id": "VUL-5",
+        "quote": "Reasonable adjustments must be offered and recorded, for example a preferred contact method, a named contact, more time to respond",
+        "how_it_applies": "Customer asked for no calls or letters to home; safe number only."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "a vulnerable customer at risk of harm",
+        "how_it_applies": "Sets severity High."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A vulnerability referral under VUL-4 → *Vulnerable Customer Support*.",
+        "how_it_applies": "Determines routing."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "vulnerability",
+        "quote": "he is controlling and she is scared of him",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "Withdrawals of £300-£600 every payday since August.",
+        "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "She wants the joint account frozen and her own account set up.",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "he keeps withdrawing her wages as soon as they arrive",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer reports her ex-partner, joint account holder, withdraws her wages on arrival; she fears him. She wants the joint account frozen and a sole account opened.",
+      "products_and_accounts": "Joint current account [ACCOUNT_NUMBER_1]. Customer's own new account not yet set up.",
+      "desired_outcome": "Joint account frozen and her own account set up; no calls or letters to the home address.",
+      "actions_taken": [
+        "Branch colleague recorded safe contact number and joint account reference"
+      ],
+      "evidence_held": [
+        "Joint account statement Aug-Nov 2026",
+        "Branch note of 2026-11-05"
+      ],
+      "vulnerability_assessment": "Indicators found: life events (separation), possible controlling behaviour or financial abuse, fear for safety, resilience (loss of wages). Customer was not recorded as asked about support needs.",
+      "contact_preference": "Safe contact number [PHONE_1] only. Do not call or write to the home address.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Has the joint account been frozen or restricted? Who can authorise this with two holders?",
+        "Date received 2026-11-05; deadline 2026-12-31, 52 days left, On track.",
+        "Exact withdrawal dates and total amount taken",
+        "Does the customer consent to vulnerability recording and support?",
+        "Is any safeguarding or police involvement needed?",
+        "Are her wages still being paid into the joint account?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "No record that the account was restricted or wages redirected",
+      "Customer not recorded as asked about support needs",
+      "Total loss not calculated from the statement"
+    ],
+    "suggested_next_step": "Refer today to Vulnerable Customer Support, record safe-contact-only adjustment, and ask the specialist to advise on restricting the joint account and opening a sole account. Do not promise any outcome.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "low",
+      "severity": "high",
+      "vulnerability": "high",
+      "specialist_teams": "medium"
+    },
+    "suspicious_instructions": null
+  }
+}

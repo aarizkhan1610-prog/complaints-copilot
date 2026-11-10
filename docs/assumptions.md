@@ -34,8 +34,11 @@ prototype, in line with the brief: "Choose the scope and make any assumptions ex
 - **Rule-based redaction** instead of a trained recogniser (spaCy / Presidio were considered; spaCy would not
   install cleanly on the build machine's Python version, and rules keep hosting simple). It is strong on structured
   identifiers and weaker on names with no context: see the held-out results in `eval/results.md`.
-- **Default model** `claude-opus-5-5` at low effort. A smaller, cheaper model could be tested per field once the
-  evaluation shows where quality holds.
+- **Live model** `claude-sonnet-5-5` at low effort; the saved demo responses were produced by `claude-opus-5-5`
+  and are kept as the reference set. Opus 5.5, Sonnet 5.5 and Haiku 5.5 were run on the same
+  25 cases (`eval/model_comparison.md`). All three caught every vulnerable customer with fully verified citations;
+  Sonnet matched Opus on routing at about 40% of the cost and half the latency, while Haiku made more routing and
+  handover-gap errors.
 - **Saved responses for demo mode** are real model outputs. They are tied to a hash of the exact prompt and input,
   so an edited case or prompt cannot silently reuse an old answer.
 

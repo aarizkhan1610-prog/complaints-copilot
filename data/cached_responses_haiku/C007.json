@@ -1,0 +1,155 @@
+{
+  "saved_at": "2026-11-10T20:27:49+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgusrGSuyB2XQkeL9nkNP",
+    "latency_s": 13.4,
+    "usage": {
+      "input": 382,
+      "output": 2365,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "5dfd6a9ffa75257a"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction that three payments he did not make were taken, alleging financial loss of £1,169.91 and a refund is outstanding (CH-1). Refund not credited on time is also dissatisfaction.",
+    "summary": "Customer reports three online payments to TechNova Online totalling £1,169.91 (3 x £389.97) on 01/11/2026 between 23:10 and 23:15, which he says he did not make or authorise. He says his card is still in his possession and he has not shared PIN, passcodes or one-time codes. On 02/11 the agent cancelled the card, ordered a replacement and reset online banking password. On 04/11 the refund had not been credited and the customer chased. A statement extract is saved. No card cancellation or refund credit is recorded beyond the cancellation record. Fraud & Scams referral needed for unauthorised transaction review and FRD-1 refund timing check.",
+    "timeline": [
+      {
+        "date": "01/11/2026",
+        "event": "Three online payments of £389.97 each to TechNova Online at 23:10, 23:12 and 23:15, reported by customer as not made by him",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-02",
+        "event": "Customer reported the payments by phone. Card cancelled, replacement ordered, online banking password reset",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-11-04",
+        "event": "Refund not yet credited; customer chased. Statement extract saved",
+        "source": "note_2"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Unauthorised transaction",
+    "severity": "High",
+    "severity_reason": "Suspected fraud/unauthorised transaction with financial loss of £1,169.91, above the £1,000 High threshold (CH-6).",
+    "estimated_financial_loss_gbp": 1169.91,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "None identified from the file. The agent recorded no indicators but the case file does not show the customer was asked about support needs, so ask him sensitively at the next contact (VUL-2)."
+    },
+    "specialist_teams": [
+      "Fraud & Scams"
+    ],
+    "routing_reason": "Unauthorised transaction and suspected fraud require referral to Fraud & Scams (ESC-1). Handover due within 2 business days of trigger (ESC-2).",
+    "policy_citations": [
+      {
+        "clause_id": "FRD-1",
+        "quote": "the bank must refund the amount by the end of the next business day after the report",
+        "how_it_applies": "Customer reported on 02/11/2026 and the refund was not credited by 04/11/2026. Handler must confirm the refund timing and record reasons unless gross negligence or fraud suspicion is recorded by a specialist."
+      },
+      {
+        "clause_id": "FRD-4",
+        "quote": "the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done",
+        "how_it_applies": "Note 1 records card cancellation and password reset, so this step appears done and should be recorded in the handover."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "suspected fraud or scam",
+        "how_it_applies": "Basis for High severity."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*.",
+        "how_it_applies": "Routes case to Fraud & Scams."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "reports three online payments he didn't make",
+        "source": "complaint"
+      },
+      {
+        "field": "product",
+        "quote": "Card ending [CARD_DIGITS_1] is still in his wallet",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "Wants his £1,169.91 back.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "Wants his £1,169.91 back.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "Card cancelled and replacement ordered. Online banking password reset.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer says three online payments totalling £1,169.91 to TechNova Online on 01/11/2026 were not made by him. Card is in his possession and he says he has not shared PIN, passcodes or one-time codes. Refund not credited as at 04/11/2026.",
+      "products_and_accounts": "Current account; card ending [CARD_DIGITS_1]; online banking. Account number MISSING.",
+      "desired_outcome": "Wants his £1,169.91 back.",
+      "actions_taken": [
+        "Card cancelled and replacement ordered (02/11/2026)",
+        "Online banking password reset (02/11/2026)",
+        "Statement extract saved (04/11/2026)",
+        "Customer chased for refund status (04/11/2026)"
+      ],
+      "evidence_held": [
+        "Statement extract 01/11/2026",
+        "Card cancellation record"
+      ],
+      "vulnerability_assessment": "No indicators recorded by the contact centre agent. Customer was not recorded as being asked about support needs. Assessment MISSING beyond that.",
+      "contact_preference": "MISSING",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Has the refund of £1,169.91 been credited? Date and time of each disputed payment to be confirmed against statement",
+        "Payee details for TechNova Online as known: MISSING",
+        "How the fraudster contacted the customer, if known: MISSING",
+        "Date and time the customer first reported the payments: MISSING beyond 02/11/2026 call",
+        "Whether any security details were shared: customer says no, to be confirmed",
+        "Was the customer asked about vulnerability or support needs: not recorded",
+        "Any gross negligence or fraud suspicion to be assessed by specialist (FRD-1)",
+        "Account secured steps: confirm card block and password reset completion time"
+      ]
+    },
+    "fraud_details": {
+      "payment_details": "Three payments of £389.97 on 01/11/2026 at 23:10, 23:12 and 23:15 (total £1,169.91)",
+      "payee_details": "TechNova Online (as known). Further payee details MISSING",
+      "fraudster_contact_method": "MISSING",
+      "security_details_shared": "Customer states no PIN, passcodes or one-time codes were shared (complaint). Not verified.",
+      "account_secured": "Card cancelled and replacement ordered; online banking password reset (02/11/2026, note_1)"
+    },
+    "other_gaps": [
+      "Date and time customer reported the payments not fully recorded beyond call on 02/11/2026",
+      "Refund credit status not recorded; chased on 04/11/2026",
+      "Card cancellation record and statement extract referenced but content not reviewed in the file",
+      "Customer contact preference not recorded",
+      "Vulnerability not asked about"
+    ],
+    "suggested_next_step": "Refer to Fraud & Scams today (within 1 business day window for scams; within 2 business days under ESC-2). Confirm whether the £1,169.91 refund has been credited per FRD-1 and record the reason if not. Ask customer sensitively about support needs and record his contact preference.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "medium",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "saved_at": "2026-11-10T20:28:58+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-sonnet-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CguswPBraUuN3jpGijXJK",
+    "latency_s": 12.7,
+    "usage": {
+      "input": 342,
+      "output": 2100,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "ddb41627e76e2f8a"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The caller expresses dissatisfaction about collections calls to her father, alleging material distress and that he has agreed to unaffordable payments (CH-1).",
+    "summary": "[PERSON_1], who says she is the daughter of account holder Mr [PERSON_2], complains that collections have called her father up to five times a day about credit card arrears. She says he has dementia, is confused and frightened, and has agreed to payments he cannot afford. She wants the calls stopped and to be the contact instead. The collections log shows 23 outbound calls from 1 to 14 October. The handler discussed the account with the daughter, and no third-party authority is recorded on file.",
+    "timeline": [
+      {
+        "date": "2026-10-01 to 2026-10-14",
+        "event": "Collections log shows 23 outbound calls to the account holder",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-10-15",
+        "event": "Daughter phoned to complain about collections calls and her father's dementia; the handler discussed the account with her",
+        "source": "note_1"
+      }
+    ],
+    "product": "Credit card",
+    "root_cause": "Arrears and collections",
+    "severity": "High",
+    "severity_reason": "Vulnerable customer (dementia) at risk of harm, with possible unaffordable payment agreements (CH-6). Calls appear to exceed the contact limits in LND-3.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "health",
+        "resilience"
+      ],
+      "customer_was_asked": false,
+      "suggested_support": "Refer to Vulnerable Customer Support. Pause or limit collections calls. Check for a valid third-party authority or power of attorney before dealing with the daughter. Review the payment agreements made. Ask the account holder sensitively about support needs and preferred contact."
+    },
+    "specialist_teams": [
+      "Vulnerable Customer Support",
+      "Lending Specialists"
+    ],
+    "routing_reason": "Vulnerability indicator (dementia) plus financial difficulty and risk to wellbeing triggers a VUL-4 referral. Arrears contact and forbearance issues go to Lending Specialists.",
+    "policy_citations": [
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
+        "how_it_applies": "Dementia plus arrears and distress requires referral to Vulnerable Customer Support."
+      },
+      {
+        "clause_id": "LND-3",
+        "quote": "Contact must not be excessive: no more than one call per day and three per week.",
+        "how_it_applies": "23 calls in 14 days appears to exceed these limits."
+      },
+      {
+        "clause_id": "VUL-6",
+        "quote": "The bank may only discuss the account with a third party (such as a relative or carer) where there is a valid authority on file (third-party mandate or power of attorney).",
+        "how_it_applies": "The account was discussed with the daughter but no authority is recorded."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A lending decision, affordability, mortgage or loan arrears → *Lending Specialists*.",
+        "how_it_applies": "Arrears collection conduct is handled by Lending Specialists."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "a vulnerable customer at risk of harm",
+        "how_it_applies": "Sets severity as High."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "vulnerability",
+        "quote": "her father has dementia",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "your collections team has been ringing him up to five times a day about his credit card arrears",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "Collections log shows 23 outbound calls 1-14 Oct.",
+        "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "She wants the calls stopped and someone to speak to her instead.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "has agreed to payments he can't afford",
+        "source": "complaint"
+      },
+      {
+        "field": "product",
+        "quote": "credit card arrears",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Daughter reports collections calling her father, who has dementia, up to five times a day about credit card arrears. He is confused and frightened and has agreed to unaffordable payments. Log shows 23 calls in 1-14 Oct.",
+      "products_and_accounts": "Credit card ending [CARD_DIGITS_1], balance £2,870, 3 months in arrears, account holder Mr [PERSON_2]",
+      "desired_outcome": "Calls stopped and the bank to speak to the daughter instead",
+      "actions_taken": [
+        "Handler discussed the account with the daughter on 2026-10-15",
+        "Collections call log obtained"
+      ],
+      "evidence_held": [
+        "Collections call log 01-14/10/2026"
+      ],
+      "vulnerability_assessment": "Indicators found: health (dementia) and resilience (arrears, unaffordable payments). The account holder has not been asked about support needs.",
+      "contact_preference": "Daughter asks to be the contact (phone [PHONE_1]). The account holder's own preference is MISSING.",
+      "third_party_authority": "MISSING. No power of attorney or mandate is recorded, yet the account was discussed with the daughter.",
+      "open_questions": [
+        "Is there a valid authority or power of attorney for [PERSON_1]?",
+        "Was forbearance offered before these calls (LND-3)?",
+        "What payment agreements were made, and when?",
+        "Were the calls made to the account holder or to others?",
+        "Should collections calls be paused now?",
+        "Has the account holder's capacity been assessed?",
+        "Date and time detail of each call is needed beyond the log summary."
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Content of the collections calls and any recordings are not on file",
+      "Details of the payment agreements are not on file",
+      "Possible data-sharing breach: account discussed with the daughter without a recorded authority"
+    ],
+    "suggested_next_step": "Refer to Vulnerable Customer Support and Lending Specialists within 2 business days, ask for a pause on collections calls, and check authority for the daughter. Do not discuss further account detail with her until authority is confirmed.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

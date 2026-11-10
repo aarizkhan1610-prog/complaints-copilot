@@ -1,0 +1,145 @@
+{
+  "saved_at": "2026-11-10T20:27:36+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgusqXJ6cn6jgT7r3hQxR",
+    "latency_s": 10.1,
+    "usage": {
+      "input": 355,
+      "output": 2310,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "f4c525d393ebdc53"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction with branch staff conduct (sighing, eye-rolling, being told to use a machine) and says they felt humiliated, which is material distress under CH-1.",
+    "summary": "Customer with a stammer visited the Kingsbridge Road branch on Friday to pay in cash for their business. They say the counter member of staff sighed, rolled his eyes, said 'I haven't got all day' and told them to use the machine instead, in front of a queue. The customer felt humiliated and wants an apology and staff training. They asked for contact by email only. Branch manager has been informed and a CCTV request (BR-2210) raised. Branch manager statement is pending. When asked on 2026-10-13, the customer said they did not need support and only wanted an apology.",
+    "timeline": [
+      {
+        "date": "Friday (before 2026-10-12, exact date MISSING)",
+        "event": "Customer visited Kingsbridge Road branch to pay in cash for their business; staff member sighed, rolled eyes, said 'I haven't got all day' and told customer to use the machine",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-12",
+        "event": "Complaint received by email",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-13",
+        "event": "Branch manager informed; CCTV request raised (BR-2210); customer asked by email whether support was needed and said no; email-only contact flagged on account",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Staff conduct",
+    "severity": "Medium",
+    "severity_reason": "Complaint about staff conduct is Medium under CH-6. No financial loss alleged. Customer reports distress from being humiliated in public. Not High, as no vulnerability risk of harm was identified by the customer.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "capability"
+      ],
+      "customer_was_asked": true,
+      "suggested_support": "Customer has a stammer, which may affect how they communicate in branch and on the phone. Keep email-only contact as flagged. Allow extra time for written responses and do not reply by phone. Customer said no support needed on 2026-10-13, but record that the offer was made and reconfirm if they raise further issues."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger identified: this is a staff conduct complaint with no fraud, lending, vulnerability referral (no VUL-4 factors such as financial difficulty, health risk to wellbeing, abuse or bereavement), systemic issue, legal threat, media contact or systems fault. Complaints handler can resolve. Reconsider if the branch manager statement or CCTV reveals a wider issue.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-6",
+        "quote": "or a complaint about staff conduct.",
+        "how_it_applies": "Complaint is about the conduct of a branch member of staff, so severity is Medium."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Staff conduct",
+        "how_it_applies": "Primary root cause is staff conduct at the counter."
+      },
+      {
+        "clause_id": "VUL-1",
+        "quote": "capability* (low literacy, low digital skills, limited English, or a lack of experience with financial products)",
+        "how_it_applies": "The customer's stammer is a speech condition that may affect communication, so it was recorded as a possible capability indicator. Flagged for caution, not confirmed as a vulnerability."
+      },
+      {
+        "clause_id": "VUL-5",
+        "quote": "a preferred contact method, a named contact, more time to respond",
+        "how_it_applies": "Customer asked for email-only contact; this preference should be kept and recorded as a reasonable adjustment."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "The man at the counter sighed, rolled his eyes and said 'I haven't got all day'.",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "I felt humiliated in front of a queue of people.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "Please reply by email only, I don't like phone calls.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "I have a stammer and it took me a while to explain.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want an apology and I want staff to be trained properly.",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer with a stammer says a branch member of staff sighed, rolled eyes, said 'I haven't got all day' and told them to use the machine when paying in cash for their business. Felt humiliated in front of a queue. No financial loss alleged. Branch manager informed and CCTV requested.",
+      "products_and_accounts": "Current account (account reference MISSING; business cash payment-in). Account token not provided in case file.",
+      "desired_outcome": "An apology, and staff to be trained properly (customer's words: 'I want an apology and I want staff to be trained properly').",
+      "actions_taken": [
+        "Branch manager informed (note_1, 2026-10-13)",
+        "CCTV request raised, ref BR-2210 (note_1)",
+        "Customer asked by email if support needed; said no (note_1, 2026-10-13)",
+        "Email-only contact flagged on account (note_1)"
+      ],
+      "evidence_held": [
+        "Customer complaint email, received 2026-10-12",
+        "Branch manager statement (pending)",
+        "CCTV request ref BR-2210 (footage status MISSING)"
+      ],
+      "vulnerability_assessment": "Indicators found: customer has a stammer, which may affect communication (capability driver). Customer was asked on 2026-10-13 whether support was needed and said no, wanting only an apology. Customer requested email-only contact.",
+      "contact_preference": "Email only. Customer does not like phone calls. Flagged on account. Reasonable adjustment: allow extra time for responses; do not contact by phone.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "What did the branch manager statement say, and does it match the customer's account?",
+        "Does CCTV BR-2210 show the interaction, and is it still retained?",
+        "Exact date and time of the Friday visit, and the transaction or account involved, are MISSING.",
+        "Were other customers in the queue witnesses who could be contacted?",
+        "Has the staff member been spoken to, and is any staff training already in place?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Exact date and time of the branch visit not stated",
+      "Branch manager statement still pending",
+      "CCTV footage status unknown"
+    ],
+    "suggested_next_step": "Obtain branch manager statement and check CCTV BR-2210 before drafting the final response. Send written acknowledgement by email (CH-2, due by 2026-10-15). Respond by email only and offer an apology. Consider staff conduct and training follow-up with the branch manager. Handler to decide outcome.",
+    "confidence": {
+      "product": "medium",
+      "root_cause": "high",
+      "severity": "medium",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

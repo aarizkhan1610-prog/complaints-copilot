@@ -1,0 +1,99 @@
+{
+  "saved_at": "2026-11-10T20:28:12+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgustb6e9bLdAfuZWWafZ",
+    "latency_s": 5.3,
+    "usage": {
+      "input": 235,
+      "output": 1185,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "f850a6e89b49593d"
+  },
+  "analysis": {
+    "is_complaint": false,
+    "is_complaint_reason": "The customer asks for an address update and a new chequebook. This is a request for a change to an account, not an expression of dissatisfaction, so it does not meet CH-1. The agent note confirms it was misrouted from a shared inbox.",
+    "summary": "Customer [PERSON_1] has moved house and asks for their details to be updated to the new address and for a new chequebook to be sent. No dissatisfaction is expressed. The agent note says the email was routed to the complaints queue by mistake from a shared inbox. Recommend returning it to the correct servicing queue for the account change.",
+    "timeline": [
+      {
+        "date": "2026-11-06",
+        "event": "Email received from customer asking for address update to [ADDRESS_1], [POSTCODE_1] and a new chequebook.",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-06",
+        "event": "Contact centre agent noted the email was routed to the complaints queue by mistake from the shared inbox.",
+        "source": "note_1"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Not a complaint",
+    "severity": "Low",
+    "severity_reason": "No financial loss or service failure is alleged. The case is a servicing request.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "None indicated by the case text. No action beyond normal servicing."
+    },
+    "specialist_teams": [],
+    "routing_reason": "Not a complaint under CH-1, so no specialist escalation under ESC-1 applies. Return to the servicing team to process the address change and chequebook request. The complaints handler does not need to take further action.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "A request for information or a change to an account is not a complaint unless dissatisfaction is expressed.",
+        "how_it_applies": "The customer requests an address update and a new chequebook but expresses no dissatisfaction, so the case is not a complaint."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "product",
+        "quote": "Could you update my details and send me a new chequebook please?",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "Routed to complaints queue by mistake from shared inbox.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Not applicable. The case is not a complaint. It is an address update and chequebook request misrouted to the complaints queue.",
+      "products_and_accounts": "Current account (assumed from the chequebook request; account reference MISSING)",
+      "desired_outcome": "Customer asks for account details to be updated to the new address and a new chequebook to be sent.",
+      "actions_taken": [
+        "None recorded by the complaints team. Agent note confirms misrouting."
+      ],
+      "evidence_held": [
+        "Customer email received 2026-11-06"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found in the case text. Customer was not asked.",
+      "contact_preference": "MISSING",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Confirm the account the chequebook relates to, as no account reference is given.",
+        "Confirm the servicing team has received the request."
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "No account reference is given in the email.",
+      "Contact preference is not stated."
+    ],
+    "suggested_next_step": "Return the email to the servicing queue for the address update and chequebook request. Close the complaint record as not a complaint, noting the reason under CH-1.",
+    "confidence": {
+      "product": "medium",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

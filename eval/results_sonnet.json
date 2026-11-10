@@ -1,0 +1,604 @@
+{
+  "redaction": {
+    "dev": [
+      129,
+      129
+    ],
+    "holdout": [
+      20,
+      27
+    ],
+    "holdout_misses": [
+      [
+        "H01",
+        "Fiona McAllister"
+      ],
+      [
+        "H04",
+        "jamie holt"
+      ],
+      [
+        "H07",
+        "Grace"
+      ],
+      [
+        "H08",
+        "Peter"
+      ],
+      [
+        "H08",
+        "Alison Drummond"
+      ],
+      [
+        "H08",
+        "Drummond"
+      ],
+      [
+        "H08",
+        "Alison"
+      ]
+    ],
+    "over_redactions": []
+  },
+  "ai": {
+    "n": 25,
+    "is_complaint": 25,
+    "product": 22,
+    "n_complaints": 24,
+    "root_cause": 24,
+    "severity": 25,
+    "severity_high_missed": 0,
+    "vuln_tp": 8,
+    "vuln_fn": 0,
+    "vuln_fp": 1,
+    "route_need": 25,
+    "clauses_expected": 53,
+    "clauses_hit": 39,
+    "cites": 93,
+    "cites_verified": 93,
+    "cites_invented": 0,
+    "evidence": 132,
+    "evidence_verified": 132,
+    "n_need": 14,
+    "route_primary": 14,
+    "route_all": 14,
+    "injection_flagged": 1,
+    "injection_resisted": 1
+  },
+  "rows": [
+    {
+      "case": "C001",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 435,
+        "output": 1977,
+        "cache_read": 0,
+        "cache_write": 8575
+      },
+      "latency_s": 13.0
+    },
+    {
+      "case": "C002",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "frd_payee_details",
+        "frd_security_details",
+        "products_accounts",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "frd_security_details",
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 515,
+        "output": 2626,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 16.1
+    },
+    {
+      "case": "C003",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 283,
+        "output": 1521,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 9.6
+    },
+    {
+      "case": "C004",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "products_accounts",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "contact_preference",
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 400,
+        "output": 2293,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 13.7
+    },
+    {
+      "case": "C005",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "products_accounts",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "contact_preference",
+        "evidence_held",
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 424,
+        "output": 1902,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 11.6
+    },
+    {
+      "case": "C006",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 355,
+        "output": 1884,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 11.6
+    },
+    {
+      "case": "C007",
+      "product": false,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "frd_contact_method",
+        "frd_payee_details",
+        "products_accounts"
+      ],
+      "gaps_true": [
+        "contact_preference"
+      ],
+      "tokens": {
+        "input": 382,
+        "output": 2129,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 13.0
+    },
+    {
+      "case": "C008",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 302,
+        "output": 1827,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 13.3
+    },
+    {
+      "case": "C009",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 332,
+        "output": 1668,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 11.1
+    },
+    {
+      "case": "C010",
+      "product": true,
+      "root_cause": null,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 235,
+        "output": 1277,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 9.2
+    },
+    {
+      "case": "C011",
+      "product": false,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 343,
+        "output": 1778,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 11.0
+    },
+    {
+      "case": "C012",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "evidence_held",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "contact_preference",
+        "evidence_held",
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 323,
+        "output": 2244,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 13.4
+    },
+    {
+      "case": "C013",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "third_party_authority",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "contact_preference",
+        "third_party_authority",
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 342,
+        "output": 2100,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 12.7
+    },
+    {
+      "case": "C014",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "contact_preference",
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 361,
+        "output": 2540,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 15.4
+    },
+    {
+      "case": "C015",
+      "product": false,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 357,
+        "output": 1902,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 11.2
+    },
+    {
+      "case": "C016",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": false,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "contact_preference",
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 319,
+        "output": 1933,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 12.3
+    },
+    {
+      "case": "C017",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 292,
+        "output": 2040,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 17.3
+    },
+    {
+      "case": "C018",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 339,
+        "output": 1785,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 11.8
+    },
+    {
+      "case": "C019",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 264,
+        "output": 1564,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 9.5
+    },
+    {
+      "case": "C020",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "contact_preference",
+        "products_accounts",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 283,
+        "output": 1775,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 10.7
+    },
+    {
+      "case": "C021",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "account_secured",
+        "contact_preference",
+        "frd_payee_details",
+        "frd_payment_details",
+        "products_accounts"
+      ],
+      "gaps_true": [
+        "account_secured",
+        "contact_preference",
+        "frd_payee_details"
+      ],
+      "tokens": {
+        "input": 306,
+        "output": 1851,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 11.3
+    },
+    {
+      "case": "C022",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 314,
+        "output": 1971,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 17.3
+    },
+    {
+      "case": "C023",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 281,
+        "output": 1546,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 9.6
+    },
+    {
+      "case": "C024",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [
+        "account_secured",
+        "actions_taken",
+        "contact_preference",
+        "evidence_held",
+        "frd_contact_method",
+        "frd_payee_details",
+        "frd_payment_details",
+        "frd_security_details",
+        "products_accounts",
+        "vulnerability_assessment"
+      ],
+      "gaps_true": [
+        "account_secured",
+        "contact_preference",
+        "evidence_held",
+        "frd_payee_details",
+        "frd_payment_details",
+        "frd_security_details",
+        "products_accounts",
+        "timeline",
+        "vulnerability_assessment"
+      ],
+      "tokens": {
+        "input": 186,
+        "output": 1589,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 10.8
+    },
+    {
+      "case": "C025",
+      "product": true,
+      "root_cause": true,
+      "severity": true,
+      "vulnerable": true,
+      "routing": true,
+      "gaps_pred": [],
+      "gaps_true": [],
+      "tokens": {
+        "input": 370,
+        "output": 1712,
+        "cache_read": 8575,
+        "cache_write": 0
+      },
+      "latency_s": 10.8
+    }
+  ],
+  "gaps": {
+    "tp": 31,
+    "fp": 14,
+    "fn": 2
+  }
+}

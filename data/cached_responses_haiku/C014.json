@@ -1,0 +1,186 @@
+{
+  "saved_at": "2026-11-10T20:29:05+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CguswNrkyg2mRA17HUFnz",
+    "latency_s": 19.6,
+    "usage": {
+      "input": 361,
+      "output": 4914,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "4f82743b6e4dacb7"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The customer expresses dissatisfaction about delay in releasing their late mother's savings to the estate, describes distress, and asks for an explanation. This meets the CH-1 definition of a complaint about the bank's service.",
+    "summary": "The customer's mother died in June. The customer, as executor (named as [PERSON_2]), sent the death certificate and grant of probate to the bereavement team on 2 July. The savings account [ACCOUNT_NUMBER_1] has still not been released to the estate. The customer has phoned six times and been told the case is 'with the team'. The bereavement case record shows documents received 04/07 and no action since 22/07. The customer is distressed by the delay on top of their bereavement and wants the matter resolved and an explanation of the delay. The system deadline status of 'Breached' conflicts with the stated dates: received 10 Sept 2026 gives a final response date of 5 Nov 2026, so about 55 days remain. This needs checking.",
+    "timeline": [
+      {
+        "date": "June 2026",
+        "event": "Customer's mother [PERSON_1] passed away",
+        "source": "complaint"
+      },
+      {
+        "date": "2 July 2026",
+        "event": "Customer sent death certificate and grant of probate to the bereavement team",
+        "source": "complaint"
+      },
+      {
+        "date": "04/07 (as recorded)",
+        "event": "Documents recorded as received by the bank",
+        "source": "note_1"
+      },
+      {
+        "date": "22/07 (as recorded)",
+        "event": "Last recorded action on the bereavement case",
+        "source": "note_1"
+      },
+      {
+        "date": "undated",
+        "event": "Customer has phoned six times and been told the savings are 'with the team'",
+        "source": "complaint"
+      },
+      {
+        "date": "10 Sept 2026",
+        "event": "Complaint received by letter",
+        "source": "complaint"
+      },
+      {
+        "date": "11 Sept 2026",
+        "event": "Complaints handler recorded the bereavement case details and executor contact",
+        "source": "note_1"
+      }
+    ],
+    "product": "Savings account",
+    "root_cause": "Service delay",
+    "severity": "High",
+    "severity_reason": "The customer is recently bereaved and describes the delay as awful and distressing, which suggests a vulnerable customer at possible risk of harm (CH-6). There have also been six contacts about the same issue, which meets the repeated service failure threshold for Medium. The amount held is not stated, so no financial loss figure can be confirmed.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "life events"
+      ],
+      "customer_was_asked": false,
+      "suggested_support": "Refer to Vulnerable Customer Support under VUL-4 (bereavement). Contact the customer sensitively to ask about support needs and any preferred contact method. Confirm the executor's authority before discussing the account (VUL-6)."
+    },
+    "specialist_teams": [
+      "Vulnerable Customer Support"
+    ],
+    "routing_reason": "A vulnerability indicator (bereavement) is present, and bereavement is a trigger for referral under VUL-4, so the case goes to Vulnerable Customer Support under ESC-1. The handover should be made within 2 business days of identification (ESC-2).",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "any expression of dissatisfaction, oral or written, about the bank's products, services or staff",
+        "how_it_applies": "The customer is dissatisfied about the delay in releasing the savings and has contacted the bank six times, so this is a complaint."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Service delay",
+        "how_it_applies": "The root cause is delay in processing the bereavement case, with no recorded action since 22/07."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "a vulnerable customer at risk of harm",
+        "how_it_applies": "The customer is recently bereaved and distressed, which supports a High severity rating."
+      },
+      {
+        "clause_id": "VUL-1",
+        "quote": "life events (bereavement, job loss, relationship breakdown, caring responsibilities)",
+        "how_it_applies": "Bereavement of the customer's mother is a life-event driver of vulnerability."
+      },
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator and any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
+        "how_it_applies": "There is a bereavement vulnerability indicator, so the case must be referred to Vulnerable Customer Support."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A vulnerability referral under VUL-4",
+        "how_it_applies": "Triggers handover to the named specialist team, Vulnerable Customer Support."
+      },
+      {
+        "clause_id": "VUL-6",
+        "quote": "The bank may only discuss the account with a third party (such as a relative or carer) where there is a valid authority on file (third-party mandate or power of attorney).",
+        "how_it_applies": "The customer is acting as executor of the estate. Valid authority for discussing the account must be confirmed before details are shared."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "product",
+        "quote": "Savings acct [ACCOUNT_NUMBER_1]",
+        "source": "note_1"
+      },
+      {
+        "field": "root_cause",
+        "quote": "no action since 22/07",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "I have phoned six times",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "Dealing with this on top of losing Mum has been awful.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want it sorted and I want someone to explain why it has taken so long.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "My mother [PERSON_1] passed away in June.",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "The customer, executor of their late mother's estate, reports that the savings account [ACCOUNT_NUMBER_1] has not been released since the death certificate and grant of probate were sent on 2 July. They have phoned six times and say they were told it is 'with the team'. The bereavement case shows no action since 22/07. The customer is distressed and wants it resolved and an explanation of the delay.",
+      "products_and_accounts": "Savings account [ACCOUNT_NUMBER_1] (deceased customer [PERSON_1]'s account, estate executor [PERSON_2])",
+      "desired_outcome": "In the customer's words: 'I want it sorted and I want someone to explain why it has taken so long.'",
+      "actions_taken": [
+        "No action recorded on the bereavement case since 22/07 (note_1)",
+        "Complaints handler recorded case details and executor contact on 11 Sept 2026 (note_1)"
+      ],
+      "evidence_held": [
+        "Bereavement case record (note_1)",
+        "Death certificate and grant of probate: reported as sent by customer on 2 July, copies not confirmed on file"
+      ],
+      "vulnerability_assessment": "Indicators found: life events (bereavement of the customer's mother, June 2026), with distress described by the customer. The customer has not been asked about support needs (MISSING confirmation).",
+      "contact_preference": "MISSING",
+      "third_party_authority": "Customer is the named executor and is writing on behalf of the estate. A valid grant of probate was reportedly sent on 2 July but is not confirmed on file. Authority must be verified before the account is discussed (VUL-6).",
+      "open_questions": [
+        "Is the grant of probate on file and valid? Was the 2 July submission received?",
+        "Why was the 04/07 document receipt date recorded when the customer says 2 July? Confirm the correct date.",
+        "What caused no action after 22/07, and what is the current status of the release?",
+        "What is the balance of the savings account and when can it be released to the estate?",
+        "What contact preference and reasonable adjustments does the customer need? Has the customer been asked about support needs?",
+        "Is the system deadline status correct? It shows Breached with -4 days, but 10 Sept 2026 plus 56 days is 5 Nov 2026."
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Copies of the death certificate and grant of probate are not on file",
+      "Record of the six phone calls (dates, content, staff) is not in the case file",
+      "Deadline status conflicts with dates: system shows Breached but the final response date of 5 Nov 2026 is still in the future",
+      "No record of holding letter or acknowledgement in writing (CH-2) is in the case file"
+    ],
+    "suggested_next_step": "Log and acknowledge in writing within 3 business days if not done (CH-2). Refer to Vulnerable Customer Support within 2 business days (ESC-2, VUL-4). Confirm the executor's authority, locate the grant of probate, establish why there was no action since 22/07, and contact the customer sensitively to ask about support needs.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "high",
+      "severity": "medium",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

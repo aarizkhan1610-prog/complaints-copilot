@@ -1,0 +1,156 @@
+{
+  "saved_at": "2026-11-10T20:28:34+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CgusukgsUCueA9iYfJzSE",
+    "latency_s": 11.4,
+    "usage": {
+      "input": 323,
+      "output": 2524,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "80f4354403a46f81"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction that the bank lent them £15,000 when they were already overstretched, and says they now cannot cover repayments of £410 a month, which is financial loss or material distress (CH-1).",
+    "summary": "Customer took a £15,000 loan in March while on a zero hours contract with two credit cards already at their limit. They say the bank should have seen this and should not have lent to them. They now pay £410 a month and say they cannot cover it. They report not sleeping and being at the end of their rope. Acknowledgement was sent on 23 September 2026. The customer chased for an update on 14 October and a holding reply was sent. No evidence is listed on file. The case shows indicators of vulnerability (health and resilience) and needs a lending affordability review and a vulnerability referral.",
+    "timeline": [
+      {
+        "date": "March (year not stated)",
+        "event": "Loan of £15,000 taken out by customer while on zero hours contract with two credit cards at limit (per customer)",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-09-22",
+        "event": "Complaint received by email",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-09-23",
+        "event": "Acknowledgement sent; customer described as upset",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-10-14",
+        "event": "Customer emailed asking for update; holding reply sent",
+        "source": "note_2"
+      }
+    ],
+    "product": "Personal loan",
+    "root_cause": "Lending decision",
+    "severity": "High",
+    "severity_reason": "Customer reports monthly repayments of £410 they cannot cover, which indicates possible financial loss well over £1,000 over time, plus possible vulnerability with risk to wellbeing (CH-6 High: vulnerable customer at risk of harm). Loss amount not yet quantified.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": true,
+      "drivers": [
+        "health",
+        "resilience"
+      ],
+      "customer_was_asked": false,
+      "suggested_support": "Contact the customer sensitively to ask whether they need support, given reported sleep problems, being at the end of their rope, zero hours income and repayments they cannot cover. Refer to Vulnerable Customer Support under VUL-4. Offer reasonable adjustments and check whether any forbearance is needed while the complaint is considered."
+    },
+    "specialist_teams": [
+      "Lending Specialists",
+      "Vulnerable Customer Support"
+    ],
+    "routing_reason": "The complaint alleges the lending decision was unaffordable or irresponsible, so it must go to Lending Specialists (LND-1, ESC-1). The customer shows vulnerability indicators (health and resilience, financial difficulty) so it also requires referral to Vulnerable Customer Support (VUL-4, ESC-1). Handover is due within 2 business days of identification (ESC-2).",
+    "policy_citations": [
+      {
+        "clause_id": "LND-1",
+        "quote": "Complaints that a lending decision was unaffordable or irresponsible must be handed to Lending Specialists.",
+        "how_it_applies": "The customer says the loan should not have been granted given their income and existing credit card debt, which is an allegation of an irresponsible lending decision."
+      },
+      {
+        "clause_id": "VUL-4",
+        "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team.",
+        "how_it_applies": "Customer reports they cannot cover repayments (financial difficulty) and describes not sleeping and being at the end of their rope (risk to wellbeing)."
+      },
+      {
+        "clause_id": "VUL-2",
+        "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support.",
+        "how_it_applies": "Indirect signs of vulnerability are present and the customer has not yet been asked about support needs."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "a vulnerable customer at risk of harm",
+        "how_it_applies": "Possible vulnerable customer with reported distress and unaffordable repayments, supporting High severity."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "You lent me £15,000 in March when I was on a zero hours contract and already had two credit cards maxed out.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "I can't sleep, I'm honestly at the end of my rope with it all.",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "Now I'm paying £410 a month and I can't cover it.",
+        "source": "complaint"
+      },
+      {
+        "field": "product",
+        "quote": "Loan acct [ACCOUNT_NUMBER_1].",
+        "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I don't think you should have given me that loan.",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer says a £15,000 loan taken in March was unaffordable: they were on a zero hours contract with two credit cards at limit. They now pay £410 a month and say they cannot cover it. They report not sleeping and feeling at the end of their rope. They believe the loan should not have been given.",
+      "products_and_accounts": "Personal loan, account [ACCOUNT_NUMBER_1]. Two credit cards mentioned by customer, references MISSING.",
+      "desired_outcome": "Customer states the loan should not have been given. Specific redress request: MISSING.",
+      "actions_taken": [
+        "Acknowledgement sent 2026-09-23 (note_1)",
+        "Holding reply sent after customer chased on 2026-10-14 (note_2)",
+        "No affordability assessment, account protection or vulnerability check recorded: MISSING"
+      ],
+      "evidence_held": [
+        "Customer complaint email (received 2026-09-22)",
+        "Case notes note_1 and note_2",
+        "No statements, affordability assessment, loan application or call recordings listed on file"
+      ],
+      "vulnerability_assessment": "Indicators found: health (not sleeping, distress) and resilience (zero hours income, unaffordable repayments, existing card debt). Customer was not asked about support needs according to the case file.",
+      "contact_preference": "MISSING",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Loan start date, amount outstanding and repayment history",
+        "Affordability assessment completed at lending stage and what income and credit data it used",
+        "Credit card balances and any arrears at time of loan",
+        "Current income and whether customer is in arrears or has missed payments",
+        "Whether customer has been asked about support needs and wants adjustments",
+        "Preferred contact method and any reasonable adjustments",
+        "Whether the customer wants a call or written contact",
+        "Whether the 14 October holding reply met CH-4 requirements (holding letter with ombudsman right); final response due 2026-11-17"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "No evidence or documents listed on file",
+      "Customer's date of receipt recorded as 2026-09-22; handover deadline not yet met (ESC-2)",
+      "Holding reply of 14 October may not include the required ombudsman information under CH-4; check content"
+    ],
+    "suggested_next_step": "Hand over to Lending Specialists and Vulnerable Customer Support within 2 business days. Contact the customer sensitively to ask about support needs and any immediate financial hardship, and consider whether forbearance should be offered. Obtain the affordability assessment and loan file. Keep the complaints handler as point of contact until the specialist accepts the handover (ESC-5). Final response due 2026-11-17.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "high",
+      "severity": "medium",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}

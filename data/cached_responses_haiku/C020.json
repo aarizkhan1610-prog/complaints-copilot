@@ -1,0 +1,139 @@
+{
+  "saved_at": "2026-11-10T20:30:23+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-haiku-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011Cgut3wErCZ8wK5QFAHWz8",
+    "latency_s": 9.4,
+    "usage": {
+      "input": 283,
+      "output": 2154,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "f3404db450d6bd60"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer expresses dissatisfaction that their credit card application was declined without a reason and believes they were unfairly treated because of their postcode, which is a complaint about a lending decision (CH-1).",
+    "summary": "Customer applied for an Everyday credit card, was declined automatically within seconds, and was not given a reason. The customer has a good job and clean credit file, believes the decline was due to their postcode [POSTCODE_1], considers this unfair, and wants the real reason. The decline letter did not state the credit reference agency used. Handler note records the decline by automated scorecard on 24/10/2026, a preference for email contact, and no vulnerability identified. Lending decision complaints must be reviewed by Lending Specialists and cannot be overturned by the complaints handler.",
+    "timeline": [
+      {
+        "date": "24/10/2026",
+        "event": "Credit card application declined by automated scorecard",
+        "source": "note_1"
+      },
+      {
+        "date": "undated",
+        "event": "Customer received decline letter that did not state the credit reference agency used",
+        "source": "note_1"
+      },
+      {
+        "date": "26/10/2026",
+        "event": "Complaint received via web form and logged",
+        "source": "complaint"
+      }
+    ],
+    "product": "Credit card",
+    "root_cause": "Lending decision",
+    "severity": "Low",
+    "severity_reason": "No financial loss is alleged and no vulnerability, fraud or threatened legal action is recorded. The complaint concerns distress about fairness of a decline, with no stated loss, so Low under CH-6 based on the information available; the handler should revisit if further distress or loss emerges.",
+    "estimated_financial_loss_gbp": null,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "No vulnerability indicators recorded in the complaint or handler note. Preferred contact is email; no reasonable adjustments identified from the case file."
+    },
+    "specialist_teams": [
+      "Lending Specialists"
+    ],
+    "routing_reason": "The complaint concerns a lending decision (a credit card decline) and must be handed to Lending Specialists under ESC-1 and LND-2. The complaints handler must not overturn the decision.",
+    "policy_citations": [
+      {
+        "clause_id": "LND-2",
+        "quote": "A complaint about a decline is reviewed by Lending Specialists; complaints handlers must not overturn a lending decision.",
+        "how_it_applies": "The customer is complaining about the decline of their credit card application, so Lending Specialists must review it and the handler cannot overturn it."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "A lending decision, affordability, mortgage or loan arrears → *Lending Specialists*.",
+        "how_it_applies": "The complaint is about a lending decision, which triggers handover to Lending Specialists."
+      },
+      {
+        "clause_id": "CH-1",
+        "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience.",
+        "how_it_applies": "The customer expresses dissatisfaction with the decline and alleges unfair treatment, which is treated as a complaint."
+      },
+      {
+        "clause_id": "LND-1",
+        "quote": "Complaints that a lending decision was unaffordable or irresponsible must be handed to Lending Specialists.",
+        "how_it_applies": "The customer does not allege unaffordability, so this clause is referenced only for context; routing rests on LND-2 and ESC-1."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "Application declined by automated scorecard 24/10.",
+        "source": "note_1"
+      },
+      {
+        "field": "product",
+        "quote": "I applied for your Everyday credit card and got declined in seconds with no reason.",
+        "source": "complaint"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I want to know the real reason.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "Decline letter did not state the credit reference agency.",
+        "source": "note_1"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer applied for an Everyday credit card on or around 24/10/2026 and was declined within seconds by an automated scorecard without a stated reason. The customer has a good job and a clean credit file and believes the decline was because of where they live ([POSTCODE_1]), which they consider unfair. The decline letter did not name the credit reference agency used.",
+      "products_and_accounts": "Everyday credit card application (declined; no account opened). No account reference provided in the case file.",
+      "desired_outcome": "Customer wants to know the real reason for the decline.",
+      "actions_taken": [
+        "Complaint logged 26/10/2026",
+        "Handler note recorded the decline reason as automated scorecard decision on 24/10/2026",
+        "No redress or outcome decided by complaints handler"
+      ],
+      "evidence_held": [
+        "Application decision record 24/10/2026",
+        "Decline letter (content noted: no credit reference agency stated)",
+        "Customer complaint via web form"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found per handler note. Customer was not recorded as having been asked about support needs.",
+      "contact_preference": "Email, per handler note ([EMAIL_1]). Reasonable adjustments: MISSING.",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "What was the specific reason for the scorecard decline, and can it be disclosed to the customer?",
+        "Which credit reference agency was used, and was the customer told?",
+        "Was postcode or area used as a factor in the scorecard, and is this consistent with lending policy?",
+        "Date received: 26/10/2026; final response due 2026-12-21 (42 days left, On track per bank system). Confirm deadline status.",
+        "Should the customer be asked whether they need any support, given the fairness concern?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Decline letter itself is not on file; only a handler note describes its contents",
+      "No evidence that the scorecard's use of postcode was reviewed",
+      "Account reference not provided"
+    ],
+    "suggested_next_step": "Refer to Lending Specialists under ESC-1 within 2 business days of receipt. Ask Lending Specialists to establish the actual decline reasons and whether postcode was a factor, and to confirm the credit reference agency used. Handler to keep customer as point of contact until handover is accepted (ESC-5) and to acknowledge the complaint in writing if not already done (CH-2).",
+    "confidence": {
+      "product": "high",
+      "root_cause": "medium",
+      "severity": "low",
+      "vulnerability": "medium",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}
