@@ -44,11 +44,11 @@ SESSION_LIVE_CAP = int(os.environ.get("COPILOT_SESSION_LIVE_CAP", "10"))
 
 def get_api_key():
     """Read the key from the environment or Streamlit secrets. Never from the repo."""
-    key = os.environ.get("ANTHROPIC_API_KEY")
+    key = os.environ.get("ANTHROPIC_API_KEY") or os.environ.get("COPILOT_ANTHROPIC_KEY")
     if key:
         return key
     try:
         import streamlit as st
-        return st.secrets.get("ANTHROPIC_API_KEY")
+        return st.secrets.get("ANTHROPIC_API_KEY") or st.secrets.get("COPILOT_ANTHROPIC_KEY")
     except Exception:
         return None

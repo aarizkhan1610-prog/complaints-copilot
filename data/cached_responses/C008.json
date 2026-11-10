@@ -1,0 +1,149 @@
+{
+  "saved_at": "2026-11-10T19:59:27+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-opus-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CguqgXAgGFWzsbNG4d9uS",
+    "latency_s": 17.4,
+    "usage": {
+      "input": 302,
+      "output": 2074,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "b68880107b2bf7a9"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "The customer expresses dissatisfaction that they were not notified of a savings rate reduction and alleges financial loss of about £43.20 in interest, which meets the CH-1 definition.",
+    "summary": "The customer holds a Harbourline Easy Saver. Its interest rate fell from 3.1% to 1.6% in July. The customer says they received no letter or email about the change. They say they would have moved their money if told, and estimate lost interest at about £43.20, which they want back. The handler's note says the customer's email bounced in rate change notice batch 06/2026 and no letter fallback was sent. This is the first contact, with no vulnerability indicators recorded. The customer prefers email. The case is On track (final response due 2026-12-03). It appears suitable for the complaints handler to resolve.",
+    "timeline": [
+      {
+        "date": "July (year not stated)",
+        "event": "Easy Saver interest rate reduced from 3.1% to 1.6%; customer says no letter or email was received",
+        "source": "complaint"
+      },
+      {
+        "date": "undated",
+        "event": "Rate change notice batch 06/2026 sent; customer's email bounced and no letter fallback was sent",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-10-08",
+        "event": "Complaint received via web form",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-10-08",
+        "event": "Handler logged the complaint and noted the bounced email, no vulnerability indicators, first contact and email preference",
+        "source": "note_1"
+      }
+    ],
+    "product": "Savings account",
+    "root_cause": "Communication failure",
+    "severity": "Low",
+    "severity_reason": "The claimed financial loss is about £43.20, under £100, which is Low under CH-6. This is the first contact, there is no fraud and no vulnerability indicators were found.",
+    "estimated_financial_loss_gbp": 43.2,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": false,
+      "suggested_support": "None indicated. The note records no vulnerability indicators but does not say the customer was asked about support needs; consider asking sensitively when responding by email."
+    },
+    "specialist_teams": [],
+    "routing_reason": "No ESC-1 trigger applies: there is no fraud, lending issue, vulnerability referral, threat of legal action or media contact, and no technical systems failure needing investigation. The handler should resolve the case. The missing letter fallback could affect other customers whose emails bounced in batch 06/2026; the handler may wish to check this, but nothing in the file currently indicates a systemic issue.",
+    "policy_citations": [
+      {
+        "clause_id": "CH-1",
+        "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss",
+        "how_it_applies": "The customer is dissatisfied about not being notified and alleges lost interest."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "*Low*: financial loss under £100 or a service issue with no loss.",
+        "how_it_applies": "The claimed loss of £43.20 is under £100."
+      },
+      {
+        "clause_id": "CH-7",
+        "quote": "Every complaint must be tagged with one primary root cause from the approved list",
+        "how_it_applies": "The rate change notice failed to reach the customer, so the primary root cause is Communication failure."
+      },
+      {
+        "clause_id": "ESC-1",
+        "quote": "Complaints handlers resolve complaints themselves unless one of the following applies",
+        "how_it_applies": "None of the escalation triggers apply."
+      },
+      {
+        "clause_id": "CH-8",
+        "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist.",
+        "how_it_applies": "The outcome and any redress are for the handler to decide."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "product",
+        "quote": "The interest rate on my Harbourline Easy Saver dropped from 3.1% to 1.6% in July",
+        "source": "complaint"
+      },
+      {
+        "field": "root_cause",
+        "quote": "cust's email bounced, no letter fallback sent",
+        "source": "note_1"
+      },
+      {
+        "field": "severity",
+        "quote": "I've worked out I lost about £43.20 in interest.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "No vulnerability indicators.",
+        "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "I'd like that back.",
+        "source": "complaint"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "The customer was not notified of a reduction in their Easy Saver interest rate from 3.1% to 1.6% in July. Their notification email bounced and no letter fallback was sent. They estimate lost interest at about £43.20.",
+      "products_and_accounts": "Harbourline Easy Saver (account reference MISSING)",
+      "desired_outcome": "Refund of about £43.20 lost interest: \"I'd like that back.\"",
+      "actions_taken": [
+        "Complaint logged 2026-10-08",
+        "Handler checked rate change notice batch 06/2026 and found the customer's email bounced with no letter fallback sent"
+      ],
+      "evidence_held": [
+        "Rate change notice batch log 06/2026",
+        "Savings statement Q3"
+      ],
+      "vulnerability_assessment": "No vulnerability indicators found per note_1; the file does not record that the customer was asked about support needs.",
+      "contact_preference": "Email",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Verify the customer's £43.20 calculation against the Q3 statement.",
+        "Confirm the effective date of the rate change and the notice period given.",
+        "Were other customers in batch 06/2026 with bounced emails also not sent a letter fallback?",
+        "Is the customer's email address on file correct?"
+      ]
+    },
+    "fraud_details": null,
+    "other_gaps": [
+      "Account reference not recorded",
+      "Exact date of the rate change not stated",
+      "The customer's interest calculation method is not provided"
+    ],
+    "suggested_next_step": "Acknowledge the complaint by email within 3 business days. Verify the interest calculation against the Q3 statement and decide the outcome under CH-8. Update the customer's email address and check whether the missing letter fallback affected other customers in batch 06/2026.",
+    "confidence": {
+      "product": "high",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "medium",
+      "specialist_teams": "medium"
+    },
+    "suspicious_instructions": null
+  }
+}

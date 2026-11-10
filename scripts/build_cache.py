@@ -31,7 +31,7 @@ def main(args):
     else:
         key = config.get_api_key()
         if not key:
-            sys.exit("Set ANTHROPIC_API_KEY first (never commit it), or use --local for a local model.")
+            sys.exit("Set ANTHROPIC_API_KEY (or COPILOT_ANTHROPIC_KEY) first (never commit it), or use --local for a local model.")
         live, saved = LiveClaude(key), SavedResponses()
     system = system_prompt()
     total_in = total_out = 0

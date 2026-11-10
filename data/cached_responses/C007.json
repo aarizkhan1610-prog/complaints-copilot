@@ -1,0 +1,162 @@
+{
+  "saved_at": "2026-11-10T19:59:10+00:00",
+  "meta": {
+    "provider": "live",
+    "model": "claude-opus-5-5",
+    "effort": "low",
+    "prompt_version": "triage-v1.0",
+    "request_id": "req_011CguqeQ9hFB3pdWTTK5Awc",
+    "latency_s": 28.8,
+    "usage": {
+      "input": 382,
+      "output": 2425,
+      "cache_read": 8575,
+      "cache_write": 0
+    },
+    "input_hash": "5dfd6a9ffa75257a"
+  },
+  "analysis": {
+    "is_complaint": true,
+    "is_complaint_reason": "Customer reports three card payments he did not authorise and wants the money back. He has chased because the refund has not been credited. That is dissatisfaction with financial loss under CH-1.",
+    "summary": "[PERSON_1] reported by phone on 2026-11-02 three online card payments of £389.97 each to TechNova Online on 01/11 at 23:10, 23:12 and 23:15, totalling £1,169.91. He says he did not make them. His card ending [CARD_DIGITS_1] is still in his possession, and he says he shared no PIN, passcodes or one-time codes. The card was cancelled, a replacement was ordered and the online banking password was reset. By 2026-11-04 no refund had been credited, although FRD-1 expects one by the end of the next business day unless grounds for suspicion are recorded by Fraud & Scams. The customer has chased. He wants his £1,169.91 back.",
+    "timeline": [
+      {
+        "date": "01/11",
+        "event": "Three online payments of £389.97 to TechNova Online at 23:10, 23:12 and 23:15",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-02",
+        "event": "Customer reported the unauthorised payments by phone",
+        "source": "complaint"
+      },
+      {
+        "date": "2026-11-02",
+        "event": "Card cancelled, replacement ordered, online banking password reset; customer asked about support needs and said none",
+        "source": "note_1"
+      },
+      {
+        "date": "2026-11-04",
+        "event": "Refund not yet credited; customer chased; statement extract saved",
+        "source": "note_2"
+      }
+    ],
+    "product": "Current account",
+    "root_cause": "Unauthorised transaction",
+    "severity": "High",
+    "severity_reason": "The disputed amount is £1,169.91, which is over £1,000. It also involves suspected fraud. Both are High triggers under CH-6.",
+    "estimated_financial_loss_gbp": 1169.91,
+    "vulnerability": {
+      "indicators_found": false,
+      "drivers": [],
+      "customer_was_asked": true,
+      "suggested_support": "None identified. The customer was asked and said none. Keep checking for indicators in future contact."
+    },
+    "specialist_teams": [
+      "Fraud & Scams"
+    ],
+    "routing_reason": "This is an unauthorised transaction, which ESC-1 routes to Fraud & Scams. The FRD-1 refund deadline (end of the next business day) appears to have passed with no recorded suspicion. Any reason for withholding the refund must be recorded by a Fraud & Scams specialist. The handover should be made urgently.",
+    "policy_citations": [
+      {
+        "clause_id": "ESC-1",
+        "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*.",
+        "how_it_applies": "The customer reports payments he did not make."
+      },
+      {
+        "clause_id": "CH-6",
+        "quote": "financial loss over £1,000, suspected fraud or scam",
+        "how_it_applies": "£1,169.91 disputed and suspected fraud, so severity is High."
+      },
+      {
+        "clause_id": "FRD-1",
+        "quote": "the bank must refund the amount by the end of the next business day after the report, unless there are reasonable grounds to suspect the customer acted fraudulently or with gross negligence. Any such suspicion must be recorded by a Fraud & Scams specialist.",
+        "how_it_applies": "Reported 2026-11-02 and still not refunded on 2026-11-04. No suspicion has been recorded."
+      },
+      {
+        "clause_id": "FRD-4",
+        "quote": "On report, the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done.",
+        "how_it_applies": "Note_1 records the card cancelled and the online banking password reset."
+      },
+      {
+        "clause_id": "FRD-3",
+        "quote": "the date, time and amount of each disputed payment; the payee details as known",
+        "how_it_applies": "Dates, times, amounts and payee name are held. The full date and year of the payments come from the statement extract."
+      }
+    ],
+    "evidence": [
+      {
+        "field": "root_cause",
+        "quote": "three online payments he didn't make",
+        "source": "complaint"
+      },
+      {
+        "field": "severity",
+        "quote": "Wants his £1,169.91 back.",
+        "source": "complaint"
+      },
+      {
+        "field": "vulnerability",
+        "quote": "no vulnerability indicators, asked - none",
+        "source": "note_1"
+      },
+      {
+        "field": "desired_outcome",
+        "quote": "Wants his £1,169.91 back.",
+        "source": "complaint"
+      },
+      {
+        "field": "specialist_team",
+        "quote": "Refund not yet credited - FRD-1 says next business day.",
+        "source": "note_2"
+      }
+    ],
+    "handover": {
+      "complaint_summary": "Customer disputes three online card payments of £389.97 each to TechNova Online on 01/11 (23:10, 23:12, 23:15), totalling £1,169.91. He says he did not make them, still has his card and shared no security details. Reported 2026-11-02. No refund had been made as of 2026-11-04 and the customer has chased. Received 2026-11-02; final response due 2026-12-28, 49 days left, status On track.",
+      "products_and_accounts": "Debit card ending [CARD_DIGITS_1] (now cancelled); linked account reference MISSING",
+      "desired_outcome": "Wants his £1,169.91 back.",
+      "actions_taken": [
+        "2026-11-02: card cancelled and replacement ordered",
+        "2026-11-02: online banking password reset",
+        "2026-11-02: customer asked about support needs and said none",
+        "2026-11-04: statement extract saved; refund not yet credited"
+      ],
+      "evidence_held": [
+        "Statement extract 01/11/2026",
+        "Card cancellation record"
+      ],
+      "vulnerability_assessment": "No indicators found. The customer was asked and said none (note_1).",
+      "contact_preference": "MISSING",
+      "third_party_authority": "Not applicable",
+      "open_questions": [
+        "Are there any grounds under FRD-1 to withhold the refund? If so, a Fraud & Scams specialist must record them.",
+        "How were the payments authenticated (for example 3D Secure or stored card details)?",
+        "Is a merchant chargeback against TechNova Online possible?",
+        "Which account is affected?",
+        "What is the customer's contact preference?"
+      ]
+    },
+    "fraud_details": {
+      "payment_details": "3 x £389.97 online card payments on 01/11 (statement dated 01/11/2026) at 23:10, 23:12 and 23:15; total £1,169.91. Reported 2026-11-02.",
+      "payee_details": "TechNova Online (no further details)",
+      "fraudster_contact_method": "Not applicable (unauthorised transaction; no contact with a fraudster reported)",
+      "security_details_shared": "Customer states he did not share his PIN, passcodes or one-time codes; card still in his possession",
+      "account_secured": "Yes. Card cancelled, replacement ordered and online banking password reset on 2026-11-02 (note_1)."
+    },
+    "other_gaps": [
+      "Account reference not recorded",
+      "Authentication data for the transactions not on file",
+      "No recorded reason for the refund delay",
+      "Customer contact preference not recorded",
+      "No call recording listed"
+    ],
+    "suggested_next_step": "Hand over to Fraud & Scams today. Ask them to review the FRD-1 refund position, which appears overdue, and to record any grounds for withholding it. Update the customer on progress without promising an outcome.",
+    "confidence": {
+      "product": "medium",
+      "root_cause": "high",
+      "severity": "high",
+      "vulnerability": "high",
+      "specialist_teams": "high"
+    },
+    "suspicious_instructions": null
+  }
+}
