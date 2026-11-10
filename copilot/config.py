@@ -4,6 +4,15 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+
+# Load a local .env file if present (git-ignored), without overriding real environment variables.
+_env = ROOT / ".env"
+if _env.exists():
+    for _line in _env.read_text().splitlines():
+        if "=" in _line and not _line.lstrip().startswith("#"):
+            _k, _v = _line.split("=", 1)
+            if _v.strip():
+                os.environ.setdefault(_k.strip(), _v.strip().strip('"').strip("'"))
 DATA_DIR = ROOT / "data"
 POLICY_DIR = DATA_DIR / "policies"
 CACHE_DIR = Path(os.environ.get("COPILOT_CACHE_DIR", DATA_DIR / "cached_responses"))
