@@ -38,7 +38,31 @@
         "Alison"
       ]
     ],
-    "over_redactions": []
+    "over_redactions": [],
+    "flagged_misses": [
+      [
+        "H01",
+        "Fiona McAllister"
+      ],
+      [
+        "H07",
+        "Grace"
+      ],
+      [
+        "H08",
+        "Alison Drummond"
+      ],
+      [
+        "H08",
+        "Drummond"
+      ],
+      [
+        "H08",
+        "Alison"
+      ]
+    ],
+    "dev_alarms": 3,
+    "hold_alarms": 1
   },
   "ai": {
     "n": 25,

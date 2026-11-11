@@ -12,10 +12,11 @@ import streamlit as st
 from copilot import audit, config
 from copilot.ask import SUGGESTED, ask_live, saved_answer, verify as verify_answer
 from copilot.related import related_cases
+from copilot.gapchaser import QUESTIONS, customer_message
 from copilot.sources import highlight_html, policy_document
 from copilot.ai import AIUnavailable, Hybrid, LiveClaude, LocalOllama, SavedResponses
 from copilot.data import get_complaint, load_complaints, load_labels, load_policies
-from copilot.deadlines import deadline_info, priority_score
+from copilot.deadlines import deadline_info, priority_score, summary_resolution_by
 from copilot.pipeline import handover_markdown, run_case
 from copilot.redact import reidentify
 from copilot.schemas import RootCause, Product, Team
@@ -47,6 +48,7 @@ def ss():
 # Values a handler "added" are fictional and contain no personal data.
 EXAMPLES = {
     "C002": {"status": "Sent to specialist", "note": "Customer called back on 10/11 and answered the open questions.",
+             "questions": [{"q": "Has the receiving bank been asked to recall the £4,250 yet?", "a": None}],
              "filled": {"products_accounts": "Easy Access Saver (account on file)",
                         "vulnerability_assessment": "Asked on 10/11: recently bereaved, finds calls stressful, "
                                                     "wants large print and a named contact",
@@ -76,7 +78,8 @@ def seed_examples(s):
         s["reviews"].setdefault(cid, {"decision": "Approve AI triage", "changes": {}, "filled": ex["filled"],
                                       "still_missing": [], "note": ex["note"], "teams": teams, "example": True})
         s["handovers"].setdefault(cid, {"teams": teams, "pack": md, "status": ex["status"],
-                                        "returns": list(ex.get("returns", [])), "example": True})
+                                        "returns": list(ex.get("returns", [])), "example": True,
+                                        "questions": [dict(q) for q in ex.get("questions", [])]})
 
 
 BACKENDS = {"Claude (Anthropic API)": "claude", "Local model (Ollama on this machine)": "local"}
@@ -158,6 +161,7 @@ def sidebar():
 TRY_CASES = [
     ("C002", "A 78-year-old, recently bereaved, lost £4,250 to a scam and is due a reply today. Shows vulnerability "
              "flags, fraud routing and a handover with gaps."),
+    ("C001", "A simple £30 fee refund. Every check passes, so it can be approved in one click."),
     ("C021", "A handover the specialist sent back because the handler wrote 'see notes'. Shows the return loop."),
     ("C009", "The complaint contains hidden instructions aimed at the AI. Shows the warning it raises."),
     ("C010", "Not actually a complaint (a request for information)."),
@@ -248,6 +252,75 @@ def open_case(cid):
     st.session_state["page"] = "Review a case"
 
 
+def queue_order():
+    items = []
+    for c in load_complaints():
+        r = get_result(c["id"])
+        dl = deadline_info(c["received"])
+        items.append((-(r["priority"] if r else priority_score(dl["status"])), dl["days_left"], c["id"]))
+    return [i[2] for i in sorted(items)]
+
+
+def next_case(cid):
+    """The next most urgent case that nobody has reviewed yet."""
+    order = queue_order()
+    todo = [c for c in order if review_status(c) == "Not reviewed" and c != cid]
+    if not todo:
+        return None
+    after = [c for c in order[order.index(cid) + 1:] if c in todo]
+    return (after or todo)[0]
+
+
+def low_risk(r):
+    a = r["analysis"]
+    return (a.is_complaint and a.severity == "Low" and not a.vulnerability.indicators_found
+            and not a.specialist_teams and not r["warnings"] and not r.get("name_flags")
+            and all(c["status"] == "verified" for c in r["citations"])
+            and all(e["status"] == "verified" for e in r["evidence_checks"]))
+
+
+def quick_approve(cid, r):
+    s = ss()
+    rec = {"decision": "Approve AI triage", "changes": {}, "filled": {}, "still_missing": [], "note": "",
+           "teams": [], "quick": True}
+    s["reviews"][cid] = rec
+    audit.log("human_review", cid, role="Complaints handler", **rec, ai_source=r["meta"].get("provider"),
+              prompt_version=r["meta"].get("prompt_version"))
+    nxt = next_case(cid)
+    if nxt:
+        open_case(nxt)
+
+
+def quick_paths(case, r):
+    cid, a = case["id"], r["analysis"]
+    last, possible = summary_resolution_by(case["received"])
+    if a.is_complaint and possible and not a.specialist_teams and not a.vulnerability.indicators_found:
+        st.success(f"⚡ **Quick fix possible:** if you resolve this to the customer's satisfaction by "
+                   f"{last:%a %d %b}, it can be closed with a summary resolution letter (CH-3), with no full "
+                   f"investigation.")
+    if low_risk(r) and review_status(cid) == "Not reviewed":
+        with st.container(border=True):
+            c1, c2 = st.columns([3, 1], vertical_alignment="center")
+            c1.markdown("✅ **Low-risk case:** low severity, no vulnerability, no specialist needed and every "
+                        "check passed. Read the draft, then approve it in one click.")
+            c2.button("Approve and next →", type="primary", key=f"quick_{cid}", on_click=quick_approve,
+                      args=(cid, r), use_container_width=True)
+
+
+def name_check(cid, r):
+    flags = r.get("name_flags") or []
+    if not flags:
+        return
+    with st.container(border=True):
+        words = sorted({f["word"] for f in flags})
+        st.markdown("🛡️ **Possible names that were not masked:** " +
+                    ", ".join(f"**{w}** ({', '.join(sorted({f['part'] for f in flags if f['word'] == w}))})"
+                              for w in words))
+        c1, c2 = st.columns([3, 2], vertical_alignment="bottom")
+        c1.multiselect("Mask these before the AI sees the case", words, key=f"masks_{cid}")
+        c2.checkbox("I've checked these words", key=f"names_ok_{cid}")
+
+
 def set_trace(cid, tr):
     st.session_state["trace"][cid] = tr
 
@@ -279,10 +352,13 @@ def page_review():
     want_live = bool(st.session_state.get("use_live")) and p.live is not None
     top = st.columns([3, 1])
     with top[1]:
-        if want_live and st.button("Run live AI on this case", type="primary"):
+        prev = get_result(cid)
+        flags_open = bool(prev and prev.get("name_flags")) and not st.session_state.get(f"names_ok_{cid}")
+        if want_live and st.button("Run live AI on this case", type="primary", disabled=flags_open,
+                                   help="Check the possible names below first." if flags_open else None):
             with st.spinner("Calling the model on the redacted case..."):
                 try:
-                    r = run_case(case, p, want_live=True,
+                    r = run_case(case, p, want_live=True, extra_names=st.session_state.get(f"masks_{cid}", []),
                                  session_left=config.SESSION_LIVE_CAP - s["session_live_used"])
                     if r["meta"].get("provider") == "live":
                         s["session_live_used"] += 1
@@ -307,6 +383,11 @@ def page_review():
     s2.info("**② Check the AI draft** on the right. ✅ verified · ⚠️/❌ don't rely on it.")
     s3.info("**③ Decide** in *Your review* below: approve, correct (with a reason) or reject. "
             "[Jump there ↓](#your-review)")
+    nxt = next_case(cid)
+    if nxt:
+        st.button(f"Next case → {nxt}", on_click=open_case, args=(nxt,), key=f"next_{cid}")
+    quick_paths(case, r)
+    name_check(cid, r)
     if r["warnings"]:
         st.warning("**Things to check on this case**\n" + "\n".join(f"- {w}" for w in r["warnings"]))
 
@@ -530,6 +611,9 @@ def reviewer_panel(case, r):
                 st.markdown(f"✅ {row['label']}")
             else:
                 st.markdown(f"❌ {row['label']}")
+                if row["key"] in QUESTIONS and needs_handover:
+                    who, q = QUESTIONS[row["key"]]
+                    st.caption(("💬 Ask the customer: " if who == "customer" else "🏦 Check internally: ") + q)
                 if needs_handover:
                     fills[row["key"]] = st.text_input(f"Add what's missing: {row['label']}", key=f"fill_{cid}_{row['key']}",
                                                       placeholder="Leave blank if you need to contact the customer first")
@@ -578,6 +662,30 @@ def reviewer_panel(case, r):
         else:
             st.success("Approved. You remain the owner and will resolve this complaint.")
 
+    open_gaps = [row["key"] for row in r["completeness"] if not row["ok"]]
+    if a.specialist_teams and open_gaps:
+        msg = customer_message(open_gaps)
+        if msg:
+            with st.expander("✉️ Draft message asking the customer for the missing details", expanded=False):
+                st.caption("Edit it if needed and send it from your usual channel. Nothing is sent automatically.")
+                st.text_area("Message", msg, height=260, key=f"msg_{cid}", label_visibility="collapsed")
+                if st.button("I've sent this to the customer", key=f"msgsent_{cid}"):
+                    audit.log("customer_info_requested", cid, role="Complaints handler", fields=open_gaps)
+                    st.success("Logged. Fill in the fields above when the customer replies, then send the handover.")
+
+    h = s["handovers"].get(cid)
+    for i, qa in enumerate(h.get("questions", []) if h else []):
+        with st.container(border=True):
+            st.markdown(f"❓ **{', '.join(h['teams'])} asked:** {qa['q']}")
+            if qa.get("a"):
+                st.markdown(f"**Your answer:** {qa['a']}")
+            else:
+                ans = st.text_input("Your answer", key=f"qa_{cid}_{i}")
+                if st.button("Send answer", key=f"qasend_{cid}_{i}") and ans.strip():
+                    qa["a"] = ans.strip()
+                    audit.log("handler_answered", cid, role="Complaints handler", question=qa["q"], answer=qa["a"])
+                    st.rerun()
+
     if cid in s["handovers"]:
         with st.expander("Handover pack as sent"):
             st.markdown(s["handovers"][cid]["pack"])
@@ -605,13 +713,22 @@ def page_specialist():
                          expanded=False):
             for ret in h["returns"]:
                 st.error(f"**Returned:** missing {', '.join(ret['missing'])}. {ret['reason']}")
+            for qa in h.get("questions", []):
+                st.info(f"❓ **You asked:** {qa['q']}  \n" + (f"**Handler:** {qa['a']}" if qa.get("a") else "_Waiting for the handler_"))
             st.markdown(h["pack"])
             if h["status"] == "Sent to specialist":
-                c1, c2 = st.columns(2)
+                c1, c3, c2 = st.columns(3)
                 if c1.button("Accept handover", key=f"acc_{cid}"):
                     h["status"] = "Accepted by specialist"
                     audit.log("specialist_accepted", cid, role="Specialist", teams=h["teams"])
                     st.rerun()
+                with c3.popover("Ask the handler a question"):
+                    q = st.text_input("Question", key=f"askq_{cid}",
+                                      placeholder="e.g. Has the receiving bank been asked to recall the payment?")
+                    if st.button("Send question", key=f"askqs_{cid}") and q.strip():
+                        h.setdefault("questions", []).append({"q": q.strip(), "a": None})
+                        audit.log("specialist_question", cid, role="Specialist", question=q.strip())
+                        st.rerun()
                 with c2.popover("Return as incomplete"):
                     missing = st.multiselect("Missing fields", ["Summary", "Products and accounts", "Desired outcome",
                                                                 "Timeline", "Actions taken", "Evidence held",

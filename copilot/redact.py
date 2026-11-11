@@ -81,17 +81,18 @@ def _name_candidates(text, parts=()):
     return out
 
 
-def redact_case(parts: dict) -> Redaction:
+def redact_case(parts: dict, extra_names=()) -> Redaction:
     """Redact several pieces of text from one case with one consistent token set.
 
     parts: {"complaint": str, "note_1": str, ...}
+    extra_names: names a person has marked for masking (e.g. from the name safety net).
     """
     joined = "\n".join(parts.values())
     values = []  # (type, value)
     for ptype, rx in PATTERNS:
         for m in rx.finditer(joined):
             values.append((ptype, m.group(0)))
-    names = _name_candidates(joined, parts.values())
+    names = _name_candidates(joined, parts.values()) | {n.strip() for n in extra_names if n.strip()}
     # Propagate: every word of a detected full name is itself a name to mask.
     name_values = set()
     for n in names:

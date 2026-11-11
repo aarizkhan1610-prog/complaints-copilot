@@ -3,19 +3,20 @@ from . import audit, config
 from .checks import completeness, gaps, injection_flags, verify_citations, verify_evidence
 from .deadlines import deadline_info, priority_score
 from .prompts import case_message, system_prompt
+from .namecheck import suspect_names
 from .redact import case_parts, redact_case
 
 
-def prepare(case):
+def prepare(case, extra_names=()):
     parts = case_parts(case)
-    red = redact_case(parts)
+    red = redact_case(parts, extra_names)
     dl = deadline_info(case["received"])
     message = case_message(case, red.text_by_part, dl)
     return parts, red, dl, message
 
 
-def run_case(case, provider, want_live=False, session_left=None, log_audit=True):
-    parts, red, dl, message = prepare(case)
+def run_case(case, provider, want_live=False, session_left=None, log_audit=True, extra_names=()):
+    parts, red, dl, message = prepare(case, extra_names)
     system = system_prompt()
     analysis, meta, fallback_reason = provider.analyse(case["id"], system, message,
                                                        want_live=want_live, session_left=session_left)
@@ -27,7 +28,7 @@ def run_case(case, provider, want_live=False, session_left=None, log_audit=True)
         "case_id": case["id"], "deadline": dl, "redacted": red.text_by_part, "mapping": red.mapping,
         "message_sent": message, "analysis": analysis, "meta": meta, "fallback_reason": fallback_reason,
         "citations": cites, "evidence_checks": evidence, "injection_flags": inj,
-        "completeness": rows, "gaps": gaps(rows),
+        "completeness": rows, "gaps": gaps(rows), "name_flags": suspect_names(red.text_by_part),
         "priority": priority_score(dl["status"], analysis.severity, analysis.vulnerability.indicators_found),
         "warnings": warnings(analysis, cites, evidence, inj),
     }

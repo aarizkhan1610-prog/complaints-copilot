@@ -20,6 +20,7 @@ sys.path.insert(0, str(ROOT))
 from copilot.ai import AIUnavailable, Hybrid, SavedResponses  # noqa: E402
 from copilot.data import load_complaints, load_labels  # noqa: E402
 from copilot.pipeline import run_case  # noqa: E402
+from copilot.namecheck import suspect_names
 from copilot.redact import case_parts, redact_case  # noqa: E402
 
 OUT = Path(__file__).parent
@@ -45,17 +46,27 @@ def eval_redaction():
                 false_pos.append((c["id"], tok, v))
     hold = json.loads((OUT / "redaction_holdout.json").read_text())
     h_total = h_caught = 0
-    misses = []
+    misses, flagged_misses, hold_alarms = [], [], 0
     for c in hold["cases"]:
-        t = redact_case({"text": c["text"]}).text_by_part["text"].lower()
+        red_parts = redact_case({"text": c["text"]}).text_by_part
+        t = red_parts["text"].lower()
+        flags = {f["word"].lower() for f in suspect_names(red_parts)}
+        found = set()
         for v in c["pii"]:
             h_total += 1
             if v.lower() in t:
                 misses.append((c["id"], v))
+                hit = {w.lower() for w in v.split()} & flags
+                if hit:
+                    flagged_misses.append((c["id"], v))
+                    found |= hit
             else:
                 h_caught += 1
+        hold_alarms += len(flags - found - {w.lower() for v in c["pii"] for w in v.split()})
+    dev_alarms = sum(len(suspect_names(redact_case(case_parts(c)).text_by_part)) for c in load_complaints())
     return {"dev": (dev_caught, dev_total), "holdout": (h_caught, h_total),
-            "holdout_misses": misses, "over_redactions": false_pos}
+            "holdout_misses": misses, "over_redactions": false_pos, "flagged_misses": flagged_misses,
+            "dev_alarms": dev_alarms, "hold_alarms": hold_alarms}
 
 
 def eval_ai(cache_dir):
@@ -139,6 +150,12 @@ def main():
           f"- Development set (rules were built against it, so optimistic): **{pct(*red['dev'])}** personal-data items removed",
           f"- **Held-out set** (written afterwards, never tuned on): **{pct(*red['holdout'])}** removed",
           "- Held-out misses: " + (", ".join(f"{i} '{v}'" for i, v in red["holdout_misses"]) or "none"),
+          f"- **Name safety net** (flags possible names for the handler to mask before the AI call): flags "
+          f"{len(red['flagged_misses'])} of the {len(red['holdout_misses'])} held-out misses "
+          f"({', '.join(v for _, v in red['flagged_misses']) or 'none'}), so "
+          f"**{pct(red['holdout'][0] + len(red['flagged_misses']), red['holdout'][1])}** are removed or flagged. "
+          f"False alarms: {red['dev_alarms']} on the development set, {red['hold_alarms']} on the held-out set. "
+          "The safety net was written after the held-out set existed, so treat this figure as less independent",
           f"- Over-redaction on development set (non-personal words masked): {len(red['over_redactions'])}"]
     if red["over_redactions"]:
         md.append("  - " + "; ".join(f"{c} {v}" for c, _, v in red["over_redactions"][:10]))

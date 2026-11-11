@@ -75,8 +75,12 @@ The app opens on **Start here**, which explains who uses each screen and links s
      Suggested questions have saved answers for C001, C002, C005, C014, C015 and C021; your own questions need live AI.
    - **Related cases** tab: other open complaints sharing an incident, root cause or product, with a
      possible-systemic-issue warning (try C023).
+   - **Next case →** moves to the next most urgent unreviewed case; low-risk cases with every check green (try
+     **C001**) have **Approve and next**; recent simple cases show a CH-3 quick-fix window.
+   - Missing handover fields show the question to ask, and a **draft message to the customer** collects them
+     (the handler sends it). A **name safety net** flags capitalised words that may be unmasked names (try C006).
 3. **Specialist inbox**: three example handovers are preloaded (C002 waiting, C014 accepted, C021 returned because
-   the handler wrote "see notes"). Accept a handover, or return it as incomplete; filter by team.
+   the handler wrote "see notes"). Accept a handover, ask the handler a question without returning it, or return it as incomplete; filter by team.
 4. **Audit log**: every AI call and every human decision.
 5. Also try **C009** (a prompt-injection attempt), **C010** (not a complaint) and **C024** (an almost empty chaser).
 
@@ -112,6 +116,8 @@ prompt-injection resistance. Results: [`eval/results.md`](eval/results.md).
 | `copilot/prompts.py`, `copilot/schemas.py` | The prompt and the exact output format the model must follow |
 | `copilot/ai.py` | Model providers: live Claude, saved responses, and the hybrid with caps and fallback |
 | `copilot/checks.py` | Citation, evidence, completeness and injection checks |
+| `copilot/namecheck.py` | Name safety net: flags possible unmasked names before the AI call |
+| `copilot/gapchaser.py` | Fixed questions for each missing handover field and the draft customer message |
 | `copilot/sources.py` | Jump to source: find and highlight the words behind a claim; full policy view |
 | `copilot/related.py` | Related cases and possible systemic issues |
 | `copilot/ask.py`, `scripts/build_answers.py` | Ask the case (verified answers) and saving answers for demo mode |

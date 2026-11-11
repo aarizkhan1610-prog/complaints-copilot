@@ -8,11 +8,11 @@ prototype or the slide deck that answers it. Status is updated as the build prog
 
 | Brief wording | Where it is answered | Status |
 |---|---|---|
-| "a growing backlog of customer complaints" | Priority queue ordered by deadline risk and vulnerability | Built |
+| "a growing backlog of customer complaints" | Priority queue ordered by deadline risk and vulnerability; Next case; one-click approve for low-risk cases; CH-3 quick-fix flag | Built |
 | "Staff spend time finding information across case notes and policy documents" | AI case summary + timeline (each event linked to its source note); policy search with cited clause IDs; jump to source highlighting; full policy view; Ask the case with verified quotes; related cases | Built |
-| "specialist teams receive incomplete handovers" | Handover pack built against the required fields in policy `ESC-3`; completeness check blocks handover until gaps are filled; specialist can return a pack as incomplete (examples preloaded, team filter); vague answers such as 'see notes' rejected | Built |
+| "specialist teams receive incomplete handovers" | Handover pack built against the required fields in policy `ESC-3`; completeness check blocks handover until gaps are filled; specialist can return a pack as incomplete (examples preloaded, team filter); vague answers such as 'see notes' rejected; gap chaser drafts the customer questions; specialist can ask the handler a question | Built |
 | "decide where AI could improve the service" | Opportunity map across the complaint journey (deck, slide 1) | Planned |
-| "protect customer information" | Redaction runs before any AI call; only synthetic data; key held server-side; data residency options on controls slide | Data ready (PII ground truth) |
+| "protect customer information" | Redaction runs before any AI call; only synthetic data; key held server-side; data residency options on controls slide; plus a name safety net that flags possible unmasked names and blocks a live run until checked (25 of 27 held-out items removed or flagged) | Built |
 | "keep decisions reviewable" | Human approve / edit / reject on every AI output; audit log of input (redacted), prompt version, model, output and reviewer decision | Planned |
 | "consider how complaints staff and specialists would use the solution" | Two views: complaint handler and specialist; workflow before/after on slide 5 | Planned |
 | "Explain the expected value" | Value estimate with explicit assumptions (deck, slide 1) | Planned |

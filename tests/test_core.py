@@ -105,3 +105,31 @@ def test_ask_verify_rejects_invented_quote():
         {"source": "FRD-5", "quote": "Handlers must not promise a refund or reimbursement"}])
     v = verify(ans, {"note_1": "Card blocked. Told cust fraud team will be in touch."})
     assert [x["verified"] for x in v] == [True, False, True]
+
+
+def test_name_safety_net_flags_missed_name():
+    from copilot.namecheck import suspect_names
+    flags = suspect_names({"note_1": "Spoke to Grace in the branch. Customer upset."})
+    assert [f["word"] for f in flags] == ["Grace"]
+    assert suspect_names({"note_1": "Payment sent in October by Faster Payments."}) == []
+
+
+def test_extra_names_are_masked():
+    from copilot.redact import redact_case
+    r = redact_case({"note_1": "Spoke to Grace. Grace said the fee stands."}, extra_names=["Grace"])
+    assert "Grace" not in r.text_by_part["note_1"] and "[PERSON_1]" in r.text_by_part["note_1"]
+
+
+def test_summary_resolution_window():
+    from datetime import date
+    from copilot.deadlines import summary_resolution_by
+    last, ok = summary_resolution_by("2026-11-06", as_of=date(2026, 11, 9))   # Friday -> Wednesday
+    assert last == date(2026, 11, 11) and ok
+    assert not summary_resolution_by("2026-11-02", as_of=date(2026, 11, 9))[1]
+
+
+def test_gap_chaser_only_asks_customer_questions():
+    from copilot.gapchaser import customer_message
+    m = customer_message(["contact_preference", "account_secured"])
+    assert "prefer us to contact you" in m and "FRD-4" not in m
+    assert customer_message(["account_secured"]) == ""
