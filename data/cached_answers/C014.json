@@ -1,0 +1,130 @@
+{
+  "11e2cc26d9226f78": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T00:09:47+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.3
+    },
+    "answer": {
+      "answer": "The customer, [PERSON_2] (the executor), wants the matter sorted, meaning the release of their late mother's savings to the estate, and wants someone to explain why it has taken so long. On promises, the file records none. The customer says that on each of six calls they were told it was 'with the team'. That is not a commitment to an outcome or a date. The handler's note only records that the bereavement case was found, that documents were received on 04/07, and that no action has been taken since 22/07. Nothing in the file shows any promise of a timescale, a release date or redress. The file is silent on this, so the handler should confirm before relying on it.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I want it sorted and I want someone to explain why it has taken so long."
+        },
+        {
+          "source": "complaint",
+          "quote": "her savings have still not been released to the estate"
+        },
+        {
+          "source": "complaint",
+          "quote": "I have phoned six times and every time I'm told it's 'with the team'."
+        },
+        {
+          "source": "note_1",
+          "quote": "Bereavement case found, documents received 04/07, no action since 22/07. Executor is [PERSON_2]"
+        }
+      ]
+    }
+  },
+  "951a8e5a181f4281": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T00:09:53+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.5
+    },
+    "answer": {
+      "answer": "Timeline from the file: [PERSON_1] died in June (exact date not given). [PERSON_2] says they sent the death certificate and grant of probate on 2 July; the bank's record shows the documents were received on 04/07. There has been no action since 22/07. [PERSON_2] phoned six times (dates not given). The complaint letter was received on 2026-09-10 and logged on 2026-09-11. The system shows the final response deadline of 2026-11-05 as Breached. Not in the file: the exact date of death, what happened on 22/07, the dates of the six calls, why there was a delay, the savings balance, any acknowledgement sent, contact preference, and whether the customer was asked about support needs.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "My mother [PERSON_1] passed away in June."
+        },
+        {
+          "source": "complaint",
+          "quote": "I sent the death certificate and the grant of probate to your bereavement team on 2 July."
+        },
+        {
+          "source": "note_1",
+          "quote": "Bereavement case found, documents received 04/07, no action since 22/07."
+        },
+        {
+          "source": "complaint",
+          "quote": "I have phoned six times and every time I'm told it's 'with the team'."
+        },
+        {
+          "source": "complaint",
+          "quote": "It is now September and her savings have still not been released to the estate."
+        },
+        {
+          "source": "note_1",
+          "quote": "Savings acct [ACCOUNT_NUMBER_1]."
+        }
+      ]
+    }
+  },
+  "089fc4db5b8e859c": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T00:10:00+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.0
+    },
+    "answer": {
+      "answer": "Key rules: CH-1 makes this a complaint (dissatisfaction about delay causing distress). CH-4: a Final Response was due within 8 weeks; the system shows the case as Breached. Where a Final Response can't be issued in time, a holding letter explaining why and giving ombudsman referral rights is required. CH-6: phoning six times about the same issue points to at least Medium severity. CH-7: the likely root cause is Service delay. VUL-1/VUL-2: bereavement is a life-event indicator, so record a possible vulnerability and ask the customer about support. VUL-4 requires referral to Vulnerable Customer Support where bereavement is present. CH-8 leaves the outcome and redress to an authorised person. The file does not say whether a holding letter was sent.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "CH-1",
+          "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience."
+        },
+        {
+          "source": "complaint",
+          "quote": "Dealing with this on top of losing Mum has been awful."
+        },
+        {
+          "source": "CH-4",
+          "quote": "If the bank cannot issue a Final Response by then, it must send a holding letter explaining why and the customer's right to refer the complaint to the independent ombudsman service."
+        },
+        {
+          "source": "CH-6",
+          "quote": "repeated service failure (the customer has contacted us three or more times about the same issue)"
+        },
+        {
+          "source": "complaint",
+          "quote": "I have phoned six times and every time I'm told it's 'with the team'."
+        },
+        {
+          "source": "note_1",
+          "quote": "documents received 04/07, no action since 22/07"
+        },
+        {
+          "source": "VUL-1",
+          "quote": "*life events* (bereavement, job loss, relationship breakdown, caring responsibilities)"
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        },
+        {
+          "source": "VUL-4",
+          "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

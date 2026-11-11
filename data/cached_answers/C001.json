@@ -1,0 +1,118 @@
+{
+  "c5fb1486cfbaa9a0": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T00:09:14+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.8
+    },
+    "answer": {
+      "answer": "The customer wants the two unarranged overdraft fees refunded: \"Please refund the £30.\" She says her salary was late and \"This wasn't my fault.\" On what the bank has promised, the file records no promise or commitment of a refund or any other outcome. The handler's notes show only that the complaint was logged, the incident log and fees were checked, and an acknowledgement letter was sent by email. Whether the complaint is upheld, and any refund or redress, is still for an authorised handler to decide.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Because it was late my account went overdrawn and you charged me two unarranged overdraft fees of £15 each. This wasn't my fault. Please refund the £30."
+        },
+        {
+          "source": "note_1",
+          "quote": "Logged. Checked incident log: INC-4471 batch delay on inbound Faster Payments 30/09, credits applied 01/10. Two UOD fees £15 on 30/09 and 01/10 confirmed."
+        },
+        {
+          "source": "note_2",
+          "quote": "Ack letter sent by email."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "bb0569bdfa9ffb63": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T00:09:19+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.0
+    },
+    "answer": {
+      "answer": "30 September: the customer's salary did not arrive as usual (her employer says it was sent on time). The bank's incident log shows INC-4471, a batch delay on inbound Faster Payments on 30/09, with credits applied 01/10. Unarranged overdraft fees of £15 were charged on 30/09 and on 01/10. 27 October: the complaint was received by email and logged. 28 October: an acknowledgement was sent by email. Still unknown: whether the delayed credit was confirmed as the customer's salary, whether any interest was charged on the fees, whether anything has been refunded, and the customer's account balance details. None of these are in the file. Whether to uphold the complaint is for the handler to decide.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "My salary didn't arrive on 30 September like it always does. My employer says they sent it on time."
+        },
+        {
+          "source": "note_1",
+          "quote": "INC-4471 batch delay on inbound Faster Payments 30/09, credits applied 01/10"
+        },
+        {
+          "source": "note_1",
+          "quote": "Two UOD fees £15 on 30/09 and 01/10 confirmed."
+        },
+        {
+          "source": "note_1",
+          "quote": "Logged."
+        },
+        {
+          "source": "note_2",
+          "quote": "Ack letter sent by email."
+        },
+        {
+          "source": "complaint",
+          "quote": "Please refund the £30."
+        }
+      ]
+    }
+  },
+  "e8e172c7519f58e4": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T00:09:26+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.1
+    },
+    "answer": {
+      "answer": "FEE-1 covers unarranged overdraft fees. The file records a bank incident (INC-4471, batch delay on inbound Faster Payments on 30/09), so FEE-2 (bank error) appears relevant. Where it applies, FEE-2 requires a full refund of the fee plus any interest charged on it, plus goodwill under RED. RED-5 and CH-8 mean an authorised person must decide whether the complaint is upheld and set any redress. RED-4 sets the handler's authority limit at £500. CH-6 suggests Low severity because the loss is under £100. No ESC-1 escalation trigger appears. The file does not show whether interest was charged on the fees. A human handler must confirm the outcome.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "FEE-1",
+          "quote": "including unarranged overdraft fees"
+        },
+        {
+          "source": "note_1",
+          "quote": "INC-4471 batch delay on inbound Faster Payments 30/09, credits applied 01/10"
+        },
+        {
+          "source": "FEE-2",
+          "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full, together with any interest charged on it, plus a goodwill payment in line with policy RED."
+        },
+        {
+          "source": "RED-5",
+          "quote": "Redress amounts must be decided and approved by an authorised person."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        },
+        {
+          "source": "RED-4",
+          "quote": "Complaints handlers may approve total redress up to £500 per case."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*Low*: financial loss under £100 or a service issue with no loss."
+        }
+      ]
+    }
+  }
+}

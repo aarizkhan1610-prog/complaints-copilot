@@ -1,0 +1,150 @@
+{
+  "8e8ce998c3655b59": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T00:09:30+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.4
+    },
+    "answer": {
+      "answer": "The customer wants two things: the app fixed, and compensation for the hassle. The file shows no promise of any kind. Contact centre agents told her to reinstall the app and then to clear the cache. One note says an IT ticket may have been raised but that it is unclear whether it was sent. The complaints handler logged the case as a complaint. Nothing in the file shows the bank promising a fix date, compensation or any other outcome. Any redress must be decided by an authorised person.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "She wants the app fixed and compensation for the hassle."
+        },
+        {
+          "source": "note_1",
+          "quote": "Advised reinstall."
+        },
+        {
+          "source": "note_2",
+          "quote": "Advised clear cache."
+        },
+        {
+          "source": "note_3",
+          "quote": "Raised IT ticket? (not sure if sent)"
+        },
+        {
+          "source": "note_4",
+          "quote": "Logged as complaint."
+        },
+        {
+          "source": "RED-5",
+          "quote": "Redress amounts must be decided and approved by an authorised person."
+        }
+      ]
+    }
+  },
+  "92cb086f568b3218": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T00:09:35+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.0
+    },
+    "answer": {
+      "answer": "Timeline: 2026-09-29 – customer reported an app login crash; she was advised to reinstall. 2026-10-06 – still crashing; she was advised to clear the cache. 2026-10-13 – still crashing after reinstalling; an IT ticket may have been raised, but the note says it is not sure it was sent. 2026-10-20 – the complaint was logged after her fourth call. She says she could not pay her rent on time and had to travel to a branch 40 minutes away.\n\nStill unknown: whether the IT ticket was sent, and its reference or status; the app version; the exact rent date and any late fee or loss; any evidence (none is listed); her contact preference; and whether she was asked about vulnerability. The rent impact may warrant a sensitive check.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "App login crash. Advised reinstall."
+        },
+        {
+          "source": "note_2",
+          "quote": "Still crashing. Advised clear cache."
+        },
+        {
+          "source": "note_3",
+          "quote": "Raised IT ticket? (not sure if sent)"
+        },
+        {
+          "source": "note_4",
+          "quote": "Logged as complaint."
+        },
+        {
+          "source": "complaint",
+          "quote": "This is the fourth time she has called."
+        },
+        {
+          "source": "complaint",
+          "quote": "She couldn't pay her rent on time and had to go to a branch 40 minutes away."
+        },
+        {
+          "source": "note_4",
+          "quote": "Android phone, app version unknown. No vulnerability indicators mentioned."
+        }
+      ]
+    }
+  },
+  "c94a8eec3c1750b3": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T00:09:43+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.4
+    },
+    "answer": {
+      "answer": "Key rules: CH-1 (dissatisfaction with inconvenience, so it is a complaint). CH-6 Medium severity: fourth contact about the same issue (repeated service failure); no loss amount is in the file. CH-7 root cause likely Systems or app failure. ESC-1: app failure needing technical investigation goes to Digital Operations, handed over within 2 business days (ESC-2) with all ten ESC-3 fields; several are MISSING (app version, evidence, IT ticket status, contact preference). CH-4/CH-5: final response by 2026-12-15, On track. VUL-2: missed rent and a 40-minute branch trip are possible indirect signs; the file does not show she was asked, so ask her sensitively. Redress is for an authorised person (CH-8, RED-5).",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "This is the fourth time she has called."
+        },
+        {
+          "source": "complaint",
+          "quote": "She couldn't pay her rent on time and had to go to a branch 40 minutes away."
+        },
+        {
+          "source": "note_3",
+          "quote": "Raised IT ticket? (not sure if sent)"
+        },
+        {
+          "source": "note_4",
+          "quote": "Android phone, app version unknown. No vulnerability indicators mentioned."
+        },
+        {
+          "source": "CH-1",
+          "quote": "where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience"
+        },
+        {
+          "source": "CH-6",
+          "quote": "repeated service failure (the customer has contacted us three or more times about the same issue)"
+        },
+        {
+          "source": "CH-7",
+          "quote": "Systems or app failure"
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A systems or app failure that needs technical investigation → *Digital Operations*."
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified"
+        },
+        {
+          "source": "ESC-3",
+          "quote": "A handover is complete only when all ten fields are present"
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

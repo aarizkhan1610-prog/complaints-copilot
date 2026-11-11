@@ -84,3 +84,35 @@ def test_impact_measures():
     assert b["mean_pos_arrival"] == 3 and b["mean_pos_copilot"] == 1
     t = impact.time_summary(impact.Assumptions(), 0.5, 1.0, 0.0)
     assert t["before_min"] == 30 + 0.5 * (20 + 30) and t["after_min"] == 10 + 0.5 * 5
+
+
+def test_find_span_and_highlight():
+    from copilot.sources import find_span, highlight_html, policy_document
+    t = "Card blocked. Payment £4,250 FPS 12/09 14:32. Told cust fraud team will be in touch."
+    a, b = find_span(t, "payment £4,250 FPS 12/09")
+    assert t[a:b] == "Payment £4,250 FPS 12/09"
+    assert "<mark>" in highlight_html(t, "fraud team will be in touch") and find_span(t, "nothing like this") is None
+    assert "Cited clause" in policy_document("FEE-2")
+
+
+def test_related_cases_shared_incident():
+    from types import SimpleNamespace as NS
+    from copilot.related import related_cases
+    mk = lambda cid, text, rc="Fees and charges", prod="Current account": (
+        {"id": cid, "received": "2026-10-01", "complaint": text, "case_notes": []},
+        NS(is_complaint=True, root_cause=rc, product=prod, summary="s"))
+    rows = [mk("A", "late salary INC-1"), mk("B", "fee INC-1", rc="Service delay", prod="Savings account"),
+            mk("C", "unrelated", rc="Staff conduct", prod="Mortgage")]
+    cases, an = {c["id"]: c for c, _ in rows}, {c["id"]: a for c, a in rows}
+    m, note = related_cases("A", cases, an)
+    assert [x["case_id"] for x in m] == ["B"] and "same incident" in note
+
+
+def test_ask_verify_rejects_invented_quote():
+    from copilot.ask import Answer, verify
+    ans = Answer(answer="x", found_in_file="yes", supporting_quotes=[
+        {"source": "note_1", "quote": "Told cust fraud team will be in touch"},
+        {"source": "note_1", "quote": "refund of £5,000 was promised"},
+        {"source": "FRD-5", "quote": "Handlers must not promise a refund or reimbursement"}])
+    v = verify(ans, {"note_1": "Card blocked. Told cust fraud team will be in touch."})
+    assert [x["verified"] for x in v] == [True, False, True]

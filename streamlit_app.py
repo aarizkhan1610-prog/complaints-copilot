@@ -4,11 +4,15 @@ Run locally:  streamlit run streamlit_app.py
 All data is synthetic. Harbourline Bank is fictional.
 """
 import json
+import re
 
 import pandas as pd
 import streamlit as st
 
 from copilot import audit, config, impact
+from copilot.ask import SUGGESTED, ask_live, saved_answer, verify as verify_answer
+from copilot.related import related_cases
+from copilot.sources import highlight_html, policy_document
 from copilot.ai import AIUnavailable, Hybrid, LiveClaude, LocalOllama, SavedResponses
 from copilot.data import get_complaint, load_complaints, load_labels, load_policies
 from copilot.deadlines import deadline_info, priority_score
@@ -20,6 +24,7 @@ from typing import get_args
 st.set_page_config(page_title="Complaints Copilot", page_icon="🗂️", layout="wide")
 
 PRODUCTS, CAUSES, TEAMS = list(get_args(Product)), list(get_args(RootCause)), list(get_args(Team))
+VAGUE_RE = re.compile(r"(?i)(see (notes?|file|screenshots?|above|attached)|tbc|tbd|n/?a|unknown|ask customer|-+|\?+)")
 STATUS_ICON = {"Breached": "⛔", "Critical": "🔴", "At risk": "🟠", "On track": "🟢"}
 
 
@@ -30,7 +35,48 @@ def ss():
     s.setdefault("handovers", {})    # case_id -> handover record for specialists
     s.setdefault("live_runs", {})    # case_id -> live result (this session)
     s.setdefault("session_live_used", 0)
+    s.setdefault("trace", {})        # case_id -> {"source", "quote", "label"} for jump to source
+    s.setdefault("answers", {})      # (case_id, question) -> live answer this session
+    if not s.get("examples_seeded"):
+        s["examples_seeded"] = True
+        seed_examples(s)
     return s
+
+
+# Example handovers so the specialist side can be seen without first reviewing a case.
+# Values a handler "added" are fictional and contain no personal data.
+EXAMPLES = {
+    "C002": {"status": "Sent to specialist", "note": "Customer called back on 10/11 and answered the open questions.",
+             "filled": {"products_accounts": "Easy Access Saver (account on file)",
+                        "vulnerability_assessment": "Asked on 10/11: recently bereaved, finds calls stressful, "
+                                                    "wants large print and a named contact",
+                        "frd_payee_details": "Payee name [PERSON_1]; sort code and account on the payment record",
+                        "frd_security_details": "Customer read a one-time passcode to the caller"}},
+    "C014": {"status": "Accepted by specialist", "note": "Executor confirmed support needs by phone.",
+             "filled": {"vulnerability_assessment": "Asked the executor: bereaved, wants one named contact",
+                        "contact_preference": "Phone to the executor, mornings"}},
+    "C021": {"status": "Returned to handler", "note": "",
+             "filled": {"products_accounts": "Current account", "contact_preference": "Email",
+                        "frd_payment_details": "See notes", "frd_payee_details": "See screenshots",
+                        "account_secured": "Yes"},
+             "returns": [{"missing": ["FRD-3 payment details", "FRD-3 payee details"],
+                          "reason": "'See notes' is not enough. FRD-3 needs the date, time and amount of each "
+                                    "payment and the payee's name and account. Please add them and resend."}]},
+}
+
+
+def seed_examples(s):
+    for cid, ex in EXAMPLES.items():
+        r = saved_result(cid, "claude")
+        if r is None:
+            continue
+        teams = list(r["analysis"].specialist_teams)
+        md = handover_markdown(r, reviewer_note=ex["note"])
+        md += "\n\n### Added by reviewer\n" + "\n".join(f"- **{k}**: {v}" for k, v in ex["filled"].items())
+        s["reviews"].setdefault(cid, {"decision": "Approve AI triage", "changes": {}, "filled": ex["filled"],
+                                      "still_missing": [], "note": ex["note"], "teams": teams, "example": True})
+        s["handovers"].setdefault(cid, {"teams": teams, "pack": md, "status": ex["status"],
+                                        "returns": list(ex.get("returns", [])), "example": True})
 
 
 BACKENDS = {"Claude (Anthropic API)": "claude", "Local model (Ollama on this machine)": "local"}
@@ -340,6 +386,15 @@ def open_case(cid):
     st.session_state["page"] = "Review a case"
 
 
+def set_trace(cid, tr):
+    st.session_state["trace"][cid] = tr
+
+
+def trace_button(cid, source, quote, label, key):
+    st.button("🔎 Show", key=key, help="Highlight this in the case file", on_click=set_trace,
+              args=(cid, {"source": source, "quote": quote, "label": label}))
+
+
 def badge(conf):
     return {"high": "🟢 high", "medium": "🟡 medium", "low": "🔴 low"}[conf]
 
@@ -388,11 +443,27 @@ def page_review():
     with left:
         show_case(case, r)
     with right:
-        show_analysis(r)
+        cases = {c["id"]: c for c in load_complaints()}
+        matches, note = related_cases(cid, cases, {k: (get_result(k) or {}).get("analysis") for k in cases})
+        t1, t2, t3 = st.tabs(["AI analysis", "Ask the case", f"Related cases ({len(matches)})" + (" ⚠️" if note else "")])
+        with t1:
+            show_analysis(r)
+        with t2:
+            ask_panel(cid, r)
+        with t3:
+            show_related(cid, matches, note)
         reviewer_panel(case, r)
 
 
+STICKY_CSS = """<style>
+div[data-testid="stColumn"]:has(#case-file-anchor) {position: sticky; top: 3.5rem; align-self: flex-start;
+  max-height: calc(100vh - 4.5rem); overflow-y: auto;}
+mark {background: #ffe27a; color: inherit; padding: 0 2px; border-radius: 3px;}
+</style>"""
+
+
 def show_case(case, r):
+    st.markdown(STICKY_CSS + "<span id='case-file-anchor'></span>", unsafe_allow_html=True)
     st.markdown("#### Case file")
     reveal = st.toggle("Show personal data (authorised reviewer only)", value=False, key=f"reveal_{case['id']}",
                        help="Re-identification happens on this screen only. The AI only ever received the redacted text.")
@@ -401,11 +472,25 @@ def show_case(case, r):
         return
     red, mp = r["redacted"], r["mapping"]
     show = (lambda t: reidentify(t, mp)) if reveal else (lambda t: t)
-    st.markdown(f"**Complaint** · {case['channel']} · received {case['received']}")
-    st.info(show(red["complaint"]))
+    tr = ss()["trace"].get(case["id"])
+    if tr:
+        c1, c2 = st.columns([4, 1])
+        c1.success(f"🔎 Showing the source for: {tr['label']}")
+        c2.button("Clear", key=f"clear_trace_{case['id']}", on_click=set_trace, args=(case["id"], None))
+
+    def block(part, title, boxed=False):
+        text = show(red[part])
+        hit = tr and tr["source"] == part
+        body = highlight_html(text, show(tr["quote"]) if hit and tr.get("quote") else None,
+                              whole=bool(hit and not tr.get("quote")))
+        style = ("border-left:4px solid #e0a800;padding-left:10px;" if hit else "") + \
+                ("background:rgba(28,131,225,0.08);padding:10px;border-radius:6px;" if boxed else "")
+        st.markdown(f"**{title}**")
+        st.markdown(f"<div style='{style}font-size:0.92rem;line-height:1.5'>{body}</div>", unsafe_allow_html=True)
+
+    block("complaint", f"Complaint · {case['channel']} · received {case['received']}", boxed=True)
     for i, n in enumerate(case["case_notes"], 1):
-        st.markdown(f"**note_{i}** · {n['date']} · {n['author']}")
-        st.text(show(red[f"note_{i}"]))
+        block(f"note_{i}", f"note_{i} · {n['date']} · {n['author']}")
     st.markdown("**Evidence on file:** " + ("; ".join(case["evidence"]) or "none listed"))
     with st.expander(f"Redaction: {len(mp)} items masked before the AI call"):
         st.dataframe(pd.DataFrame([{"Token": k, "Type": k.strip("[]").rsplit("_", 1)[0],
@@ -434,10 +519,15 @@ def show_analysis(r):
     if a.estimated_financial_loss_gbp:
         st.caption(f"Estimated financial loss mentioned: £{a.estimated_financial_loss_gbp:,.2f}")
 
-    with st.expander("Supporting evidence from the case (checked against the text)", expanded=False):
-        for e in r["evidence_checks"]:
+    cid = r["case_id"]
+    with st.expander("Supporting evidence from the case (click 🔎 to see it in the file)", expanded=False):
+        for i, e in enumerate(r["evidence_checks"]):
             ok = "✅" if e["status"] == "verified" else "❌"
-            st.markdown(f"{ok} **{e['field']}** ({e['source']}): “{e['quote']}”")
+            c1, c2 = st.columns([5, 1], vertical_alignment="center")
+            c1.markdown(f"{ok} **{e['field']}** ({e['source']}): “{e['quote']}”")
+            if e["field"] != "timeline":
+                with c2:
+                    trace_button(cid, e["source"], e["quote"], f"{e['field']} evidence", f"tr_ev_{cid}_{i}")
     with st.expander(f"Policy citations ({sum(x['status'] == 'verified' for x in r['citations'])}/"
                      f"{len(r['citations'])} verified)", expanded=True):
         pol = load_policies()
@@ -445,13 +535,99 @@ def show_analysis(r):
             icon = {"verified": "✅", "misquoted": "⚠️", "invented": "❌"}[chk["status"]]
             st.markdown(f"{icon} **{cit.clause_id}** · {chk['status']}: “{cit.quote}”  \n_{cit.how_it_applies}_")
             if cit.clause_id in pol:
-                st.caption(f"Source clause: {pol[cit.clause_id]['text'][:400]}")
-    with st.expander("Timeline", expanded=False):
-        for ev in a.timeline:
-            st.markdown(f"- **{ev.date}** {ev.event} _({ev.source})_")
+                doc = policy_document(cit.clause_id)
+                with st.popover(f"Open {cit.clause_id} in {pol[cit.clause_id]['policy'].split('—')[-1].strip()}",
+                                use_container_width=False):
+                    st.markdown(doc or pol[cit.clause_id]["text"])
+    with st.expander("Timeline (click 🔎 to see the source note)", expanded=False):
+        for i, ev in enumerate(a.timeline):
+            c1, c2 = st.columns([5, 1], vertical_alignment="center")
+            c1.markdown(f"**{ev.date}** {ev.event} _({ev.source})_")
+            if ev.source in r["redacted"]:
+                with c2:
+                    trace_button(cid, ev.source, None, f"timeline: {ev.date}", f"tr_tl_{cid}_{i}")
     if a.vulnerability.indicators_found:
         st.info(f"**Vulnerability support suggested:** {a.vulnerability.suggested_support}")
     st.markdown(f"**Suggested next step:** {a.suggested_next_step}")
+
+
+def show_related(cid, matches, note):
+    st.caption("Other open complaints that share an incident number, root cause or product, so one handler "
+               "sees the pattern and the same issue isn't investigated twice.")
+    if True:
+        if note:
+            st.warning(note)
+        if not matches:
+            st.caption("No other open complaint shares this incident, root cause or product.")
+        for m in matches:
+            c1, c2 = st.columns([5, 1])
+            c1.markdown(f"**{m['case_id']}** · {'; '.join(m['reasons'])} · {m['days_apart']} days apart  \n"
+                        f"<span style='font-size:0.85rem'>{m['summary'][:220]}…</span>", unsafe_allow_html=True)
+            c2.button("Open", key=f"rel_{cid}_{m['case_id']}", on_click=open_case, args=(m["case_id"],))
+
+
+def ask_panel(cid, r):
+    s = ss()
+    st.markdown("#### Ask the case")
+    st.caption("Ask a question about this file. The answer must quote the notes or policies, and every quote is "
+               "checked in code; click 🔎 to see it in the case file.")
+    p = provider()
+    live_ok = backend() == "claude" and p.live is not None and bool(st.session_state.get("use_live"))
+    for i, q in enumerate(SUGGESTED):
+        if st.button(q, key=f"sugg_{cid}_{i}", use_container_width=True):
+            s["ask_q"] = (cid, q)
+    with st.form(f"ask_{cid}", clear_on_submit=False):
+        typed = st.text_input("Your question", placeholder="e.g. Did the customer share any security details?",
+                              disabled=not live_ok,
+                              help=None if live_ok else "Typing your own question needs live AI (sidebar). "
+                                                        "The suggested questions work in demo mode on some cases.")
+        if st.form_submit_button("Ask", disabled=not live_ok) and typed.strip():
+            s["ask_q"] = (cid, typed.strip())
+    pending = s.get("ask_q")
+    if not pending or pending[0] != cid:
+        return
+    q = pending[1]
+    res = s["answers"].get((cid, q)) or saved_answer(cid, r["message_sent"], q)
+    if res is None and live_ok:
+        left = min(p.quota.remaining(), config.SESSION_LIVE_CAP - s["session_live_used"])
+        if left <= 0:
+            st.warning("Live quota used up for now.")
+            return
+        with st.spinner("Asking the model about the redacted case..."):
+            try:
+                p.quota.use()
+                s["session_live_used"] += 1
+                res = ask_live(p.live.client, p.live.model, r["message_sent"], q)
+                s["answers"][(cid, q)] = res
+            except AIUnavailable as e:
+                st.error(str(e))
+                return
+    if res is None:
+        st.info("No saved answer for this question on this case. Saved answers exist for C001, C002, C005, C014, "
+                "C015 and C021; switch on live AI to ask anything.")
+        return
+    ans, meta = res
+    checks = verify_answer(ans, r["redacted"])
+    if (cid, q) not in s.setdefault("ask_logged", set()):
+        s["ask_logged"].add((cid, q))
+        audit.log("ask_the_case", cid, provider=meta.get("provider"), model=meta.get("model"), question=q,
+                  answer=ans.answer, quotes_verified=sum(c["verified"] for c in checks), quotes=len(checks))
+    st.markdown(f"**Q: {q}**")
+    found = {"yes": "🟢 answered from the file", "partly": "🟡 partly in the file", "no": "🔴 not in the file"}
+    st.markdown(f"{ans.answer}  \n_{found[ans.found_in_file]} · {sum(c['verified'] for c in checks)}/{len(checks)} "
+                f"quotes verified · {meta.get('provider')} `{meta.get('model')}`_")
+    pol = load_policies()
+    for i, c in enumerate(checks):
+        c1, c2 = st.columns([5, 1], vertical_alignment="center")
+        c1.markdown(f"{'✅' if c['verified'] else '❌'} **{c['source']}**: “{c['quote']}”")
+        if c["source"] in r["redacted"]:
+            with c2:
+                trace_button(cid, c["source"], c["quote"], f"answer quote from {c['source']}", f"tr_ask_{cid}_{i}")
+        elif c["source"].upper() in pol:
+            with c2.popover("📄"):
+                st.markdown(policy_document(c["source"].upper()) or "")
+    if any(not c["verified"] for c in checks):
+        st.warning("Some quotes could not be found in the source. Treat those parts of the answer as unconfirmed.")
 
 
 def reviewer_panel(case, r):
@@ -460,6 +636,10 @@ def reviewer_panel(case, r):
     cid = case["id"]
     st.divider()
     st.markdown("#### Your review")
+    h = s["handovers"].get(cid)
+    if h and h["returns"]:
+        for ret in h["returns"]:
+            st.error(f"**The specialist returned this handover.** Missing: {', '.join(ret['missing'])}. {ret['reason']}")
     st.caption("The AI suggests; you decide (CH-8). Every change and its reason goes in the audit log.")
 
     with st.form(f"review_{cid}"):
@@ -501,6 +681,12 @@ def reviewer_panel(case, r):
         if (changes or decision.startswith("Reject")) and not note.strip():
             st.error("A reason is required when you change or reject the AI's suggestions.")
             return
+        vague = [k for k, v in fills.items() if VAGUE_RE.fullmatch(v.strip())]
+        if vague:
+            st.warning("Answers such as 'see notes' or 'TBC' don't complete a field, because the specialist can't act "
+                       "on them (this is the most common reason for a return). Treated as still missing: " +
+                       ", ".join(vague))
+        fills = {k: ("" if k in vague else v) for k, v in fills.items()}
         still_missing = [k for k, v in fills.items() if not v.strip()]
         rec = {"decision": decision, "changes": changes, "filled": {k: v for k, v in fills.items() if v.strip()},
                "still_missing": still_missing, "note": note, "teams": teams}
@@ -537,10 +723,25 @@ def page_specialist():
     if not hs:
         st.info("No handovers yet. Review a case that needs a specialist and send it from the review screen.")
         return
-    returned = sum(1 for h in hs.values() if h["returns"])
-    st.metric("Handovers returned as incomplete", f"{returned} of {len(hs)}")
-    for cid, h in hs.items():
-        with st.expander(f"{cid} · {', '.join(h['teams'])} · {h['status']}", expanded=h["status"] == "Sent to specialist"):
+    if any(h.get("example") for h in hs.values()):
+        st.info("Three example handovers are loaded so you can see this side of the process: **C002** is waiting "
+                "for a specialist, **C014** was accepted, and **C021** was returned because the handler wrote "
+                "'see notes' instead of the payment details. Review and send any other case to add it here.")
+    teams_all = sorted({t for h in hs.values() for t in h["teams"]})
+    team = st.selectbox("Specialist team", ["All teams"] + teams_all, key="spec_team",
+                        help="Each team would see only its own inbox.")
+    shown = {c: h for c, h in hs.items() if team == "All teams" or team in h["teams"]}
+    returned = sum(1 for h in shown.values() if h["returns"])
+    c1, c2, c3 = st.columns(3)
+    c1.metric("Waiting for a specialist", sum(1 for h in shown.values() if h["status"] == "Sent to specialist"))
+    c2.metric("Accepted", sum(1 for h in shown.values() if h["status"] == "Accepted by specialist"))
+    c3.metric("Returned as incomplete", f"{returned} of {len(shown)}")
+    for cid, h in shown.items():
+        tag = " · example" if h.get("example") else ""
+        with st.expander(f"{cid} · {', '.join(h['teams'])} · {h['status']}{tag}",
+                         expanded=False):
+            for ret in h["returns"]:
+                st.error(f"**Returned:** missing {', '.join(ret['missing'])}. {ret['reason']}")
             st.markdown(h["pack"])
             if h["status"] == "Sent to specialist":
                 c1, c2 = st.columns(2)
@@ -552,7 +753,10 @@ def page_specialist():
                     missing = st.multiselect("Missing fields", ["Summary", "Products and accounts", "Desired outcome",
                                                                 "Timeline", "Actions taken", "Evidence held",
                                                                 "Vulnerability assessment", "Contact preference",
-                                                                "Open questions"], key=f"miss_{cid}")
+                                                                "Open questions", "FRD-3 payment details",
+                                                                "FRD-3 payee details", "FRD-3 contact method",
+                                                                "FRD-3 security details", "FRD-4 account secured",
+                                                                "VUL-6 third-party authority"], key=f"miss_{cid}")
                     why = st.text_input("Reason", key=f"why_{cid}")
                     if st.button("Return to handler", key=f"ret_{cid}") and missing:
                         h["status"] = "Returned to handler"
@@ -598,6 +802,10 @@ handovers to specialist teams.
 
 **What the AI never does:** decide whether a complaint is upheld, set redress, contact the customer, or see real
 personal data.
+
+**Finding information faster:** every timeline event and quote links to its source sentence (highlighted), cited
+clauses open in the full policy, *Ask the case* answers questions with quotes checked in code, and *Related cases*
+shows complaints that share an incident or root cause.
 
 **Impact page:** shows, for each of the three problems in the brief, the process before and after, measured on the
 25 cases against the answer key. Time savings are estimates from adjustable assumptions and are labelled as such.
