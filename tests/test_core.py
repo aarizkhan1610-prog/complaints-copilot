@@ -75,17 +75,6 @@ def test_saved_responses_contain_no_personal_data():
                 assert p["value"].lower() not in text, (f.stem, p)
 
 
-def test_impact_measures():
-    from copilot import impact
-    items = [{"case_id": f"C{i}", "received": f"2026-10-{10 + i}", "days_left": 30, "priority": p, "urgent": u}
-             for i, (p, u) in enumerate([(0, False), (0, False), (90, True)])]
-    b = impact.backlog_summary(items, impact.Assumptions())
-    assert b["arrival_order"][-1] == "C2" and b["copilot_order"][0] == "C2"
-    assert b["mean_pos_arrival"] == 3 and b["mean_pos_copilot"] == 1
-    t = impact.time_summary(impact.Assumptions(), 0.5, 1.0, 0.0)
-    assert t["before_min"] == 30 + 0.5 * (20 + 30) and t["after_min"] == 10 + 0.5 * 5
-
-
 def test_find_span_and_highlight():
     from copilot.sources import find_span, highlight_html, policy_document
     t = "Card blocked. Payment £4,250 FPS 12/09 14:32. Told cust fraud team will be in touch."

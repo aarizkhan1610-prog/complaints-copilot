@@ -64,8 +64,6 @@ streamlit run streamlit_app.py    # then switch on "Use live AI" in the sidebar
 
 The app opens on **Start here**, which explains who uses each screen and links straight to five cases worth trying.
 
-0. **Impact**: the three problems in the brief (backlog, finding information, incomplete handovers), each shown
-   before and after, measured on the 25 cases. Time savings are estimates you can change in *Assumptions*.
 1. **Complaint queue**: 25 cases sorted by deadline risk, severity and vulnerability. Click **C002** (a scam on a
    bereaved 78-year-old, due today) to open it.
 2. **Review a case**: the left side shows the case as the AI saw it (redacted); toggle *Show personal data* to
@@ -108,7 +106,7 @@ prompt-injection resistance. Results: [`eval/results.md`](eval/results.md).
 
 | Path | What |
 |---|---|
-| `streamlit_app.py` | The user interface (impact, queue, review, specialist inbox, audit log) |
+| `streamlit_app.py` | The user interface (start page, queue, review, specialist inbox, audit log) |
 | `copilot/redact.py` | Personal-data redaction (rules + name propagation) |
 | `copilot/deadlines.py` | Deadline status and priority score (pure code) |
 | `copilot/prompts.py`, `copilot/schemas.py` | The prompt and the exact output format the model must follow |
@@ -117,7 +115,6 @@ prompt-injection resistance. Results: [`eval/results.md`](eval/results.md).
 | `copilot/sources.py` | Jump to source: find and highlight the words behind a claim; full policy view |
 | `copilot/related.py` | Related cases and possible systemic issues |
 | `copilot/ask.py`, `scripts/build_answers.py` | Ask the case (verified answers) and saving answers for demo mode |
-| `copilot/impact.py` | Before/after measures behind the Impact page |
 | `copilot/pipeline.py` | One case end to end; handover pack |
 | `copilot/audit.py` | Append-only audit log |
 | `data/` | Synthetic complaints, fictional policies, answer key, saved responses |

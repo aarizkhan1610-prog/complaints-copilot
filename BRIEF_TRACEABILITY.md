@@ -8,9 +8,9 @@ prototype or the slide deck that answers it. Status is updated as the build prog
 
 | Brief wording | Where it is answered | Status |
 |---|---|---|
-| "a growing backlog of customer complaints" | Priority queue ordered by deadline risk and vulnerability, with a before/after toggle (arrival order); Impact page section 1 | Built |
-| "Staff spend time finding information across case notes and policy documents" | AI case summary + timeline (each event linked to its source note); policy search with cited clause IDs; jump to source highlighting; full policy view; Ask the case with verified quotes; related cases; Impact page section 2 | Built |
-| "specialist teams receive incomplete handovers" | Handover pack built against the required fields in policy `ESC-3`; completeness check blocks handover until gaps are filled; specialist can return a pack as incomplete (examples preloaded, team filter); vague answers such as 'see notes' rejected; Impact page section 3 | Built |
+| "a growing backlog of customer complaints" | Priority queue ordered by deadline risk and vulnerability | Built |
+| "Staff spend time finding information across case notes and policy documents" | AI case summary + timeline (each event linked to its source note); policy search with cited clause IDs; jump to source highlighting; full policy view; Ask the case with verified quotes; related cases | Built |
+| "specialist teams receive incomplete handovers" | Handover pack built against the required fields in policy `ESC-3`; completeness check blocks handover until gaps are filled; specialist can return a pack as incomplete (examples preloaded, team filter); vague answers such as 'see notes' rejected | Built |
 | "decide where AI could improve the service" | Opportunity map across the complaint journey (deck, slide 1) | Planned |
 | "protect customer information" | Redaction runs before any AI call; only synthetic data; key held server-side; data residency options on controls slide | Data ready (PII ground truth) |
 | "keep decisions reviewable" | Human approve / edit / reject on every AI output; audit log of input (redacted), prompt version, model, output and reviewer decision | Planned |
