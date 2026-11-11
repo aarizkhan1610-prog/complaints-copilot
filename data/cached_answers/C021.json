@@ -1,0 +1,138 @@
+{
+  "ec559901b032b128": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T00:10:21+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.7
+    },
+    "answer": {
+      "answer": "The customer wants her money back: the £650 deposit she paid by bank transfer on 27/10 for a used car, after the seller blocked her. The file does not show that the bank has promised her anything. There is no record of a refund or reimbursement being offered or promised. This looks like an authorised push payment scam, so under FRD-5 handlers must not promise reimbursement before the specialist decides, and under FRD-2 reimbursement is assessed by Fraud & Scams. The file also does not record any account protection steps or a handover.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Wants her money back."
+        },
+        {
+          "source": "complaint",
+          "quote": "Cust paid a £650 deposit for a used car she saw on an online marketplace."
+        },
+        {
+          "source": "complaint",
+          "quote": "She paid by bank transfer on 27/10."
+        },
+        {
+          "source": "FRD-5",
+          "quote": "Handlers must not promise a refund or reimbursement for an APP scam before the specialist decision."
+        },
+        {
+          "source": "FRD-2",
+          "quote": "Reimbursement is assessed by a specialist, not by the complaints handler."
+        }
+      ]
+    }
+  },
+  "9a4295d55d312ab3": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T00:10:27+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.8
+    },
+    "answer": {
+      "answer": "Timeline: On 27/10 the customer paid a £650 deposit by bank transfer for a used car seen on an online marketplace. The seller had sent photos and a fake logbook over WhatsApp, then blocked her after payment. She reported it on 30/10 and the complaint was received that day. She did not share bank security details. WhatsApp screenshots were emailed in. Not in the file: the time of the payment, the payee details (name, account), which account she paid from, whether the account was secured (FRD-4), and whether the case has been handed to Fraud & Scams. FRD-2 requires that handover within 1 business day. Her contact preference is also not recorded.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Cust paid a £650 deposit for a used car she saw on an online marketplace."
+        },
+        {
+          "source": "complaint",
+          "quote": "Seller sent photos and a fake logbook and was chatting over WhatsApp. After she paid, the seller blocked her."
+        },
+        {
+          "source": "complaint",
+          "quote": "She paid by bank transfer on 27/10."
+        },
+        {
+          "source": "note_1",
+          "quote": "Reported 30/10. Didn't share any bank security details. Screenshots of WhatsApp chat emailed in from [EMAIL_1]."
+        },
+        {
+          "source": "FRD-3",
+          "quote": "A fraud or scam handover must include: the date, time and amount of each disputed payment; the payee details as known"
+        },
+        {
+          "source": "FRD-4",
+          "quote": "On report, the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done."
+        },
+        {
+          "source": "FRD-2",
+          "quote": "the case must be handed to the Fraud & Scams team within 1 business day."
+        }
+      ]
+    }
+  },
+  "e39c4fba04278935": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T00:10:34+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.5
+    },
+    "answer": {
+      "answer": "This looks like an authorised push payment scam: the customer paid a £650 deposit by bank transfer, then the seller blocked her. Under FRD-2 and ESC-1 the case must go to Fraud & Scams within 1 business day (ESC-2). FRD-3 sets out the evidence the handover needs. FRD-4 requires the handler to check that the account is secured and record it. FRD-5 says no reimbursement may be promised. CH-6 treats a suspected scam as High severity, and ESC-3 lists the ten handover fields. Some details are not in the file: the time of the payment, the payee details, and any account-protection steps taken. The specialist decides any reimbursement, not the handler.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "After she paid, the seller blocked her. She paid by bank transfer on 27/10."
+        },
+        {
+          "source": "FRD-2",
+          "quote": "Where a customer was tricked into sending a payment to a fraudster, the case must be handed to the Fraud & Scams team within 1 business day. Reimbursement is assessed by a specialist, not by the complaints handler."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*."
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified (1 business day for scams, see FRD-2)."
+        },
+        {
+          "source": "FRD-3",
+          "quote": "A fraud or scam handover must include: the date, time and amount of each disputed payment; the payee details as known; how the customer was contacted by the fraudster (if a scam); whether the customer shared any security details; and the date the customer reported it."
+        },
+        {
+          "source": "FRD-4",
+          "quote": "On report, the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done."
+        },
+        {
+          "source": "FRD-5",
+          "quote": "Handlers must not promise a refund or reimbursement for an APP scam before the specialist decision."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*High*: financial loss over £1,000, suspected fraud or scam"
+        },
+        {
+          "source": "ESC-3",
+          "quote": "A handover is complete only when all ten fields are present"
+        },
+        {
+          "source": "note_1",
+          "quote": "Didn't share any bank security details."
+        }
+      ]
+    }
+  }
+}

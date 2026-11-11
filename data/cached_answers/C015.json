@@ -1,0 +1,114 @@
+{
+  "be84fae6ae3e7814": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T00:10:05+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.4
+    },
+    "answer": {
+      "answer": "The customer wants the duplicated money back the same day and the overdraft charges cancelled. The file does not record the bank promising anything to the customer. Note_1 only records that the handler confirmed the duplicate direct debit collection, noted the open Digital Ops incident INC-4602, asked about vulnerability (none found), recorded the email contact preference and saved the statement. The file does not say whether any refund, fee cancellation or timescale was offered or agreed. Any decision on refunds or redress is for an authorised handler or specialist.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I want the money back today and the overdraft charges cancelled."
+        },
+        {
+          "source": "note_1",
+          "quote": "Confirmed duplicate DD collection 03/11 - Digital Ops incident INC-4602 open, approx 3,100 customers affected. No vulnerability indicators, asked. Cust prefers email [EMAIL_1]. Statement saved."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "df021171ed6649b1": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T00:10:10+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.0
+    },
+    "answer": {
+      "answer": "3 November 2026: the customer's mortgage direct debit of £1,240 was taken twice, leaving the account £900 overdrawn. 4 November 2026: the complaint arrived by email. The same day the handler confirmed the duplicate collection and noted that Digital Ops incident INC-4602 is open, affecting about 3,100 customers. The handler asked about vulnerability and found no indicators, recorded the customer's preference for email, and saved the statement. The file does not show whether the duplicate £1,240 has been refunded. It also does not show which overdraft charges were applied or how much they were, what the incident's cause and fix timeline are, or whether the customer has been acknowledged in writing. There is no record of any handover to Digital Operations or Senior Complaints Review.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Your bank took my mortgage direct debit of £1,240 TWICE on 3 November. My account is now £900 overdrawn."
+        },
+        {
+          "source": "complaint",
+          "quote": "I want the money back today and the overdraft charges cancelled."
+        },
+        {
+          "source": "note_1",
+          "quote": "Confirmed duplicate DD collection 03/11 - Digital Ops incident INC-4602 open, approx 3,100 customers affected."
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability indicators, asked. Cust prefers email [EMAIL_1]. Statement saved."
+        }
+      ]
+    }
+  },
+  "d85aec562c863b15": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T00:10:18+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.8
+    },
+    "answer": {
+      "answer": "Key rules: CH-1 (it is a complaint: dissatisfaction plus financial loss). CH-6 sets severity High because of a potential systemic issue (INC-4602, approx 3,100 customers affected); loss is also over £1,000. ESC-1 routes the case to Senior Complaints Review (systemic issue) and Digital Operations (system failure). ESC-2 requires handover within 2 business days, and ESC-3 requires all ten handover fields. CH-7 suggests the root cause 'Systems or app failure'. FEE-2 covers fees caused by bank error such as a system fault. CH-2 and CH-4 set acknowledgement and final response deadlines. The handler must not decide the outcome or redress (CH-8, RED-5). Whether overdraft charges were actually applied is not in the file.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Your bank took my mortgage direct debit of £1,240 TWICE on 3 November. My account is now £900 overdrawn."
+        },
+        {
+          "source": "note_1",
+          "quote": "Digital Ops incident INC-4602 open, approx 3,100 customers affected."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*High*: financial loss over £1,000, suspected fraud or scam, a vulnerable customer at risk of harm, threatened legal action or media contact, or a potential systemic issue affecting many customers."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A suspected systemic issue (the same fault affecting many customers), a threat of legal action, or media contact → *Senior Complaints Review*."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A systems or app failure that needs technical investigation → *Digital Operations*."
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified"
+        },
+        {
+          "source": "FEE-2",
+          "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full, together with any interest charged on it, plus a goodwill payment in line with policy RED."
+        },
+        {
+          "source": "CH-2",
+          "quote": "Every complaint must be logged on the day it is received and acknowledged in writing within 3 business days."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

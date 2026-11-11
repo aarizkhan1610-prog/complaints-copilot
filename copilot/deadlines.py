@@ -33,3 +33,16 @@ def priority_score(deadline_status, severity=None, vulnerable=False):
     if vulnerable:
         score += 25
     return score
+
+
+def summary_resolution_by(received, as_of=None):
+    """CH-3: a complaint resolved by the end of the third business day after receipt can be closed with a
+    summary resolution. Returns (last_day, still_possible)."""
+    as_of = as_of or AS_OF
+    d = date.fromisoformat(received) if isinstance(received, str) else received
+    n = 0
+    while n < 3:
+        d += timedelta(days=1)
+        if d.weekday() < 5:
+            n += 1
+    return d, as_of <= d

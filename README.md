@@ -62,12 +62,25 @@ streamlit run streamlit_app.py    # then switch on "Use live AI" in the sidebar
 
 ### A two-minute tour
 
-1. **Complaint queue**: 25 cases sorted by deadline risk, severity and vulnerability. Select **C002** (a scam on a
-   bereaved 78-year-old, due today) and open it.
+The app opens on **Start here**, which explains who uses each screen and links straight to five cases worth trying.
+
+1. **Complaint queue**: 25 cases sorted by deadline risk, severity and vulnerability. Click **C002** (a scam on a
+   bereaved 78-year-old, due today) to open it.
 2. **Review a case**: the left side shows the case as the AI saw it (redacted); toggle *Show personal data* to
    re-identify on screen only. The right side shows the AI's draft with confidence levels, verified evidence quotes
    and verified policy citations. The ESC-3 checklist shows what is missing; fill it in and submit.
-3. **Specialist inbox**: accept the handover, or return it as incomplete.
+   - Click **🔎 Show** next to any timeline event or evidence quote to highlight its source in the case file, and
+     **Open … in policy** to see a cited clause in its full policy document.
+   - **Ask the case** tab: ask a question; every quote in the answer is checked against the notes or policies.
+     Suggested questions have saved answers for C001, C002, C005, C014, C015 and C021; your own questions need live AI.
+   - **Related cases** tab: other open complaints sharing an incident, root cause or product, with a
+     possible-systemic-issue warning (try C023).
+   - **Next case →** moves to the next most urgent unreviewed case; low-risk cases with every check green (try
+     **C001**) have **Approve and next**; recent simple cases show a CH-3 quick-fix window.
+   - Missing handover fields show the question to ask, and a **draft message to the customer** collects them
+     (the handler sends it). A **name safety net** flags capitalised words that may be unmasked names (try C006).
+3. **Specialist inbox**: three example handovers are preloaded (C002 waiting, C014 accepted, C021 returned because
+   the handler wrote "see notes"). Accept a handover, ask the handler a question without returning it, or return it as incomplete; filter by team.
 4. **Audit log**: every AI call and every human decision.
 5. Also try **C009** (a prompt-injection attempt), **C010** (not a complaint) and **C024** (an almost empty chaser).
 
@@ -97,12 +110,17 @@ prompt-injection resistance. Results: [`eval/results.md`](eval/results.md).
 
 | Path | What |
 |---|---|
-| `streamlit_app.py` | The user interface (queue, review, specialist inbox, audit log) |
+| `streamlit_app.py` | The user interface (start page, queue, review, specialist inbox, audit log) |
 | `copilot/redact.py` | Personal-data redaction (rules + name propagation) |
 | `copilot/deadlines.py` | Deadline status and priority score (pure code) |
 | `copilot/prompts.py`, `copilot/schemas.py` | The prompt and the exact output format the model must follow |
 | `copilot/ai.py` | Model providers: live Claude, saved responses, and the hybrid with caps and fallback |
 | `copilot/checks.py` | Citation, evidence, completeness and injection checks |
+| `copilot/namecheck.py` | Name safety net: flags possible unmasked names before the AI call |
+| `copilot/gapchaser.py` | Fixed questions for each missing handover field and the draft customer message |
+| `copilot/sources.py` | Jump to source: find and highlight the words behind a claim; full policy view |
+| `copilot/related.py` | Related cases and possible systemic issues |
+| `copilot/ask.py`, `scripts/build_answers.py` | Ask the case (verified answers) and saving answers for demo mode |
 | `copilot/pipeline.py` | One case end to end; handover pack |
 | `copilot/audit.py` | Append-only audit log |
 | `data/` | Synthetic complaints, fictional policies, answer key, saved responses |
@@ -124,4 +142,6 @@ prompt-injection resistance. Results: [`eval/results.md`](eval/results.md).
 See [`docs/assumptions.md`](docs/assumptions.md). In short: 25 synthetic cases are a demonstration, not proof;
 rule-based redaction misses names that appear without context (measured on the held-out set), so production would
 need a trained recogniser plus monitoring; the policies are simplified; and the audit log is a file, not write-once
-storage.
+storage. Related cases uses a simple rule (same incident, or 3+ cases with the same root cause and product within
+30 days), which over-flags at this tiny volume; production would use rates against a baseline. Ask the case answers
+are checked quote by quote, but the wording of the answer itself is not, so the handler reads the quotes.

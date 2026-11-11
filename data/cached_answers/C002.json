@@ -1,0 +1,166 @@
+{
+  "c60c68342ac7af7b": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T00:08:44+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.9
+    },
+    "answer": {
+      "answer": "The customer wants her money back: she transferred £4,250 to a 'safe account' after a caller claiming to be Harbourline security told her to move her savings. The file does not record any promise of a refund or reimbursement. The only commitment recorded is that the contact centre agent told her the fraud team would be in touch. That has not happened: no fraud team referral was made, and there was still no owner when the case was chased on 2026-10-21. Under FRD-5, handlers must not promise reimbursement before the specialist decision. The file does not say whether she was asked about support needs. Separately, she has asked for letters in large print.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "She wants the money back."
+        },
+        {
+          "source": "complaint",
+          "quote": "She transferred £4,250 on 12/09 to an account in the name of [PERSON_1]."
+        },
+        {
+          "source": "note_1",
+          "quote": "Told cust fraud team will be in touch."
+        },
+        {
+          "source": "note_2",
+          "quote": "No record of fraud team referral being made."
+        },
+        {
+          "source": "note_3",
+          "quote": "Still no fraud team owner."
+        },
+        {
+          "source": "note_2",
+          "quote": "Cust asks for letters in large print."
+        },
+        {
+          "source": "FRD-5",
+          "quote": "Handlers must not promise a refund or reimbursement for an APP scam before the specialist decision."
+        }
+      ]
+    }
+  },
+  "efe532dc87e596cc": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T00:08:50+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.9
+    },
+    "answer": {
+      "answer": "12/09: Ms [PERSON_2] got a text claiming to be HMRC, then a call from someone posing as Harbourline security, and transferred £4,250 by FPS at 14:32 to an account in the name of [PERSON_1]. 2026-09-14: she reported it by phone; the card was blocked, online banking credentials were reset, and she was told the fraud team would contact her. 2026-09-30: she called chasing; no fraud team referral had been made; she asked for large-print letters. 2026-10-21: chased internally; still no fraud team owner. Not in the file: whether she shared security details, full payee details beyond the name, whether a fraud referral has since been made, any recovery attempt with the receiving bank, and whether she was asked about support needs.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Got a text saying it was from HMRC about a tax refund, then a call from someone saying they were from Harbourline security and her account was compromised."
+        },
+        {
+          "source": "complaint",
+          "quote": "She transferred £4,250 on 12/09 to an account in the name of [PERSON_1]."
+        },
+        {
+          "source": "note_1",
+          "quote": "Card blocked, online banking credentials reset."
+        },
+        {
+          "source": "note_1",
+          "quote": "Payment £4,250 FPS 12/09 14:32. Told cust fraud team will be in touch."
+        },
+        {
+          "source": "note_2",
+          "quote": "Cust called chasing. No record of fraud team referral being made."
+        },
+        {
+          "source": "note_2",
+          "quote": "Cust asks for letters in large print."
+        },
+        {
+          "source": "note_3",
+          "quote": "Chased internally. Still no fraud team owner."
+        },
+        {
+          "source": "FRD-3",
+          "quote": "whether the customer shared any security details"
+        }
+      ]
+    }
+  },
+  "a247b6cff7aca444": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T00:09:02+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 12.1
+    },
+    "answer": {
+      "answer": "This is an APP scam: the customer was tricked into a 'safe account' transfer of £4,250. FRD-2 requires handover to Fraud & Scams within 1 business day, and the file shows this has not happened. FRD-3 lists the evidence the handover must contain. FRD-4 requires the account to be secured, which note_1 records. FRD-5 bars promising a refund. CH-6 makes severity High because of the scam and the loss over £1,000. Age, bereavement and low digital skills are VUL-1 indicators, and with bereavement VUL-4 requires referral to Vulnerable Customer Support. VUL-5 means the large-print request must be recorded as an adjustment. The case is Critical with 0 days left, so CH-4 requires a holding letter if no Final Response is sent. The file does not show whether the customer shared security details or was asked about support needs.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "They told her to move her savings to a 'safe account'. She transferred £4,250 on 12/09 to an account in the name of [PERSON_1]."
+        },
+        {
+          "source": "FRD-2",
+          "quote": "Where a customer was tricked into sending a payment to a fraudster, the case must be handed to the Fraud & Scams team within 1 business day."
+        },
+        {
+          "source": "note_2",
+          "quote": "No record of fraud team referral being made."
+        },
+        {
+          "source": "note_3",
+          "quote": "Still no fraud team owner."
+        },
+        {
+          "source": "FRD-3",
+          "quote": "A fraud or scam handover must include: the date, time and amount of each disputed payment; the payee details as known; how the customer was contacted by the fraudster (if a scam); whether the customer shared any security details; and the date the customer reported it."
+        },
+        {
+          "source": "FRD-4",
+          "quote": "On report, the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done."
+        },
+        {
+          "source": "note_1",
+          "quote": "Card blocked, online banking credentials reset."
+        },
+        {
+          "source": "FRD-5",
+          "quote": "Handlers must not promise a refund or reimbursement for an APP scam before the specialist decision."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*High*: financial loss over £1,000, suspected fraud or scam, a vulnerable customer at risk of harm"
+        },
+        {
+          "source": "complaint",
+          "quote": "I'm 78 and since my husband died last year I don't really understand all this online banking"
+        },
+        {
+          "source": "VUL-4",
+          "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team."
+        },
+        {
+          "source": "note_2",
+          "quote": "Cust asks for letters in large print."
+        },
+        {
+          "source": "VUL-5",
+          "quote": "Reasonable adjustments must be offered and recorded"
+        },
+        {
+          "source": "CH-4",
+          "quote": "If the bank cannot issue a Final Response by then, it must send a holding letter explaining why and the customer's right to refer the complaint to the independent ombudsman service."
+        }
+      ]
+    }
+  }
+}
