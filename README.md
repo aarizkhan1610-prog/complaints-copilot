@@ -62,14 +62,28 @@ streamlit run streamlit_app.py    # then switch on "Use live AI" in the sidebar
 
 ### A two-minute tour
 
-The app opens on **Start here**, which explains who uses each screen and links straight to five cases worth trying.
+The app opens on **Start here**, which shows who uses each screen.
+
+**Cases worth trying** (open them from the queue or the case picker on *Review a case*):
+
+| Case | What it shows |
+|---|---|
+| C002 | A 78-year-old, recently bereaved, lost £4,250 to a scam and is due a reply today: vulnerability flags, fraud routing and a handover with gaps |
+| C001 | A simple £30 fee refund where every check passes, so it can be approved in one click |
+| C021 | A handover the specialist sent back because the handler wrote "see notes": the return loop |
+| C009 | Hidden instructions aimed at the AI inside the complaint, and the warning it raises |
+| C010 | Not actually a complaint (a request for information) |
+| C023 | One of several similar delay complaints: the related-cases warning |
+| C006 | The name safety net flagging a word for the handler to check |
+
+**Step by step:**
 
 1. **Complaint queue**: 25 cases sorted by deadline risk, severity and vulnerability. Click **C002** (a scam on a
    bereaved 78-year-old, due today) to open it.
 2. **Review a case**: the left side shows the case as the AI saw it (redacted); toggle *Show personal data* to
    re-identify on screen only. The right side shows the AI's draft with confidence levels, verified evidence quotes
    and verified policy citations. The ESC-3 checklist shows what is missing; fill it in and submit.
-   - Click **🔎 Show** next to any timeline event or evidence quote to highlight its source in the case file, and
+   - Click **Show** next to any timeline event or evidence quote to highlight its source in the case file, and
      **Open … in policy** to see a cited clause in its full policy document.
    - **Ask the case** tab: ask a question; every quote in the answer is checked against the notes or policies.
      Suggested questions have saved answers for C001, C002, C005, C014, C015 and C021; your own questions need live AI.

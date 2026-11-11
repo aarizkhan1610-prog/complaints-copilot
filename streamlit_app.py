@@ -22,11 +22,10 @@ from copilot.redact import reidentify
 from copilot.schemas import RootCause, Product, Team
 from typing import get_args
 
-st.set_page_config(page_title="Complaints Copilot", page_icon="🗂️", layout="wide")
+st.set_page_config(page_title="Complaints Copilot", layout="wide")
 
 PRODUCTS, CAUSES, TEAMS = list(get_args(Product)), list(get_args(RootCause)), list(get_args(Team))
 VAGUE_RE = re.compile(r"(?i)(see (notes?|file|screenshots?|above|attached)|tbc|tbd|n/?a|unknown|ask customer|-+|\?+)")
-STATUS_ICON = {"Breached": "⛔", "Critical": "🔴", "At risk": "🟠", "On track": "🟢"}
 
 
 # ----------------------------------------------------------------------------- state
@@ -127,11 +126,11 @@ def review_status(cid):
 
 # ----------------------------------------------------------------------------- sidebar
 PAGES = {
-    "Start here": "🏠 Start here",
-    "Complaint queue": "📋 Complaint queue · handler",
-    "Review a case": "🔍 Review a case · handler",
-    "Specialist inbox": "📨 Specialist inbox · specialist",
-    "Audit log": "🧾 Audit log · compliance",
+    "Start here": "Start here",
+    "Complaint queue": "Complaint queue · handler",
+    "Review a case": "Review a case · handler",
+    "Specialist inbox": "Specialist inbox · specialist",
+    "Audit log": "Audit log · compliance",
 }
 
 
@@ -141,7 +140,7 @@ def go(page):
 
 def sidebar():
     s = ss()
-    st.sidebar.title("🗂️ Complaints Copilot")
+    st.sidebar.title("Complaints Copilot")
     page = st.sidebar.radio("Go to", list(PAGES), format_func=PAGES.get, key="page")
     have_local = any(config.LOCAL_CACHE_DIR.glob("*.json")) or LocalOllama().available()
     if have_local:
@@ -158,17 +157,6 @@ def sidebar():
 
 
 # ----------------------------------------------------------------------------- start
-TRY_CASES = [
-    ("C002", "A 78-year-old, recently bereaved, lost £4,250 to a scam and is due a reply today. Shows vulnerability "
-             "flags, fraud routing and a handover with gaps."),
-    ("C001", "A simple £30 fee refund. Every check passes, so it can be approved in one click."),
-    ("C021", "A handover the specialist sent back because the handler wrote 'see notes'. Shows the return loop."),
-    ("C009", "The complaint contains hidden instructions aimed at the AI. Shows the warning it raises."),
-    ("C010", "Not actually a complaint (a request for information)."),
-    ("C023", "One of several similar delay complaints. Shows the related-cases warning."),
-]
-
-
 def page_start():
     st.title("Complaints Copilot")
     st.markdown("#### Prepares complaint cases for review, so handlers can decide faster and specialists get "
@@ -177,25 +165,19 @@ def page_start():
     st.markdown("### Who uses it")
     c1, c2, c3 = st.columns(3)
     with c1.container(border=True):
-        st.markdown("**👩‍💼 Complaints handler**")
+        st.markdown("**Complaints handler**")
         st.caption("Works through a queue sorted by urgency, checks the AI draft, corrects it and sends a complete "
                    "handover.")
         st.button("Open the queue", on_click=go, args=("Complaint queue",), use_container_width=True, type="primary")
     with c2.container(border=True):
-        st.markdown("**🧑‍🔧 Specialist (e.g. Fraud & Scams)**")
+        st.markdown("**Specialist (e.g. Fraud & Scams)**")
         st.caption("Receives handovers that already contain the ten required fields, then accepts them or sends "
                    "them back.")
         st.button("Open the specialist inbox", on_click=go, args=("Specialist inbox",), use_container_width=True)
     with c3.container(border=True):
-        st.markdown("**🧾 Team leader / compliance**")
+        st.markdown("**Team leader / compliance**")
         st.caption("Sees a record of every AI draft and every human decision on each case.")
         st.button("Open the audit log", on_click=go, args=("Audit log",), use_container_width=True)
-
-    st.markdown("### Try one of these cases")
-    for cid, why in TRY_CASES:
-        a, b = st.columns([1, 6], vertical_alignment="center")
-        a.button(f"Open {cid}", key=f"try_{cid}", on_click=open_case, args=(cid,), use_container_width=True)
-        b.markdown(why)
 
 
 # ----------------------------------------------------------------------------- queue
@@ -205,7 +187,7 @@ def short(text, n=90):
 
 
 def page_queue():
-    st.header("📋 Complaint queue")
+    st.header("Complaint queue")
     st.markdown("**Click any row to open that case.** The most urgent cases are at the top.")
     rows = []
     for c in load_complaints():
@@ -214,11 +196,11 @@ def page_queue():
         a = r["analysis"] if r else None
         rows.append({
             "Case": c["id"],
-            "Deadline": f"{STATUS_ICON[dl['status']]} {dl['status']}",
+            "Deadline": f"{dl['status']}",
             "Days left": dl["days_left"],
             "What it's about (AI summary)": short(a.summary) if a else "No AI draft: triage manually",
             "Severity": a.severity if a else "-",
-            "Vulnerable": ("⚠️ Yes" if a.vulnerability.indicators_found else "No") if a else "-",
+            "Vulnerable": ("Yes" if a.vulnerability.indicators_found else "No") if a else "-",
             "Goes to": ", ".join(a.specialist_teams) or "Handler resolves" if a else "-",
             "Status": review_status(c["id"]),
             "Received": c["received"],
@@ -228,7 +210,7 @@ def page_queue():
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Open complaints", len(df))
     c2.metric("Breached or critical deadline", int(df["Deadline"].str.contains("Breached|Critical").sum()))
-    c3.metric("Possible vulnerable customers", int((df["Vulnerable"] == "⚠️ Yes").sum()))
+    c3.metric("Possible vulnerable customers", int((df["Vulnerable"] == "Yes").sum()))
     c4.metric("Reviewed so far", int((df["Status"] != "Not reviewed").sum()))
     df = df.sort_values(["Priority", "Days left"], ascending=[False, True])
     ev = st.dataframe(
@@ -295,13 +277,13 @@ def quick_paths(case, r):
     cid, a = case["id"], r["analysis"]
     last, possible = summary_resolution_by(case["received"])
     if a.is_complaint and possible and not a.specialist_teams and not a.vulnerability.indicators_found:
-        st.success(f"⚡ **Quick fix possible:** if you resolve this to the customer's satisfaction by "
+        st.success(f"**Quick fix possible:** if you resolve this to the customer's satisfaction by "
                    f"{last:%a %d %b}, it can be closed with a summary resolution letter (CH-3), with no full "
                    f"investigation.")
     if low_risk(r) and review_status(cid) == "Not reviewed":
         with st.container(border=True):
             c1, c2 = st.columns([3, 1], vertical_alignment="center")
-            c1.markdown("✅ **Low-risk case:** low severity, no vulnerability, no specialist needed and every "
+            c1.markdown("**Low-risk case:** low severity, no vulnerability, no specialist needed and every "
                         "check passed. Read the draft, then approve it in one click.")
             c2.button("Approve and next →", type="primary", key=f"quick_{cid}", on_click=quick_approve,
                       args=(cid, r), use_container_width=True)
@@ -313,7 +295,7 @@ def name_check(cid, r):
         return
     with st.container(border=True):
         words = sorted({f["word"] for f in flags})
-        st.markdown("🛡️ **Possible names that were not masked:** " +
+        st.markdown("**Possible names that were not masked:** " +
                     ", ".join(f"**{w}** ({', '.join(sorted({f['part'] for f in flags if f['word'] == w}))})"
                               for w in words))
         c1, c2 = st.columns([3, 2], vertical_alignment="bottom")
@@ -326,23 +308,23 @@ def set_trace(cid, tr):
 
 
 def trace_button(cid, source, quote, label, key):
-    st.button("🔎 Show", key=key, help="Highlight this in the case file", on_click=set_trace,
+    st.button("Show", key=key, help="Highlight this in the case file", on_click=set_trace,
               args=(cid, {"source": source, "quote": quote, "label": label}))
 
 
 def badge(conf):
-    return {"high": "🟢 high", "medium": "🟡 medium", "low": "🔴 low"}[conf]
+    return {"high": "High", "medium": "Medium", "low": "Low"}[conf]
 
 
 def page_review():
     s = ss()
     ids = [c["id"] for c in load_complaints()]
-    st.header("🔍 Review a case")
+    st.header("Review a case")
 
     def label(i):
         res = get_result(i)
         dl = deadline_info(get_complaint(i)["received"])
-        return f"{i} · {STATUS_ICON[dl['status']]} {dl['status']} · " + (short(res["analysis"].summary, 70) if res else "no AI draft")
+        return f"{i} · {dl['status']} · " + (short(res["analysis"].summary, 70) if res else "no AI draft")
     cid = st.selectbox("Choose a case", ids, index=ids.index(s.get("case_id", ids[0])), key="case_pick",
                        format_func=label)
     s["case_id"] = cid
@@ -375,13 +357,13 @@ def page_review():
     meta = r["meta"]
     with top[0]:
         dl = r["deadline"]
-        st.subheader(f"Case {cid} · {STATUS_ICON[dl['status']]} {dl['status']} · reply due {dl['due']} "
+        st.subheader(f"Case {cid} · {dl['status']} · reply due {dl['due']} "
                      f"({dl['days_left']} days left)")
 
     s1, s2, s3 = st.columns(3)
-    s1.info("**① Read the case** on the left. Use 🔎 *Show* to find where each point comes from.")
-    s2.info("**② Check the AI draft** on the right. ✅ verified · ⚠️/❌ don't rely on it.")
-    s3.info("**③ Decide** in *Your review* below: approve, correct (with a reason) or reject. "
+    s1.info("**1. Read the case** on the left. Use *Show* to find where each point comes from.")
+    s2.info("**2. Check the AI draft** on the right. Only rely on points marked *Verified*.")
+    s3.info("**3. Decide** in *Your review* below: approve, correct (with a reason) or reject. "
             "[Jump there ↓](#your-review)")
     nxt = next_case(cid)
     if nxt:
@@ -397,7 +379,7 @@ def page_review():
     with right:
         cases = {c["id"]: c for c in load_complaints()}
         matches, note = related_cases(cid, cases, {k: (get_result(k) or {}).get("analysis") for k in cases})
-        t1, t2, t3 = st.tabs(["AI analysis", "Ask the case", f"Related cases ({len(matches)})" + (" ⚠️" if note else "")])
+        t1, t2, t3 = st.tabs(["AI analysis", "Ask the case", f"Related cases ({len(matches)})" + (" · possible pattern" if note else "")])
         with t1:
             show_analysis(r)
         with t2:
@@ -427,7 +409,7 @@ def show_case(case, r):
     tr = ss()["trace"].get(case["id"])
     if tr:
         c1, c2 = st.columns([4, 1])
-        c1.success(f"🔎 Showing the source for: {tr['label']}")
+        c1.success(f"Showing the source for: {tr['label']}")
         c2.button("Clear", key=f"clear_trace_{case['id']}", on_click=set_trace, args=(case["id"], None))
 
     def block(part, title, boxed=False):
@@ -476,27 +458,26 @@ def show_analysis(r):
 
     cid = r["case_id"]
     with st.expander(f"Evidence quotes behind the draft ({sum(e['status'] == 'verified' for e in r['evidence_checks'])}"
-                     f"/{len(r['evidence_checks'])} found in the case text ✅)", expanded=False):
+                     f"/{len(r['evidence_checks'])} found in the case text)", expanded=False):
         for i, e in enumerate(r["evidence_checks"]):
-            ok = "✅" if e["status"] == "verified" else "❌"
+            ok = "Found:" if e["status"] == "verified" else "Not found:"
             c1, c2 = st.columns([5, 1], vertical_alignment="center")
             c1.markdown(f"{ok} **{e['field']}** ({e['source']}): “{e['quote']}”")
             if e["field"] != "timeline":
                 with c2:
                     trace_button(cid, e["source"], e["quote"], f"{e['field']} evidence", f"tr_ev_{cid}_{i}")
     nver = sum(x['status'] == 'verified' for x in r['citations'])
-    with st.expander(f"Policy rules that apply ({nver}/{len(r['citations'])} quotes checked against the policy "
-                     f"{'✅' if nver == len(r['citations']) else '⚠️'})", expanded=False):
+    with st.expander(f"Policy rules that apply ({nver}/{len(r['citations'])} quotes checked against the policy, "
+                     f"{'all verified' if nver == len(r['citations']) else 'check these'})", expanded=False):
         pol = load_policies()
         for cit, chk in zip(a.policy_citations, r["citations"]):
-            icon = {"verified": "✅", "misquoted": "⚠️", "invented": "❌"}[chk["status"]]
-            st.markdown(f"{icon} **{cit.clause_id}** · {chk['status']}: “{cit.quote}”  \n_{cit.how_it_applies}_")
+            st.markdown(f"**{cit.clause_id}** · {chk['status'].capitalize()}: “{cit.quote}”  \n_{cit.how_it_applies}_")
             if cit.clause_id in pol:
                 doc = policy_document(cit.clause_id)
-                with st.popover(f"📄 Full policy: {pol[cit.clause_id]['policy'].split('—')[-1].strip()}",
+                with st.popover(f"Full policy: {pol[cit.clause_id]['policy'].split('—')[-1].strip()}",
                                 use_container_width=False):
                     st.markdown(doc or pol[cit.clause_id]["text"])
-    with st.expander(f"Timeline ({len(a.timeline)} events, click 🔎 Show to see each source)", expanded=False):
+    with st.expander(f"Timeline ({len(a.timeline)} events, click Show to see each source)", expanded=False):
         for i, ev in enumerate(a.timeline):
             c1, c2 = st.columns([5, 1], vertical_alignment="center")
             c1.markdown(f"**{ev.date}** {ev.event} _({ev.source})_")
@@ -524,7 +505,7 @@ def show_related(cid, matches, note):
 def ask_panel(cid, r):
     s = ss()
     st.markdown("#### Ask the case")
-    st.caption("Ask a question about this case. Use 🔎 *Show* to see each quote in the case file.")
+    st.caption("Ask a question about this case. Use *Show* to see each quote in the case file.")
     p = provider()
     live_ok = backend() == "claude" and p.live is not None and bool(st.session_state.get("use_live"))
     for i, q in enumerate(SUGGESTED):
@@ -565,18 +546,18 @@ def ask_panel(cid, r):
         audit.log("ask_the_case", cid, provider=meta.get("provider"), model=meta.get("model"), question=q,
                   answer=ans.answer, quotes_verified=sum(c["verified"] for c in checks), quotes=len(checks))
     st.markdown(f"**Q: {q}**")
-    found = {"yes": "🟢 answered from the file", "partly": "🟡 partly in the file", "no": "🔴 not in the file"}
+    found = {"yes": "Answered from the file", "partly": "Partly in the file", "no": "Not in the file"}
     st.markdown(f"{ans.answer}  \n_{found[ans.found_in_file]} · {sum(c['verified'] for c in checks)}/{len(checks)} "
                 f"quotes verified_")
     pol = load_policies()
     for i, c in enumerate(checks):
         c1, c2 = st.columns([5, 1], vertical_alignment="center")
-        c1.markdown(f"{'✅' if c['verified'] else '❌'} **{c['source']}**: “{c['quote']}”")
+        c1.markdown(f"{'Verified' if c['verified'] else 'Not found'}: **{c['source']}**: “{c['quote']}”")
         if c["source"] in r["redacted"]:
             with c2:
                 trace_button(cid, c["source"], c["quote"], f"answer quote from {c['source']}", f"tr_ask_{cid}_{i}")
         elif c["source"].upper() in pol:
-            with c2.popover("📄"):
+            with c2.popover("Policy"):
                 st.markdown(policy_document(c["source"].upper()) or "")
     if any(not c["verified"] for c in checks):
         st.warning("Some quotes could not be found in the source. Treat those parts of the answer as unconfirmed.")
@@ -608,12 +589,12 @@ def reviewer_panel(case, r):
         needs_handover = bool(teams)
         for row in r["completeness"]:
             if row["ok"]:
-                st.markdown(f"✅ {row['label']}")
+                st.markdown(f"Present: {row['label']}")
             else:
-                st.markdown(f"❌ {row['label']}")
+                st.markdown(f"**Missing:** {row['label']}")
                 if row["key"] in QUESTIONS and needs_handover:
                     who, q = QUESTIONS[row["key"]]
-                    st.caption(("💬 Ask the customer: " if who == "customer" else "🏦 Check internally: ") + q)
+                    st.caption(("Ask the customer: " if who == "customer" else "Check internally: ") + q)
                 if needs_handover:
                     fills[row["key"]] = st.text_input(f"Add what's missing: {row['label']}", key=f"fill_{cid}_{row['key']}",
                                                       placeholder="Leave blank if you need to contact the customer first")
@@ -666,7 +647,7 @@ def reviewer_panel(case, r):
     if a.specialist_teams and open_gaps:
         msg = customer_message(open_gaps)
         if msg:
-            with st.expander("✉️ Draft message asking the customer for the missing details", expanded=False):
+            with st.expander("Draft message asking the customer for the missing details", expanded=False):
                 st.caption("Edit it if needed and send it from your usual channel. Nothing is sent automatically.")
                 st.text_area("Message", msg, height=260, key=f"msg_{cid}", label_visibility="collapsed")
                 if st.button("I've sent this to the customer", key=f"msgsent_{cid}"):
@@ -676,7 +657,7 @@ def reviewer_panel(case, r):
     h = s["handovers"].get(cid)
     for i, qa in enumerate(h.get("questions", []) if h else []):
         with st.container(border=True):
-            st.markdown(f"❓ **{', '.join(h['teams'])} asked:** {qa['q']}")
+            st.markdown(f"**{', '.join(h['teams'])} asked:** {qa['q']}")
             if qa.get("a"):
                 st.markdown(f"**Your answer:** {qa['a']}")
             else:
@@ -714,7 +695,7 @@ def page_specialist():
             for ret in h["returns"]:
                 st.error(f"**Returned:** missing {', '.join(ret['missing'])}. {ret['reason']}")
             for qa in h.get("questions", []):
-                st.info(f"❓ **You asked:** {qa['q']}  \n" + (f"**Handler:** {qa['a']}" if qa.get("a") else "_Waiting for the handler_"))
+                st.info(f"**You asked:** {qa['q']}  \n" + (f"**Handler:** {qa['a']}" if qa.get("a") else "_Waiting for the handler_"))
             st.markdown(h["pack"])
             if h["status"] == "Sent to specialist":
                 c1, c3, c2 = st.columns(3)
