@@ -85,8 +85,9 @@ The app opens on **Start here**, which shows who uses each screen.
    and verified policy citations. The ESC-3 checklist shows what is missing; fill it in and submit.
    - Click **Show** next to any timeline event or evidence quote to highlight its source in the case file, and
      **Open … in policy** to see a cited clause in its full policy document.
-   - **Ask the case** tab: ask a question; every quote in the answer is checked against the notes or policies.
-     Suggested questions have saved answers for C001, C002, C005, C014, C015 and C021; your own questions need live AI.
+   - **Ask the case** tab: pick one of three common questions; every quote in the answer is checked against the notes
+     or policies. Free-text questions are deliberately not offered, so answers stay predictable and every case has a
+     saved answer to each question.
    - **Related cases** tab: other open complaints sharing an incident, root cause or product, with a
      possible-systemic-issue warning (try C023).
    - **Next case →** moves to the next most urgent unreviewed case; low-risk cases with every check green (try

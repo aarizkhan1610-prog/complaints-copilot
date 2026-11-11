@@ -505,18 +505,12 @@ def show_related(cid, matches, note):
 def ask_panel(cid, r):
     s = ss()
     st.markdown("#### Ask the case")
-    st.caption("Ask a question about this case. Use *Show* to see each quote in the case file.")
+    st.caption("Pick a question. Use *Show* to see each quote in the case file.")
     p = provider()
     live_ok = backend() == "claude" and p.live is not None and bool(st.session_state.get("use_live"))
     for i, q in enumerate(SUGGESTED):
         if st.button(q, key=f"sugg_{cid}_{i}", use_container_width=True):
             s["ask_q"] = (cid, q)
-    with st.form(f"ask_{cid}", clear_on_submit=False):
-        typed = st.text_input("Your question", placeholder="e.g. Did the customer share any security details?",
-                              disabled=not live_ok,
-                              help=None if live_ok else "Typing your own question needs live AI.")
-        if st.form_submit_button("Ask", disabled=not live_ok) and typed.strip():
-            s["ask_q"] = (cid, typed.strip())
     pending = s.get("ask_q")
     if not pending or pending[0] != cid:
         return

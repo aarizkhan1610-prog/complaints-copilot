@@ -1,0 +1,126 @@
+{
+  "c7689789021100ce": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:24:12+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.5
+    },
+    "answer": {
+      "answer": "The customer wants the overdraft charges refunded and help with the mortgage. They say their mortgage payment rose from £812 to £1,047 in September with no warning, and their account went overdrawn. The file does not record any promise or commitment made to the customer. The only bank note is an internal one recording the mortgage account, that the letter gave 4 days' notice, and the fees (£45 unarranged overdraft fees, £10 returned Direct Debit fee). The file does not show any contact back to the customer, any acknowledgement, or any agreed action. Whether the complaint is upheld and any redress is for an authorised handler to decide.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I want the overdraft charges refunded and I need help with the mortgage."
+        },
+        {
+          "source": "complaint",
+          "quote": "My mortgage payment went up from £812 to £1,047 in September and I was given no warning at all."
+        },
+        {
+          "source": "note_1",
+          "quote": "Rate change letter: system shows letter generated 28/08 for payment change 01/09 - only 4 days notice. UOD fees £45 Sept. Returned DD fee £10."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "3a70940e81cab0f6": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:24:17+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.1
+    },
+    "answer": {
+      "answer": "Dated events: on 28/08 the system shows a rate change letter was generated. The payment change took effect on 01/09, which the handler notes was only 4 days' notice. In September the payment rose from £812 to £1,047, the account went overdrawn and the council tax payment bounced. The September fees were £45 unarranged overdraft and a £10 returned DD fee. The complaint was received on 2026-10-01 and the handler's note is dated 2026-10-02. The customer also says they lost their job in August, but no exact date is given.\n\nNot in the file:\n- the exact dates of the DD collection, the overdraft and the bounced council tax payment\n- whether and when the letter was actually sent or received\n- the customer's contact preference\n- whether vulnerability support was asked about or offered\n- any actions taken so far",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "system shows letter generated 28/08 for payment change 01/09 - only 4 days notice"
+        },
+        {
+          "source": "complaint",
+          "quote": "My mortgage payment went up from £812 to £1,047 in September and I was given no warning at all."
+        },
+        {
+          "source": "complaint",
+          "quote": "The direct debit took the higher amount and my current account went overdrawn, so my council tax bounced."
+        },
+        {
+          "source": "complaint",
+          "quote": "I lost my job in August"
+        },
+        {
+          "source": "note_1",
+          "quote": "UOD fees £45 Sept. Returned DD fee £10."
+        },
+        {
+          "source": "LND-5",
+          "quote": "Where a mortgage payment changes, the customer must be given at least 30 days' written notice."
+        }
+      ]
+    }
+  },
+  "802ecfe1071338c7": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:24:23+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.5
+    },
+    "answer": {
+      "answer": "Key rules: LND-5 requires at least 30 days' written notice of a mortgage payment change; the file shows only 4 days, a communication failure. FEE-4 applies to signs of financial difficulty: review and refund fees from the last 6 months where they added to the difficulty, and refer to Vulnerable Customer Support. VUL-1/VUL-4 apply: job loss and financial difficulty mean a Vulnerable Customer Support referral. ESC-1 routes mortgage arrears/affordability to Lending Specialists. FEE-2 may apply if the fees were caused by bank error. The case is At risk, so CH-5 requires weekly team leader review. The file does not say whether the customer was asked about support needs or their contact preference. The outcome and redress are for an authorised person.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "LND-5",
+          "quote": "Where a mortgage payment changes, the customer must be given at least 30 days' written notice. Failure to give notice is a communication failure under CH-7 and may require redress under RED."
+        },
+        {
+          "source": "note_1",
+          "quote": "system shows letter generated 28/08 for payment change 01/09 - only 4 days notice"
+        },
+        {
+          "source": "complaint",
+          "quote": "I lost my job in August and I am really struggling to keep up with everything at the moment."
+        },
+        {
+          "source": "FEE-4",
+          "quote": "Where a customer shows signs of financial difficulty, fees charged in the last 6 months should be reviewed and refunded where they have added to the difficulty. The case must also be referred to the Vulnerable Customer Support team under policy VUL."
+        },
+        {
+          "source": "VUL-4",
+          "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A lending decision, affordability, mortgage or loan arrears → *Lending Specialists*."
+        },
+        {
+          "source": "FEE-2",
+          "quote": "Where a fee was charged because of a bank error (for example a system fault, an incorrect tariff or a payment the bank failed to process on time), the fee must be refunded in full, together with any interest charged on it, plus a goodwill payment in line with policy RED."
+        },
+        {
+          "source": "CH-5",
+          "quote": "At risk and Critical cases must be reviewed by a team leader weekly."
+        },
+        {
+          "source": "note_1",
+          "quote": "UOD fees £45 Sept. Returned DD fee £10."
+        }
+      ]
+    }
+  }
+}

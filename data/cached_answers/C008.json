@@ -1,0 +1,134 @@
+{
+  "597a44f0dab93e18": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:25:00+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.7
+    },
+    "answer": {
+      "answer": "The customer wants back the interest they believe they lost, about £43.20. They say the rate on their Harbourline Easy Saver fell from 3.1% to 1.6% in July without any letter or email, and that they would have moved their money if they had known. The file records no promise or commitment from the bank. The only note says the customer's email bounced in rate change notice batch 06/2026, that no letter was sent instead, and that this is the first contact. Nothing in the file shows the customer has been offered or told anything about an outcome or redress. Those decisions rest with an authorised handler.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I've worked out I lost about £43.20 in interest. I'd like that back."
+        },
+        {
+          "source": "complaint",
+          "quote": "The interest rate on my Harbourline Easy Saver dropped from 3.1% to 1.6% in July and I never got a letter or email about it. If I'd known I would have moved my money."
+        },
+        {
+          "source": "note_1",
+          "quote": "Rate change notice batch 06/2026 - cust's email bounced, no letter fallback sent. No vulnerability indicators. First contact. Pref email."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "45406e353c78fcfd": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:25:05+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.4
+    },
+    "answer": {
+      "answer": "In date order: in July the Easy Saver rate fell from 3.1% to 1.6%. The customer says they never received a letter or email about it. Note_1 records that rate change notice batch 06/2026 was sent, but the customer's email bounced and no letter was sent instead. The complaint was received by web form on 2026-10-08, and the handler logged it the same day as a first contact. Still unknown: the exact date of the rate change and of the notice batch; how much notice was intended; whether the customer's email address on file was correct; how the £43.20 figure was calculated and whether it has been checked against the Q3 statement; and whether other customers' emails also bounced without a letter being sent.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "The interest rate on my Harbourline Easy Saver dropped from 3.1% to 1.6% in July and I never got a letter or email about it."
+        },
+        {
+          "source": "note_1",
+          "quote": "Rate change notice batch 06/2026 - cust's email bounced, no letter fallback sent."
+        },
+        {
+          "source": "note_1",
+          "quote": "First contact."
+        },
+        {
+          "source": "complaint",
+          "quote": "I've worked out I lost about £43.20 in interest."
+        }
+      ]
+    }
+  },
+  "c2427ef55851b423": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:25:12+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.6
+    },
+    "answer": {
+      "answer": "No clause specifically covers savings rate-change notices; the file has no savings notice rule (LND-5 covers mortgages only). Relevant rules: CH-1 makes this a complaint (dissatisfaction plus alleged loss). CH-6 suggests Low severity (loss under £100). CH-7 requires one root cause; Communication failure looks closest, since the email bounced with no letter fallback. No ESC-1 trigger appears, so the handler resolves it themselves. CH-2 requires logging and written acknowledgement within 3 business days; CH-4 requires a Final Response within 8 weeks. CH-8/RED-5: an authorised person decides uphold and redress; RED-1/RED-2 set the redress principle. CH-9 requires a full record. Whether the batch issue affected other customers is not in the file.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I never got a letter or email about it"
+        },
+        {
+          "source": "complaint",
+          "quote": "I've worked out I lost about £43.20 in interest. I'd like that back."
+        },
+        {
+          "source": "note_1",
+          "quote": "cust's email bounced, no letter fallback sent"
+        },
+        {
+          "source": "CH-1",
+          "quote": "where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience"
+        },
+        {
+          "source": "CH-6",
+          "quote": "*Low*: financial loss under £100 or a service issue with no loss."
+        },
+        {
+          "source": "CH-7",
+          "quote": "Every complaint must be tagged with one primary root cause from the approved list"
+        },
+        {
+          "source": "ESC-1",
+          "quote": "Complaints handlers resolve complaints themselves unless one of the following applies"
+        },
+        {
+          "source": "CH-2",
+          "quote": "Every complaint must be logged on the day it is received and acknowledged in writing within 3 business days."
+        },
+        {
+          "source": "CH-4",
+          "quote": "All other complaints must receive a Final Response within 8 weeks (56 calendar days) of receipt."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        },
+        {
+          "source": "RED-1",
+          "quote": "Redress aims to put the customer back in the position they would have been in had the error not occurred"
+        },
+        {
+          "source": "LND-5",
+          "quote": "Where a mortgage payment changes, the customer must be given at least 30 days' written notice."
+        },
+        {
+          "source": "CH-9",
+          "quote": "The case record must contain a timeline of events, all contact with the customer, the evidence considered, and the reasons for the outcome."
+        }
+      ]
+    }
+  }
+}

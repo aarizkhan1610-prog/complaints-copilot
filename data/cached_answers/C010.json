@@ -1,0 +1,90 @@
+{
+  "65d25a8305c01bc1": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:25:32+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.0
+    },
+    "answer": {
+      "answer": "The customer wants two things: their address updated to the new one given ([ADDRESS_1], [POSTCODE_1]) after moving house, and a new chequebook sent to them. They express no dissatisfaction, so under CH-1 this reads as a change request rather than a complaint. The only bank note says it was routed to the complaints queue by mistake. Nothing in the file shows the bank has promised anything, replied to the customer, updated the address or issued a chequebook. Any such actions or commitments are not recorded in the file.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I've moved house. My new address is [ADDRESS_1], [POSTCODE_1]. Could you update my details and send me a new chequebook please?"
+        },
+        {
+          "source": "note_1",
+          "quote": "Routed to complaints queue by mistake from shared inbox."
+        },
+        {
+          "source": "CH-1",
+          "quote": "A request for information or a change to an account is not a complaint unless dissatisfaction is expressed."
+        }
+      ]
+    }
+  },
+  "c7ca4ac65d0cfbfd": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:25:36+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.8
+    },
+    "answer": {
+      "answer": "On 2026-11-06 the customer emailed to say they had moved house, asking the bank to update their address and send a new chequebook. The same day, a contact centre agent noted it had been routed to the complaints queue by mistake from a shared inbox. The email expresses no dissatisfaction, so under CH-1 it reads as a request for a change to an account rather than a complaint; a handler should confirm this. Not in the file: whether the address has been updated, whether a chequebook was sent, any identity verification, any reply to the customer, contact preference, and which account(s) are involved. No evidence is listed.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I've moved house."
+        },
+        {
+          "source": "complaint",
+          "quote": "Could you update my details and send me a new chequebook please?"
+        },
+        {
+          "source": "note_1",
+          "quote": "Routed to complaints queue by mistake from shared inbox."
+        },
+        {
+          "source": "CH-1",
+          "quote": "A request for information or a change to an account is not a complaint unless dissatisfaction is expressed."
+        }
+      ]
+    }
+  },
+  "1976a5d8c16edaaa": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:25:40+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.6
+    },
+    "answer": {
+      "answer": "The deciding rule is CH-1. The customer only asks for an address update and a new chequebook and expresses no dissatisfaction, so under CH-1 this does not look like a complaint. A note says it was routed to the complaints queue by mistake. If the handler agrees, the complaint steps (acknowledgement under CH-2, the deadlines in CH-4/CH-5, severity and root cause under CH-6/CH-7, escalation under ESC-1) would not be triggered. The policy clauses do not say how a misrouted service request should be redirected or processed. That is not in the file, so the handler should follow local procedure. No vulnerability indicators appear in the text. The handler makes the final decision.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "CH-1",
+          "quote": "A request for information or a change to an account is not a complaint unless dissatisfaction is expressed."
+        },
+        {
+          "source": "complaint",
+          "quote": "Could you update my details and send me a new chequebook please? Many thanks"
+        },
+        {
+          "source": "note_1",
+          "quote": "Routed to complaints queue by mistake from shared inbox."
+        }
+      ]
+    }
+  }
+}

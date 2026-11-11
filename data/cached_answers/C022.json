@@ -1,0 +1,134 @@
+{
+  "386155c31f225dad": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:27:52+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.8
+    },
+    "answer": {
+      "answer": "The customer wants the joint account frozen and her own account set up. She also asked the bank not to call or write to the home address, and a safe contact number has been recorded. The file does not say the bank has promised her anything. There is no record of any commitment, any action taken such as freezing the account, or any outcome offered. Whether the account was frozen or a new account opened is not in the file. Separately, the case shows signs of possible vulnerability and suspected financial abuse: a controlling ex-partner, and she says she is scared of him. Under VUL-4 this needs a referral to Vulnerable Customer Support.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "She wants the joint account frozen and her own account set up."
+        },
+        {
+          "source": "complaint",
+          "quote": "She asked us NOT to call or write to the home address."
+        },
+        {
+          "source": "note_1",
+          "quote": "safe contact number [PHONE_1] only"
+        },
+        {
+          "source": "complaint",
+          "quote": "She says he is controlling and she is scared of him."
+        },
+        {
+          "source": "VUL-4",
+          "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team."
+        }
+      ]
+    }
+  },
+  "c096b1e6a72a8b62": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:27:57+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.6
+    },
+    "answer": {
+      "answer": "Dated events in the file: the customer, [PERSON_2], visited the branch and the complaint was received on 2026-11-05, and a branch note was made that day. The note says withdrawals of £300-£600 have been taken every payday since August. She says her ex-partner [PERSON_1] withdraws her wages from their joint account [ACCOUNT_NUMBER_1], that he is controlling, and that she is scared of him. Not in the file: the separation date, the exact date and amount of each withdrawal, the total taken, whether the joint account has been frozen or her own account opened, any other actions taken, whether she was asked about support needs, and the payday dates. The statement for Aug-Nov 2026 is held but has not been summarised.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "Withdrawals of £300-£600 every payday since August."
+        },
+        {
+          "source": "complaint",
+          "quote": "Since they separated he keeps withdrawing her wages as soon as they arrive."
+        },
+        {
+          "source": "complaint",
+          "quote": "She says he is controlling and she is scared of him."
+        },
+        {
+          "source": "complaint",
+          "quote": "She wants the joint account frozen and her own account set up."
+        },
+        {
+          "source": "note_1",
+          "quote": "Cust [PERSON_2], safe contact number [PHONE_1] only. Joint acct [ACCOUNT_NUMBER_1]."
+        }
+      ]
+    }
+  },
+  "3579c05378a1e66d": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:28:05+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.8
+    },
+    "answer": {
+      "answer": "Key rules: CH-1 (this is a complaint: dissatisfaction plus financial loss and distress). CH-6 sets High severity, as a vulnerable customer is at risk of harm. VUL-1/VUL-2: indicators include a life event (relationship breakdown), resilience (wages withdrawn) and fear of the ex-partner. VUL-4 requires referral to Vulnerable Customer Support because there is suspected financial abuse and risk to wellbeing. ESC-1 routes it there, ESC-2 requires handover within 2 business days, and ESC-3 needs all ten fields. VUL-5 requires adjustments: use only the safe contact number and do not call or write to the home address. VUL-6 means the account must not be discussed with [PERSON_1] without valid authority. The file does not say whether the customer was asked about support. Outcome and redress are for an authorised person (CH-8, RED-5).",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Since they separated he keeps withdrawing her wages as soon as they arrive. She says he is controlling and she is scared of him."
+        },
+        {
+          "source": "complaint",
+          "quote": "She asked us NOT to call or write to the home address."
+        },
+        {
+          "source": "note_1",
+          "quote": "safe contact number [PHONE_1] only"
+        },
+        {
+          "source": "CH-6",
+          "quote": "*High*: financial loss over £1,000, suspected fraud or scam, a vulnerable customer at risk of harm"
+        },
+        {
+          "source": "VUL-1",
+          "quote": "*life events* (bereavement, job loss, relationship breakdown, caring responsibilities)"
+        },
+        {
+          "source": "VUL-4",
+          "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A vulnerability referral under VUL-4 → *Vulnerable Customer Support*."
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified"
+        },
+        {
+          "source": "VUL-5",
+          "quote": "Reasonable adjustments must be offered and recorded, for example a preferred contact method"
+        },
+        {
+          "source": "VUL-6",
+          "quote": "The bank may only discuss the account with a third party (such as a relative or carer) where there is a valid authority on file"
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

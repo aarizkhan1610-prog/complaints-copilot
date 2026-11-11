@@ -1,0 +1,110 @@
+{
+  "e61909846b1494df": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:28:09+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.5
+    },
+    "answer": {
+      "answer": "The customer wants the £47 they say they spent on roaming charges during a two-hour call to get their card unblocked refunded. The file does not record any promise or offer by the bank. Note_1 records only that the fraud block from 18/10 was lifted after ID&V, a call duration of 1h52m, no vulnerability, and an email contact preference. Whether to refund the £47 or pay any other redress is for an authorised handler to decide (CH-8, RED-5).",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I'd like the £47 back."
+        },
+        {
+          "source": "complaint",
+          "quote": "spent two hours on the phone to unblock it, which cost me £47 in roaming charges"
+        },
+        {
+          "source": "note_1",
+          "quote": "Fraud block 18/10, lifted after ID&V. Call duration 1h52m per records. No vulnerability. Prefers email [EMAIL_1]."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "5a3bc1e7c966762f": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:28:14+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.7
+    },
+    "answer": {
+      "answer": "Timeline from the file: on 18/10 (year not stated) the customer's debit card was blocked by a fraud block while they were on holiday in Spain. The block was lifted after ID&V, following a call recorded at 1h52m. The customer says they could not pay the hotel and that the call cost £47 in roaming charges. The complaint was received by email on 2026-10-25 and noted that day. The final response is due 2026-12-20 and the case is On track.\n\nStill unknown: the exact time the block was lifted, why the system flagged the card, and whether the hotel was eventually paid. There is no evidence of the £47 roaming charge, such as a phone bill. No actions have been taken beyond the note. The file does not say whether the customer was asked about vulnerability.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "My debit card was blocked while I was on holiday in Spain because your system thought it was fraud."
+        },
+        {
+          "source": "complaint",
+          "quote": "I couldn't pay the hotel and spent two hours on the phone to unblock it, which cost me £47 in roaming charges."
+        },
+        {
+          "source": "note_1",
+          "quote": "Fraud block 18/10, lifted after ID&V. Call duration 1h52m per records."
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability."
+        }
+      ]
+    }
+  },
+  "b73e22eca83c2eec": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:28:20+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.2
+    },
+    "answer": {
+      "answer": "This is a complaint under CH-1: the customer is dissatisfied and claims a £47 loss. Under CH-6 that is Low severity (loss under £100). The likely CH-7 root cause is a judgement call between Systems or app failure and Service delay. ESC-1 does not clearly require escalation: there is no actual fraud, scam or vulnerability, and the file does not show a fault needing technical investigation. The handler must log the complaint and acknowledge it within 3 business days (CH-2) and send a final response by the deadline (CH-4). Under CH-8 and RED-5, an authorised person decides the outcome and any redress. The file has no policy clause that specifically covers fraud-block false positives or roaming costs. That gap is not in the file.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "which cost me £47 in roaming charges. I'd like the £47 back."
+        },
+        {
+          "source": "CH-1",
+          "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*Low*: financial loss under £100 or a service issue with no loss."
+        },
+        {
+          "source": "CH-2",
+          "quote": "Every complaint must be logged on the day it is received and acknowledged in writing within 3 business days."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "Complaints handlers resolve complaints themselves unless one of the following applies"
+        },
+        {
+          "source": "note_1",
+          "quote": "Fraud block 18/10, lifted after ID&V. Call duration 1h52m per records. No vulnerability."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,134 @@
+{
+  "d577c2b2a1650eae": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:24:27+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.1
+    },
+    "answer": {
+      "answer": "The customer wants an apology and wants staff to be trained properly. They also asked for replies by email only. The file shows no promise made to the customer. The bank has informed the branch manager, raised a CCTV request (ref BR-2210), asked the customer by email whether any support is needed (they said no) and flagged email-only contact on the account. No apology, training commitment or redress has been offered or promised according to the file. Any decision on the outcome is for an authorised handler (CH-8).",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I want an apology and I want staff to be trained properly."
+        },
+        {
+          "source": "complaint",
+          "quote": "Please reply by email only, I don't like phone calls."
+        },
+        {
+          "source": "note_1",
+          "quote": "Branch manager informed, CCTV request raised."
+        },
+        {
+          "source": "note_1",
+          "quote": "Cust asked by email if any support needed - says no, just wants apology."
+        },
+        {
+          "source": "note_1",
+          "quote": "Email-only contact flagged on account."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "cbb25bd412eaf94e": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:24:32+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.7
+    },
+    "answer": {
+      "answer": "In date order: on a Friday before the complaint (exact date not stated), the customer went to the Kingsbridge Road branch to pay in cash for their business. They say that because of their stammer it took a while to explain, and the counter staff member sighed, rolled his eyes, said 'I haven't got all day' and told them to use the machine. The complaint was received by email on 2026-10-12. On 2026-10-13 the handler informed the branch manager, raised a CCTV request, asked the customer about support (they said no) and flagged email-only contact. Still unknown: the exact date of the visit, the staff member's identity and account of events, the branch manager statement (pending), the CCTV result, and which business account was involved.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I went into your Kingsbridge Road branch on Friday to pay in cash for my business."
+        },
+        {
+          "source": "complaint",
+          "quote": "The man at the counter sighed, rolled his eyes and said 'I haven't got all day'. Then he told me to use the machine instead."
+        },
+        {
+          "source": "complaint",
+          "quote": "I have a stammer and it took me a while to explain."
+        },
+        {
+          "source": "note_1",
+          "quote": "Branch manager informed, CCTV request raised. Cust asked by email if any support needed - says no, just wants apology. Email-only contact flagged on account."
+        }
+      ]
+    }
+  },
+  "4377f5fe2d43c9a2": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:24:38+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.5
+    },
+    "answer": {
+      "answer": "CH-1: this is a complaint (dissatisfaction about staff, distress). CH-6: severity Medium as a staff conduct complaint. CH-7: root cause Staff conduct. No ESC-1 trigger is apparent, so the handler resolves it. CH-2 requires logging and written acknowledgement within 3 business days; the file does not show an acknowledgement was sent. CH-4: final response due by 2026-12-07. VUL-1/VUL-2: the stammer is a possible health/capability indicator; the customer was asked and declined support. VUL-5: record reasonable adjustments (email-only contact, already flagged). CH-8/CH-9: an authorised person decides the outcome, with reasons and a full record. The file does not say how the branch statement or CCTV will be assessed.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I have a stammer and it took me a while to explain."
+        },
+        {
+          "source": "complaint",
+          "quote": "Please reply by email only, I don't like phone calls."
+        },
+        {
+          "source": "note_1",
+          "quote": "Cust asked by email if any support needed - says no, just wants apology. Email-only contact flagged on account."
+        },
+        {
+          "source": "CH-1",
+          "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff"
+        },
+        {
+          "source": "CH-6",
+          "quote": "*Medium*: financial loss between £100 and £1,000, repeated service failure (the customer has contacted us three or more times about the same issue), or a complaint about staff conduct."
+        },
+        {
+          "source": "CH-7",
+          "quote": "Staff conduct"
+        },
+        {
+          "source": "CH-2",
+          "quote": "Every complaint must be logged on the day it is received and acknowledged in writing within 3 business days."
+        },
+        {
+          "source": "CH-4",
+          "quote": "All other complaints must receive a Final Response within 8 weeks (56 calendar days) of receipt."
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        },
+        {
+          "source": "VUL-5",
+          "quote": "Reasonable adjustments must be offered and recorded, for example a preferred contact method"
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}
