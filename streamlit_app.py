@@ -158,17 +158,6 @@ def sidebar():
 
 
 # ----------------------------------------------------------------------------- start
-TRY_CASES = [
-    ("C002", "A 78-year-old, recently bereaved, lost £4,250 to a scam and is due a reply today. Shows vulnerability "
-             "flags, fraud routing and a handover with gaps."),
-    ("C001", "A simple £30 fee refund. Every check passes, so it can be approved in one click."),
-    ("C021", "A handover the specialist sent back because the handler wrote 'see notes'. Shows the return loop."),
-    ("C009", "The complaint contains hidden instructions aimed at the AI. Shows the warning it raises."),
-    ("C010", "Not actually a complaint (a request for information)."),
-    ("C023", "One of several similar delay complaints. Shows the related-cases warning."),
-]
-
-
 def page_start():
     st.title("Complaints Copilot")
     st.markdown("#### Prepares complaint cases for review, so handlers can decide faster and specialists get "
@@ -190,12 +179,6 @@ def page_start():
         st.markdown("**🧾 Team leader / compliance**")
         st.caption("Sees a record of every AI draft and every human decision on each case.")
         st.button("Open the audit log", on_click=go, args=("Audit log",), use_container_width=True)
-
-    st.markdown("### Try one of these cases")
-    for cid, why in TRY_CASES:
-        a, b = st.columns([1, 6], vertical_alignment="center")
-        a.button(f"Open {cid}", key=f"try_{cid}", on_click=open_case, args=(cid,), use_container_width=True)
-        b.markdown(why)
 
 
 # ----------------------------------------------------------------------------- queue
