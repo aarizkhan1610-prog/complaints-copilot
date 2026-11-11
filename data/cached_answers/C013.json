@@ -1,0 +1,122 @@
+{
+  "ab159d2d0b246cf6": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:26:17+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.4
+    },
+    "answer": {
+      "answer": "The complaint was made by [PERSON_1], who says she is the daughter of the account holder Mr [PERSON_2]. She wants the collections calls to her father stopped, and she wants someone to speak to her instead. The file does not record any promise or commitment by the bank. Note_1 only records that the handler discussed the account with the daughter, including the balance, the arrears, the card and the call log. It does not say whether a valid third-party authority is on file before the account was discussed with her (VUL-6), so that should be checked. The file also does not show whether the calls were stopped or any adjustment was agreed.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "She wants the calls stopped and someone to speak to her instead."
+        },
+        {
+          "source": "note_1",
+          "quote": "Discussed account with daughter [PERSON_1] - balance £2,870, 3 months arrears."
+        },
+        {
+          "source": "VUL-6",
+          "quote": "The bank may only discuss the account with a third party (such as a relative or carer) where there is a valid authority on file (third-party mandate or power of attorney)."
+        }
+      ]
+    }
+  },
+  "46f556bd30bd0dbd": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:26:22+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.1
+    },
+    "answer": {
+      "answer": "Dated events in the file: collections made 23 outbound calls between 1 and 14 Oct 2026 (call log on file). On 2026-10-15 [PERSON_1], who says she is Mr [PERSON_2]'s daughter, phoned to complain. The same day the handler discussed the account with her: balance £2,870, 3 months' arrears. Unknown: when the arrears began; dates or amounts of the payments he agreed to; whether forbearance was offered (LND-3); whether any third-party mandate or power of attorney exists. The note shows the account was discussed with the daughter, but VUL-6 requires valid authority on file. Also unknown: whether Mr [PERSON_2] was contacted or asked about support, and whether calls have been stopped.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "Collections log shows 23 outbound calls 1-14 Oct."
+        },
+        {
+          "source": "note_1",
+          "quote": "Discussed account with daughter [PERSON_1] - balance £2,870, 3 months arrears."
+        },
+        {
+          "source": "complaint",
+          "quote": "has agreed to payments he can't afford"
+        },
+        {
+          "source": "complaint",
+          "quote": "your collections team has been ringing him up to five times a day about his credit card arrears"
+        },
+        {
+          "source": "LND-3",
+          "quote": "Contact must not be excessive: no more than one call per day and three per week."
+        },
+        {
+          "source": "VUL-6",
+          "quote": "The bank may only discuss the account with a third party (such as a relative or carer) where there is a valid authority on file (third-party mandate or power of attorney)."
+        }
+      ]
+    }
+  },
+  "432cfcad6980b166": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:26:28+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.5
+    },
+    "answer": {
+      "answer": "Key rules: CH-6 makes this High severity (vulnerable customer at risk of harm). VUL-1/VUL-4 require referral to Vulnerable Customer Support (dementia is a health driver; arrears and unaffordable payments show financial difficulty). ESC-1 routes arrears to Lending Specialists. LND-3 caps contact at one call a day and three a week; the log shows 23 calls in 1-14 Oct. LND-4/FEE-4 require review of arrears fees. VUL-6 matters: the note says the account was discussed with the daughter, but the file does not show any third-party mandate or power of attorney, so the handler must check authority before discussing the account further. Whether the customer was asked about support is not in the file. Outcome and redress are for an authorised person.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "her father has dementia and your collections team has been ringing him up to five times a day about his credit card arrears"
+        },
+        {
+          "source": "note_1",
+          "quote": "Collections log shows 23 outbound calls 1-14 Oct."
+        },
+        {
+          "source": "note_1",
+          "quote": "Discussed account with daughter [PERSON_1]"
+        },
+        {
+          "source": "CH-6",
+          "quote": "a vulnerable customer at risk of harm"
+        },
+        {
+          "source": "VUL-4",
+          "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team."
+        },
+        {
+          "source": "LND-3",
+          "quote": "Contact must not be excessive: no more than one call per day and three per week."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A lending decision, affordability, mortgage or loan arrears → *Lending Specialists*."
+        },
+        {
+          "source": "VUL-6",
+          "quote": "The bank may only discuss the account with a third party (such as a relative or carer) where there is a valid authority on file (third-party mandate or power of attorney)."
+        },
+        {
+          "source": "LND-4",
+          "quote": "Arrears fees must be reviewed where the customer was in financial difficulty (see FEE-4)."
+        }
+      ]
+    }
+  }
+}

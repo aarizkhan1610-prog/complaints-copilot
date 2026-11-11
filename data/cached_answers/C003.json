@@ -1,0 +1,114 @@
+{
+  "a814036073451bae": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:23:57+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.7
+    },
+    "answer": {
+      "answer": "The customer wants the £12 credit card late payment fee removed as a one-off goodwill gesture. They admit they paid one day late (paid on the 15th, due the 14th) because they forgot, and say they have never missed a payment in 6 years. On the second part: nothing in the file shows the bank has promised anything. The only note records that this is the first late fee in 12 months, that no vulnerability indicators were found, and that the customer prefers an email reply. It does not mention any commitment, refund or outcome given to the customer. Whether to refund is a decision for the handler.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Can you take it off as a one-off?"
+        },
+        {
+          "source": "complaint",
+          "quote": "I got charged a £12 late payment fee on my credit card."
+        },
+        {
+          "source": "complaint",
+          "quote": "I paid by bank transfer on the 15th but the due date was the 14th, so yes I was a day late, I forgot."
+        },
+        {
+          "source": "complaint",
+          "quote": "I've never missed a payment before in 6 years."
+        },
+        {
+          "source": "note_1",
+          "quote": "First late fee on record in 12 months. No vulnerability indicators. Prefers email reply."
+        }
+      ]
+    }
+  },
+  "c4caeae36242d316": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:24:01+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.5
+    },
+    "answer": {
+      "answer": "In date order: the card payment was due on the 14th and the customer paid by bank transfer on the 15th, a day late. The file does not give the month or year of these dates. A £12 late payment fee was then charged. The complaint arrived by web form on 2026-11-03, and the same day the handler noted it was the first late fee on record in 12 months, no vulnerability indicators, and a preference for email. Still unknown: the exact month and year of the due date and payment, the date the fee was charged, whether interest was added to it, and whether the customer was asked about support needs.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I paid by bank transfer on the 15th but the due date was the 14th, so yes I was a day late, I forgot."
+        },
+        {
+          "source": "complaint",
+          "quote": "I got charged a £12 late payment fee on my credit card."
+        },
+        {
+          "source": "note_1",
+          "quote": "First late fee on record in 12 months. No vulnerability indicators. Prefers email reply."
+        }
+      ]
+    }
+  },
+  "00ebab8a11004e0a": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:24:07+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.5
+    },
+    "answer": {
+      "answer": "FEE-5 applies: the fee is correctly charged because the minimum payment was not received by the due date. The customer admits paying a day late, and there is no Direct Debit or bank error, so FEE-2 does not apply. FEE-3 lets the handler choose to refund up to two fees of the same type in a rolling 12 months as goodwill. Note_1 records this as the first late fee in 12 months. Whether to refund is the handler's decision under CH-8. CH-1 makes this a complaint because the customer reports a financial loss. CH-6 makes it Low severity (loss under £100). CH-2 requires logging and acknowledgement within 3 business days. CH-3 allows summary resolution if the issue is resolved within 3 business days. No ESC-1 escalation trigger appears in the file.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "FEE-5",
+          "quote": "A late payment fee on a credit card is correctly charged if the minimum payment was not received by the due date."
+        },
+        {
+          "source": "complaint",
+          "quote": "I paid by bank transfer on the 15th but the due date was the 14th, so yes I was a day late, I forgot."
+        },
+        {
+          "source": "FEE-3",
+          "quote": "Where a fee was correctly charged, a complaints handler may refund up to two fees of the same type in any rolling 12-month period as a goodwill gesture."
+        },
+        {
+          "source": "note_1",
+          "quote": "First late fee on record in 12 months. No vulnerability indicators. Prefers email reply."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*Low*: financial loss under £100 or a service issue with no loss."
+        },
+        {
+          "source": "CH-2",
+          "quote": "Every complaint must be logged on the day it is received and acknowledged in writing within 3 business days."
+        },
+        {
+          "source": "CH-3",
+          "quote": "A complaint resolved to the customer's satisfaction by the end of the third business day after receipt may be closed with a Summary Resolution Communication. The handler must record what was agreed."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

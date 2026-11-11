@@ -1,0 +1,118 @@
+{
+  "8325ad10b892c38b": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:28:40+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.7
+    },
+    "answer": {
+      "answer": "The customer wants the 0% balance transfer rate restored and the £212 interest refunded. The file does not show that the bank has promised anything. The only bank note records the handler's review: the T&Cs allow the promotional rate to be withdrawn after a late payment, the key facts summary mentions this on p.3, and the contact preference is letter. No promise, offer or commitment to the customer is recorded. Nor does the file show any acknowledgement letter or other contact with the customer. Whether to uphold the complaint and any redress are for an authorised handler to decide.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I want the 0% rate restored and the interest refunded."
+        },
+        {
+          "source": "complaint",
+          "quote": "you ended the 0% rate and charged me £212 interest"
+        },
+        {
+          "source": "note_1",
+          "quote": "T&Cs s.7.2 allow promo rate withdrawal after a late payment. Key facts summary mentions it on p.3. Cust contact pref: letter."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "bb7245a16381a1b2": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:28:44+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.1
+    },
+    "answer": {
+      "answer": "Dated events in the file: the customer says one payment was two days late in July (no exact date or year given); the bank then ended the 0% rate and charged £212 interest (date not stated). The letter was received on 2026-09-29. On 2026-09-30 the handler noted that T&Cs s.7.2 allow withdrawal of the promo rate after a late payment, and that the key facts summary mentions this on p.3. Not in the file: the exact due date and payment date, when the rate was withdrawn and the interest charged, when the balance transfer started, whether the late payment was by Direct Debit or failed because of a bank error, and whether the customer was asked about vulnerability.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Because one payment was two days late in July, you ended the 0% rate and charged me £212 interest."
+        },
+        {
+          "source": "complaint",
+          "quote": "I transferred a balance to my Harbourline card on a 0% deal for 18 months."
+        },
+        {
+          "source": "note_1",
+          "quote": "T&Cs s.7.2 allow promo rate withdrawal after a late payment. Key facts summary mentions it on p.3."
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability."
+        },
+        {
+          "source": "FEE-5",
+          "quote": "If the customer set up a Direct Debit and it failed due to a bank error, FEE-2 applies."
+        }
+      ]
+    }
+  },
+  "61103b22d8b8c1b9": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:28:50+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.1
+    },
+    "answer": {
+      "answer": "No single clause covers withdrawal of a promotional 0% rate, so the file only partly answers this. CH-1 applies: Mrs [PERSON_1] is dissatisfied and alleges a £212 loss, so this is a complaint. CH-6 puts a loss between £100 and £1,000 at Medium severity. The case is At risk under CH-5, so a team leader must review it weekly. FEE-5 says a credit card late fee is correctly charged if the minimum payment was missed, but the dispute here is interest and loss of the rate, not a fee. The file does not show whether a Direct Debit failed. No ESC-1 trigger is clearly met, so the handler keeps the case. Under CH-8, an authorised person decides the outcome and gives reasons.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "you ended the 0% rate and charged me £212 interest"
+        },
+        {
+          "source": "CH-1",
+          "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss"
+        },
+        {
+          "source": "CH-6",
+          "quote": "*Medium*: financial loss between £100 and £1,000"
+        },
+        {
+          "source": "CH-5",
+          "quote": "At risk and Critical cases must be reviewed by a team leader weekly."
+        },
+        {
+          "source": "FEE-5",
+          "quote": "A late payment fee on a credit card is correctly charged if the minimum payment was not received by the due date."
+        },
+        {
+          "source": "note_1",
+          "quote": "T&Cs s.7.2 allow promo rate withdrawal after a late payment."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "Complaints handlers resolve complaints themselves unless one of the following applies"
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions must be explained in plain language and recorded with the reasons."
+        }
+      ]
+    }
+  }
+}

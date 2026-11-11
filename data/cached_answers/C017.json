@@ -1,0 +1,134 @@
+{
+  "6e1e6a136df6f238": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:26:47+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.6
+    },
+    "answer": {
+      "answer": "The customer wants the bank to stop charging overdraft fees and to refund some of them. The file does not record any promise, commitment or offer made by the bank to the customer. The only bank action recorded is the handler's note of the account, the 12 unarranged overdraft fees from August to October totalling £180, the customer's email contact preference, and that support needs have not yet been asked about. Whether any fees are refunded is for an authorised person to decide.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Please can you stop the fees and refund some of them."
+        },
+        {
+          "source": "note_1",
+          "quote": "12 UOD fees Aug-Oct = £180. Cust email [EMAIL_1], prefers email. Not yet asked about support needs."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "4216314b14cbf9ad": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:26:53+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.8
+    },
+    "answer": {
+      "answer": "Dated events in the file: the complaint was received by web form on 2026-10-29. On the same day the handler noted 12 unarranged overdraft (UOD) fees charged August to October, totalling £180. The customer, a student, says the fees use up their loan and that they have been skipping meals. The handler recorded that the customer prefers email and has not yet been asked about support needs. Still unknown: the exact date and amount of each fee, whether any fee resulted from a bank error, any previous fee refunds, the date and amount of the loan payments, whether the account has an arranged overdraft, and any action taken since. The customer's support needs are also unknown; FEE-4 and VUL-2/VUL-4 are relevant.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "12 UOD fees Aug-Oct = £180."
+        },
+        {
+          "source": "note_1",
+          "quote": "Cust email [EMAIL_1], prefers email. Not yet asked about support needs."
+        },
+        {
+          "source": "complaint",
+          "quote": "I'm a student and I keep getting charged overdraft fees. It's been £180 in three months."
+        },
+        {
+          "source": "complaint",
+          "quote": "Every time my loan comes in, the fees eat it. I've been skipping meals to make it last."
+        },
+        {
+          "source": "FEE-4",
+          "quote": "Where a customer shows signs of financial difficulty, fees charged in the last 6 months should be reviewed and refunded where they have added to the difficulty."
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        }
+      ]
+    }
+  },
+  "caf8f0175704afe6": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:27:03+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 9.6
+    },
+    "answer": {
+      "answer": "Key rules: CH-1 (dissatisfaction plus loss, so it is a complaint). CH-6 sets Medium severity for a loss of £100 to £1,000. The £180 in fees and the reported skipping of meals suggest financial difficulty and risk to wellbeing, so a vulnerable customer at risk of harm could make it High. FEE-4: review fees from the last 6 months, refund those that added to the difficulty, and refer to Vulnerable Customer Support. VUL-2: the customer has not yet been asked about support needs, so the handler should ask sensitively. VUL-4/ESC-1: refer to Vulnerable Customer Support. VUL-5: offer adjustments (email is preferred). CH-2: acknowledge within 3 business days. The file does not show an acknowledgement or any refund decision. A person decides the outcome and any redress (CH-8, RED-5).",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "It's been £180 in three months."
+        },
+        {
+          "source": "complaint",
+          "quote": "I've been skipping meals to make it last."
+        },
+        {
+          "source": "note_1",
+          "quote": "Not yet asked about support needs."
+        },
+        {
+          "source": "note_1",
+          "quote": "prefers email"
+        },
+        {
+          "source": "FEE-4",
+          "quote": "Where a customer shows signs of financial difficulty, fees charged in the last 6 months should be reviewed and refunded where they have added to the difficulty. The case must also be referred to the Vulnerable Customer Support team under policy VUL."
+        },
+        {
+          "source": "VUL-4",
+          "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team."
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*High*: financial loss over £1,000, suspected fraud or scam, a vulnerable customer at risk of harm"
+        },
+        {
+          "source": "CH-6",
+          "quote": "*Medium*: financial loss between £100 and £1,000"
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A vulnerability referral under VUL-4 → *Vulnerable Customer Support*."
+        },
+        {
+          "source": "CH-2",
+          "quote": "acknowledged in writing within 3 business days"
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

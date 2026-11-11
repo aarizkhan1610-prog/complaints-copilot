@@ -1,0 +1,138 @@
+{
+  "57c07e0210514142": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:24:43+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.3
+    },
+    "answer": {
+      "answer": "The customer wants his money back: the complaint records that he \"Wants his £1,169.91 back\", which is the total of three disputed payments of £389.97 to TechNova Online. The file shows no promise of a refund or any other outcome to the customer. The bank has cancelled the card, ordered a replacement and reset the online banking password. Note_2 says the refund has not yet been credited and that FRD-1 requires a refund by the next business day; this is the handler's reading of policy, not a recorded promise. Whether the refund is due is for an authorised person to decide. The file does not say what, if anything, the customer was told about timing when he chased.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Wants his £1,169.91 back."
+        },
+        {
+          "source": "complaint",
+          "quote": "£389.97 x3 to TechNova Online on 01/11 at 23:10, 23:12 and 23:15"
+        },
+        {
+          "source": "note_1",
+          "quote": "Card cancelled and replacement ordered. Online banking password reset."
+        },
+        {
+          "source": "note_2",
+          "quote": "Refund not yet credited - FRD-1 says next business day. Cust chased."
+        },
+        {
+          "source": "FRD-1",
+          "quote": "the bank must refund the amount by the end of the next business day after the report, unless there are reasonable grounds to suspect the customer acted fraudulently or with gross negligence"
+        }
+      ]
+    }
+  },
+  "9e8580b3128718b4": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:24:49+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.0
+    },
+    "answer": {
+      "answer": "01/11 (no year given in the complaint): three online payments of £389.97 each to TechNova Online at 23:10, 23:12 and 23:15, which the customer says he did not make. He still has the card and says he shared no PIN, passcodes or one-time codes. 2026-11-02: complaint received by phone; the card was cancelled, a replacement ordered and the online banking password reset. The customer was asked about vulnerability and said none. 2026-11-04: the refund had not been credited, the customer chased, and a statement extract was saved. Not in the file: why the refund was not made by the next business day, whether any suspicion of fraud or gross negligence has been recorded, payee details beyond the merchant name, whether Fraud & Scams has received the case, and the customer's contact preference.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "three online payments he didn't make: £389.97 x3 to TechNova Online on 01/11 at 23:10, 23:12 and 23:15"
+        },
+        {
+          "source": "complaint",
+          "quote": "Card ending [CARD_DIGITS_1] is still in his wallet. He has not shared his PIN, passcodes or one-time codes with anyone."
+        },
+        {
+          "source": "note_1",
+          "quote": "Card cancelled and replacement ordered. Online banking password reset."
+        },
+        {
+          "source": "note_1",
+          "quote": "no vulnerability indicators, asked - none."
+        },
+        {
+          "source": "note_2",
+          "quote": "Refund not yet credited - FRD-1 says next business day. Cust chased. Statement extract saved."
+        },
+        {
+          "source": "FRD-1",
+          "quote": "the bank must refund the amount by the end of the next business day after the report, unless there are reasonable grounds to suspect the customer acted fraudulently or with gross negligence. Any such suspicion must be recorded by a Fraud & Scams specialist."
+        }
+      ]
+    }
+  },
+  "67d7dbf5aefcff45": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:24:56+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.0
+    },
+    "answer": {
+      "answer": "This is an unauthorised transaction case. FRD-1 requires a refund by the end of the next business day after the report, unless there are reasonable grounds to suspect fraud or gross negligence, which only a Fraud & Scams specialist may record. The note says the refund has not yet been credited. ESC-1 routes the case to Fraud & Scams, and ESC-2 requires the handover within 2 business days. CH-6 makes it High severity: the loss of £1,169.91 is over £1,000 and fraud is suspected. FRD-4 requires the account to be secured; the card was cancelled and the password reset. FRD-3 lists the evidence the handover must contain. Whether the complaint is upheld and any redress are for an authorised person (CH-8), not this tool.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "three online payments he didn't make: £389.97 x3 to TechNova Online on 01/11 at 23:10, 23:12 and 23:15"
+        },
+        {
+          "source": "FRD-1",
+          "quote": "the bank must refund the amount by the end of the next business day after the report, unless there are reasonable grounds to suspect the customer acted fraudulently or with gross negligence. Any such suspicion must be recorded by a Fraud & Scams specialist."
+        },
+        {
+          "source": "note_2",
+          "quote": "Refund not yet credited - FRD-1 says next business day. Cust chased."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*."
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified (1 business day for scams, see FRD-2)."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*High*: financial loss over £1,000, suspected fraud or scam"
+        },
+        {
+          "source": "complaint",
+          "quote": "Wants his £1,169.91 back."
+        },
+        {
+          "source": "FRD-4",
+          "quote": "On report, the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done."
+        },
+        {
+          "source": "note_1",
+          "quote": "Card cancelled and replacement ordered. Online banking password reset."
+        },
+        {
+          "source": "FRD-3",
+          "quote": "A fraud or scam handover must include: the date, time and amount of each disputed payment; the payee details as known; how the customer was contacted by the fraudster (if a scam); whether the customer shared any security details; and the date the customer reported it."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

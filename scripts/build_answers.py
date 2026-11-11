@@ -1,4 +1,4 @@
-"""Save answers to the suggested questions for a few showcase cases, so Ask the case works in demo mode.
+"""Save answers to the fixed Ask the case questions for every case, so it works without live AI.
 
 Usage: python scripts/build_answers.py [CASE_ID ...]   (needs an API key; uses the saved-response model)
 """
@@ -14,7 +14,7 @@ from copilot.ask import SUGGESTED, ask_live, save_answer, saved_answer  # noqa: 
 from copilot.data import get_complaint  # noqa: E402
 from copilot.pipeline import prepare  # noqa: E402
 
-SHOWCASE = ["C001", "C002", "C005", "C014", "C015", "C021"]
+from copilot.data import load_complaints  # noqa: E402
 
 
 def main(ids):
@@ -30,4 +30,4 @@ def main(ids):
 
 
 if __name__ == "__main__":
-    main(sys.argv[1:] or SHOWCASE)
+    main(sys.argv[1:] or [c["id"] for c in load_complaints()])

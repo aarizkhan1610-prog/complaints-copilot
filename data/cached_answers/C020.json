@@ -1,0 +1,122 @@
+{
+  "0563f1f586f39625": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:27:38+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.5
+    },
+    "answer": {
+      "answer": "The customer wants to know the real reason their Everyday credit card application was declined. They also say the decline was not fair and suspect it was due to their postcode. The file records no promise, commitment or offer made by the bank so far. Note 1 only records that the application was declined by an automated scorecard on 24/10 and that the decline letter did not name the credit reference agency. Under LND-2, declined customers must be told the main reason where possible and which credit reference agency was used. Complaints handlers must not overturn a lending decision; complaints about declines are reviewed by Lending Specialists.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I want to know the real reason."
+        },
+        {
+          "source": "complaint",
+          "quote": "I think I was turned down because of where I live, [POSTCODE_1] has a bad reputation. That's not fair."
+        },
+        {
+          "source": "note_1",
+          "quote": "Application declined by automated scorecard 24/10. Decline letter did not state the credit reference agency."
+        },
+        {
+          "source": "LND-2",
+          "quote": "Customers who are declined must be told the main reason where possible and the credit reference agency used. A complaint about a decline is reviewed by Lending Specialists; complaints handlers must not overturn a lending decision."
+        }
+      ]
+    }
+  },
+  "afeb214c51579f9d": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:27:43+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.9
+    },
+    "answer": {
+      "answer": "24/10: the Everyday credit card application was declined by an automated scorecard. The customer says it was declined \"in seconds with no reason\". The decline letter did not name the credit reference agency. 26/10/2026: the complaint arrived by web form and the handler added a note. Still unknown: the actual decline reason, and whether postcode played any part (the customer suspects it did). Also missing are which credit reference agency was used, the exact application date and time beyond 24/10, any bank contact with the customer since the complaint, and whether the customer was asked about vulnerability (the note only says \"No vulnerability\"). Under LND-2 the decline review belongs to Lending Specialists.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "Application declined by automated scorecard 24/10."
+        },
+        {
+          "source": "note_1",
+          "quote": "Decline letter did not state the credit reference agency."
+        },
+        {
+          "source": "complaint",
+          "quote": "got declined in seconds with no reason"
+        },
+        {
+          "source": "complaint",
+          "quote": "I think I was turned down because of where I live"
+        },
+        {
+          "source": "complaint",
+          "quote": "I want to know the real reason."
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability."
+        },
+        {
+          "source": "LND-2",
+          "quote": "Customers who are declined must be told the main reason where possible and the credit reference agency used. A complaint about a decline is reviewed by Lending Specialists"
+        }
+      ]
+    }
+  },
+  "cc27bfa219193101": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:27:48+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.5
+    },
+    "answer": {
+      "answer": "This is a complaint about a declined credit card application. LND-2 requires declined customers to be told the main reason where possible and the credit reference agency used; note_1 records the decline letter did not state the agency. LND-2 also says a decline complaint is reviewed by Lending Specialists and the handler must not overturn the decision. ESC-1 routes lending decisions to Lending Specialists, within 2 business days (ESC-2), with all ten ESC-3 fields. The handler stays the customer's contact until the specialist accepts the handover (ESC-5). The outcome and any redress are decided by an authorised person (CH-8). The file does not show the actual decline reason or whether postcode was a factor.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "LND-2",
+          "quote": "Customers who are declined must be told the main reason where possible and the credit reference agency used. A complaint about a decline is reviewed by Lending Specialists; complaints handlers must not overturn a lending decision."
+        },
+        {
+          "source": "note_1",
+          "quote": "Decline letter did not state the credit reference agency."
+        },
+        {
+          "source": "complaint",
+          "quote": "I want to know the real reason."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A lending decision, affordability, mortgage or loan arrears → *Lending Specialists*."
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified"
+        },
+        {
+          "source": "ESC-5",
+          "quote": "The complaints handler remains the customer's point of contact until the specialist confirms acceptance of the handover."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

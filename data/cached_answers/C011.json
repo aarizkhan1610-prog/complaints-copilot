@@ -1,0 +1,130 @@
+{
+  "9135674699c4e987": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:25:44+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.8
+    },
+    "answer": {
+      "answer": "The customer wants the £18.40 in foreign transaction fees refunded and an apology for how he was treated on the phone. The file records no promise or commitment by the bank to the customer. The handler's note confirms six FX fees totalling £18.40, records that the tariff was set up wrongly, and says the call recording from 21/10 has been requested. These are internal findings and actions, not promises. Nothing in the file shows that a refund, an apology or any redress has been offered or agreed. Any decision on the outcome or redress is for an authorised handler (CH-8).",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "Wants the fees back and an apology for how he was treated."
+        },
+        {
+          "source": "note_1",
+          "quote": "Confirmed 6 x FX fees totalling £18.40, tariff set up wrongly on account."
+        },
+        {
+          "source": "note_1",
+          "quote": "Call recording from 21/10 requested."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "beeb78848e4e5cc1": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:25:49+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.3
+    },
+    "answer": {
+      "answer": "In date order: on 21/10 the customer rang about the fees, waited 50 minutes, and says the agent was short with him and hung up (a recording of that call has been requested). On 2026-10-23 the complaint was received by phone and logged. The handler confirmed 6 foreign transaction fees totalling £18.40 on the Travel Card and found the tariff was set up wrongly. Still unknown: the dates of the Lisbon transactions and fees, whether the call recording has been received or reviewed, who the agent was, whether any refund or apology has been given, and whether the customer was asked about vulnerability. The note says only 'No vulnerability'.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "When he rang about it he waited 50 minutes and then the agent was short with him and hung up."
+        },
+        {
+          "source": "note_1",
+          "quote": "Call recording from 21/10 requested."
+        },
+        {
+          "source": "note_1",
+          "quote": "Confirmed 6 x FX fees totalling £18.40, tariff set up wrongly on account."
+        },
+        {
+          "source": "complaint",
+          "quote": "was charged £18.40 in foreign transaction fees in Lisbon"
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability."
+        },
+        {
+          "source": "FEE-6",
+          "quote": "Foreign transaction fees are not charged on the Harbourline Travel Card."
+        }
+      ]
+    }
+  },
+  "d6694d52a3da7794": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:25:54+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.9
+    },
+    "answer": {
+      "answer": "FEE-6 applies: FX fees should not be charged on the Travel Card, so any such fee is a bank error and FEE-2 applies. FEE-2 requires a full refund of the fee plus any interest charged on it, and a goodwill payment in line with RED. The note confirms the tariff was set up wrongly. Because there is a staff conduct element, CH-6 makes a staff conduct complaint Medium severity. CH-7 needs one primary root cause tag. CH-2 requires logging and written acknowledgement within 3 business days. CH-4 requires a Final Response within 8 weeks. The upheld decision and any redress amount must be made by an authorised person (CH-8, RED-5). The file does not record whether an acknowledgement has been sent.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "FEE-6",
+          "quote": "Foreign transaction fees are not charged on the Harbourline Travel Card. Any such fee on that card is a bank error and FEE-2 applies."
+        },
+        {
+          "source": "FEE-2",
+          "quote": "the fee must be refunded in full, together with any interest charged on it, plus a goodwill payment in line with policy RED."
+        },
+        {
+          "source": "note_1",
+          "quote": "Confirmed 6 x FX fees totalling £18.40, tariff set up wrongly on account."
+        },
+        {
+          "source": "complaint",
+          "quote": "the agent was short with him and hung up"
+        },
+        {
+          "source": "CH-6",
+          "quote": "a complaint about staff conduct."
+        },
+        {
+          "source": "CH-7",
+          "quote": "Every complaint must be tagged with one primary root cause from the approved list"
+        },
+        {
+          "source": "CH-2",
+          "quote": "Every complaint must be logged on the day it is received and acknowledged in writing within 3 business days."
+        },
+        {
+          "source": "CH-4",
+          "quote": "All other complaints must receive a Final Response within 8 weeks (56 calendar days) of receipt."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        },
+        {
+          "source": "RED-5",
+          "quote": "Redress amounts must be decided and approved by an authorised person."
+        }
+      ]
+    }
+  }
+}

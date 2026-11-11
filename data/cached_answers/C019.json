@@ -1,0 +1,126 @@
+{
+  "60bc9d14762cee41": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:27:22+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.8
+    },
+    "answer": {
+      "answer": "The customer wants the bank to \"sort it\": they say their ISA transfer took six weeks instead of the 15 working days promised, and estimate they lost about £56 in interest. They do not say exactly what remedy they expect (for example, compensation for the interest). As for promises, the only commitment in the file is the 15 working day timescale the customer says they were told, which matches the noted SLA. Nothing in the file shows the bank has promised any refund, compensation or outcome on this complaint. Any redress is for an authorised person to decide.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "my isa transfer from another provider took six weeks, you said 15 working days"
+        },
+        {
+          "source": "complaint",
+          "quote": "i reckon i lost about £56 interest while it was stuck. can you sort it."
+        },
+        {
+          "source": "note_1",
+          "quote": "ISA transfer in received 03/09, completed 15/10. SLA 15 working days."
+        },
+        {
+          "source": "RED-5",
+          "quote": "Redress amounts must be decided and approved by an authorised person."
+        }
+      ]
+    }
+  },
+  "1d8f1c2f5f85e1a6": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:27:27+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.8
+    },
+    "answer": {
+      "answer": "In date order: the ISA transfer in was received on 03/09 (year not stated) and completed on 15/10, against an SLA of 15 working days. The customer says it took six weeks and estimates about £56 lost interest. The complaint was received by email on 2026-10-22 and a handler note was made the same day recording no vulnerability and a preference for email. Still unknown: the year of the transfer dates, the name of the ceding provider, how the £56 was calculated, the account references involved, the cause of the delay, whether the bank or the other provider caused it, any contact or actions since 22 October, and whether the customer was asked about vulnerability.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "ISA transfer in received 03/09, completed 15/10. SLA 15 working days."
+        },
+        {
+          "source": "complaint",
+          "quote": "my isa transfer from another provider took six weeks, you said 15 working days. i reckon i lost about £56 interest while it was stuck."
+        },
+        {
+          "source": "note_1",
+          "quote": "Email from [EMAIL_1]. no vuln. pref email."
+        }
+      ]
+    }
+  },
+  "031e3db9dd3a5feb": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:27:35+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.5
+    },
+    "answer": {
+      "answer": "The file has no ISA-specific policy. Applicable rules: CH-1 (it is a complaint: dissatisfaction plus claimed loss of about £56). CH-6 makes it Low severity (loss under £100). CH-7 needs one root cause tag; Service delay fits. No ESC-1 trigger applies, so the handler resolves it rather than escalating. CH-2 requires logging on receipt and written acknowledgement within 3 business days; CH-4 requires a Final Response within 8 weeks (due 2026-12-17, On track per CH-5). CH-8 and RED-5 mean an authorised person decides the outcome and any redress; RED-1/RED-2 set the redress principles. CH-9 requires a full record. Not in file: whether the bank caused the delay, or how the £56 was calculated.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "my isa transfer from another provider took six weeks, you said 15 working days. i reckon i lost about £56 interest"
+        },
+        {
+          "source": "note_1",
+          "quote": "ISA transfer in received 03/09, completed 15/10. SLA 15 working days."
+        },
+        {
+          "source": "CH-1",
+          "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss"
+        },
+        {
+          "source": "CH-6",
+          "quote": "*Low*: financial loss under £100 or a service issue with no loss."
+        },
+        {
+          "source": "CH-7",
+          "quote": "Every complaint must be tagged with one primary root cause from the approved list"
+        },
+        {
+          "source": "ESC-1",
+          "quote": "Complaints handlers resolve complaints themselves unless one of the following applies"
+        },
+        {
+          "source": "CH-2",
+          "quote": "Every complaint must be logged on the day it is received and acknowledged in writing within 3 business days."
+        },
+        {
+          "source": "CH-4",
+          "quote": "All other complaints must receive a Final Response within 8 weeks (56 calendar days) of receipt."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        },
+        {
+          "source": "RED-1",
+          "quote": "Redress aims to put the customer back in the position they would have been in had the error not occurred"
+        },
+        {
+          "source": "RED-5",
+          "quote": "Redress amounts must be decided and approved by an authorised person."
+        },
+        {
+          "source": "CH-9",
+          "quote": "The case record must contain a timeline of events, all contact with the customer, the evidence considered, and the reasons for the outcome."
+        }
+      ]
+    }
+  }
+}

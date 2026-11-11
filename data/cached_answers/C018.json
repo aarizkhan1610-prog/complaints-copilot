@@ -1,0 +1,134 @@
+{
+  "2dde40886c527eae": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:27:06+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.5
+    },
+    "answer": {
+      "answer": "The customer wants the address problem fixed and wants reassurance. She is worried about who has seen her details after the new owners at her old address opened one of her statements. The file records what the bank has done: the address has been updated, and a data incident form has been raised. The file does not record any promise, commitment or offer made to the customer. That includes any refund, goodwill payment, timescale or assurance about her data. Whether anything was promised during the calls is not in the file.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "She's worried about who has seen her details. Wants it fixed and reassurance."
+        },
+        {
+          "source": "complaint",
+          "quote": "The new owners opened one and called her about it."
+        },
+        {
+          "source": "note_1",
+          "quote": "Updated now. Data incident form raised."
+        }
+      ]
+    }
+  },
+  "253f969379f6e280": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:27:11+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.3
+    },
+    "answer": {
+      "answer": "In date order: on 12/08 (2026) the customer asked in branch to change her address, but the change was never processed. Statements kept going to her old address, [ADDRESS_1]. The new owners opened one and phoned her about it. She has rung the bank three times about this. On 2026-10-18 the complaint was received by phone, the address was updated to [ADDRESS_2], [POSTCODE_1], and a data incident form was raised. Not in the file: the dates of her earlier calls, how many statements went to the old address and when, the date the new owners opened one, what details they saw, why the change was not processed, and what was done on her earlier calls. The note records 'No vulnerability', but it does not say whether she was asked.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "Address change request in branch 12/08 never processed."
+        },
+        {
+          "source": "complaint",
+          "quote": "statements are still going to her old address, [ADDRESS_1]. The new owners opened one and called her about it."
+        },
+        {
+          "source": "complaint",
+          "quote": "This is the third time she's rung about it."
+        },
+        {
+          "source": "note_1",
+          "quote": "Correct address [ADDRESS_2], [POSTCODE_1]. Updated now. Data incident form raised."
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability."
+        },
+        {
+          "source": "complaint",
+          "quote": "She's worried about who has seen her details."
+        }
+      ]
+    }
+  },
+  "853d033d4d5e2c39": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:27:19+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 7.9
+    },
+    "answer": {
+      "answer": "From the policies given: CH-1 makes this a complaint (dissatisfaction, material distress/inconvenience). CH-6 points to at least Medium severity, because this is the third contact about the same issue. CH-7 requires one primary root cause tag; Service delay or Communication failure appear to fit, and the handler chooses. CH-2 requires same-day logging and written acknowledgement within 3 business days. CH-4/CH-5 require a final response by the deadline (status On track). CH-8 and RED-5 mean a person decides the outcome and any redress. CH-9 requires a full record. No ESC-1 trigger is clearly met, so the handler likely keeps the case. The file has no data-protection or data-breach policy, so what the incident form DI-0931 requires is not in the file. VUL-2 still applies: her worry suggests asking about support, even though the note records no vulnerability.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "This is the third time she's rung about it."
+        },
+        {
+          "source": "complaint",
+          "quote": "She's worried about who has seen her details."
+        },
+        {
+          "source": "note_1",
+          "quote": "Data incident form raised."
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability."
+        },
+        {
+          "source": "CH-1",
+          "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff, where the customer alleges they have suffered (or may suffer) financial loss, material distress or material inconvenience."
+        },
+        {
+          "source": "CH-6",
+          "quote": "repeated service failure (the customer has contacted us three or more times about the same issue)"
+        },
+        {
+          "source": "CH-7",
+          "quote": "Every complaint must be tagged with one primary root cause from the approved list"
+        },
+        {
+          "source": "CH-2",
+          "quote": "Every complaint must be logged on the day it is received and acknowledged in writing within 3 business days."
+        },
+        {
+          "source": "CH-4",
+          "quote": "All other complaints must receive a Final Response within 8 weeks (56 calendar days) of receipt."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        },
+        {
+          "source": "CH-9",
+          "quote": "The case record must contain a timeline of events, all contact with the customer, the evidence considered, and the reasons for the outcome."
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "cf9aeeadbe63a996": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:25:58+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.9
+    },
+    "answer": {
+      "answer": "The customer has not stated a specific desired outcome. They say they don't think the loan should have been given and that they can't cover the £410 monthly payments, but they do not say what they want done (e.g. refund, payment plan, write-off). Desired outcome is MISSING from the file. There is no record of the bank promising anything: the notes show only that an acknowledgement and a later holding reply were sent, and the content of those letters is not on file. Note the customer's words \"I can't sleep, I'm honestly at the end of my rope\" are possible vulnerability and wellbeing indicators that should be raised.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I don't think you should have given me that loan."
+        },
+        {
+          "source": "complaint",
+          "quote": "Now I'm paying £410 a month and I can't cover it."
+        },
+        {
+          "source": "note_1",
+          "quote": "Ack sent."
+        },
+        {
+          "source": "note_2",
+          "quote": "Holding reply sent."
+        },
+        {
+          "source": "complaint",
+          "quote": "I can't sleep, I'm honestly at the end of my rope with it all."
+        }
+      ]
+    }
+  },
+  "96074f1816ce29ac": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:26:05+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.2
+    },
+    "answer": {
+      "answer": "Timeline from the file: in March (no exact date or year given) the customer says they were lent £15,000 while on a zero hours contract with two credit cards maxed out. On 2026-09-22 the complaint was received by email. On 2026-09-23 the handler noted the loan account, that the customer was upset, and that an acknowledgement was sent. On 2026-10-14 the customer emailed asking for an update and a holding reply was sent. Unknown or not in the file: the exact loan date, the affordability assessment, statements or other evidence, any arrears, the customer's desired outcome beyond saying the loan should not have been given, their contact preference, and whether they were asked about support. The customer's comments about sleep and being 'at the end of my rope' are possible vulnerability signs.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "You lent me £15,000 in March when I was on a zero hours contract and already had two credit cards maxed out."
+        },
+        {
+          "source": "complaint",
+          "quote": "Now I'm paying £410 a month and I can't cover it. I can't sleep, I'm honestly at the end of my rope with it all."
+        },
+        {
+          "source": "complaint",
+          "quote": "I don't think you should have given me that loan."
+        },
+        {
+          "source": "note_1",
+          "quote": "Loan acct [ACCOUNT_NUMBER_1]. Cust upset. Ack sent."
+        },
+        {
+          "source": "note_2",
+          "quote": "Cust emailed again asking for update. Holding reply sent."
+        },
+        {
+          "source": "LND-1",
+          "quote": "Complaints that a lending decision was unaffordable or irresponsible must be handed to Lending Specialists."
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        }
+      ]
+    }
+  },
+  "8e9dcc99c8a99977": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:26:11+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.8
+    },
+    "answer": {
+      "answer": "This is an irresponsible lending complaint. LND-1 requires handing it to Lending Specialists, and ESC-1 routes it there too. The customer also shows financial difficulty and possible risk to wellbeing (\"I can't sleep\", \"at the end of my rope\"). That points to severity High under CH-6 and a referral to Vulnerable Customer Support under VUL-4. VUL-2 requires the handler to ask, sensitively, whether the customer needs support. FEE-4 requires a review of fees from the last 6 months. ESC-2 requires the handover within 2 business days, with all ten ESC-3 fields. The case is At risk, so CH-5 requires weekly team leader review. The file does not show any vulnerability question, referral, handover or contact preference. The outcome and any redress must be decided by an authorised person.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I don't think you should have given me that loan."
+        },
+        {
+          "source": "complaint",
+          "quote": "I can't sleep, I'm honestly at the end of my rope with it all."
+        },
+        {
+          "source": "complaint",
+          "quote": "Now I'm paying £410 a month and I can't cover it."
+        },
+        {
+          "source": "LND-1",
+          "quote": "Complaints that a lending decision was unaffordable or irresponsible must be handed to Lending Specialists."
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A lending decision, affordability, mortgage or loan arrears → *Lending Specialists*."
+        },
+        {
+          "source": "VUL-4",
+          "quote": "Cases with a vulnerability indicator *and* any of: financial difficulty, risk to health or wellbeing, suspected financial abuse, or bereavement must be referred to the Vulnerable Customer Support team."
+        },
+        {
+          "source": "CH-6",
+          "quote": "a vulnerable customer at risk of harm"
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        },
+        {
+          "source": "FEE-4",
+          "quote": "Where a customer shows signs of financial difficulty, fees charged in the last 6 months should be reviewed and refunded where they have added to the difficulty."
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified"
+        },
+        {
+          "source": "CH-5",
+          "quote": "At risk and Critical cases must be reviewed by a team leader weekly."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

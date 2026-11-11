@@ -1,0 +1,122 @@
+{
+  "cd8b14f826a3ba1a": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:26:32+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 3.6
+    },
+    "answer": {
+      "answer": "The customer wants two things: the account reopened and an explanation of why it was closed. The file records no promise or commitment by the bank to the customer. The only bank note says the account was closed after a financial crime review and that the review reasons cannot be disclosed to the customer. There is no record of any contact with the customer since the complaint, nor of any offer, reopening, refund or redress. Whether to reopen the account or offer anything is for an authorised person to decide.",
+      "found_in_file": "yes",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I want the account reopened and an explanation."
+        },
+        {
+          "source": "note_1",
+          "quote": "Account [ACCOUNT_NUMBER_1] closed 29/09 following financial crime review - closure notice 27/09. Cannot disclose review reasons to cust."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  },
+  "9db5f5c6e91110d7": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:26:37+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.0
+    },
+    "answer": {
+      "answer": "Timeline from the file: closure notice issued 27/09 (on file as 'Closure notice 27/09/2026'). Account [ACCOUNT_NUMBER_1] closed 29/09 after a financial crime review. Complaint received by email 2026-10-05. Handler note made 2026-10-06. The final response is due 2026-11-30 and the case is At risk. The customer says their wages bounced and they could not pay rent, but the file gives no dates or amounts for these. Still unknown: when the wages bounced and for how much, any rent loss or late charges, which solicitor or journalist is involved, the customer's contact preference, and their vulnerability status (they were not asked). The file also has no record of whether the customer's request for reopening has been considered. Review reasons cannot be disclosed to the customer.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "note_1",
+          "quote": "Account [ACCOUNT_NUMBER_1] closed 29/09 following financial crime review - closure notice 27/09."
+        },
+        {
+          "source": "note_1",
+          "quote": "Cannot disclose review reasons to cust."
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability indicators recorded but not asked."
+        },
+        {
+          "source": "complaint",
+          "quote": "My wages bounced and I couldn't pay my rent."
+        },
+        {
+          "source": "complaint",
+          "quote": "I've spoken to a solicitor and I'm also talking to a journalist at the local paper."
+        },
+        {
+          "source": "complaint",
+          "quote": "I want the account reopened and an explanation."
+        }
+      ]
+    }
+  },
+  "e3673e5776a5e259": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:26:44+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.9
+    },
+    "answer": {
+      "answer": "This is a complaint (CH-1): the customer is dissatisfied and alleges loss and distress (wages bounced, rent unpaid). Severity is High under CH-6 because of threatened legal action and media contact, and ESC-1 routes these to Senior Complaints Review. The handover must be made within 2 business days (ESC-2) and include all ten ESC-3 fields. The root cause tag (likely Account opening or closure, CH-7) is for the handler to confirm. The case is At risk, so a team leader must review it weekly (CH-5). Vulnerability was not asked about. The missed rent may signal financial difficulty, so the handler should ask sensitively (VUL-2) and consider a VUL-4 referral. The file holds no specific policy on account closure notice periods or on disclosing financial crime reviews. The outcome and any redress are for an authorised person (CH-8).",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "I've spoken to a solicitor and I'm also talking to a journalist at the local paper."
+        },
+        {
+          "source": "complaint",
+          "quote": "My wages bounced and I couldn't pay my rent."
+        },
+        {
+          "source": "note_1",
+          "quote": "No vulnerability indicators recorded but not asked."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*High*: financial loss over £1,000, suspected fraud or scam, a vulnerable customer at risk of harm, threatened legal action or media contact"
+        },
+        {
+          "source": "ESC-1",
+          "quote": "A suspected systemic issue (the same fault affecting many customers), a threat of legal action, or media contact → *Senior Complaints Review*."
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified"
+        },
+        {
+          "source": "CH-5",
+          "quote": "At risk and Critical cases must be reviewed by a team leader weekly."
+        },
+        {
+          "source": "VUL-2",
+          "quote": "If in doubt, record it as a possible vulnerability and ask the customer, sensitively, whether they need any support."
+        },
+        {
+          "source": "CH-8",
+          "quote": "Decisions on whether a complaint is upheld, and on any redress, must be made by an authorised complaints handler or specialist."
+        }
+      ]
+    }
+  }
+}

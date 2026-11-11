@@ -1,0 +1,110 @@
+{
+  "a8ea1eb64274e387": {
+    "question": "What does the customer want, and has the bank promised anything so far?",
+    "saved_at": "2026-11-11T13:28:25+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 4.5
+    },
+    "answer": {
+      "answer": "The customer wants the bank to progress their fraud claim and contact them: they say nobody has called them back in 2 weeks and ask the bank to \"sort it out\". They do not specify a particular outcome (for example a refund amount), and no claim reference was given. The file records no promise of any kind by the bank: the only note says the customer is chasing the fraud claim, and no actions, commitments or callbacks are recorded. Details of the original fraud claim (dates, amounts, payees, what was said at the time) are not in the file. Under FRD-5, handlers must not promise reimbursement for an APP scam before a specialist decision.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "ref my fraud claim nobody has called me back its been 2 weeks!!! sort it out"
+        },
+        {
+          "source": "note_1",
+          "quote": "Cust chasing fraud claim. No claim ref given."
+        },
+        {
+          "source": "FRD-5",
+          "quote": "Handlers must not promise a refund or reimbursement for an APP scam before the specialist decision."
+        }
+      ]
+    }
+  },
+  "ec17ea6635c83056": {
+    "question": "What happened, in date order, and what is still unknown?",
+    "saved_at": "2026-11-11T13:28:30+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 5.2
+    },
+    "answer": {
+      "answer": "Known: on 2026-11-06 the customer emailed to chase a fraud claim. They said nobody had called them back and that it had been 2 weeks. The same day, the complaints handler noted that the customer was chasing a fraud claim and gave no claim reference.\n\nNot in the file:\n- the claim reference\n- the date the fraud was first reported (roughly two weeks earlier, by the customer's account, but no exact date)\n- the disputed payments: date, time, amount and payee\n- how any fraudster made contact\n- whether security details were shared\n- the accounts affected\n- whether the account was secured\n- any bank action since the report\n- the customer's desired outcome beyond \"sort it out\"\n- contact preference\n- vulnerability information\n\nNo evidence is listed.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "ref my fraud claim nobody has called me back its been 2 weeks!!! sort it out"
+        },
+        {
+          "source": "note_1",
+          "quote": "Cust chasing fraud claim. No claim ref given."
+        },
+        {
+          "source": "FRD-3",
+          "quote": "A fraud or scam handover must include: the date, time and amount of each disputed payment; the payee details as known; how the customer was contacted by the fraudster (if a scam); whether the customer shared any security details; and the date the customer reported it."
+        }
+      ]
+    }
+  },
+  "46a4f0dbd4e4b0e4": {
+    "question": "Which policy rules decide this case, and what do they require the handler to do?",
+    "saved_at": "2026-11-11T13:28:36+00:00",
+    "meta": {
+      "provider": "live",
+      "model": "claude-opus-5-5",
+      "ask_version": "ask-v1.0",
+      "latency_s": 6.1
+    },
+    "answer": {
+      "answer": "Partly answerable. The customer says nobody has called back about a fraud claim for 2 weeks, so CH-1 makes this a complaint. Because it involves suspected fraud, ESC-1 routes it to Fraud & Scams, CH-6 makes it High severity, and the handover is due within 2 business days (ESC-2). Under FRD-4 the handler must check the account is secured and record this. The handover must include the ten ESC-3 fields and the FRD-3 evidence. The handler stays the contact until Fraud & Scams accepts (ESC-5). The file has no claim reference, payment details, dates, amounts, scam type or vulnerability information, so it cannot show whether FRD-1 (unauthorised) or FRD-2 (APP scam, 1 business day) applies. These must be gathered and otherwise marked MISSING.",
+      "found_in_file": "partly",
+      "supporting_quotes": [
+        {
+          "source": "complaint",
+          "quote": "ref my fraud claim nobody has called me back its been 2 weeks!!! sort it out"
+        },
+        {
+          "source": "note_1",
+          "quote": "Cust chasing fraud claim. No claim ref given."
+        },
+        {
+          "source": "CH-1",
+          "quote": "A complaint is any expression of dissatisfaction, oral or written, about the bank's products, services or staff"
+        },
+        {
+          "source": "ESC-1",
+          "quote": "Suspected fraud, unauthorised transaction or scam → *Fraud & Scams*."
+        },
+        {
+          "source": "CH-6",
+          "quote": "*High*: financial loss over £1,000, suspected fraud or scam"
+        },
+        {
+          "source": "ESC-2",
+          "quote": "Handovers must be made within 2 business days of the trigger being identified (1 business day for scams, see FRD-2)."
+        },
+        {
+          "source": "FRD-4",
+          "quote": "On report, the handler must check the account has been secured (cards blocked, online banking credentials reset where needed) and record that this was done."
+        },
+        {
+          "source": "FRD-3",
+          "quote": "A fraud or scam handover must include: the date, time and amount of each disputed payment; the payee details as known; how the customer was contacted by the fraudster (if a scam); whether the customer shared any security details; and the date the customer reported it."
+        },
+        {
+          "source": "ESC-5",
+          "quote": "The complaints handler remains the customer's point of contact until the specialist confirms acceptance of the handover."
+        }
+      ]
+    }
+  }
+}
