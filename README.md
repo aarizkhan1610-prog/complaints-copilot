@@ -83,7 +83,7 @@ The app opens on **Start here**, which shows who uses each screen.
 2. **Review a case**: the left side shows the case as the AI saw it (redacted); toggle *Show personal data* to
    re-identify on screen only. The right side shows the AI's draft with confidence levels, verified evidence quotes
    and verified policy citations. The ESC-3 checklist shows what is missing; fill it in and submit.
-   - Click **🔎 Show** next to any timeline event or evidence quote to highlight its source in the case file, and
+   - Click **Show** next to any timeline event or evidence quote to highlight its source in the case file, and
      **Open … in policy** to see a cited clause in its full policy document.
    - **Ask the case** tab: ask a question; every quote in the answer is checked against the notes or policies.
      Suggested questions have saved answers for C001, C002, C005, C014, C015 and C021; your own questions need live AI.

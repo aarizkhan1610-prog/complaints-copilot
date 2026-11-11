@@ -183,7 +183,7 @@ def main():
         ]
         md += ["", "### Per case", "", "| Case | Product | Root cause | Severity | Vulnerable | Routing | Gaps found / expected |",
                "|---|---|---|---|---|---|---|"]
-        tick = {True: "✅", False: "❌", None: "–"}
+        tick = {True: "yes", False: "NO", None: "–"}
         for r in rows:
             md.append(f"| {r['case']} | {tick[r['product']]} | {tick[r['root_cause']]} | {tick[r['severity']]} | "
                       f"{tick[r['vulnerable']]} | {tick[r['routing']]} | {', '.join(r['gaps_pred']) or '–'} / "

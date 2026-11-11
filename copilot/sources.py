@@ -60,6 +60,6 @@ def policy_document(clause_id):
     for para in raw.split("\n\n"):
         if para.lstrip().startswith(f"**{clause_id}"):
             para = "> " + para.replace("\n", "\n> ")
-            para = "> 👉 **Cited clause**\n>\n" + para
+            para = "> **Cited clause**\n>\n" + para
         out.append(para)
     return "\n\n".join(out)
