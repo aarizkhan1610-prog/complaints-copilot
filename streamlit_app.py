@@ -123,12 +123,26 @@ def review_status(cid):
 
 
 # ----------------------------------------------------------------------------- sidebar
+PAGES = {
+    "Start here": "🏠 Start here",
+    "Complaint queue": "📋 Complaint queue · handler",
+    "Review a case": "🔍 Review a case · handler",
+    "Specialist inbox": "📨 Specialist inbox · specialist",
+    "Impact": "📊 Impact · team leader",
+    "Audit log": "🧾 Audit log · compliance",
+    "How it works": "ℹ️ How it works",
+}
+
+
+def go(page):
+    st.session_state["page"] = page
+
+
 def sidebar():
     s = ss()
     st.sidebar.title("🗂️ Complaints Copilot")
-    st.sidebar.caption("Harbourline Bank (fictional) · synthetic data only")
-    page = st.sidebar.radio("View", ["Impact", "Complaint queue", "Review a case", "Specialist inbox",
-                                     "Audit log", "How it works"], key="page")
+    st.sidebar.caption("Harbourline Bank is fictional and every case is synthetic.")
+    page = st.sidebar.radio("Go to", list(PAGES), format_func=PAGES.get, key="page")
     st.sidebar.divider()
     have_local = any(config.LOCAL_CACHE_DIR.glob("*.json")) or LocalOllama().available()
     if have_local:
@@ -138,18 +152,72 @@ def sidebar():
     if p.live:
         left = min(p.quota.remaining(), config.SESSION_LIVE_CAP - s["session_live_used"])
         st.sidebar.toggle("Use live AI", key="use_live", value=False,
-                          help="Off: replays real responses saved earlier (free). On: calls the model now.")
+                          help="Off: shows AI responses recorded earlier (free, instant). "
+                               "On: sends the redacted case to the model now.")
         st.sidebar.caption(f"Live runs left: {max(0, left)} this session · {p.quota.remaining()} today")
     else:
-        st.sidebar.info("Demo mode: showing saved AI responses. Live AI is off "
-                        "(no API key, or no local model running).")
-    model = f"ollama/{config.OLLAMA_MODEL}" if backend() == "local" else f"{config.MODEL} (effort {config.EFFORT})"
-    st.sidebar.caption(f"Live model: `{model}` · prompt `{config.PROMPT_VERSION}`")
-    if backend() != "local":
-        st.sidebar.caption(f"Saved responses: `{config.SAVED_MODEL}` (each result shows the model that produced it)")
-    st.sidebar.caption(f"'Today' is fixed at {config.AS_OF:%a %d %b %Y} so deadlines are reproducible.")
+        st.sidebar.info("**Free demo mode.** The AI responses you see were recorded earlier from the real model, "
+                        "so nothing is charged and results are instant.")
+    with st.sidebar.expander("Technical details"):
+        model = f"ollama/{config.OLLAMA_MODEL}" if backend() == "local" else f"{config.MODEL} (effort {config.EFFORT})"
+        st.caption(f"Live model: `{model}` · prompt `{config.PROMPT_VERSION}`")
+        if backend() != "local":
+            st.caption(f"Recorded responses: `{config.SAVED_MODEL}`")
+        st.caption(f"'Today' is fixed at {config.AS_OF:%a %d %b %Y} so deadlines are reproducible.")
     return page
 
+
+# ----------------------------------------------------------------------------- start
+TRY_CASES = [
+    ("C002", "A 78-year-old, recently bereaved, lost £4,250 to a scam and is due a reply today. Shows vulnerability "
+             "flags, fraud routing and a handover with gaps."),
+    ("C021", "A handover the specialist sent back because the handler wrote 'see notes'. Shows the return loop."),
+    ("C009", "The complaint contains hidden instructions to the AI. Shows the prompt-injection warning."),
+    ("C010", "Not actually a complaint (a request for information). Shows the AI saying so."),
+    ("C023", "One of several similar delay complaints. Shows the related-cases warning."),
+]
+
+
+def page_start():
+    st.title("Complaints Copilot")
+    st.markdown("#### An AI assistant that prepares complaint cases for bank staff. **The AI drafts, code checks "
+                "every claim, and a person makes every decision.**")
+    st.caption("Built for the brief's banking scenario: a growing backlog, staff searching across case notes and "
+               "policy documents, and incomplete handovers to specialist teams.")
+
+    st.markdown("### Who uses it")
+    c1, c2, c3 = st.columns(3)
+    with c1.container(border=True):
+        st.markdown("**👩‍💼 Complaints handler**")
+        st.caption("Sees a queue sorted by urgency, reads an AI draft with sources highlighted, corrects it, and "
+                   "sends a complete handover.")
+        st.button("Open the queue", on_click=go, args=("Complaint queue",), use_container_width=True, type="primary")
+    with c2.container(border=True):
+        st.markdown("**🧑‍🔧 Specialist (e.g. Fraud & Scams)**")
+        st.caption("Receives handovers that already contain the ten required fields, then accepts them or sends "
+                   "them back.")
+        st.button("Open the specialist inbox", on_click=go, args=("Specialist inbox",), use_container_width=True)
+    with c3.container(border=True):
+        st.markdown("**📊 Team leader / compliance**")
+        st.caption("Sees the before and after for each problem, and an audit trail of every AI output and human "
+                   "decision.")
+        st.button("Open the impact page", on_click=go, args=("Impact",), use_container_width=True)
+
+    st.markdown("### Try one of these cases")
+    for cid, why in TRY_CASES:
+        a, b = st.columns([1, 6], vertical_alignment="center")
+        a.button(f"Open {cid}", key=f"try_{cid}", on_click=open_case, args=(cid,), use_container_width=True)
+        b.markdown(why)
+
+    st.markdown("### Good to know")
+    st.markdown(
+        "- **Nothing here is real.** The bank, customers and policies are made up. Personal details are masked "
+        "(e.g. `[PERSON_1]`) before the AI sees anything.\n"
+        "- **Free to explore.** AI answers were recorded earlier from the real model, so clicking around costs nothing.\n"
+        "- **✅ means checked by code**, not just claimed by the AI: every policy quote and evidence quote is matched "
+        "against the source text.\n"
+        "- **Codes like CH-6 or ESC-3** are clauses in the bank's (fictional) policies. Click *Full policy* next to any "
+        "citation to read it.")
 
 
 # ----------------------------------------------------------------------------- impact
@@ -329,10 +397,15 @@ def case_impact(case, r):
 
 
 # ----------------------------------------------------------------------------- queue
+def short(text, n=90):
+    text = " ".join(text.split())
+    return text if len(text) <= n else text[:n].rsplit(" ", 1)[0] + "…"
+
+
 def page_queue():
-    st.header("Complaint queue")
-    st.caption("Ordered by priority: deadline risk (CH-5) + severity (CH-6) + vulnerability. "
-               "Deadlines are calculated in code, never by the AI.")
+    st.header("📋 Complaint queue")
+    st.markdown("**Click any row to open that case.** The most urgent cases are at the top: deadline risk first, "
+                "then severity and vulnerability. Deadlines are worked out by code, never by the AI.")
     rows = []
     for c in load_complaints():
         dl = deadline_info(c["received"])
@@ -342,41 +415,42 @@ def page_queue():
             "Case": c["id"],
             "Deadline": f"{STATUS_ICON[dl['status']]} {dl['status']}",
             "Days left": dl["days_left"],
-            "Received": c["received"],
-            "Channel": c["channel"],
-            "Product (AI)": a.product if a else "-",
-            "Severity (AI)": a.severity if a else "-",
-            "Vulnerable (AI)": ("Yes" if a.vulnerability.indicators_found else "No") if a else "-",
-            "Route to (AI)": ", ".join(a.specialist_teams) or "Handler" if a else "-",
-            "Gaps": len(r["gaps"]) if r and a and a.specialist_teams else 0,
+            "What it's about (AI summary)": short(a.summary) if a else "No AI draft: triage manually",
+            "Severity": a.severity if a else "-",
+            "Vulnerable": ("⚠️ Yes" if a.vulnerability.indicators_found else "No") if a else "-",
+            "Goes to": ", ".join(a.specialist_teams) or "Handler resolves" if a else "-",
             "Status": review_status(c["id"]),
+            "Received": c["received"],
             "Priority": r["priority"] if r else priority_score(dl["status"]),
         })
-    order = st.radio("Queue order", ["Copilot priority (after)", "Arrival order, oldest first (before)"],
-                     horizontal=True, key="queue_order",
-                     help="Before the copilot, nobody knows a case is vulnerable or high severity until a handler "
-                          "has read it, so cases are worked in arrival order.")
     df = pd.DataFrame(rows)
-    if order.startswith("Arrival"):
-        df = df.sort_values(["Received", "Case"])
-        st.warning("Before view: cases in the order they arrived. The AI columns are shown only so you can see where "
-                   "urgent cases end up; without the copilot they would be blank until a handler had read each file.")
-    else:
-        df = df.sort_values(["Priority", "Days left"], ascending=[False, True])
     c1, c2, c3, c4 = st.columns(4)
     c1.metric("Open complaints", len(df))
-    c2.metric("Breached or critical", int(df["Deadline"].str.contains("Breached|Critical").sum()))
-    c3.metric("Flagged vulnerable", int((df["Vulnerable (AI)"] == "Yes").sum()))
-    c4.metric("Reviewed this session", int((df["Status"] != "Not reviewed").sum()))
-    ev = st.dataframe(df, hide_index=True, use_container_width=True, on_select="rerun",
-                      selection_mode="single-row", key="queue_table")
+    c2.metric("Breached or critical deadline", int(df["Deadline"].str.contains("Breached|Critical").sum()))
+    c3.metric("Possible vulnerable customers", int((df["Vulnerable"] == "⚠️ Yes").sum()))
+    c4.metric("Reviewed so far", int((df["Status"] != "Not reviewed").sum()))
+    order = st.radio("Order", ["Most urgent first (with the copilot)", "Oldest first (how it works today)"],
+                     horizontal=True, key="queue_order", label_visibility="collapsed",
+                     help="Today nobody knows a case is vulnerable or high severity until a handler has read it, "
+                          "so cases are worked oldest first.")
+    if order.startswith("Oldest"):
+        df = df.sort_values(["Received", "Case"])
+        st.warning("**Today's view:** cases in the order they arrived. Notice how urgent and vulnerable cases are "
+                   "scattered. (The AI columns are shown only for comparison; today they would be blank.)")
+    else:
+        df = df.sort_values(["Priority", "Days left"], ascending=[False, True])
+    ev = st.dataframe(
+        df.drop(columns=["Priority", "Received"]), hide_index=True, use_container_width=True, on_select="rerun",
+        selection_mode="single-row", key="queue_table", height=560,
+        column_config={"Case": st.column_config.TextColumn(width="small"),
+                       "Days left": st.column_config.NumberColumn(width="small"),
+                       "What it's about (AI summary)": st.column_config.TextColumn(width="large"),
+                       "Severity": st.column_config.TextColumn(width="small"),
+                       "Vulnerable": st.column_config.TextColumn(width="small")})
     sel = ev.selection.rows if ev and ev.selection else []
     if sel:
-        cid = df.iloc[sel[0]]["Case"]
-        st.session_state["case_id"] = cid
-        st.button(f"Open case {cid} for review →", type="primary", on_click=open_case, args=(cid,))
-    else:
-        st.info("Select a row to open the case.")
+        st.session_state["pending_open"] = df.iloc[sel[0]]["Case"]
+        st.rerun()
 
 
 # ----------------------------------------------------------------------------- review
@@ -402,7 +476,14 @@ def badge(conf):
 def page_review():
     s = ss()
     ids = [c["id"] for c in load_complaints()]
-    cid = st.selectbox("Case", ids, index=ids.index(s.get("case_id", ids[0])), key="case_pick")
+    st.header("🔍 Review a case")
+
+    def label(i):
+        res = get_result(i)
+        dl = deadline_info(get_complaint(i)["received"])
+        return f"{i} · {STATUS_ICON[dl['status']]} {dl['status']} · " + (short(res["analysis"].summary, 70) if res else "no AI draft")
+    cid = st.selectbox("Choose a case", ids, index=ids.index(s.get("case_id", ids[0])), key="case_pick",
+                       format_func=label)
     s["case_id"] = cid
     case = get_complaint(cid)
 
@@ -431,12 +512,20 @@ def page_review():
     meta = r["meta"]
     with top[0]:
         dl = r["deadline"]
-        st.subheader(f"Case {cid} · {STATUS_ICON[dl['status']]} {dl['status']} · due {dl['due']} ({dl['days_left']} days)")
-        st.caption(f"AI source: **{meta.get('provider')}** · model `{meta.get('model')}` · prompt "
-                   f"`{meta.get('prompt_version')}`" + (f" · saved {meta['saved_at']}" if meta.get("saved_at") else ""))
+        st.subheader(f"Case {cid} · {STATUS_ICON[dl['status']]} {dl['status']} · reply due {dl['due']} "
+                     f"({dl['days_left']} days left)")
+        how = "recorded earlier from" if meta.get("provider") == "saved" else "generated just now by"
+        st.caption(f"AI draft {how} `{meta.get('model')}` · prompt `{meta.get('prompt_version')}`")
 
-    for w in r["warnings"]:
-        st.error("⚠️ " + w)
+    s1, s2, s3 = st.columns(3)
+    s1.info("**① Read the case** on the left. Personal details are masked; 🔎 *Show* buttons highlight the source "
+            "of each AI point.")
+    s2.info("**② Check the AI draft** on the right. ✅ = checked against the source text by code. ⚠️/❌ = failed, "
+            "so don't rely on it.")
+    s3.info("**③ Decide** in *Your review* below: approve, correct (with a reason) or reject. "
+            "[Jump there ↓](#your-review)")
+    if r["warnings"]:
+        st.warning("**Things to check on this case**\n" + "\n".join(f"- {w}" for w in r["warnings"]))
 
     case_impact(case, r)
     left, right = st.columns([2, 3], gap="large")
@@ -502,7 +591,7 @@ def show_case(case, r):
 
 def show_analysis(r):
     a = r["analysis"]
-    st.markdown("#### AI analysis (draft for your review)")
+    st.markdown("#### AI draft for your review")
     st.write(a.summary)
     c = a.confidence
     t = pd.DataFrame([
@@ -515,12 +604,17 @@ def show_analysis(r):
         {"Field": "Route to (ESC-1)", "AI suggestion": (", ".join(a.specialist_teams) or "Handler resolves")
          + f": {a.routing_reason}", "Confidence": badge(c.specialist_teams)},
     ])
-    st.dataframe(t, hide_index=True, use_container_width=True)
+    md = "| Field | AI suggestion | Confidence |\n|---|---|---|\n" + "\n".join(
+        f"| **{x['Field']}** | {x['AI suggestion'].replace('|', '/')} | {x['Confidence']} |" for x in t.to_dict("records"))
+    st.markdown(md)
+    st.caption("Codes in brackets are the policy clauses that define each field. You can change any of these in "
+               "*Your review*.")
     if a.estimated_financial_loss_gbp:
         st.caption(f"Estimated financial loss mentioned: £{a.estimated_financial_loss_gbp:,.2f}")
 
     cid = r["case_id"]
-    with st.expander("Supporting evidence from the case (click 🔎 to see it in the file)", expanded=False):
+    with st.expander(f"Evidence quotes behind the draft ({sum(e['status'] == 'verified' for e in r['evidence_checks'])}"
+                     f"/{len(r['evidence_checks'])} found in the case text ✅)", expanded=False):
         for i, e in enumerate(r["evidence_checks"]):
             ok = "✅" if e["status"] == "verified" else "❌"
             c1, c2 = st.columns([5, 1], vertical_alignment="center")
@@ -528,18 +622,19 @@ def show_analysis(r):
             if e["field"] != "timeline":
                 with c2:
                     trace_button(cid, e["source"], e["quote"], f"{e['field']} evidence", f"tr_ev_{cid}_{i}")
-    with st.expander(f"Policy citations ({sum(x['status'] == 'verified' for x in r['citations'])}/"
-                     f"{len(r['citations'])} verified)", expanded=True):
+    nver = sum(x['status'] == 'verified' for x in r['citations'])
+    with st.expander(f"Policy rules that apply ({nver}/{len(r['citations'])} quotes checked against the policy "
+                     f"{'✅' if nver == len(r['citations']) else '⚠️'})", expanded=False):
         pol = load_policies()
         for cit, chk in zip(a.policy_citations, r["citations"]):
             icon = {"verified": "✅", "misquoted": "⚠️", "invented": "❌"}[chk["status"]]
             st.markdown(f"{icon} **{cit.clause_id}** · {chk['status']}: “{cit.quote}”  \n_{cit.how_it_applies}_")
             if cit.clause_id in pol:
                 doc = policy_document(cit.clause_id)
-                with st.popover(f"Open {cit.clause_id} in {pol[cit.clause_id]['policy'].split('—')[-1].strip()}",
+                with st.popover(f"📄 Full policy: {pol[cit.clause_id]['policy'].split('—')[-1].strip()}",
                                 use_container_width=False):
                     st.markdown(doc or pol[cit.clause_id]["text"])
-    with st.expander("Timeline (click 🔎 to see the source note)", expanded=False):
+    with st.expander(f"Timeline ({len(a.timeline)} events, click 🔎 Show to see each source)", expanded=False):
         for i, ev in enumerate(a.timeline):
             c1, c2 = st.columns([5, 1], vertical_alignment="center")
             c1.markdown(f"**{ev.date}** {ev.event} _({ev.source})_")
@@ -816,8 +911,12 @@ shows complaints that share an incident or root cause.
 
 # ----------------------------------------------------------------------------- main
 def main():
+    pending = st.session_state.pop("pending_open", None)
+    if pending:
+        open_case(pending)
+        st.session_state.pop("queue_table", None)
     page = sidebar()
-    {"Impact": page_impact, "Complaint queue": page_queue, "Review a case": page_review, "Specialist inbox": page_specialist,
+    {"Start here": page_start, "Impact": page_impact, "Complaint queue": page_queue, "Review a case": page_review, "Specialist inbox": page_specialist,
      "Audit log": page_audit, "How it works": page_about}[page]()
 
 

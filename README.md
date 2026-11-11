@@ -62,10 +62,12 @@ streamlit run streamlit_app.py    # then switch on "Use live AI" in the sidebar
 
 ### A two-minute tour
 
+The app opens on **Start here**, which explains who uses each screen and links straight to five cases worth trying.
+
 0. **Impact**: the three problems in the brief (backlog, finding information, incomplete handovers), each shown
    before and after, measured on the 25 cases. Time savings are estimates you can change in *Assumptions*.
-1. **Complaint queue**: 25 cases sorted by deadline risk, severity and vulnerability. Select **C002** (a scam on a
-   bereaved 78-year-old, due today) and open it.
+1. **Complaint queue**: 25 cases sorted by deadline risk, severity and vulnerability. Click **C002** (a scam on a
+   bereaved 78-year-old, due today) to open it.
 2. **Review a case**: the left side shows the case as the AI saw it (redacted); toggle *Show personal data* to
    re-identify on screen only. The right side shows the AI's draft with confidence levels, verified evidence quotes
    and verified policy citations. The ESC-3 checklist shows what is missing; fill it in and submit.
